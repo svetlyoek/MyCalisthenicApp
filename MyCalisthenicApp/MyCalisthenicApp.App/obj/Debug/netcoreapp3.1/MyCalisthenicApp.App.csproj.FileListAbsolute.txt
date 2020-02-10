@@ -1,0 +1,11 @@
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.App\bin\Debug\netcoreapp3.1\MyCalisthenicApp.App.exe
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.App\bin\Debug\netcoreapp3.1\MyCalisthenicApp.App.deps.json
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.App\bin\Debug\netcoreapp3.1\MyCalisthenicApp.App.runtimeconfig.json
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.App\bin\Debug\netcoreapp3.1\MyCalisthenicApp.App.runtimeconfig.dev.json
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.App\bin\Debug\netcoreapp3.1\MyCalisthenicApp.App.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.App\bin\Debug\netcoreapp3.1\MyCalisthenicApp.App.pdb
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.App\obj\Debug\netcoreapp3.1\MyCalisthenicApp.App.csprojAssemblyReference.cache
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.App\obj\Debug\netcoreapp3.1\MyCalisthenicApp.App.AssemblyInfoInputs.cache
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.App\obj\Debug\netcoreapp3.1\MyCalisthenicApp.App.AssemblyInfo.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.App\obj\Debug\netcoreapp3.1\MyCalisthenicApp.App.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.App\obj\Debug\netcoreapp3.1\MyCalisthenicApp.App.pdb
