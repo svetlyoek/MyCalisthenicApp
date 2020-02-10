@@ -285,6 +285,16 @@
             "rid": "win"
           }
         }
+      },
+      "MyCalisthenicApp.Data.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/MyCalisthenicApp.Data.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyCalisthenicApp.Data.Common.dll": {}
+        }
       }
     }
   },
@@ -1095,11 +1105,17 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "MyCalisthenicApp.Data.Common/1.0.0": {
+      "type": "project",
+      "path": "../MyCalisthenicApp.Data.Common/MyCalisthenicApp.Data.Common.csproj",
+      "msbuildProject": "../MyCalisthenicApp.Data.Common/MyCalisthenicApp.Data.Common.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
-      "EntityFramework >= 6.4.0"
+      "EntityFramework >= 6.4.0",
+      "MyCalisthenicApp.Data.Common >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1131,7 +1147,11 @@
       },
       "frameworks": {
         "netstandard2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Data.Common\\MyCalisthenicApp.Data.Common.csproj": {
+              "projectPath": "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Data.Common\\MyCalisthenicApp.Data.Common.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

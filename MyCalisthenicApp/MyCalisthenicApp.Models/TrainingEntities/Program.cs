@@ -1,11 +1,11 @@
 ﻿namespace MyCalisthenicApp.Models
 {
+    using MyCalisthenicApp.Data.Common.Models;
     using MyCalisthenicApp.Models.Enums;
     using System.ComponentModel.DataAnnotations;
 
     public class Program : BaseEntity<int>
     {
-
         public ProgramType Type { get; set; }
 
         [MaxLength(1000)]
@@ -15,7 +15,7 @@
 
         public int CategoryId { get; set; }
 
-        public virtual Category Category { get; set; }
+        public virtual ProgramCategory Category { get; set; }
 
     }
 }

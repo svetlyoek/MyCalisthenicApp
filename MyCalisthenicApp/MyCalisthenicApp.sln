@@ -5,11 +5,13 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{403BA68C-F946-4ECC-95CD-E20C53193FB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCalisthenicApp.Data", "MyCalisthenicApp.Data\MyCalisthenicApp.Data.csproj", "{16CE62E2-0AB4-4FF0-95E1-F06DB2517CFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCalisthenicApp.Data", "MyCalisthenicApp.Data\MyCalisthenicApp.Data.csproj", "{16CE62E2-0AB4-4FF0-95E1-F06DB2517CFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCalisthenicApp.Models", "MyCalisthenicApp.Models\MyCalisthenicApp.Models.csproj", "{A72BE4E9-ADCA-497A-8A49-47C6097D8B5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCalisthenicApp.Models", "MyCalisthenicApp.Models\MyCalisthenicApp.Models.csproj", "{A72BE4E9-ADCA-497A-8A49-47C6097D8B5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCalisthenicApp.App", "MyCalisthenicApp.App\MyCalisthenicApp.App.csproj", "{7183760F-B9EF-4C38-8943-411EFDC9E0E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCalisthenicApp.App", "MyCalisthenicApp.App\MyCalisthenicApp.App.csproj", "{7183760F-B9EF-4C38-8943-411EFDC9E0E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCalisthenicApp.Data.Common", "MyCalisthenicApp.Data.Common\MyCalisthenicApp.Data.Common.csproj", "{032A8EBC-0C54-4037-93BC-12CDFD6D1CDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{7183760F-B9EF-4C38-8943-411EFDC9E0E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7183760F-B9EF-4C38-8943-411EFDC9E0E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7183760F-B9EF-4C38-8943-411EFDC9E0E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{032A8EBC-0C54-4037-93BC-12CDFD6D1CDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{032A8EBC-0C54-4037-93BC-12CDFD6D1CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{032A8EBC-0C54-4037-93BC-12CDFD6D1CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{032A8EBC-0C54-4037-93BC-12CDFD6D1CDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{16CE62E2-0AB4-4FF0-95E1-F06DB2517CFC} = {403BA68C-F946-4ECC-95CD-E20C53193FB1}
 		{A72BE4E9-ADCA-497A-8A49-47C6097D8B5A} = {403BA68C-F946-4ECC-95CD-E20C53193FB1}
+		{032A8EBC-0C54-4037-93BC-12CDFD6D1CDB} = {403BA68C-F946-4ECC-95CD-E20C53193FB1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {40364747-396C-4636-B71A-E722B610AF31}

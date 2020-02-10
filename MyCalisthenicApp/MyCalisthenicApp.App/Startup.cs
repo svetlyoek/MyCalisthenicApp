@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MyCalisthenicApp.App
+﻿namespace MyCalisthenicApp.App
 {
    public class Startup
     {
