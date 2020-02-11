@@ -5,21 +5,25 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class ProgramSubCategory : BaseEntity<int>
+    public class ProgramSubCategory : BaseDeletableEntity<int>
     {
         public ProgramSubCategory()
         {
             this.Exercises = new HashSet<Exercise>();
         }
 
-
-        [MaxLength(30)]
+        [Required]
+        [MaxLength(DataValidations.ProgramSubCategoryNameMaxLength)]
         public string Name { get; set; }
 
-        [MaxLength(100)]
+        [MaxLength(DataValidations.ProgramSubCategoryDescriptionMaxLength)]
         public string Description { get; set; }
 
         public MembershipType MembershipType { get; set; }
+
+        public int ProgramCategoryId { get; set; }
+
+        public virtual ProgramCategory MainCategory { get; set; }
 
         public virtual ICollection<Exercise> Exercises { get; set; }
     }

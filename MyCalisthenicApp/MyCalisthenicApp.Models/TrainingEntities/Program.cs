@@ -4,14 +4,16 @@
     using MyCalisthenicApp.Models.Enums;
     using System.ComponentModel.DataAnnotations;
 
-    public class Program : BaseEntity<int>
+    public class Program : BaseDeletableEntity<int>
     {
         public ProgramType Type { get; set; }
 
-        [MaxLength(1000)]
+        [Required]
+        [MaxLength(DataValidations.ProgramDescriptionMaxLength)]
         public string Description { get; set; }
 
-        public string Image { get; set; }
+        [Required]
+        public string ImageUrl { get; set; }
 
         public int CategoryId { get; set; }
 

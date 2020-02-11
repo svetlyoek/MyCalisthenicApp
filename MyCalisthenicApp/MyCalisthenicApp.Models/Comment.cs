@@ -2,23 +2,29 @@
 {
     using MyCalisthenicApp.Data.Common.Models;
     using MyCalisthenicApp.Models.BlogEntities;
+    using MyCalisthenicApp.Models.ShopEntities;
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Comment : BaseEntity<int>
+    public class Comment : BaseDeletableEntity<int>
     {
-        [MaxLength(200)]
+        [Required]
+        [MaxLength(DataValidations.CommentTextMaxLength)]
         public string Text { get; set; }
 
-        [MaxLength(50)]
-        public string AuthorName { get; set; }
+        public ApplicationUser Author { get; set; }
 
         public DateTime? PublishDate { get; set; }
 
-        public int PostId { get; set; }
+        public int? Rating { get; set; }
 
-        public Post Post { get; set; }
+        public int? PostId { get; set; }
 
-        public bool IsDeleted { get; set; }
+        public virtual Post Post { get; set; }
+
+        public int? ProductId { get; set; }
+
+        public virtual Product Product { get; set; }
+
     }
 }

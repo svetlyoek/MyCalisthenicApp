@@ -4,13 +4,15 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class BlogCategory : BaseEntity<int>
+    public class BlogCategory : BaseDeletableEntity<int>
     {
         public BlogCategory()
         {
             this.Posts = new HashSet<Post>();
         }
-        [MaxLength(50)]
+
+        [Required]
+        [MaxLength(DataValidations.BlogCategoryNameMaxLength)]
         public string Name { get; set; }
 
         public virtual ICollection<Post> Posts { get; set; }

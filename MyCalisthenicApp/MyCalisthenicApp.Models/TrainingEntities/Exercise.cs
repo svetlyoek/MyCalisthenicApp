@@ -3,18 +3,24 @@
     using MyCalisthenicApp.Data.Common.Models;
     using System.ComponentModel.DataAnnotations;
 
-    public class Exercise : BaseEntity<int>
+    public class Exercise : BaseDeletableEntity<int>
     {
-
-        [MaxLength(30)]
+        [Required]
+        [MaxLength(DataValidations.ExerciseNameMaxLength)]
         public string Name { get; set; }
 
-        [MaxLength(100)]
+        [MaxLength(DataValidations.ExerciseDescriptionMaxLength)]
         public string Description { get; set; }
 
+        [Required]
         public string ImageUrl { get; set; }
 
+        [Required]
         public string VideoUrl { get; set; }
+
+        public int ProgramSubCategoryId { get; set; }
+
+        public virtual ProgramSubCategory SubCategory { get; set; }
 
     }
 }

@@ -5,23 +5,27 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class ProgramCategory : BaseEntity<int>
+    public class ProgramCategory : BaseDeletableEntity<int>
     {
         public ProgramCategory()
         {
             this.Comments = new HashSet<Comment>();
+            this.SubCategories = new HashSet<ProgramSubCategory>();
         }
 
-        [MaxLength(30)]
+        [Required]
+        [MaxLength(DataValidations.ProgramCategoryNameMaxLength)]
         public string Name { get; set; }
 
         public int? LikeCount { get; set; }
 
-        public int SubCategoryId { get; set; }
+        public int ProgramId { get; set; }
 
-        public virtual ProgramSubCategory SubCategory { get; set; }
+        public virtual Program Program { get; set; }
 
-        public ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<ProgramSubCategory> SubCategories { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
 
     }
 }
