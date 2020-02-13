@@ -6,6 +6,13 @@
 
     public class UserRequest : BaseDeletableEntity<int>
     {
+        public UserRequest()
+        {
+            this.IsDeleted = false;
+            this.CreatedOn = DateTime.UtcNow;
+            this.Seen = false;
+        }
+
         [Required]
         [MaxLength(DataValidations.UserRequestNameMaxLength)]
         public string Name { get; set; }

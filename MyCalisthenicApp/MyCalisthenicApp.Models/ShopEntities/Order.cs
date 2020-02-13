@@ -10,6 +10,8 @@
     {
         public Order()
         {
+            this.IsDeleted = false;
+            this.CreatedOn = DateTime.UtcNow;
             this.Products = new HashSet<OrderProduct>();
         }
 
@@ -41,14 +43,14 @@
 
         public PaymentType PaymentType { get; set; }
 
-        public int ApplicationUserId { get; set; }
+        public int UserId { get; set; }
 
         public ApplicationUser User { get; set; }
-
-        public virtual ICollection<OrderProduct> Products { get; set; }
 
         public int AddressId { get; set; }
 
         public virtual Address DeliveryAddress { get; set; }
+
+        public virtual ICollection<OrderProduct> Products { get; set; }
     }
 }

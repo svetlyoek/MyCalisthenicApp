@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace MyCalisthenicApp.Models.ShopEntities
+﻿namespace MyCalisthenicApp.Models.ShopEntities
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class OrderProduct
     {
         public int OrderId { get; set; }

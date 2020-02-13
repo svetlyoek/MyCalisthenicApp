@@ -1,6 +1,7 @@
 ﻿namespace MyCalisthenicApp.Models.ShopEntities
 {
     using MyCalisthenicApp.Data.Common.Models;
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
@@ -8,6 +9,8 @@
     {
         public Address()
         {
+            this.CreatedOn = DateTime.UtcNow;
+            this.IsDeleted = false;
             this.Orders = new HashSet<Order>();
         }
 
@@ -30,7 +33,7 @@
 
         public virtual City City { get; set; }
 
-        public int ApplicationUserId { get; set; }
+        public int UserId { get; set; }
 
         public virtual ApplicationUser User { get; set; }
 

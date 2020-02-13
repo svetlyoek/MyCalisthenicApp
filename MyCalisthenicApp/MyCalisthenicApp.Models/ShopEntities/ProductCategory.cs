@@ -2,6 +2,7 @@
 {
     using MyCalisthenicApp.Data.Common.Models;
     using MyCalisthenicApp.Models.ShopEntities.Enums;
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
@@ -9,6 +10,8 @@
     {
         public ProductCategory()
         {
+            this.IsDeleted = false;
+            this.CreatedOn = DateTime.UtcNow;
             this.Products = new HashSet<Product>();
         }
 

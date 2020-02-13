@@ -2,6 +2,7 @@
 {
     using MyCalisthenicApp.Data.Common.Models;
     using MyCalisthenicApp.Models.ShopEntities.Enums;
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
@@ -9,9 +10,12 @@
     {
         public Product()
         {
+            this.IsDeleted = false;
+            this.CreatedOn = DateTime.UtcNow;
             this.Images = new HashSet<Image>();
             this.Comments = new HashSet<Comment>();
-            this.ShoppingCartProducts = new HashSet<ShoppingCartProduct>();
+            this.ShoppingCarts = new HashSet<ShoppingCartProduct>();
+            this.Orders = new HashSet<OrderProduct>();
         }
 
         [Required]
@@ -32,14 +36,16 @@
 
         public bool IsSoldOut { get; set; }
 
-        public int ProductCategoryId { get; set; }
+        public int CategoryId { get; set; }
 
         public ProductCategory Category { get; set; }
 
-        public virtual ICollection<ShoppingCartProduct> ShoppingCartProducts { get; set; }
+        public virtual ICollection<ShoppingCartProduct> ShoppingCarts { get; set; }
 
         public virtual ICollection<Image> Images { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
+
+        public virtual ICollection<OrderProduct> Orders { get; set; }
     }
 }

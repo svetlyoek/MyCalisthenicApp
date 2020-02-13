@@ -2,6 +2,7 @@
 {
     using MyCalisthenicApp.Data.Common.Models;
     using MyCalisthenicApp.Models.TrainingEntities;
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
@@ -9,6 +10,8 @@
     {
         public ProgramCategory()
         {
+            this.IsDeleted = false;
+            this.CreatedOn = DateTime.UtcNow;
             this.Comments = new HashSet<Comment>();
             this.SubCategories = new HashSet<ProgramSubCategory>();
         }
@@ -18,8 +21,6 @@
         public string Name { get; set; }
 
         public int? LikeCount { get; set; }
-
-        public int ProgramId { get; set; }
 
         public virtual Program Program { get; set; }
 

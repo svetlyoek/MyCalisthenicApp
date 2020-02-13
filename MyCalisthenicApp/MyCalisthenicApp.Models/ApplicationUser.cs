@@ -1,6 +1,6 @@
 ﻿namespace MyCalisthenicApp.Models
 {
-    using Microsoft.AspNet.Identity.EntityFramework;
+    using Microsoft.AspNetCore.Identity;
     using MyCalisthenicApp.Data.Common.Contracts;
     using MyCalisthenicApp.Models.BlogEntities;
     using MyCalisthenicApp.Models.ShopEntities;
@@ -12,8 +12,16 @@
     {
         public ApplicationUser()
         {
+            this.Roles = new HashSet<IdentityUserRole<string>>();
+            this.Claims = new HashSet<IdentityUserClaim<string>>();
+            this.Logins = new HashSet<IdentityUserLogin<string>>();
+
+            this.IsDeleted = false;
+            this.CreatedOn = DateTime.UtcNow;
             this.Posts = new HashSet<Post>();
             this.Addresses = new HashSet<Address>();
+            this.Orders = new HashSet<Order>();
+            this.Comments = new HashSet<Comment>();
         }
 
         [Required]
@@ -28,12 +36,23 @@
 
         public DateTime? ModifiedOn { get; set; }
 
-        public int? ShoppingCartId { get; set; }
+        public int ShoppingCartId { get; set; }
 
         public virtual ShoppingCart ShoppingCart { get; set; }
 
         public virtual ICollection<Post> Posts { get; set; }
 
         public virtual ICollection<Address> Addresses { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
+
+        public virtual ICollection<IdentityUserRole<string>> Roles { get; set; }
+
+        public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
+
+        public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
+
     }
 }

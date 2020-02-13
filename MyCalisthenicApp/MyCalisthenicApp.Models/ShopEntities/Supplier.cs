@@ -1,10 +1,18 @@
 ﻿namespace MyCalisthenicApp.Models.ShopEntities
 {
     using MyCalisthenicApp.Data.Common.Models;
+    using System;
     using System.ComponentModel.DataAnnotations;
 
     public class Supplier : BaseDeletableEntity<int>
     {
+        public Supplier()
+        {
+            this.CreatedOn = DateTime.UtcNow;
+            this.IsDeleted = false;
+            this.IsDefault = true;
+        }
+
         [Required]
         [MaxLength(DataValidations.SupplierNameMaxLength)]
         public string Name { get; set; }

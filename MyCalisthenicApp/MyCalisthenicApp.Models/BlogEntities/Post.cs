@@ -1,6 +1,7 @@
 ﻿namespace MyCalisthenicApp.Models.BlogEntities
 {
     using MyCalisthenicApp.Data.Common.Models;
+    using MyCalisthenicApp.Models.ShopEntities;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -9,6 +10,9 @@
     {
         public Post()
         {
+            this.PublishDate = DateTime.UtcNow;
+            this.IsPublic = true;
+            this.IsDeleted = false;
             this.Comments = new HashSet<Comment>();
         }
 
@@ -19,17 +23,19 @@
         [Required]
         public string Description { get; set; }
 
-        public int BlogUserId { get; set; }
+        public int AuthorId { get; set; }
 
         public virtual ApplicationUser Author { get; set; }
 
-        public DateTime? PublishDate { get; set; }
+        public DateTime PublishDate { get; set; }
 
-        public int BlogCategoryId { get; set; }
+        public int CategoryId { get; set; }
 
         public virtual BlogCategory Category { get; set; }
 
-        public string ImageUrl { get; set; }
+        public int ImageId { get; set; }
+
+        public virtual Image Image { get; set; }
 
         public string VideoUrl { get; set; }
 
