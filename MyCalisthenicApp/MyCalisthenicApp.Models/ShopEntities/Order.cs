@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class Order : BaseDeletableEntity<int>
+    public class Order : BaseDeletableEntity<string>
     {
         public Order()
         {
@@ -43,11 +43,13 @@
 
         public PaymentType PaymentType { get; set; }
 
-        public int UserId { get; set; }
+        [Required]
+        public string UserId { get; set; }
 
         public ApplicationUser User { get; set; }
 
-        public int AddressId { get; set; }
+        [Required]
+        public string DeliveryAddressId { get; set; }
 
         public virtual Address DeliveryAddress { get; set; }
 

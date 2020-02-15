@@ -23,7 +23,7 @@
             address
                 .HasMany(a => a.Orders)
                 .WithOne(o => o.DeliveryAddress)
-                .HasForeignKey(o => o.AddressId)
+                .HasForeignKey(o => o.DeliveryAddressId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

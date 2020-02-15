@@ -6,7 +6,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Program : BaseDeletableEntity<int>
+    public class Program : BaseDeletableEntity<string>
     {
         public Program()
         {
@@ -20,11 +20,13 @@
         [MaxLength(DataValidations.ProgramDescriptionMaxLength)]
         public string Description { get; set; }
 
-        public int ImageId { get; set; }
+        [Required]
+        public string ImageId { get; set; }
 
         public Image Image { get; set; }
 
-        public int CategoryId { get; set; }
+        [Required]
+        public string CategoryId { get; set; }
 
         public virtual ProgramCategory Category { get; set; }
 

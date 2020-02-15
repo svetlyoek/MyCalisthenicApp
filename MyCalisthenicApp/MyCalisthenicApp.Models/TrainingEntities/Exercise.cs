@@ -5,7 +5,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Exercise : BaseDeletableEntity<int>
+    public class Exercise : BaseDeletableEntity<string>
     {
         public Exercise()
         {
@@ -20,14 +20,16 @@
         [MaxLength(DataValidations.ExerciseDescriptionMaxLength)]
         public string Description { get; set; }
 
-        public int ImageId { get; set; }
+        [Required]
+        public string ImageId { get; set; }
 
         public virtual Image Image { get; set; }
 
         [Required]
         public string VideoUrl { get; set; }
 
-        public int ProgramSubCategoryId { get; set; }
+        [Required]
+        public string ProgramSubCategoryId { get; set; }
 
         public virtual ProgramSubCategory ProgramSubCategory { get; set; }
 

@@ -5,7 +5,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class Address : BaseDeletableEntity<int>
+    public class Address : BaseDeletableEntity<string>
     {
         public Address()
         {
@@ -29,14 +29,15 @@
         [MaxLength(DataValidations.AddressBuildingNumberMaxLength)]
         public string BuildingNumber { get; set; }
 
-        public int CityId { get; set; }
+        [Required]
+        public string CityId { get; set; }
 
         public virtual City City { get; set; }
 
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
         public virtual ApplicationUser User { get; set; }
 
-        public ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

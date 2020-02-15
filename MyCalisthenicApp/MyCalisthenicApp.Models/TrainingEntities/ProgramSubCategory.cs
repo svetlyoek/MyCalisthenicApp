@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class ProgramSubCategory : BaseDeletableEntity<int>
+    public class ProgramSubCategory : BaseDeletableEntity<string>
     {
         public ProgramSubCategory()
         {
@@ -24,7 +24,8 @@
 
         public MembershipType MembershipType { get; set; }
 
-        public int ProgramCategoryId { get; set; }
+        [Required]
+        public string ProgramCategoryId { get; set; }
 
         public virtual ProgramCategory ProgramCategory { get; set; }
 

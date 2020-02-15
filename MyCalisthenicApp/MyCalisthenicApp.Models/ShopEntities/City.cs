@@ -5,7 +5,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class City : BaseDeletableEntity<int>
+    public class City : BaseDeletableEntity<string>
     {
         public City()
         {

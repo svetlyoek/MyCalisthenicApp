@@ -6,7 +6,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Image : BaseDeletableEntity<int>
+    public class Image : BaseDeletableEntity<string>
     {
         public Image()
         {
@@ -17,7 +17,8 @@
         [Required]
         public string Url { get; set; }
 
-        public int? ProductId { get; set; }
+        [Required]
+        public string ProductId { get; set; }
 
         public virtual Product Product { get; set; }
 

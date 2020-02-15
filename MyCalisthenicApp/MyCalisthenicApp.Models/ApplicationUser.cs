@@ -8,7 +8,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public abstract class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
+    public  class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
         public ApplicationUser()
         {
@@ -36,7 +36,7 @@
 
         public DateTime? ModifiedOn { get; set; }
 
-        public int ShoppingCartId { get; set; }
+        public string ShoppingCartId { get; set; }
 
         public virtual ShoppingCart ShoppingCart { get; set; }
 

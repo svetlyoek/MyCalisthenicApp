@@ -17,7 +17,7 @@
             order
                 .HasOne(o => o.DeliveryAddress)
                 .WithMany(a => a.Orders)
-                .HasForeignKey(o => o.AddressId)
+                .HasForeignKey(o => o.DeliveryAddressId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             order

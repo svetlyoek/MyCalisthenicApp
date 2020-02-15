@@ -1,10 +1,12 @@
-﻿namespace MyCalisthenicApp.App
+﻿using MyCalisthenicApp.Data;
+
+namespace MyCalisthenicApp.App
 {
-   public class Startup
+   public  class Startup
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
-           
+            using var dbContext = new MyCalisthenicAppDbContext();
         }
     }
 }

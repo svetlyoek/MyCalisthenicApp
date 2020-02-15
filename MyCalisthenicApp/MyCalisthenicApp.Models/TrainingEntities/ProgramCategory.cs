@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class ProgramCategory : BaseDeletableEntity<int>
+    public class ProgramCategory : BaseDeletableEntity<string>
     {
         public ProgramCategory()
         {

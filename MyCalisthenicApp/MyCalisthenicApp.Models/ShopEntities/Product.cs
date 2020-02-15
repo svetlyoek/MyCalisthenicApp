@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class Product : BaseDeletableEntity<int>
+    public class Product : BaseDeletableEntity<string>
     {
         public Product()
         {
@@ -36,7 +36,8 @@
 
         public bool IsSoldOut { get; set; }
 
-        public int CategoryId { get; set; }
+        [Required]
+        public string CategoryId { get; set; }
 
         public ProductCategory Category { get; set; }
 

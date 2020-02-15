@@ -5,7 +5,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class ShoppingCart : BaseDeletableEntity<int>
+    public class ShoppingCart : BaseDeletableEntity<string>
     {
         public ShoppingCart()
         {

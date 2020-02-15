@@ -4,7 +4,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Supplier : BaseDeletableEntity<int>
+    public class Supplier : BaseDeletableEntity<string>
     {
         public Supplier()
         {

@@ -4,11 +4,13 @@
 
     public class ShoppingCartProduct
     {
-        public int ShoppingCartId { get; set; }
+        [Required]
+        public string ShoppingCartId { get; set; }
 
         public virtual ShoppingCart ShoppingCart { get; set; }
 
-        public int ProductId { get; set; }
+        [Required]
+        public string ProductId { get; set; }
 
         public virtual Product Product { get; set; }
 

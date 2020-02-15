@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class Post : BaseDeletableEntity<int>
+    public class Post : BaseDeletableEntity<string>
     {
         public Post()
         {
@@ -23,17 +23,19 @@
         [Required]
         public string Description { get; set; }
 
-        public int AuthorId { get; set; }
+        [Required]
+        public string AuthorId { get; set; }
 
         public virtual ApplicationUser Author { get; set; }
 
         public DateTime PublishDate { get; set; }
 
-        public int CategoryId { get; set; }
+        [Required]
+        public string CategoryId { get; set; }
 
         public virtual BlogCategory Category { get; set; }
 
-        public int ImageId { get; set; }
+        public string ImageId { get; set; }
 
         public virtual Image Image { get; set; }
 

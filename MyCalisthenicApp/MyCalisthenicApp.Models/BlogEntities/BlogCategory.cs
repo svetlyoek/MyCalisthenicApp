@@ -5,7 +5,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class BlogCategory : BaseDeletableEntity<int>
+    public class BlogCategory : BaseDeletableEntity<string>
     {
         public BlogCategory()
         {
