@@ -29,8 +29,12 @@
         [Range(DataValidations.OrderTotalPriceMinValue, double.MaxValue)]
         public decimal TotalPrice { get; set; }
 
+        [RegularExpression(@"^\d+\.\d{0,2}$")]
+        [Range(DataValidations.OrderTotalPriceMinValue, double.MaxValue)]
         public decimal? Discount { get; set; }
 
+        [RegularExpression(@"^\d+\.\d{0,2}$")]
+        [Range(DataValidations.OrderTotalPriceMinValue, double.MaxValue)]
         public decimal DeliveryPrice { get; set; }
 
         public string Recipient { get; set; }

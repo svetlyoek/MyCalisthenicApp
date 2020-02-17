@@ -8,6 +8,19 @@
     {
         public void Configure(EntityTypeBuilder<Order> order)
         {
+
+            order
+                 .Property(op => op.TotalPrice)
+                 .HasColumnType("decimal(18,2)");
+
+            order
+                .Property(op => op.Discount)
+                .HasColumnType("decimal(5,2)");
+
+            order
+               .Property(op => op.DeliveryPrice)
+               .HasColumnType("decimal(5,2)");
+
             order
                 .HasOne(o => o.User)
                 .WithMany(u => u.Orders)

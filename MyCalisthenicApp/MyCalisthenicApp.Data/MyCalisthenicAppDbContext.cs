@@ -55,14 +55,8 @@
 
         public DbSet<Comment> Comments { get; set; }
 
+        public DbSet<Membership> Memberships { get; set; }
 
-        //TODO-Remove that connection and use appsettings.json
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder
-                .UseSqlServer(@"Server=DESKTOP-JH4M4M9\MSSQLSERVER01;Database=MyCalisthenicApp;Integrated Security=true;");
-        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

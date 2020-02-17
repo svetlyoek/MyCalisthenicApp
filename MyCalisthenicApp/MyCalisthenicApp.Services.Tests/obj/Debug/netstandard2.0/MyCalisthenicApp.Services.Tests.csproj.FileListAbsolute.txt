@@ -1,0 +1,8 @@
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services.Tests\bin\Debug\netstandard2.0\MyCalisthenicApp.Services.Tests.deps.json
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services.Tests\bin\Debug\netstandard2.0\MyCalisthenicApp.Services.Tests.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services.Tests\bin\Debug\netstandard2.0\MyCalisthenicApp.Services.Tests.pdb
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services.Tests\obj\Debug\netstandard2.0\MyCalisthenicApp.Services.Tests.csprojAssemblyReference.cache
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services.Tests\obj\Debug\netstandard2.0\MyCalisthenicApp.Services.Tests.AssemblyInfoInputs.cache
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services.Tests\obj\Debug\netstandard2.0\MyCalisthenicApp.Services.Tests.AssemblyInfo.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services.Tests\obj\Debug\netstandard2.0\MyCalisthenicApp.Services.Tests.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services.Tests\obj\Debug\netstandard2.0\MyCalisthenicApp.Services.Tests.pdb

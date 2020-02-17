@@ -16,6 +16,10 @@
                 });
 
             orderProduct
+                  .Property(op => op.Price)
+                  .HasColumnType("decimal(18,2)");
+
+            orderProduct
                 .HasOne(op => op.Order)
                 .WithMany(o => o.Products)
                 .HasForeignKey(op => op.OrderId)

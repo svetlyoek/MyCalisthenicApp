@@ -83,5 +83,10 @@
         public const int ShoppingCartProductQuantityMinValue = 0;
         public const int ShoppingCartProductQuantityMaxValue = 100;
         #endregion
+
+        #region Membership validations
+        public const decimal MembershipMonthlyPrice = 9.99M;
+        public const decimal MembershipYearlyPrice = 89.99M;
+        #endregion
     }
 }

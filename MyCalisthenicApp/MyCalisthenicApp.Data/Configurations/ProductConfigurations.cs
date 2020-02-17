@@ -9,6 +9,10 @@
         public void Configure(EntityTypeBuilder<Product> product)
         {
             product
+                 .Property(op => op.Price)
+                 .HasColumnType("decimal(5,2)");
+
+            product
                 .HasOne(p => p.Category)
                 .WithMany(c => c.Products)
                 .HasForeignKey(p => p.CategoryId)

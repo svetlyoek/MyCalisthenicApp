@@ -391,6 +391,37 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("MyCalisthenicApp.Models.Membership", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("MonthlyPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("YearlyPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Memberships");
+                });
+
             modelBuilder.Entity("MyCalisthenicApp.Models.Program", b =>
                 {
                     b.Property<string>("Id")
@@ -597,10 +628,10 @@ namespace MyCalisthenicApp.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<decimal>("DeliveryPrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(5,2)");
 
                     b.Property<decimal?>("Discount")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(5,2)");
 
                     b.Property<DateTime?>("DisptachDate")
                         .HasColumnType("datetime2");
@@ -713,7 +744,7 @@ namespace MyCalisthenicApp.Data.Migrations
                         .HasMaxLength(50);
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(5,2)");
 
                     b.Property<int>("Size")
                         .HasColumnType("int");
@@ -834,10 +865,10 @@ namespace MyCalisthenicApp.Data.Migrations
                         .HasMaxLength(30);
 
                     b.Property<decimal>("PriceToHome")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(5,2)");
 
                     b.Property<decimal>("PriceToOffice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(5,2)");
 
                     b.HasKey("Id");
 
