@@ -1,0 +1,33 @@
+//custom container
+
+@media (min-width: 1200px) { 
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1400px) { 
+    .container {
+        max-width: 1280px;
+    }
+}
+
+@media (min-width: 1700px) { 
+    .container {
+        max-width: 1400px;
+    }
+}
+
+
+.item-bounce {    
+    -webkit-animation: bounce 3s infinite ease-in-out;
+    -o-animation: bounce 3s infinite ease-in-out;
+    -ms-animation: bounce 3s infinite ease-in-out; 
+    -moz-animation: bounce 3s infinite ease-in-out; 
+    animation: bounce 3s infinite ease-in-out;
+}
+@keyframes bounce {
+    0% { transform: translateY(-5px)  }
+    50% { transform: translateY(10px) }
+    100% { transform: translateY(-5px) }
+}

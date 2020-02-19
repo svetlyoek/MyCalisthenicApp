@@ -1,0 +1,139 @@
+.cart-breadcrumb-overlay {
+    min-height: 350px !important;
+
+    &:after {
+        background: rgba(0,0,0,0.5) !important;
+    }
+}
+
+.cart-content-area {
+    .cart-title h2 {
+        font-weight: 600;
+        font-size: 24px;
+        letter-spacing: 0.6px;
+        color: $color-black;
+        margin-top: 95px;
+        margin-bottom: 30px;
+    }
+}
+
+.single-cart-list {
+    td {
+        color: $color-black;
+        display: table-cell;
+        vertical-align: middle;
+
+        a {
+            color: #F60000;
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 0.75px;
+            color: $grey2;
+        }
+
+        .input-group {
+            width: 120px;
+
+            .btn, input {
+                background: $color-white;
+                border: 1px solid #707070;
+                padding: 5px 9px;
+            }
+
+            .btn-sm {
+                border-radius: 0px;
+            }
+        }
+
+        
+    }
+
+    .table td, .table th {
+        border-top: 0px;
+    }
+
+    .apply-coupon-form {
+        .form-control{
+            padding: 18px 20px;
+            border-color: $color-main;
+        }
+        .submit-btn {
+            padding: 19px 30px;
+            background: $color-main;
+            color: $color-white;
+            margin-left: -2px;
+            font-size: 15px;
+            letter-spacing: 0.45px;
+            font-weight: 600;
+        }
+    }
+
+    .coupon-title h2 {
+        font-size: 18px;
+        letter-spacing: 0.45px;
+        color: $grey2;
+        font-weight: 600;
+        margin-top: 40px;
+    }
+}
+
+.cart-total-list {
+    background: $color-gray99;
+
+    .total-title h2 {
+        font-weight: 600;
+        font-size: 24px;
+        letter-spacing: 0.6px;
+        color: $color-black;
+        text-align: center;
+        padding: 30px 0px;
+        border-bottom: 1px solid $color-main;
+        text-transform: capitalize;
+        margin-bottom: 0px;
+    }
+
+    .cart-price {
+        padding: 20px 0px;
+
+        p {
+            font-size: 15px;
+            letter-spacing: 0.8px;
+            color: $grey2;
+            padding: 5px 20px;
+            font-weight: 600;
+            margin-bottom: 0px;
+
+            .float-right {
+                color: $color-main;
+            }
+        }
+    }
+
+    .cart-price-total {
+        border-top: 1px solid $color-black;
+
+        p {
+            font-size: 15px;
+            letter-spacing: 0.8px;
+            color: $grey2;
+            padding: 20px 20px;
+            font-weight: 600;
+
+            .float-right {
+                color: $color-main;
+            }
+        }
+    }
+
+    .btn-wrapper {
+        padding: 40px 20px;
+
+        .btn {
+            font-size: 15px;
+        }
+    }
+}

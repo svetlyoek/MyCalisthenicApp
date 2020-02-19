@@ -1,0 +1,220 @@
+.popular-slider {
+    width: 100%;
+
+    .slick-prev {
+        left: 0;
+
+        &:before {
+            content: "\f104";
+            font-family: 'fontawesome';
+        }
+    }
+
+    .slick-next {
+        left: auto;
+        right: 0;
+
+        &:before {
+            content: "\f105";
+            font-family: 'fontawesome';
+        }
+        
+    }
+    .slick-prev, .slick-next {
+        background: #fff;
+        border: 1px solid $color-white;
+        border-radius: 30px;
+        top: 50%;
+        width: 46px;
+        height: 30px;
+        z-index: 999;
+
+        &:hover {
+            background: var(--main-color);
+            border: 1px solid $color-main;
+            
+            &:before {
+                color: $color-white;
+            }
+        }
+    }
+    .slick-prev:before, .slick-next:before {
+        font-size: 25px;
+        opacity: 1;
+        color: $color-black;
+        line-height: 19px;
+    }
+    .slick-slide {
+        margin: 0 5px;
+    }
+    .slick-list {
+        margin: 0 -5px;
+    }
+}
+
+.single-popular-item {
+    width: 50%;
+    float: left;
+    position: relative;
+}
+
+.popular-item-style-01 {
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.1);
+    // transition: .3s;
+
+    &:before {
+        position: absolute;
+        content: '';
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.3);
+        z-index: 9;
+    }
+
+    .hover-element {
+        text-align: center;
+        opacity: 0;
+        z-index: 999;
+        width: 100%;
+        top: 0;
+        transition: all .3s ease-in;
+
+        .hover-top {
+            position: absolute;
+            top: 36%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            width: 80%;
+        }
+
+        li {
+
+            &:last-child {
+                a:before {
+                    display: none;
+                }
+            }
+
+            a {
+                position: relative;
+
+                &:before {
+                    position: absolute;
+                    content: '';
+                    right: -21px;
+                    top: 10px;
+                    width: 1px;
+                    height: 27px;
+                    background: rgba($color-black, 0.2);
+                }
+            }
+        }
+
+        span {
+            color: $color-white;
+            font-size: 24px;
+            letter-spacing: 0px;
+            font-weight: 700;
+            font-family: var(--body-font);
+            text-transform: capitalize;
+            transition: all .3s linear;
+        }
+
+        a {
+            font-size: 15px;
+            letter-spacing: 0.45px;
+            font-weight: 600;
+            transition: all .3s linear;
+            position: relative;
+
+            i {
+                font-size: 22px;
+                margin-right: 10px;
+                top: 2px;
+                position: relative;
+            }
+        }
+
+        ul {    
+            top: auto;
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+            z-index: 9999;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            background: #fff;
+            transition: .3s;
+
+            li {
+                float: left;
+                list-style: none;
+                background: $color-white;
+                color: $color-black;
+                padding: 10px 18px;
+                text-align: left;
+
+                span {
+                    color: $color-black;
+                    font-weight: 300;
+                    font-size: 15px;
+                }
+            }
+        }
+
+        .btn {
+            background: $color-main;
+            padding: 4px 15px;
+            margin-top: 15px;
+        }
+    }
+
+    .thumb {
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+    } 
+
+    .content {
+        font-family: var(--body-font);
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 29px;
+        letter-spacing: 0.025;
+
+        p {
+            font-size: 24px;
+            font-weight: 600;
+            text-align: center;
+            padding: 20px 0px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            transform: translate(-50%, -50%);
+            z-index: 9;
+        }
+    }
+
+    &:hover {
+        &:before {
+            background: rgba(0,0,0,0.6);
+        }
+        .hover-element {
+            opacity: 1;
+        }
+
+        .content {
+            opacity: 0;
+        }
+    }
+}

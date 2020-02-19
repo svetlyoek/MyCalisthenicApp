@@ -1,0 +1,35 @@
+.project-counter {
+    padding: 100px 0 38px 0;
+    background: #F9F9FA;
+
+    &__box {
+        margin-bottom: 60px;
+
+        text-align: center;
+        &-content {
+            margin: auto;
+        }
+    }
+    &__is {
+        font-size: 50px;
+        font-weight: 600;
+        color: $color-black;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        display: block;
+        line-height: 20px;
+        margin-top: 40px;
+    }
+    &__text {
+        font-size: 18px;
+        font-weight: 500;
+        color: $grey2;
+        letter-spacing: 0;
+        text-transform: capitalize;
+        display: block;
+        margin: 20px 0px 40px 0px;
+    }
+    .icon {
+        height: 50px;
+    }
+}

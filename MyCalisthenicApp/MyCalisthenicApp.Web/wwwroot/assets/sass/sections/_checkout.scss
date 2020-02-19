@@ -1,0 +1,330 @@
+.delivery-area {
+    .delivery-content {
+        width: 100%;
+        padding-bottom: 5px;
+    
+        h2 {
+            font-family: var(--body-font);
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 0.24px;
+            color: $color-black;
+            margin-bottom: 50px;
+        }
+    
+        .delivery-tab {
+            color: var(--heading-color);
+            font-family: var(--body-font);
+    
+            p {
+                color: var(--heading-color);
+            }
+    
+            .nav-pills {
+                li {
+                    // border: 1px solid #D5D5D5;
+                    color: $color-gray;
+                    padding: 68px 50px;
+                    margin-right: 50px;
+                    position: relative;
+                    width: 38%;
+                    text-align: center;
+    
+                    &:first-child:after {
+                        content: '';
+                        width: 2px;
+                        height: 90%;
+                        top: 5%;
+                        right: -32px;
+                        right: 0;
+                        position: absolute;
+                        background: #D5D5D5;
+                        right: -25px;
+                    }
+
+                    .active:before {
+                        content: '';
+                        top: -11px;
+                        z-index: 999;
+                        right: 0;
+                        position: absolute;
+                        right: 0;
+                        width: 100%;
+                        z-index: -1;
+                        border: 1px solid $color-main;
+                        padding: 68px 50px;
+                    }
+    
+                    a {
+                        position: absolute;
+                        top: 38%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 100%;
+    
+                        &.active {
+                            color: var(--main-color);
+                        }
+
+                        &:before {
+                            content: '';
+                            top: -11px;
+                            z-index: 999;
+                            right: 0;
+                            position: absolute;
+                            right: 0;
+                            width: 100%;
+                            z-index: -1;
+                            border: 1px solid #D5D5D5;
+                            padding: 68px 50px;
+                        }
+
+                        span {
+                            font-size: 15px;
+                        }
+                    }
+
+                    i:before {
+                        font-size: 55px;
+                        padding-right: 20px;
+                        position: relative;
+                        top: 12px;
+                    }
+                }
+            }
+    
+            .form-group {
+                .form-field {
+                    label {
+                        font-family: var(--body-font);
+                        font-weight: 500;
+                        font-size: 18px;
+                        letter-spacing: 0.18px;
+                        color: $color-black;
+                        margin-bottom: 17px;
+                    }
+                    .input-form, textarea {
+                        width: 100%;
+                        height: 70px;
+                        border-radius: 4px;
+                        border: 2px solid $color-white-smoke;
+                        padding: 20px;
+                        font-family: var(--body-font);
+                        font-weight: 400;
+                        color: #818181;
+                        font-size: 15px;
+                        letter-spacing: 0.15px;
+
+                        &:focus {
+                            border-color: $color-main;
+                        }
+                    }
+    
+                    textarea {
+                        height: auto;
+                    }
+    
+                    .select-form {
+                        width: 100%;
+                        height: 70px;
+                        border-radius: 4px;
+                        border: 2px solid $color-white-smoke;
+                        padding-left: 35px;
+                        font-family: var(--body-font);
+                        font-weight: 400;
+                        color: var(--paragraph-color);
+                        font-size: 18px;
+
+                        &:focus {
+                            border-color: $color-main;
+                        }
+                    }
+            
+                    .nice-select {
+                        line-height: 63px;
+                        margin-bottom: 30px;
+                        font-size: 15px;
+            
+                        .list {
+                            width: 100%;
+                            margin-top: 0px;
+                            border-radius: 0px;
+                        }
+            
+                        &:after {
+                            width: 15px;
+                            height: 15px;
+                            top: 40%;
+                            right: 50px;
+                        }
+                    } 
+                }
+                .btn {
+                    color: $color-white;
+                    padding: 14px 60px;
+                    margin-top: 30px;
+                    font-size: 18px;
+                }
+            }
+
+            .tab-content {
+                margin-top: 50px;
+            }
+        }
+    }
+    .invoice {
+        box-shadow: 0px 0px 4px $color-gray80;
+        background: $color-gray99;
+    
+        .invoice-top {
+            padding: 52px 45px 0px 45px;
+
+            h2 {
+                color: $grey2;
+                font-family: var(--body-font);
+                font-size: 24px;
+                letter-spacing: 0.24px;
+                margin-top: 15px;
+                font-weight: 600;
+            }
+
+            h6 {
+                font-family: var(--barlow-font);
+                font-size: 15px;
+                letter-spacing: 0.15px;
+                color: $color-main;
+            }
+
+            p {
+                font-family: var(--barlow-font);
+                font-size: 22px;
+                color: $grey2;
+                letter-spacing: 0.22px;
+                font-weight: 600;
+            }
+        }
+    
+        .invoice-bottom {
+            padding: 45px;
+    
+            .date {
+                font-family: var(--body-font);
+                font-weight: 400;
+                font-size: 25px;
+                letter-spacing: 0.01em;
+                color: var(--main-color);
+                margin-bottom: 20px;
+            }
+            .address {
+                font-family: var(--body-font);
+                font-weight: 500;
+                font-size: 22px;
+                letter-spacing: 0.01em;
+                color: var(--heading-color);
+                margin-bottom: 20px;
+            }
+    
+            .item-title {
+                color: var(--main-color);
+                font-family: var(--body-font);
+                font-size: 25px;
+                margin-bottom: 40px;
+            } 
+            .single-item {
+                margin: 0;
+                padding: 0;
+                border-bottom: 1px solid var(--heading-color);
+    
+                .single-cart-item {
+                    display: flex;
+                    position: relative;
+                    padding-bottom: 35px;
+    
+                    .thumb {
+                        border: 1px solid var(--heading-color);
+                        width: 100px; 
+                        height: 100px;
+                        display: flex;
+                        align-items: center;
+    
+                        img {
+                            padding: 10px
+                        }
+                    }
+    
+                    .content {
+                        padding-left: 25px;
+
+                        h3 {
+                            font-family: var(--barlow-font);
+                            font-weight: 600;
+                            font-size: 20px;
+                            letter-spacing: 0;
+                            line-height: 25px;
+                            color: var(--paragraph-color);
+    
+                            span {
+                                font-weight: 400;
+                            }
+                        }
+                        span {
+                            font-family: var(--barlow-font);
+                            font-weight: 400;
+                            font-size: 22px;
+                            letter-spacing: 0;
+                            line-height: 35px;
+                            color: var(--paragraph-color);
+                        }
+                    }
+    
+                    .close {
+                        position: absolute;
+                        right: 0;
+                        font-weight: 400;
+                        color: #E3051A;
+                        top: 15%;
+                    }
+                }
+            }
+    
+            .total {
+                display: flex;
+                padding: 30px 0px;
+    
+                h3 {
+                    width: 100%;
+                    color: $color-black;
+                    font-family: var(--body-font);
+                    font-weight: 600;
+                    letter-spacing: 0;
+                    line-height: 35px;
+                    font-size: 24px;
+                }
+                
+                p {
+                    color: $color-black;
+                    font-family: var(--body-font);
+                    font-weight: 600;
+                    letter-spacing: 0;
+                    line-height: 35px;
+                    font-size: 24px;
+                }
+            }
+
+            .btn-continue {
+                padding: 14px 40px;
+                margin-top: 40px;
+            }
+    
+            .btn-invoice {
+                color: $color-black;
+                font-size: 22px;
+                letter-spacing: 0;
+                font-family: var(--body-font);
+                font-weight: 500;
+                margin-top: 50px;
+                margin-bottom: 14px;
+            }
+        } 
+    } 
+}

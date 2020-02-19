@@ -1,0 +1,60 @@
+//Animation for Slide & Rotate
+.slideRotateFromLeft {
+    animation-name: slideRotateFromLeft;
+}
+@keyframes slideRotateFromLeft {
+    0% {
+        transform: translate3d(-100%, 0, 0) rotate(90deg);
+        visibility: visible;
+    }
+    100% {
+        transform: translate3d(0, 0, 0) rotate(90deg);
+        visibility: visible;
+    }
+}
+.slideRotateFromRight {
+    animation-name: slideRotateFromRight;
+}
+@keyframes slideRotateFromRight {
+    0% {
+        transform: translate3d(100%, 0, 0) rotate(90deg);
+        visibility: visible;
+    }
+    100% {
+        transform: translate3d(0, 0, 0) rotate(90deg);
+        visibility: visible;
+    }
+}
+
+@-webkit-keyframes pulse {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+  
+    50% {
+      transform: scale3d(1.05, 1.05, 1.05);
+    }
+  
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  
+  @keyframes pulse {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+  
+    50% {
+      transform: scale3d(1.05, 1.05, 1.05);
+    }
+  
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  
+  .pulse {
+    animation-name: pulse;
+  }
+  

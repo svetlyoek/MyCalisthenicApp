@@ -1,0 +1,42 @@
+/*-----------------------
+    Error 404 Page
+-----------------------*/
+.error-area {
+    .content {
+        width: 100%;
+        text-align: center;
+
+        
+        h1 {
+            color: $color-main;
+            font-size: 280px;
+            font-weight: 700;
+            margin-bottom: 50px;
+
+            img {
+                max-width: 18%;
+            }
+        }
+        
+        h3 {
+            font-size: 30px;
+            font-weight: 700;
+            color: $color-gray99;
+            margin-bottom: 28px;
+        }
+
+        p {
+            opacity: .8;
+        }
+
+        a {
+            color: $color-white;
+            letter-spacing: 0.45px;
+            font-size: 18px;
+            color: $color-gray99;
+            font-weight: 500;
+            margin-top: 53px;
+            opacity: .8;
+        }
+    }
+}

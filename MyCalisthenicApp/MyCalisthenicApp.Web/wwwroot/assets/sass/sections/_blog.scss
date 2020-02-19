@@ -1,0 +1,82 @@
+.blog-item-inner {
+    margin-bottom: 30px;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .blog-meta {
+        a:hover {
+            color: $color-main;
+        }
+    }
+
+    .blog-img {
+        overflow: hidden;
+        img {
+            transition: all 0.5s ease;
+            width: 100%;
+    
+            &:hover {
+                transform: scale(1.1) rotate(2deg);
+            }
+        }
+    } 
+    
+    .blog-detail {
+        background: $color-gray99;
+        padding: 20px 20px 27px 20px;
+
+        h5 {
+            color: $grey2;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 0.6px;
+            margin-bottom: 15px;
+
+            a {
+                transition: all .3s;
+
+                &:hover {
+                    color: $color-main;
+                }
+            }
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 15px;
+            letter-spacing: 0.38px;
+            color: $grey2;
+            margin-bottom: 15px;
+        }
+
+        h6 {
+            font-weight: 400;
+            font-size: 15px;
+            letter-spacing: 0.38px;
+            color: #BCBCBC; 
+            margin-top: 10px;
+            margin-bottom: 20px;
+
+            a {
+                margin-right: 20px;
+            }
+        }
+
+        .blog-more {
+            color: $grey2;
+            font-weight: 500;
+            text-decoration: underline;
+            transition: all .3s;
+
+            &:hover {
+                color: $color-main;
+            }
+        }
+    }
+}
+
+.yoga-video {
+    position: relative;
+    z-index: 9999;
+    overflow: hidden;
+}

@@ -1,0 +1,25 @@
+.brand-area {
+    background: #fff;
+    z-index: 999;
+    margin-top: 80px;
+
+    .brand-slider {
+        box-shadow: 0px 0px 20px #ccc;
+        background: #fff;
+        border-radius: 20px;
+    }
+
+    .brant-item {
+        width: 20%;
+        float: left;
+        margin: 50px 0px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+        img {
+            max-width: 116px;
+            max-height: 92px;
+        }
+    }
+}

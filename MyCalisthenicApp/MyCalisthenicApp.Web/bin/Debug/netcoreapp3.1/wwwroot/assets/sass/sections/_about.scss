@@ -1,0 +1,61 @@
+ .about-breadcrumb-overlay {
+    min-height: 350px !important;
+
+    &:before {
+      position: absolute;
+      content: '';
+      width: 40%;
+      top: -355px;
+      height: 170%;
+      transform: rotate(-54deg);
+      left: 35%;
+      background: rgba(0,0,0,0.5);
+      border-radius: 295px;
+    }
+    &:after {
+      display: none;
+    }
+ }
+
+.about-page-top {
+  .about-content {
+    .about-title {
+      font-size: 65px;
+      letter-spacing: 1.63px;
+      font-weight: 700;
+      text-transform: capitalize;
+      color: $color-black;
+    }
+    p {
+      color: $grey2;
+      font-size: 15px;
+      letter-spacing: 0.38px;
+      font-weight: 400;
+      margin: 30px 0px;
+    }
+    ul {
+      padding: 0;
+      margin: 0;
+
+      li {
+        color: $grey2;
+        font-size: 15px;
+        letter-spacing: 0.38px;
+        font-weight: 400;
+        list-style: none;
+      }
+    } 
+    i {
+      color: $color-main;
+      margin-right: 15px;
+    }
+    .btn {
+      color: $color-main;
+      padding: 0px;
+      font-size: 18px;
+    }
+  }
+}
+
+  
+ 

@@ -1,0 +1,221 @@
+.product-details-tab {
+    .slider-tabfor {
+        background: #F9F9FA;
+        box-shadow: 0px 0px 5px $color-gray80;
+
+        img {
+            padding: 80px 70px;
+        }
+    }
+
+    .slider-tabnav {
+        margin-top: 60px;
+        width: 80%;
+        margin-left: 10%;
+
+        .img {
+            min-height: 90px;
+            margin-left: 10px;
+            margin-right: 10px;
+            background: #F9F9FA;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+
+            img {
+                padding: 12px;
+            }
+        }
+
+        .slick-center .img {
+            border: 1px solid #E9E9E9;
+            background: #fff;
+        }
+    }
+
+    .single-item {
+        display: flex;
+        justify-content: center;
+    }
+
+    .slick-prev {
+        left: -50px;
+
+        &:before {
+            content: "\f104";
+            font-family: 'fontawesome';
+            color: $color-gray;
+        }
+    }
+
+    .slick-next {
+        right: -50px;
+
+        &:before {
+            content: "\f105";
+            font-family: 'fontawesome';
+            color: $color-gray;
+        }
+        
+    }
+    .slick-prev, .slick-next {
+        top: 45%;
+        width: 50px;
+        height: 50px;
+
+        &:hover {
+            color: var(--main-color);
+        }
+    }
+    .slick-prev:before, .slick-next:before {
+        font-size: 34px;
+        opacity: 1;
+    }
+
+    .content-part {
+        padding: 0px 30px;
+
+        h2 {
+            font-family: var(--body-font);
+            font-weight: 600;
+            font-size: 24px;
+            letter-spacing: 0;
+            color: #343434;
+            margin-bottom: 15px;
+
+            span {
+                font-weight: 400;
+                font-size: 18px;
+            }
+        }
+
+        .specifications {
+            font-family: var(--body-font);
+            font-weight: 400;
+            font-size: 15px;
+            letter-spacing: 0.15px;
+            color: #343434;
+            line-height: 30px;
+            display: block;
+        }
+
+        .point, .rating {
+            font-size: 30px;
+            font-family: var(--body-font);
+            font-weight: 400;
+        }
+
+        .point {
+            color: var(--paragraph-color);
+        }
+
+        .rating {
+            color: #FFBB00;
+            margin-left: 20px;
+            font-size: 25px;
+        }
+
+        .price {
+            font-family: var(--body-font);
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 0.18px;
+            line-height: 40px;
+            color: $color-black;
+            margin-top: 5px;
+
+            span {
+                text-decoration: line-through;
+                color: var(--main-color);
+                margin-left: 10px;
+            }
+        }
+
+        .description {
+            font-family: var(--body-font);
+            font-weight: 400;
+            font-size: 15px;
+            letter-spacing: 0.15px;
+            line-height: 28px;
+            color: #242424;
+            margin-bottom: 30px;
+        }
+
+        .btn-medium-size {
+            font-size: 18px;
+            padding: 14px 40px;
+        }
+    }
+}
+
+.accordion-area {
+    width: 100%;
+    padding-bottom: 100px;
+    
+    .title {
+        font-size: 24px;
+        font-family: var(--body-font);
+        font-weight: 600;
+        color: #242424;
+        letter-spacing: 0;
+        margin-bottom: 50px;
+    }
+}
+
+.product-video-area {
+    width: 100%;
+    min-height: 500px;
+    background: url(../img/bg/shop-details.png);
+    background-size: cover;
+    position: relative;
+
+    .video-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 99;
+
+        .video-btn {
+            width: 102px;
+            height: 102px;
+            border-radius: 50%;
+            line-height: 90px;
+            text-align:center;
+            border: 2px solid $color-white;
+            color: $color-white;
+            font-size: 24px;
+            font-weight: 500;
+            font-family: var(--body-font);
+            transition: all 0.5s ease;
+            
+            &:hover {
+                transition: all 0.5s ease;
+            }
+        }
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        top: 0;
+        bottom: 0;
+        z-index: 2;
+    }
+}
+
+.related-product-title {
+    font-size: 30px;
+    font-family: var(--body-font);
+    font-weight: 600;
+    color: #242424;
+    letter-spacing: 0;
+    margin-bottom: 50px;
+}
+  
+  
+  
+  

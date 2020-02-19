@@ -1,0 +1,121 @@
+.class-schedule {
+    .schedule-bottom {
+        padding: 100px 0px;
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        &.schedule-bg-1 {
+            background: url(../img/home/class-schedule.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 0px;
+        }
+
+        &.schedule-bg-2 {
+            background: url(../img/home/schedule2.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            background: rgba(2, 2, 2, 0.49);
+            border-radius: 0px;
+        }
+    
+        form {
+            z-index: 999;
+        }
+    
+        input {
+            width: 300px;
+            border-radius: 0px;
+            background: rgba(255, 255, 255, 0.1);
+            color: $color-white;
+            padding: 13px 25px;
+            height: auto;
+            font-size: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+
+            &:focus {
+                border-color: $color-main;
+            }
+
+            &::placeholder {
+                color: $color-white;
+            }
+        }
+    
+        .nice-select .list {
+            width: 300px;
+            color: $color-black;
+        }
+    
+        .btn-normal-size {
+            padding: 14px 60px;
+
+            &:hover {
+                color: $color-white;
+            }
+        }
+    }
+
+    .schedule-area {
+        margin-top: 50px;
+        margin-bottom: 90px;
+    }
+}
+
+.schedule-item-style-01 {
+    border: 1px dashed #ccc;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 0.38px;
+    padding: 65px 26px;
+    margin: 10px;
+    border-radius: 30px;
+    background: #FEFEFE;
+    align-self: center;
+    position: relative;
+    max-width: 210px;
+    max-height: 200px;
+    transition: all .3s;
+
+    .content {
+        p {
+            color: $color-black;
+            margin-bottom: 0px;
+            font-size: 15px;
+
+            &:first-child {
+                margin-bottom: 10px;
+                font-size: 20px;
+                font-weight: 700;
+            }
+        }
+
+        .btn {
+            padding: 3px 10px;
+            background: $color-main;
+            font-size: 12px;
+            border-radius: 0px;
+            margin-top: 15px;
+            opacity: 0;
+            transition: all .3s;
+        }
+    }
+
+    &:hover {
+        padding: 50px 26px;
+        .btn {
+            opacity: 1;
+        }
+    }
+}

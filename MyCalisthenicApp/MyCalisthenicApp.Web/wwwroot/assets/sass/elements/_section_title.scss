@@ -1,0 +1,36 @@
+.section-title {
+    &.title-padding {
+        padding-top: 95px;
+        padding-bottom: 46px;
+    }
+    &.title-padding-bottom {
+        padding-top: 94px;
+        padding-bottom: 64px;
+    }
+    &.title-padding-02 {
+        padding-top: 85px;
+        padding-bottom: 48px;
+    }
+    .subtitle {
+        color: $color-black;
+        font-size: 18px;
+        letter-spacing: 0.45px;
+        font-weight: 500;
+    }
+
+    .title {
+        font-size: 65px;
+        letter-spacing: 1.63px;
+        font-weight: 700;
+        text-transform: capitalize;
+        margin-bottom: 0px;
+    }
+
+    .title-style-01 {
+        font-size: 65px;
+        letter-spacing: 1.63px;
+        text-transform: capitalize;
+        color: $color-black;
+        font-weight: 700;
+    }
+}

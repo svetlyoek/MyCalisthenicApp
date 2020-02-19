@@ -1,0 +1,291 @@
+.trainer-area {
+    background: url(../img/home/service-bg.png);
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    position: relative;
+
+    &.bg-none {
+        background: #fff !important;
+    }
+
+    &:before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    .content {
+        h3 {
+            color: $color-black;
+            font-size: 24px;
+            letter-spacing: 0.6px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        h6 {
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        p {
+            color: $grey2;
+            font-size: 15px;
+            letter-spacing: 0.38px;
+        }
+        
+        .btn-normal-size {
+            margin: 18px 0px;
+            padding: 10px 30px;
+            font-size: 15px;
+            border-color: rgba($color-black, .3);
+
+            &:hover {
+                background: $color-main !important;
+                color: $color-white;
+                border-color: $color-main;
+                box-shadow: 0px 0px 20px rgba(22, 22, 22, 0.2);
+            }
+        }
+
+        .social {
+            margin: 0px;
+            padding: 0px;
+            margin-top: 13px;
+            display: flex;
+            margin-bottom: 20px;
+
+            li {
+                float: left;
+                color: rgba($color-black, 0.5);
+                list-style: none;
+                margin-right: 20px;
+                font-size: 15px;
+                transition: all .3s;
+
+                &:hover {
+                    color: $color-main;
+                }
+            }
+        }
+    }
+
+    .border-custom {
+        position: relative;
+        margin-bottom: 30px;
+
+        &:before {
+            content: '';
+            height: 2px;
+            background: rgba(#707070, .10);
+            bottom: 0;
+            width: 96%;
+            position: absolute;
+            opacity: 0.5;
+        }
+    }
+
+    .slick-dots {
+        bottom: -25px;
+
+        li {
+            margin: 0px;
+    
+            button:before {
+                font-size: 40px;
+            }
+
+            &.slick-active button:before {
+                color: $color-main !important;
+            }
+        }
+    } 
+}
+
+.class-slider-style-2 {
+    .slick-dots {
+        width: 100%;
+        position: absolute;
+        top: auto;
+        bottom: -80px;
+        font-family: var(--secondary-font);
+
+
+        li {
+            margin: 0 0;
+            height: 30px;
+            width: auto;
+
+            button {
+                font-size: 15px;
+                color: #BCBCBC;
+                font-weight: 400;
+                letter-spacing: 0.38px;
+                width: auto;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+
+                &:before {
+                    display: none;
+                }
+            }
+
+            &.slick-active button {
+                background: var(--main-color);
+                color: $color-white;
+            }
+        }
+    }
+
+    .slick-prev, .slick-next {
+        background: $color-white;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        z-index: 9;
+        top: auto;
+        bottom: -100px;
+        color: #BCBCBC;
+        font-size: 15px;
+
+        &:hover {
+            &:before {
+                color: $color-main;
+            }
+        }
+
+        &::before {
+            font-family: 'fontawesome';
+            color: #BCBCBC;
+            font-size: 15px;
+        }
+    }
+
+    .slick-prev {
+        position: absolute;
+        left: 35%;
+
+        &:before {
+            content: "\f104";
+            margin-right: 10px
+        }
+    }
+
+    .slick-next {
+        left: 60%;
+        
+        &:before {
+            position: absolute;
+            content: "\f105";
+            left: 45px;
+            top: 10px;
+        }
+    }
+}
+
+.biography-area {
+    .biography-content {
+        border: 1px solid #D9D9D9;
+        width: 100%;
+
+        .nav {
+            background: #D9D9D9;
+            a {
+                padding: 15px 50px;
+                display: flex;
+                color: $color-black;
+                border-right: 1px solid #ccc;
+
+                &.active {
+                    background: $color-main;
+                    color: $color-white;
+                }
+            }
+        }
+
+        h2 {
+            font-weight: 600;
+            font-size: 24px;
+            letter-spacing: 0.6px;
+            color: $grey2;
+            margin-bottom: 15px;
+        }
+        p {
+            font-weight: 400;
+            letter-spacing: 0.38px;
+            font-size: 15px;
+            color: $color-black;
+        }
+        .tab-content {
+            padding: 30px;
+        }
+        .course-overview {
+            font-size: 16px;
+            font-weight: 400;
+        }
+        .curiculam-right {
+            p {
+                margin-bottom: 0px;
+                margin-right: 15px;
+            }
+            .btn {
+                padding: 3px 15px;
+            }
+        }
+    }
+}
+
+.rating {
+    i {
+        color: #FFBB00;
+    }
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 10px;
+    grid-auto-rows: minmax(180px, auto);
+    grid-auto-flow: dense;
+    padding: 10px;
+    padding-top: 0px;
+}
+
+.grid-item {
+    overflow: hidden;
+    display: flex;
+
+    img {
+        transition: all 0.5s ease;
+        width: 100%;
+
+        &:hover {
+            transform: scale(1.1) rotate(2deg);
+        }
+    }
+} 
+
+.span-22 {
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+}
+
+.span-21 {
+    grid-column-end: span 2;
+    grid-row-end: span 1;
+}
+
+.span-3 {
+    grid-column-end: span 3;
+    grid-row-end: span 4;
+}
+
+.span-4 {
+    grid-column-end: span 4;
+    grid-row-end: span 1;
+}

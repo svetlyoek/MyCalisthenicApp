@@ -1,0 +1,56 @@
+.shaper-area {
+    .shaper-left {
+        background: url(../img/home/shaper.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        padding: 30px 30px 172px 30px;
+        position: relative;
+        
+        h1 {
+            font-size: 65px;
+            font-weight: 700;
+            letter-spacing: 3.25px;
+            margin-bottom: 30px;
+        }
+
+        a {
+            font-size: 18px;
+            letter-spacing: 0.9px;
+            color: $color-main;
+            text-decoration: underline;
+            transition: all .4s linear;
+
+            &:hover {
+                color: $color-black;
+            }
+        }
+    }
+    .shaper-right {
+        background: url(../img/home/cycling.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        padding: 198px 30px 202px 30px;
+
+        h1 {
+            font-size: 65px;
+            font-weight: 700;
+            letter-spacing: 3.25px;
+            margin-bottom: 30px;
+            text-align: right;
+        }
+
+        a {
+            font-size: 18px;
+            letter-spacing: 0.9px;
+            color: $color-main;
+            text-decoration: underline;
+            transition: all .4s linear;
+            text-align: right;
+            padding-right: 193px;
+
+            &:hover {
+                color: $color-black;
+            }
+        }
+    }
+}

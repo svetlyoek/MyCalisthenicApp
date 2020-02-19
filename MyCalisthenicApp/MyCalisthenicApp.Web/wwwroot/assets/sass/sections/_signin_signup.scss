@@ -1,0 +1,117 @@
+.sign-area {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    
+    .sign-content {
+        background: #F5F5F5;
+        padding: 100px 250px 100px 80px;
+
+        h3 {
+            font-size: 45px;
+            font-weight: 700;
+            letter-spacing: 1.15px;
+            color: #515151;
+            margin: 25px 0px;
+        }
+
+        p {
+            font-size: 15px;
+            letter-spacing: 0.38px;
+            font-weight: 400;
+            color: #999999;
+            margin-bottom: 15px;
+
+            a {
+                color: #000;
+            }
+        }
+
+        .btn-primary {
+            background: #475993;
+            padding: 6px 10px 10px 10px;
+            font-size: 18px;
+            letter-spacing: 0.45px;
+            margin-bottom: 30px;
+            border-color: #475993;
+            margin-top: 20px;
+
+            .fa-facebook-square {
+                font-size: 30px;
+                position: relative;
+                top: 4px;
+                right: 10px;
+            }
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+
+            label {
+                color: #999999;
+                width: 100%;
+                font-size: 15px;
+
+                .fa-smile-o {
+                    position: relative;
+                    float: right;
+                    text-align: right;
+                    color: $color-main;
+                    font-size: 24px;
+                }
+            }
+            .form-control {
+                padding: 15px 10px;
+
+                &:focus {
+                    border-color: $color-main !important;
+                }
+            }
+            .password-alert {
+                padding-left: 30px;
+            }
+        }
+
+        .btn-success {
+            background: $color-main;
+            margin: 40px 0px;
+            font-size: 18px;
+            letter-spacing: 0.45px;
+            padding: 10px;
+            border-color: $color-main;
+
+            &:focus {
+                box-shadow: none !important;
+            }
+        }
+    }
+
+    .slick-dots {
+        bottom: 35px;
+
+        li {
+            width: 40px;
+            height: 4px;
+            margin: 0 5px;
+            background: #4C4F59;
+            border-radius: 30px;
+
+            button:before {
+                content: '';
+            }
+        }
+
+        .slick-active {
+            width: 60px;
+            background: #fff;
+        }
+    } 
+
+    .signup-content {
+        padding: 100px 80px 100px 250px;
+    }
+}
+
