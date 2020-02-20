@@ -12,6 +12,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
   </ItemGroup>
 
 
@@ -21,6 +22,12 @@
 
 
   <ItemGroup>
+    <Content Update="Views\Home\About.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Home\Contact.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="Views\Home\Index.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -201,9 +208,6 @@
     <Content Update="wwwroot\assets\img\bg\coming-soon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\assets\img\bg\contact-top.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Update="wwwroot\assets\img\bg\contact.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -321,7 +325,7 @@
     <Content Update="wwwroot\assets\img\brand\brand4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\assets\img\brand\brand5.png">
+    <Content Update="wwwroot\assets\img\brand\brand5.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\assets\img\classes\1.png">
@@ -480,7 +484,10 @@
     <Content Update="wwwroot\assets\img\home\d.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\assets\img\home\explore2.png">
+    <Content Update="wwwroot\assets\img\home\explore.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\assets\img\home\explore2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\assets\img\home\home3.png">
@@ -558,13 +565,13 @@
     <Content Update="wwwroot\assets\img\home\schedule2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Update="wwwroot\assets\img\home\service-bg.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="wwwroot\assets\img\home\service-bg.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\assets\img\home\service-bg2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\assets\img\home\service-bg3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\assets\img\home\service4.png">

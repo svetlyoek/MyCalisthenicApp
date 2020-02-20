@@ -83,7 +83,7 @@ function initMap() {
         ]
     });
     marker = new google.maps.Marker({
-        position: new google.maps.LatLng(23.874813, 90.385773),
+        position: new google.maps.LatLng(42.974850, 25.473591),
         map: map,
         icon: 'assets/img/marker.png',
         animation: google.maps.Animation.BOUNCE,

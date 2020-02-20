@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Zarxio Fitness & Gym HTML Template</title>
+    <title>MyCalisthenicApp</title>
     <!-- favicon -->
-    <link rel=icon href=assets/img/favicon.png sizes="20x20" type="image/png">
+    <link rel=icon href=/assets/img/favicon.png sizes="20x20" type="image/png">
     <!-- animate -->
     <link rel="stylesheet" href="assets/css/animate.css">
     <!-- bootstrap -->
@@ -63,7 +63,6 @@
         </form>
     </div>
     <!-- //. search Popup -->
-  
     <!-- navbar start -->
     <div class="zarxio-navbar">
         <nav class="navbar navbar-area navbar-expand-lg nav-style-01">
@@ -78,60 +77,57 @@
                     </button>
                 </div>
                 <div class="logo">
-                    <a href="/"> <img src="assets/img/logo.png" alt="logo"></a>
+                    <a href="/"> <img src="/assets/img/logo.png" alt="logo"></a>
                 </div>
                 <div class="collapse navbar-collapse" id="billatrail_main_menu">
                     <ul class="navbar-nav menu-open">
                         <li>
-                            <a  href="/">Home</a>
+                            <a href="/">Home</a>
                         </li>
 
-                        <li class="hidden-md"><a href="about.html">About</a></li>
+                        <li class="hidden-md"><a href="/Home/About">About</a></li>
+
                         <li class="menu-item-has-children">
-                            <a href="#">Classes</a>
+                            <a href="#">Training</a>
                             <ul class="sub-menu">
-                                <li><a href="classes.html">Class</a></li>
-                                <li><a href="class-details.html">Class Details</a></li>
+                                <li><a href="/Home/Programs">Programs</a></li>
                             </ul>
                         </li>
                         <li class="menu-item-has-children">
                             <a href="#">Trainer</a>
                             <ul class="sub-menu">
-                                <li><a href="trainer.html">Trainer</a></li>
-                                <li><a href="trainer-details.html">Trainer Details</a></li>
+                                <li><a href="/Home/Trainers">Our Trainers</a></li>
                             </ul>
                         </li>
+
                         <li class="menu-item-has-children">
                             <a href="#">Shop</a>
                             <ul class="sub-menu">
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="product-details.html">Product Details</a></li>
-                                <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                                <li><a href="payment.html">Payment</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
+                                <li><a href="/Home/Shop">Shop</a></li>
+                                <li><a href="/Home/Details">Product Details</a></li>
+                                <li><a href="/Home/ShoppingCart">Shopping Cart</a></li>
+                                <li><a href="/Home/Payment">Payment</a></li>
+                                <li><a href="/Home/Checkout">Checkout</a></li>
                             </ul>
                         </li>
-                        <li class="menu-item-has-children">
-                            <a href="#">Blog</a>
-                            <ul class="sub-menu">
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="blog-details.html">Blog Details</a></li>
-                            </ul>
+                        <li>
+                            <a href="/Home/Blog">Blog</a>
                         </li>
                         <li class="menu-item-has-children">
                             <a href="#">Pages</a>
                             <ul class="sub-menu">
-                                <li class="d-block d-xl-none"><a href="about.html">About Us</a></li>
-                                <li><a href="service.html">Service</a></li>
-                                <li><a href="signin.html">Sign In</a></li>
-                                <li><a href="signup.html">Sign Up</a></li>
-                                <li><a href="404.html">404</a></li>
-                                <li><a href="coming-soon.html">Coming Soon</a></li>
+                                <li><a href="/Users/Login">Sign In</a></li>
+                                <li><a href="Users/Register">Sign Up</a></li>
+                                <li><a href="/Home/Error">404</a></li>
+                                <li><a href="/Home/ComingSoon">Coming Soon</a></li>
                             </ul>
                         </li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="/Home/Contact">Contact</a></li>
                     </ul>
                 </div>
+
+                @*TODO Implement Search bar*@
+
                 <div class="nav-right-part">
                     <ul>
                         <li class="search" id="search">
@@ -152,144 +148,54 @@
         </nav>
     </div>
     <!-- navbar end -->
-    <!-- banner start -->
-    <div class="banner-area banner-style-one" style="background-image:url(assets/img/bg/1.png);">
 
-        <div class="border1"></div>
-        <div class="border2"></div>
-        <div class="border3"></div>
-        <div class="border4"></div>
-
-        <div class="banner-slider banner-slide1">
-            <div class="banner-bg-style-one">
-                <div class="container">
-                    <div class="row h-100vh">
-                        <div class="col-lg-6">
-                            <div class="banner-inner-style-one">
-                                <p data-animation-in="fadeInLeft">FUEL YOUR</p>
-                                <h1 class="title1" data-animation-in="fadeInDown"> <span class="color-main">BODY</span> FITNESS</h1>
-                                <div class="btn-wrapper" data-animation-in="fadeInUp">
-                                    <a href="/Programs/Membership" class="btn btn-slider">Be one of us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="banner-bg-style-one">
-                <div class="container">
-                    <div class="row h-100vh">
-                        <div class="col-lg-6">
-                            <div class="banner-inner-style-one">
-                                <p data-animation-in="fadeInLeft">Improve</p>
-                                <h1 class="title1" data-animation-in="fadeInDown"> <span class="color-main">Your</span> Health</h1>
-                                <div class="btn-wrapper" data-animation-in="fadeInUp">
-                                    <a href="/Programs/Membership" class="btn btn-slider">Be one of us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="banner-bg-style-one">
-                <div class="container">
-                    <div class="row h-100vh">
-                        <div class="col-lg-6">
-                            <div class="banner-inner-style-one">
-                                <p data-animation-in="fadeInLeft">Let's Change</p>
-                                <h1 class="title1" data-animation-in="fadeInDown"> <span class="color-main">Life</span> Style</h1>
-                                <div class="btn-wrapper" data-animation-in="fadeInUp">
-                                    <a href="/Programs/Membership" class="btn btn-slider">Be one of us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="banner-bg-style-one">
-                <div class="container">
-                    <div class="row h-100vh">
-                        <div class="col-lg-6">
-                            <div class="banner-inner-style-one">
-                                <p data-animation-in="fadeInLeft">Start YOUR</p>
-                                <h1 class="title1" data-animation-in="fadeInDown"> <span class="color-main">Gym</span> Classes</h1>
-                                <div class="btn-wrapper" data-animation-in="fadeInUp">
-                                    <a href="/Programs/Membership" class="btn btn-slider">Be one of us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- social icon -->
-        <ul class="social-icon">
-            <li class="icon-list">
-                <a href="https://twitter.com/officialthenx" target="_blank" class="icon-text">
-                    <i class="fa fa-twitter"></i>
-                </a>
-            </li>
-            <li class="icon-list">
-                <a href="https://www.facebook.com/OfficialTHENX" target="_blank" class="icon-text">
-                    <i class="fa fa-facebook-f"></i>
-                </a>
-            </li>
-            <li class="icon-list">
-                <a href="https://www.instagram.com/thenx/" target="_blank" class="icon-text">
-                    <i class="fa fa-instagram"></i>
-                </a>
-            </li>
-            <li class="icon-list">
-                <a href="https://www.youtube.com/user/TheMiamiTrainer/videos" target="_blank" class="icon-text">
-                    <i class="fa fa-youtube"></i>
-                </a>
-            </li>
-        </ul>
-
-        <!-- video button -->
-        <div class="cart-btn">
-            <a href="#"><i class="flaticon-cart"></i><span class="badge">3</span></a>
-        </div>
-
-        <!-- scroll down -->
-        <div class="scroll">
-            <a href="#home-about">
-                <div class="scroll-btn">
-                    <span></span>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-            </a>
-        </div>
-
-        <div class="banner-small-slider">
-            <div class="small-slider">
-                <div class="slider-image1"><img src="assets/img/home/sm-slider/1.png" alt=""></div>
-                <div class="slider-image1"><img src="assets/img/home/sm-slider/2.png" alt=""></div>
-                <div class="slider-image1"><img src="assets/img/home/sm-slider/3.png" alt=""></div>
-                <div class="slider-image1"><img src="assets/img/home/sm-slider/4.png" alt=""></div>
-            </div>
-            <div class="controler-wrapper d-none d-lg-block">
-                <div class="progressbar">
-                    <span class="home-slider-progress"></span>
-                    <span class="home-slider-progress-active"></span>
-                </div>
-                <span class="active-controler">01</span><span>/</span><span class="total-controler">04</span>
-            </div>
-        </div>
-    </div>
-    <!-- banner end -->
-
-    <div class="container">
+    <div class="container-fluid">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
+    <!-- brand-area start -->
+    <div class="brand-area margin-top-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="brand-slider">
+                        <div class="brant-item">
+                            <img src="/assets/img/brand/brand1.png" alt="brand">
+                        </div>
+                        <div class="brant-item">
+                            <img src="/assets/img/brand/brand2.png" alt="brand">
+                        </div>
+                        <div class="brant-item">
+                            <img src="/assets/img/brand/brand3.png" alt="brand">
+                        </div>
+                        <div class="brant-item">
+                            <img src="/assets/img/brand/brand4.png" alt="brand">
+                        </div>
+                        <div class="brant-item">
+                            <img src="/assets/img/brand/brand5.jpg" alt="brand">
+                        </div>
+                        <div class="brant-item">
+                            <img src="/assets/img/brand/brand1.png" alt="brand">
+                        </div>
+                        <div class="brant-item">
+                            <img src="/assets/img/brand/brand2.png" alt="brand">
+                        </div>
+                        <div class="brant-item">
+                            <img src="/assets/img/brand/brand3.png" alt="brand">
+                        </div>
+                        <div class="brant-item">
+                            <img src="/assets/img/brand/brand4.png" alt="brand">
+                        </div>
+                        <div class="brant-item">
+                            <img src="/assets/img/brand/brand5.jpg" alt="brand">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- brand-area end -->
     <!-- footer area start -->
     <footer class="footer-area footer-style-1 black-bg padding-top-160">
         <div class="footer-top padding-top-30 padding-bottom-0">
@@ -297,8 +203,8 @@
                 <div class="row">
                     <div class="col-lg-4 col-xl-4 col-md-6">
                         <div class="footer-widget widget">
-                            <a href="index.html" class="footer-logo">
-                                <img src="assets/img/footer-logo.png" alt="footer logo">
+                            <a href="/" class="footer-logo">
+                                <img src="/assets/img/logo.png" alt="footer logo">
                             </a>
                             <ul class="contact_info_list">
                                 <li class="single-info-item">
@@ -306,7 +212,7 @@
                                         <i class="flaticon-phone-call"></i>
                                     </div>
                                     <div class="details">
-                                        1900-45-20
+                                        +359888414232
                                     </div>
                                 </li>
                                 <li class="single-info-item">
@@ -314,7 +220,7 @@
                                         <i class="flaticon-placeholder"></i>
                                     </div>
                                     <div class="details">
-                                        152/02 William Streat, NYE
+                                        9 Kapitan Raicho street, Dryanovo
                                     </div>
                                 </li>
                                 <li class="single-info-item">
@@ -322,37 +228,18 @@
                                         <i class="flaticon-email"></i>
                                     </div>
                                     <div class="details">
-                                        Zarxiofitness@info.com
+                                        svetoslav.kazakov@outlook.com
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-4 col-xl-3 col-md-6">
-                        <div class="footer-widget widget">
-                            <h4 class="widget-title">Recent Post</h4>
-                            <ul class="recent_post_item">
-                                <li class="single-recent-post-item">
-                                    <div class="thumb">
-                                        <img src="assets/img/post/1.png" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <p class="title">New gym center</p>
-                                        <p class="desc">There are many variations of passages</p>
-                                    </div>
-                                </li>
-                                <li class="single-recent-post-item">
-                                    <div class="thumb">
-                                        <img src="assets/img/post/2.png" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <p class="title">Improve fitness</p>
-                                        <p class="desc">There are many variations of passages</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+
                     </div>
+
+                    @*TODO Subscribe implement*@
+
                     <div class="col-lg-4 col-xl-4 col-md-12 offset-xl-1">
                         <div class="footer-widget widget">
                             <h4 class="widget-title">Stay in Touch</h4>
@@ -371,7 +258,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="copyright-area-inner copyright-sm margin-top-30">
-                            © Zarxio 2019 All rights reserved. Powered with <i class="fa fa-heart"></i>  by <a href="https://codingeek.net/" target="_blank">Codingeek</a>
+                            © MyCalisthenicApp 2019 All rights reserved. Powered with <i class="fa fa-heart"></i>  by <a href="https://github.com/svetlyoek" target="_blank">svetlyoek</a>
                         </div>
                     </div>
                 </div>
