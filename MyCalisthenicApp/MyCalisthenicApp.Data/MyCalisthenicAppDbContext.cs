@@ -51,7 +51,6 @@
 
         public DbSet<ProgramCategory> ProgramCategories { get; set; }
 
-        public DbSet<ProgramSubCategory> ProgramSubCategories { get; set; }
 
         public DbSet<Comment> Comments { get; set; }
 

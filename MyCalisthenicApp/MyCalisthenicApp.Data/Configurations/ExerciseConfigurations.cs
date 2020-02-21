@@ -14,9 +14,9 @@
                 .HasForeignKey<Exercise>(e => e.ImageId);
 
             exercise
-                .HasOne(e => e.ProgramSubCategory)
+                .HasOne(e => e.ProgramCategory)
                 .WithMany(sc => sc.Exercises)
-                .HasForeignKey(e => e.ProgramSubCategoryId)
+                .HasForeignKey(e => e.ProgramCategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

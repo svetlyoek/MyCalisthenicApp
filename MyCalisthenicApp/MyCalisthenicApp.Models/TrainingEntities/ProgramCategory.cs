@@ -13,20 +13,24 @@
             this.IsDeleted = false;
             this.CreatedOn = DateTime.UtcNow;
             this.Comments = new HashSet<Comment>();
-            this.SubCategories = new HashSet<ProgramSubCategory>();
+            this.Exercises = new HashSet<Exercise>();
         }
 
         [Required]
         [MaxLength(DataValidations.ProgramCategoryNameMaxLength)]
         public string Name { get; set; }
 
+        [Required]
+        [MaxLength(DataValidations.ProgramCategoryDescriptionMaxLength)]
+        public string Description { get; set; }
+
         public int? LikeCount { get; set; }
 
         public virtual Program Program { get; set; }
 
-        public virtual ICollection<ProgramSubCategory> SubCategories { get; set; }
-
         public virtual ICollection<Comment> Comments { get; set; }
+
+        public virtual ICollection<Exercise> Exercises { get; set; }
 
     }
 }

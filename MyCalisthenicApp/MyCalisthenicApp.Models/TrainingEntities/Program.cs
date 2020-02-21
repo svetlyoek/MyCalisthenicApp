@@ -14,6 +14,10 @@
             this.CreatedOn = DateTime.UtcNow;
         }
 
+        [Required]
+        [MaxLength(DataValidations.ProgramTitleMaxLength)]
+        public string Title { get; set; }
+
         public ProgramType Type { get; set; }
 
         [Required]

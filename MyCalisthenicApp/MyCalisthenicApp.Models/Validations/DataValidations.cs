@@ -12,14 +12,16 @@
         #endregion
 
         #region Program validations
+        public const int ProgramTitleMaxLength = 50;
         public const int ProgramDescriptionMaxLength = 1000;
-        public const int ProgramCategoryNameMaxLength = 30;
+
         #endregion
 
-        #region Program subcategory validations
-        public const int ProgramSubCategoryNameMaxLength = 30;
-        public const int ProgramSubCategoryDescriptionMaxLength = 100;
+        #region Program category validations
+        public const int ProgramCategoryNameMaxLength = 30;
+        public const int ProgramCategoryDescriptionMaxLength = 500;
         #endregion
+
 
         #region Blog category validations
         public const int BlogCategoryNameMaxLength = 50;

@@ -102,10 +102,12 @@ namespace MyCalisthenicApp.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
@@ -152,10 +154,12 @@ namespace MyCalisthenicApp.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -452,6 +456,11 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
@@ -476,6 +485,11 @@ namespace MyCalisthenicApp.Data.Migrations
 
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(500)")
+                        .HasMaxLength(500);
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -952,7 +966,7 @@ namespace MyCalisthenicApp.Data.Migrations
                         .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
-                    b.Property<string>("ProgramSubCategoryId")
+                    b.Property<string>("ProgramCategoryId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
@@ -965,49 +979,9 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.HasIndex("ImageId")
                         .IsUnique();
 
-                    b.HasIndex("ProgramSubCategoryId");
-
-                    b.ToTable("Exercises");
-                });
-
-            modelBuilder.Entity("MyCalisthenicApp.Models.TrainingEntities.ProgramSubCategory", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("MembershipType")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(30)")
-                        .HasMaxLength(30);
-
-                    b.Property<string>("ProgramCategoryId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
                     b.HasIndex("ProgramCategoryId");
 
-                    b.ToTable("ProgramSubCategories");
+                    b.ToTable("Exercises");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -1223,17 +1197,8 @@ namespace MyCalisthenicApp.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MyCalisthenicApp.Models.TrainingEntities.ProgramSubCategory", "ProgramSubCategory")
-                        .WithMany("Exercises")
-                        .HasForeignKey("ProgramSubCategoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MyCalisthenicApp.Models.TrainingEntities.ProgramSubCategory", b =>
-                {
                     b.HasOne("MyCalisthenicApp.Models.ProgramCategory", "ProgramCategory")
-                        .WithMany("SubCategories")
+                        .WithMany("Exercises")
                         .HasForeignKey("ProgramCategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();

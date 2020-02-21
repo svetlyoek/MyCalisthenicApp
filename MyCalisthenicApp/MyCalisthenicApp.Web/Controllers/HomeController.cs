@@ -4,6 +4,7 @@
     using Microsoft.Extensions.Logging;
     using MyCalisthenicApp.Web.Models;
     using System.Diagnostics;
+    using System.Threading.Tasks;
 
     public class HomeController : Controller
     {
@@ -14,9 +15,11 @@
             _logger = logger;
         }
 
-        public IActionResult Index()
+        //TODO Make all services and methods async
+
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return await Task.Run(View);
         }
 
         public IActionResult About()
@@ -24,6 +27,21 @@
             return View();
         }
         public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult Trainer()
+        {
+            return View();
+        }
+
+        public IActionResult Program()
+        {
+            return View();
+        }
+
+        public IActionResult Membership()
         {
             return View();
         }

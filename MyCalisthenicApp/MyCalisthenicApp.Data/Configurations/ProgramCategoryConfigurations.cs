@@ -9,7 +9,7 @@
         public void Configure(EntityTypeBuilder<ProgramCategory> programCategory)
         {
             programCategory
-                .HasMany(pc => pc.SubCategories)
+                .HasMany(pc => pc.Exercises)
                 .WithOne(sc => sc.ProgramCategory)
                 .HasForeignKey(sc => sc.ProgramCategoryId)
                 .OnDelete(DeleteBehavior.Restrict);

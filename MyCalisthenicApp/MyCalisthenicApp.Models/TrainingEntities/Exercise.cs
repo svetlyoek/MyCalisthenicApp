@@ -29,9 +29,9 @@
         public string VideoUrl { get; set; }
 
         [Required]
-        public string ProgramSubCategoryId { get; set; }
+        public string ProgramCategoryId { get; set; }
 
-        public virtual ProgramSubCategory ProgramSubCategory { get; set; }
+        public virtual ProgramCategory ProgramCategory { get; set; }
 
     }
 }
