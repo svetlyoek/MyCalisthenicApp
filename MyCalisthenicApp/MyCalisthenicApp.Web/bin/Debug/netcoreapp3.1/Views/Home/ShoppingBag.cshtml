@@ -1,0 +1,367 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MyCalisthenicApp</title>
+    <!-- favicon -->
+    <link rel=icon href=/assets/img/favicon.png sizes="20x20" type="image/png">
+    <!-- animate -->
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+    <!-- Slick -->
+    <link rel="stylesheet" href="/assets/css/slick.css" />
+    <link rel="stylesheet" href="/assets/css/slick-theme.css" />
+    <!-- nice select -->
+    <link rel="stylesheet" href="/assets/css/nice-select.css">
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+    <!-- flaticon -->
+    <link rel="stylesheet" href="/assets/css/flaticon.css">
+    <!-- hamburgers -->
+    <link rel="stylesheet" href="/assets/css/hamburgers.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- responsive Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+</head>
+<body>
+
+    <!-- breadcrumb area -->
+    <div class="breadcrumb-style-1 cart-breadcrumb-overlay" style="background-image:url(/assets/img/bg/shopping-bag.png);">
+        <div class="breadcrumb-inner">
+            <h1 class="page-title">Shopping Bag</h1>
+            <ul class="page-list margin-bottom-0 margin-top-10">
+                <li><a href="/">Home</a></li>
+                <li><a href="/Home/ShoppingBag">Shopping Bag</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- breadcrumb area end -->
+    <!-- cart content start -->
+    @*Implement products here*@
+
+    <section class="cart-content-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cart-title">
+                        <h2>Product List</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="single-cart-list">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td><a href="#">X</a></td>
+                                    <td><img src="/assets/img/product-details/single-cart.png" alt=""></td>
+                                    <td><p class="font-semibold">Dumbbell variations machine</p></td>
+                                    <td><p>$120.00</p></td>
+                                    <td><p>Quantity</p></td>
+                                    <td>
+                                        <div class="input-group mb-2">
+                                            <div class="input-group-prepend">
+                                                <a class="btn btn-sm" id="minus-btn"><i class="fa fa-minus"></i></a>
+                                            </div>
+                                            <input type="number" id="qty_input" class="form-control form-control-sm" value="1" min="1">
+                                            <div class="input-group-prepend">
+                                                <a class="btn btn-sm" id="plus-btn"><i class="fa fa-plus"></i></a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">X</a></td>
+                                    <td><img src="/assets/img/product-details/cart2.png" alt=""></td>
+                                    <td><p class="font-semibold">The chest press machine</p></td>
+                                    <td><p>$820.00</p></td>
+                                    <td><p>Quantity</p></td>
+                                    <td>
+                                        <div class="input-group mb-2">
+                                            <div class="input-group-prepend">
+                                                <a class="btn btn-sm" id="minus-btn2"><i class="fa fa-minus"></i></a>
+                                            </div>
+                                            <input type="number" id="qty_input2" class="form-control form-control-sm" value="1" min="1">
+                                            <div class="input-group-prepend">
+                                                <a class="btn btn-sm" id="plus-btn2"><i class="fa fa-plus"></i></a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">X</a></td>
+                                    <td><img src="/assets/img/product-details/cart3.png" alt=""></td>
+                                    <td><p class="font-semibold">Shoulder press machine</p></td>
+                                    <td><p>$620.00</p></td>
+                                    <td><p>Quantity</p></td>
+                                    <td>
+                                        <div class="input-group mb-2">
+                                            <div class="input-group-prepend">
+                                                <a class="btn btn-sm" id="minus-btn3"><i class="fa fa-minus"></i></a>
+                                            </div>
+                                            <input type="number" id="qty_input3" class="form-control form-control-sm" value="1" min="1">
+                                            <div class="input-group-prepend">
+                                                <a class="btn btn-sm" id="plus-btn3"><i class="fa fa-plus"></i></a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">X</a></td>
+                                    <td><img src="/assets/img/product-details/cart4.png" alt=""></td>
+                                    <td><p class="font-semibold">The leg extension machine</p></td>
+                                    <td><p>$570.00</p></td>
+                                    <td><p>Quantity</p></td>
+                                    <td>
+                                        <div class="input-group mb-2">
+                                            <div class="input-group-prepend">
+                                                <a class="btn btn-sm" id="minus-btn4"><i class="fa fa-minus"></i></a>
+                                            </div>
+                                            <input type="number" id="qty_input4" class="form-control form-control-sm" value="1" min="1">
+                                            <div class="input-group-prepend">
+                                                <a class="btn btn-sm" id="plus-btn4"><i class="fa fa-plus"></i></a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="coupon-title">
+                            <h2>Have a coupon?</h2>
+                        </div>
+                        <div class="apply-coupon-form">
+                            <div class="input-group margin-top-30">
+                                <input type="text" class="form-control" placeholder="Coupon Code">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default submit-btn" type="button">Apply Coupon</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="cart-total-list">
+                        <div class="total-title">
+                            <h2>Cart totals</h2>
+                        </div>
+                        <div class="cart-price">
+                            <p>Sub Total <span class="float-right text-right">$250.00</span></p>
+                            <p>Shipping Charge <span class="float-right text-right">$25.00</span></p>
+                        </div>
+                        <div class="cart-price-total">
+                            <p>Total Price <span class="float-right text-right">$275.00</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- cart content end -->
+
+    @*Implement delivery here*@
+
+    <!-- delivery-area start -->
+    <div class="delivery-area padding-top-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="delivery-content">
+                        <div class="title">
+                            <h2>Choose delivery options</h2>
+                        </div>
+                        <div class="delivery-tab">
+                            <ul class="nav nav-pills">
+                                <li class="active"><a data-toggle="pill" href="#home" class="active"><i class="flaticon-delivery"></i> <span>Home Delivery</span></a></li>
+                                <li><a data-toggle="pill" href="#menu1"><i class="flaticon-placeholder-1"></i> <span>Pick Up Point</span> </a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div id="home" class="tab-pane fade in active show">
+                                    <h2>Enter delivery address</h2>
+                                    <div class="form-group">
+                                        <form action="#" class="form">
+                                            <div class="form-field margin-top-30 margin-bottom-30">
+                                                <label for="name">Full Name</label>
+                                                <input id="name" type="text" placeholder="Mr willium smith" class="input-form" />
+                                            </div>
+                                            <div class="form-field margin-top-30 margin-bottom-30">
+                                                <label for="phn">Phone Number</label>
+                                                <input id="phn" type="number" placeholder="+8374823 356345" class="input-form" />
+                                            </div>
+                                            <div class="form-field margin-top-30 margin-bottom-30">
+                                                <label for="phn1">Alternative phone number (Optional)</label>
+                                                <input id="phn1" type="number" placeholder="+8374823 356345" class="input-form" />
+                                            </div>
+                                            <div class="form-field margin-top-30">
+                                                <label>City</label>
+                                                <select class="select-form country_select">
+                                                    <option value="Chandpur" selected>Chandpur</option>
+                                                    <option value="Dhaka">Dhaka</option>
+                                                    <option value="Comilla">Comilla</option>
+                                                    <option value="Rajshahi">Rajshahi</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-field margin-top-30 margin-bottom-30">
+                                                <label for="address">Address</label>
+                                                <textarea id="address" cols="30" rows="5" placeholder="Iris Watson P.O. Box 283 8562 Fusce Rd. Frederick Nebraska 20620 (372) 587-2335"></textarea>
+                                            </div>
+                                            <div class="form-field margin-top-30 margin-bottom-30">
+                                                <label for="instruction">Delivery Instructions (Optional)</label>
+                                                <textarea id="instruction" cols="30" rows="5" placeholder="x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x"></textarea>
+                                            </div>
+                                            <div class="btn-wrapper">
+                                                <a href="/Home/ShoppingCart" class="btn btn-element btn-lg-size btn-main-color btn-rounded">Go To Payment</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div id="menu1" class="tab-pane fade">
+                                    <h2>Pick up point</h2>
+                                    <div class="form-group">
+                                        <form action="#" class="form">
+                                            <div class="form-field margin-top-30 margin-bottom-30">
+                                                <label for="name1">Full Name</label>
+                                                <input id="name1" type="text" placeholder="Mr willium smith" class="input-form" />
+                                            </div>
+                                            <div class="form-field margin-top-30 margin-bottom-30">
+                                                <label for="phn2">Phone Number</label>
+                                                <input id="phn2" type="number" placeholder="+8374823 356345" class="input-form" />
+                                            </div>
+                                            <div class="form-field margin-top-30 margin-bottom-30">
+                                                <label for="phn3">Alternative phone number (Optional)</label>
+                                                <input id="phn3" type="number" placeholder="+8374823 356345" class="input-form" />
+                                            </div>
+                                            <div class="form-field margin-top-30">
+                                                <label>City</label>
+                                                <select class="select-form country_select">
+                                                    <option value="Chandpur" selected>Chandpur</option>
+                                                    <option value="Dhaka">Dhaka</option>
+                                                    <option value="Comilla">Comilla</option>
+                                                    <option value="Rajshahi">Rajshahi</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-field margin-top-30 margin-bottom-30">
+                                                <label for="address2">Address</label>
+                                                <textarea id="address2" cols="30" rows="5" placeholder="Iris Watson P.O. Box 283 8562 Fusce Rd. Frederick Nebraska 20620 (372) 587-2335"></textarea>
+                                            </div>
+                                            <div class="form-field margin-top-30 margin-bottom-30">
+                                                <label for="instruction2">Delivery Instructions (Optional)</label>
+                                                <textarea id="instruction2" cols="30" rows="5" placeholder="x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x"></textarea>
+                                            </div>
+                                            <div class="btn-wrapper">
+                                                <a href="/Home/ShoppingCart" class="btn btn-element btn-lg-size btn-main-color btn-rounded">Go To Payment</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="invoice">
+                        <div class="invoice-top">
+                            <h2>Invoice # 428836 Summary</h2>
+                            <h6>Estimated Delivery : 25 - 28 July</h6>
+                        </div>
+                        <div class="invoice-bottom">
+                            <ul class="single-item">
+                                <li class="single-cart-item">
+                                    <div class="thumb">
+                                        <img src="/assets/img/product-details/cart2.png" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Elliptical Trainer<br> <span>It is one of the widely popular</span></h3>
+                                        <span>$250.00</span>
+                                    </div>
+                                    <span class="close">x</span>
+                                </li>
+                                <li class="single-cart-item">
+                                    <div class="thumb">
+                                        <img src="/assets/img/product-details/cart3.png" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Treadmill<br> <span>Cable Pulley Machines</span></h3>
+                                        <span>$250.00</span>
+                                    </div>
+                                    <span class="close">x</span>
+                                </li>
+                                <li class="single-cart-item">
+                                    <div class="thumb">
+                                        <img src="/assets/img/product-details/cart4.png" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h3>Bench Press<br> <span>Should be present in every gym</span></h3>
+                                        <span>$250.00</span>
+                                    </div>
+                                    <span class="close">x</span>
+                                </li>
+                            </ul>
+                            <div class="total">
+                                <h3>Total</h3>
+                                <p class="text-right">$1250.00</p>
+                            </div>
+                            <div class="btn-wrapper desktop-center">
+                                <a href="/Home/ShoppingCart" class="btn btn-element btn-lg-size btn-main-color btn-rounded btn-continue">Continue To Payment</a>
+                            </div>
+                            <div class="btn-wrapper desktop-center">
+                                <a href="#" class="btn btn-invoice">Cancel Invoice <i class="fa fa-long-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- delivery-area end -->
+
+    <!-- back to top area start -->
+    <div class="back-to-top">
+        <span class="back-top"><i class="fa fa-angle-up"></i></span>
+    </div>
+    <!-- back to top area end -->
+    <!-- jquery -->
+    <script src="/assets/js/jquery-2.2.4.min.js"></script>
+    <!-- popper -->
+    <script src="/assets/js/popper.min.js"></script>
+    <!-- bootstrap -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <!-- magnific popup -->
+    <script src="/assets/js/jquery.magnific-popup.js"></script>
+    <!-- wow -->
+    <script src="/assets/js/wow.min.js"></script>
+    <!-- nice select -->
+    <script src="/assets/js/nice-select.js"></script>
+    <!-- counter up -->
+    <script src="/assets/js/counter-up.js"></script>
+    <!-- owl carousel -->
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <!-- Slick -->
+    <script src="/assets/js/slick.min.js"></script>
+    <!-- Slick Animation -->
+    <script src="/assets/js/slick-animation.js"></script>
+    <!-- waypoint -->
+    <script src="/assets/js/waypoints.min.js"></script>
+    <!-- counterup -->
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <!-- imageloaded -->
+    <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+    <!-- isotope -->
+    <script src="/assets/js/isotope.pkgd.min.js"></script>
+    <!-- rProgressbar -->
+    <script src="/assets/js/jQuery.rProgressbar.min.js"></script>
+    <!-- main js -->
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>

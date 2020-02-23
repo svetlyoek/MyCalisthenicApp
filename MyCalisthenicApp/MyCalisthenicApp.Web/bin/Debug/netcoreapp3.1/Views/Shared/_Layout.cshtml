@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using  MyCalisthenicApp.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,36 +15,36 @@
     <!-- favicon -->
     <link rel=icon href=/assets/img/favicon.png sizes="20x20" type="image/png">
     <!-- animate -->
-    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="/assets/css/animate.css">
     <!-- bootstrap -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <!-- magnific popup -->
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
     <!-- Slick -->
-    <link rel="stylesheet" href="assets/css/slick.css" />
-    <link rel="stylesheet" href="assets/css/slick-theme.css" />
+    <link rel="stylesheet" href="/assets/css/slick.css" />
+    <link rel="stylesheet" href="/assets/css/slick-theme.css" />
     <!-- nice select -->
-    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <link rel="stylesheet" href="/assets/css/nice-select.css">
     <!-- owl carousel -->
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
     <!-- fontawesome -->
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
     <!-- flaticon -->
-    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="/assets/css/flaticon.css">
     <!-- hamburgers -->
-    <link rel="stylesheet" href="assets/css/hamburgers.min.css">
+    <link rel="stylesheet" href="/assets/css/hamburgers.min.css">
     <!-- hamburgers -->
-    <link rel="stylesheet" href="assets/css/hamburgers.min.css">
+    <link rel="stylesheet" href="/assets/css/hamburgers.min.css">
     <!-- twentytwenty -->
-    <link rel="stylesheet" href="assets/css/twentytwenty.css">
+    <link rel="stylesheet" href="/assets/css/twentytwenty.css">
     <!-- Date Picker -->
-    <link href="assets/css/datepicker.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/datepicker.min.css" rel="stylesheet" type="text/css">
     <!-- Time Picker -->
-    <link rel="stylesheet" href="assets/css/wickedpicker.min.css">
+    <link rel="stylesheet" href="/assets/css/wickedpicker.min.css">
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <!-- responsive Stylesheet -->
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
 </head>
 <body>
 
@@ -104,9 +110,8 @@
                             <a href="#">Shop</a>
                             <ul class="sub-menu">
                                 <li><a href="/Home/Shop">Shop</a></li>
-                                <li><a href="/Home/ShoppingCart">Shopping Cart</a></li>
-                                <li><a href="/Home/Payment">Payment</a></li>
-                                <li><a href="/Home/Checkout">Checkout</a></li>
+                                <li><a href="/Home/ShoppingBag">Shopping Bag</a></li>
+                                <li><a href="/Home/ShoppingCart">Checkout</a></li>
                             </ul>
                         </li>
                         <li>
@@ -115,11 +120,11 @@
                         <li class="menu-item-has-children">
                             <a href="#">Account</a>
                             <ul class="sub-menu">
-                                <li><a href="/Users/Login">Sign In</a></li>
-                                <li><a href="Users/Register">Sign Up</a></li>
+                                <li><a asp-area="Identity" asp-page="/Account/Login">Sign In</a></li>
+                                <li><a asp-area="Identity" asp-page="/Account/Register">Sign Up</a></li>
                             </ul>
                         </li>
-                        <li><a href="/Home/Contact">Contact</a></li>
+                        <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
                     </ul>
                 </div>
 
@@ -269,44 +274,45 @@
     </div>
     <!-- back to top area end -->
     <!-- jquery -->
-    <script src="assets/js/jquery-2.2.4.min.js"></script>
+    <script src="/assets/js/jquery-2.2.4.min.js"></script>
     <!-- popper -->
-    <script src="assets/js/popper.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
     <!-- bootstrap -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
     <!-- magnific popup -->
-    <script src="assets/js/jquery.magnific-popup.js"></script>
+    <script src="/assets/js/jquery.magnific-popup.js"></script>
     <!-- wow -->
-    <script src="assets/js/wow.min.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
     <!-- nice select -->
-    <script src="assets/js/nice-select.js"></script>
+    <script src="/assets/js/nice-select.js"></script>
     <!-- owl carousel -->
-    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/owl.carousel.min.js"></script>
     <!-- Slick -->
-    <script src="assets/js/slick.min.js"></script>
+    <script src="/assets/js/slick.min.js"></script>
     <!-- Slick Animation -->
-    <script src="assets/js/slick-animation.js"></script>
+    <script src="/assets/js/slick-animation.js"></script>
     <!-- jquery.twentytwenty -->
-    <script src="assets/js/jquery.twentytwenty.js"></script>
-    <script src="assets/js/jquery.event.move.js"></script>
+    <script src="/assets/js/jquery.twentytwenty.js"></script>
+    <script src="/assets/js/jquery.event.move.js"></script>
     <!-- waypoint -->
-    <script src="assets/js/waypoints.min.js"></script>
+    <script src="/assets/js/waypoints.min.js"></script>
     <!-- Date Picker -->
-    <script src="assets/js/datepicker.min.js"></script>
-    <script src="assets/js/datepicker.en.js"></script>
+    <script src="/assets/js/datepicker.min.js"></script>
+    <script src="/assets/js/datepicker.en.js"></script>
     <!-- Time Picker -->
-    <script src="assets/js/wickedpicker.min.js"></script>
+    <script src="/assets/js/wickedpicker.min.js"></script>
     <!-- counterup -->
-    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="/assets/js/jquery.counterup.min.js"></script>
     <!-- imageloaded -->
-    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
     <!-- isotope -->
-    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="/assets/js/isotope.pkgd.min.js"></script>
     <!-- rProgressbar -->
-    <script src="assets/js/jQuery.rProgressbar.min.js"></script>
-    <script src="assets/js/timepicker.js"></script>
+    <script src="/assets/js/jQuery.rProgressbar.min.js"></script>
+    <script src="/assets/js/timepicker.js"></script>
     <!-- main js -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/script.js"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

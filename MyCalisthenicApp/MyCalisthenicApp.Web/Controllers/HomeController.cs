@@ -55,6 +55,16 @@
             return this.View();
         }
 
+        public IActionResult ShoppingBag()
+        {
+            return View();
+        }
+
+        public IActionResult ShoppingCart()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
