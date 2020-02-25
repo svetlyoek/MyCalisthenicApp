@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MyCalisthenicApp</title>
+    <title>@ViewData["Title"] Login</title>
     <!-- favicon -->
     <link rel=icon href=/assets/img/favicon.png sizes="20x20" type="image/png">
     <!-- animate -->
@@ -38,108 +38,9 @@
     <link rel="stylesheet" href="/assets/css/responsive.css">
 </head>
 <body>
-    <!-- preloader area start -->
-    <div class="preloader" id="preloader">
-        <div class="preloader-inner">
-            <div class="spinner">
-                <div class="dot1"></div>
-                <div class="dot2"></div>
-            </div>
-        </div>
-    </div>
-    <!-- preloader area end -->
-    <!-- search Popup -->
-    <div class="body-overlay" id="body-overlay"></div>
-    <div class="search-popup" id="search-popup">
-        <form action="index.html" class="search-form">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search.....">
-            </div>
-            <button type="submit" class="submit-btn"><i class="fa fa-search"></i></button>
-        </form>
-    </div>
-    <!-- //. search Popup -->
-    <!-- navbar start -->
-    <div class="zarxio-navbar">
-        <nav class="navbar navbar-area navbar-expand-lg black-bg nav-style-02">
-            <div class="container nav-container">
-                <div class="responsive-mobile-menu">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#billatrail_main_menu"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                        <span class="bar1"></span>
-                        <span class="bar2"></span>
-                        <span class="bar3"></span>
-                    </button>
-                </div>
-                <div class="logo">
-                    <a href="/"> <img src="/assets/img/logo.png" alt="logo"></a>
-                </div>
-                <div class="collapse navbar-collapse" id="billatrail_main_menu">
-                    <ul class="navbar-nav menu-open">
-                        <li>
-                            <a href="/">Home</a>
-                        </li>
 
-                        <li class="hidden-md"><a href="/Home/About">About</a></li>
+    <partial name="~/Views/Shared/Partials/_AccountNavbarPartial.cshtml" />
 
-                        <li class="menu-item-has-children">
-                            <a href="#">Training</a>
-                            <ul class="sub-menu">
-                                <li><a href="/Home/Program">Programs</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-item-has-children">
-                            <a href="#">Trainer</a>
-                            <ul class="sub-menu">
-                                <li><a href="/Home/Trainer">Our Trainers</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="menu-item-has-children">
-                            <a href="#">Shop</a>
-                            <ul class="sub-menu">
-                                <li><a href="/Home/Shop">Shop</a></li>
-                                <li><a href="/Home/ShoppingBag">Shopping Bag</a></li>
-                                <li><a href="/Home/ShoppingCart">Checkout</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="/Home/Blog">Blog</a>
-                        </li>
-                        <li class="menu-item-has-children">
-                            <a href="#">Account</a>
-                            <ul class="sub-menu">
-                                <li><a asp-area="Identity" asp-page="/Account/Login">Sign In</a></li>
-                                <li><a asp-area="Identity" asp-page="/Account/Register">Sign Up</a></li>
-                            </ul>
-                        </li>
-                        <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    </ul>
-                </div>
-
-                @*TODO Implement Search bar*@
-
-                <div class="nav-right-part">
-                    <ul>
-                        <li class="search" id="search">
-                            <a href="#"><i class="fa fa-search"></i></a>
-                        </li>
-                        <li>
-                            <div class="hamberger-area d-none d-lg-block">
-                                <div class="menu-toggle hamburger hamburger--squeeze is-active">
-                                    <div class="hamburger-box">
-                                        <div class="hamburger-inner"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <!-- navbar end -->
     <!-- signin area start -->
     <div class="sign-area">
         <div class="container-fluid no-gutter">
@@ -186,118 +87,11 @@
         </div>
     </div>
     <!-- signin area end -->
-    <!-- brand-area start -->
-    <div class="brand-area margin-top-80">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="brand-slider">
-                        <div class="brant-item">
-                            <img src="/assets/img/brand/brand1.png" alt="brand">
-                        </div>
-                        <div class="brant-item">
-                            <img src="/assets/img/brand/brand2.png" alt="brand">
-                        </div>
-                        <div class="brant-item">
-                            <img src="/assets/img/brand/brand3.png" alt="brand">
-                        </div>
-                        <div class="brant-item">
-                            <img src="/assets/img/brand/brand4.png" alt="brand">
-                        </div>
-                        <div class="brant-item">
-                            <img src="/assets/img/brand/brand5.jpg" alt="brand">
-                        </div>
-                        <div class="brant-item">
-                            <img src="/assets/img/brand/brand1.png" alt="brand">
-                        </div>
-                        <div class="brant-item">
-                            <img src="/assets/img/brand/brand2.png" alt="brand">
-                        </div>
-                        <div class="brant-item">
-                            <img src="/assets/img/brand/brand3.png" alt="brand">
-                        </div>
-                        <div class="brant-item">
-                            <img src="/assets/img/brand/brand4.png" alt="brand">
-                        </div>
-                        <div class="brant-item">
-                            <img src="/assets/img/brand/brand5.jpg" alt="brand">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- brand-area end -->
-    <!-- footer area start -->
-    <footer class="footer-area footer-style-1 black-bg padding-top-160">
-        <div class="footer-top padding-top-30 padding-bottom-0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-xl-4 col-md-6">
-                        <div class="footer-widget widget">
-                            <a href="/" class="footer-logo">
-                                <img src="/assets/img/logo.png" alt="footer logo">
-                            </a>
-                            <ul class="contact_info_list">
-                                <li class="single-info-item">
-                                    <div class="icon">
-                                        <i class="flaticon-phone-call"></i>
-                                    </div>
-                                    <div class="details">
-                                        +359888414232
-                                    </div>
-                                </li>
-                                <li class="single-info-item">
-                                    <div class="icon">
-                                        <i class="flaticon-placeholder"></i>
-                                    </div>
-                                    <div class="details">
-                                        9 Kapitan Raicho street, Dryanovo
-                                    </div>
-                                </li>
-                                <li class="single-info-item">
-                                    <div class="icon">
-                                        <i class="flaticon-email"></i>
-                                    </div>
-                                    <div class="details">
-                                        svetoslav.kazakov@outlook.com
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-xl-3 col-md-6">
 
-                    </div>
+    <partial name="~/Views/Shared/Partials/_BrandAreaPartial.cshtml" />
 
-                    @*TODO Subscribe implement*@
+    <partial name="~/Views/Shared/Partials/_FooterPartial.cshtml" />
 
-                    <div class="col-lg-4 col-xl-4 col-md-12 offset-xl-1">
-                        <div class="footer-widget widget">
-                            <h4 class="widget-title">Stay in Touch</h4>
-                            <p class="description">Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis</p>
-                            <div class="subscribe-form">
-                                <div class="input-group margin-top-30">
-                                    <input type="text" class="form-control" action="post" name="email" placeholder="Enter your email address">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default submit-btn" type="button">Subscribe</button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="copyright-area-inner copyright-sm margin-top-30">
-                            © MyCalisthenicApp 2019 All rights reserved. Powered with <i class="fa fa-heart"></i>  by <a href="https://github.com/svetlyoek" target="_blank">svetlyoek</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- footer area end -->
     <!-- back to top area start -->
     <div class="back-to-top">
         <span class="back-top"><i class="fa fa-angle-up"></i></span>

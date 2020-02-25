@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using MyCalisthenicApp.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item">
+        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+        </form>
+    </li>
+}
+
+else
+{
+    <li class="menu-item-has-children">
+        <a href="#">Account</a>
+        <ul class="sub-menu">
+            <li><a asp-area="Identity" asp-page="/Account/Login">Sign In</a></li>
+            <li><a asp-area="Identity" asp-page="/Account/Register">Sign Up</a></li>
+        </ul>
+    </li>
+}
+

@@ -1,0 +1,108 @@
+﻿ <!-- preloader area start -->
+<div class="preloader" id="preloader">
+    <div class="preloader-inner">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </div>
+</div>
+<!-- preloader area end -->
+<!-- search Popup -->
+<div class="body-overlay" id="body-overlay"></div>
+<div class="search-popup" id="search-popup">
+    <form action="index.html" class="search-form">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search.....">
+        </div>
+        <button type="submit" class="submit-btn"><i class="fa fa-search"></i></button>
+    </form>
+</div>
+<!-- //. search Popup -->
+<!-- navbar start -->
+<div class="calisthenic-navbar">
+    <nav class="navbar navbar-area navbar-expand-lg nav-style-01">
+        <div class="container nav-container">
+            <div class="responsive-mobile-menu">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#billatrail_main_menu"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="bar1"></span>
+                    <span class="bar2"></span>
+                    <span class="bar3"></span>
+                </button>
+            </div>
+            <div class="logo">
+                <a asp-controller="Home" asp-action="Index"> <img src="/assets/img/logo.png" alt="logo"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="billatrail_main_menu">
+                <ul class="navbar-nav menu-open">
+                    <li>
+                        <a asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+
+                    <li class="hidden-md"><a asp-controller="Home" asp-action="About">About</a></li>
+
+                    <li class="menu-item-has-children">
+                        <a href="#">Training</a>
+                        <ul class="sub-menu">
+                            <li><a asp-controller="Home" asp-action="Program">Programs</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">Trainer</a>
+                        <ul class="sub-menu">
+                            <li><a asp-controller="Home" asp-action="Trainer">Our Trainers</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item-has-children">
+                        <a href="#">Shop</a>
+                        <ul class="sub-menu">
+                            <li><a asp-controller="Home" asp-action="Shop">Shop</a></li>
+                            <li><a asp-controller="Home" asp-action="ShoppingBag">Shopping Bag</a></li>
+                            <li><a asp-controller="Home" asp-action="ShoppingCart">Checkout</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a asp-controller="Home" asp-action="Blog">Blog</a>
+                    </li>
+
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="Administrator" asp-controller="Home" asp-action="Index"></a>
+                        </li>
+                    }
+
+                    else
+                    {
+                        <partial name="~/Views/Shared/Partials/_AccountPartial.cshtml"/>
+                    }
+
+                    <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+                </ul>
+            </div>
+
+            @*TODO Implement Search bar*@
+
+            <div class="nav-right-part">
+                <ul>
+                    <li class="search" id="search">
+                        <a href="#"><i class="fa fa-search"></i></a>
+                    </li>
+                    <li>
+                        <div class="hamberger-area d-none d-lg-block">
+                            <div class="menu-toggle hamburger hamburger--squeeze is-active">
+                                <div class="hamburger-box">
+                                    <div class="hamburger-inner"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- navbar end -->

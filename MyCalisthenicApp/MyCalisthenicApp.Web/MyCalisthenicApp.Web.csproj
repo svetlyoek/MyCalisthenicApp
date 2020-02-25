@@ -188,10 +188,31 @@
     <Content Update="Views\Shared\Error.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="Views\Shared\_Layout.cshtml">
+    <Content Update="Views\Shared\Layouts\_Layout.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="Views\Shared\_LoginPartial.cshtml">
+    <Content Update="Views\Shared\Partials\_AccountNavbarPartial.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Shared\Partials\_AccountPartial.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Shared\Partials\_BrandAreaPartial.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Shared\Partials\_ExploreMembershipPartial.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Shared\Partials\_FooterPartial.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Shared\Partials\_NavbarPartial.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Shared\Partials\_OurExpertPartial.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Shared\Components\SideBar\Default.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="Views\Shared\_ValidationScriptsPartial.cshtml">

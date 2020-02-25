@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MyCalisthenicApp</title>
+    <title>@ViewData["Title"] Blog</title>
     <!-- favicon -->
     <link rel=icon href=/assets/img/favicon.png sizes="20x20" type="image/png">
     <!-- animate -->
@@ -36,7 +36,7 @@
 
 </head>
 <body>
-   
+
     <!-- breadcrumb area -->
     <div class="breadcrumb-style-1 blog-breadcrumb-overlay" style="background-image:url(/assets/img/blog/bg.png);">
         <div class="breadcrumb-inner">
@@ -61,44 +61,44 @@
                                         <div class="blog-item-inner">
                                             <div class="blog-detail">
                                                 <div class="blog-meta">
-                                                    <h6>Dec 7, 2019<span class="float-right text-right"><a href="/Blogs/Details">Admin</a></span></h6>
+                                                    <h6><a href="#">Dec 7, 2019</a><span class="float-right text-right"><a asp-controller="Blogs" asp-action="Details">Admin</a></span></h6>
                                                 </div>
-                                                <h5><a href="/Blogs/Details">Best Cardio Gym</a></h5>
+                                                <h5><a asp-controller="Blogs" asp-action="Details">Best Cardio Gym</a></h5>
                                                 <p>Sometimes ‘short and sweet’ workouts are all you need. If you've done a HIIT workout before you would agree.</p>
-                                                <a href="/Blogs/Details" class="blog-more">Read More</a>
+                                                <a asp-controller="Blogs" asp-action="Details" class="blog-more">Read More</a>
                                             </div>
                                             <div class="blog-img">
-                                                <img src="/assets/img/blog/blog-sm-item.png" alt="">
+                                                <img src="assets/img/blog/blog-sm-item.png" alt="">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="blog-item-inner">
                                             <div class="blog-img">
-                                                <img src="/assets/img/blog/blog-lg-item.png" alt="">
+                                                <img src="assets/img/blog/blog-lg-item.png" alt="">
                                             </div>
                                             <div class="blog-detail">
                                                 <div class="blog-meta">
-                                                    <h6 class="d-flex">Oct 7, 2019<a href="/Blogs/Details">Admin</a><a href="/Blogs/Details">3 Comments</a></h6>
+                                                    <h6 class="d-flex"><a asp-controller="Blogs" asp-action="Details">Oct 7, 2019</a><a asp-controller="Blogs" asp-action="Details">Admin</a><a asp-controller="Blogs" asp-action="Details">3 Comments</a></h6>
                                                 </div>
-                                                <h5><a href="blog-details.html">Best Cardio Exercises</a></h5>
+                                                <h5><a asp-controller="Blogs" asp-action="Details">Best Cardio Exercises</a></h5>
                                                 <p>Sometimes ‘short and sweet’ workouts are all you need. If you've done a HIIT workout before you would agree. Prepared do an dissuade be.</p>
-                                                <a href="/Blogs/Details" class="blog-more">Read More</a>
+                                                <a asp-controller="Blogs" asp-action="Details" class="blog-more">Read More</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="blog-item-inner">
                                             <div class="blog-img">
-                                                <img src="/assets/img/blog/blog-lg-item.png" alt="">
+                                                <img src="assets/img/blog/blog-lg-item.png" alt="">
                                             </div>
                                             <div class="blog-detail">
                                                 <div class="blog-meta">
-                                                    <h6 class="d-flex">Oct 09, 2019<a href="/Blogs/Details">Admin</a><a href="/Blogs/Details">3 Comments</a></h6>
+                                                    <h6 class="d-flex"><a asp-controller="Blogs" asp-action="Details">Oct 09, 2019</a><a asp-controller="Blogs" asp-action="Details">Admin</a><a asp-controller="Blogs" asp-action="Details">3 Comments</a></h6>
                                                 </div>
-                                                <h5><a href="/Blogs/Details">Best Cardio Exercises</a></h5>
+                                                <h5><a asp-controller="Blogs" asp-action="Details">Best Cardio Exercises</a></h5>
                                                 <p>Sometimes ‘short and sweet’ workouts are all you need. If you've done a HIIT workout before you would agree. Prepared do an dissuade be.</p>
-                                                <a href="/Blogs/Details" class="blog-more">Read More</a>
+                                                <a asp-controller="Blogs" asp-action="Details" class="blog-more">Read More</a>
                                             </div>
                                         </div>
                                     </div>
@@ -106,14 +106,14 @@
                                         <div class="blog-item-inner">
                                             <div class="blog-detail">
                                                 <div class="blog-meta">
-                                                    <h6>Sept 07, 2019<span class="float-right text-right"><a href="/Blogs/Details">Admin</a></span></h6>
+                                                    <h6><a asp-controller="Blogs" asp-action="Details">Sept 07, 2019</a><span class="float-right text-right"><a asp-controller="Blogs" asp-action="Details">Admin</a></span></h6>
                                                 </div>
-                                                <h5><a href="/Blogs/Details">Something new</a></h5>
+                                                <h5><a href="blog-details.html">Something new</a></h5>
                                                 <p>Sometimes ‘short and sweet’ workouts are all you need. If you've done a HIIT workout before you would agree.</p>
-                                                <a href="/Blogs/Details" class="blog-more">Read More</a>
+                                                <a asp-controller="Blogs" asp-action="Details" class="blog-more">Read More</a>
                                             </div>
                                             <div class="blog-img">
-                                                <img src="/assets/img/blog/blog-sm-item.png" alt="">
+                                                <img src="assets/img/blog/blog-sm-item.png" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -121,29 +121,29 @@
                                         <div class="blog-item-inner">
                                             <div class="blog-detail">
                                                 <div class="blog-meta">
-                                                    <h6>Oct 07, 2019<span class="float-right text-right"><a href="/Blogs/Details">Admin</a></span></h6>
+                                                    <h6><a asp-controller="Blogs" asp-action="Details">Oct 07, 2019</a><span class="float-right text-right"><a asp-controller="Blogs" asp-action="Details">Admin</a></span></h6>
                                                 </div>
-                                                <h5><a href="/Blogs/Details">Make healthy life</a></h5>
+                                                <h5><a asp-controller="Blogs" asp-action="Details">Make healthy life</a></h5>
                                                 <p>Sometimes ‘short and sweet’ workouts are all you need. If you've done a HIIT workout before you would agree.</p>
-                                                <a href="/Blogs/Details" class="blog-more">Read More</a>
+                                                <a asp-controller="Blogs" asp-action="Details" class="blog-more">Read More</a>
                                             </div>
                                             <div class="blog-img">
-                                                <img src="/assets/img/blog/blog-sm-item.png" alt="">
+                                                <img src="assets/img/blog/blog-sm-item.png" alt="">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="blog-item-inner">
                                             <div class="blog-img">
-                                                <img src="/assets/img/blog/blog-lg-item.png" alt="">
+                                                <img src="assets/img/blog/blog-lg-item.png" alt="">
                                             </div>
                                             <div class="blog-detail">
                                                 <div class="blog-meta">
-                                                    <h6 class="d-flex">Oct 7, 2019<a href="/Blogs/Details">Admin</a><a href="/Blogs/Details">3 Comments</a></h6>
+                                                    <h6 class="d-flex"><a asp-controller="Blogs" asp-action="Details">Oct 7, 2019</a><a asp-controller="Blogs" asp-action="Details">Admin</a><a asp-controller="Blogs" asp-action="Details">3 Comments</a></h6>
                                                 </div>
-                                                <h5><a href="/Blogs/Details">Best Cardio Exercises</a></h5>
+                                                <h5><a asp-controller="Blogs" asp-action="Details">Best Cardio Exercises</a></h5>
                                                 <p>Sometimes ‘short and sweet’ workouts are all you need. If you've done a HIIT workout before you would agree. Prepared do an dissuade be.</p>
-                                                <a href="/Blogs/Details" class="blog-more">Read More</a>
+                                                <a asp-controller ="Blogs" asp-action="Details" class="blog-more">Read More</a>
                                             </div>
                                         </div>
                                     </div>
@@ -152,78 +152,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="blog-right-content widget-area sidebar">
-                        <div class="widget widget_search">
-                            <form class="search-form">
-                                <div class="form-group">
-                                    <input type="text" name="search" class="form-control" placeholder="Search here">
-                                </div>
-                                <button class="submit-btn" type="submit"><i class="fa fa-search"></i></button>
-                            </form>
-                        </div>
-                        <div class="widget latest-post-widget">
-                            <div class="eidget-title">
-                                <h1>Latest posts</h1>
-                            </div>
-                            <div class="share-img-item">
-                                <div class="img-part">
-                                    <a href="/Blogs/Details"><img src="/assets/img/blog/latest-post.png" alt=""></a>
-                                </div>
-                                <div class="content-part">
-                                    <h4>People new gym center</h4>
-                                    <span class="text">There are many variations of passages of Lorem Ipsum</span>
-                                </div>
-                            </div>
-                            <div class="share-img-item">
-                                <div class="img-part">
-                                    <a href="/Blogs/Details"><img src="/assets/img/blog/post2.png" alt=""></a>
-                                </div>
-                                <div class="content-part">
-                                    <h4>Just like a stability ball</h4>
-                                    <span class="text">There are many variations of passages of Lorem Ipsum</span>
-                                </div>
-                            </div>
-                            <div class="share-img-item">
-                                <div class="img-part">
-                                    <a href="/Blogs/Details"><img src="/assets/img/blog/post3.png" alt=""></a>
-                                </div>
-                                <div class="content-part">
-                                    <h4>Cable Pulley Machines</h4>
-                                    <span class="text">There are many variations of passages of Lorem Ipsum</span>
-                                </div>
-                            </div>
-                            <div class="share-img-item">
-                                <div class="img-part">
-                                    <a href="/Blogs/Details"><img src="/assets/img/blog/post4.png" alt=""></a>
-                                </div>
-                                <div class="content-part">
-                                    <h4>Train different parts</h4>
-                                    <span class="text">There are many variations of passages of Lorem Ipsum</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="widget">
-                            <div class="thumb only-thumb">
-                                <img src="/assets/img/blog/big-thumb.png" alt="">
-                            </div>
-                        </div>
-                       
-                        @*Redirect to categories*@
 
-                        <div class="widget widget_categories">
-                            <h5 class="widget-title">Categories</h5>
-                            <ul class="cat-menu">
-                                <li><a href="#">How to</a></li>
-                                <li><a href="#">Beginner Calisthenics</a></li>
-                                <li><a href="#">Advanced Calisthenics</a></li>
-                                <li><a href="#">Motivation</a></li>
-                                <li><a href="#">Skills/Technique</a></li>
-                                <li><a href="#">Workout/Training</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @await Component.InvokeAsync("SideBar")
+
             </div>
         </div>
     </div>
