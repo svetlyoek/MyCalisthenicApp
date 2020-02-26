@@ -1,11 +1,17 @@
-﻿<!DOCTYPE html>
+﻿@model ContactRequestInputViewModel
+
+@{ 
+    ViewData["Title"] = "Contact";
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MyCalisthenicApp</title>
+    <title>@ViewData["Title"]</title>
     <!-- favicon -->
     <link rel=icon href=/assets/img/favicon.png sizes="20x20" type="image/png">
     <!-- animate -->
@@ -40,8 +46,8 @@
         <div class="breadcrumb-inner">
             <h1 class="page-title">Contact us</h1>
             <ul class="page-list">
-                <li><a href="/">Home</a></li>
-                <li><a href="/Home/Contact">Contact Us</a></li>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Home" asp-action="Contact">Contact Us</a></li>
             </ul>
         </div>
     </div>
@@ -58,22 +64,22 @@
                                 <p class="subtitle">If you got any questions, or you just want to say hello to us feel free to send us a message</p>
                             </div>
                         </div>
-                        <div class="col-lg-10 offset-lg-1">
-                            <form class="contact-form" action="post" name="registration">
-                                <div class="form-row">
+                        <div  class="col-lg-10 offset-lg-1">
+                            <form  asp-controller="Home" asp-action="Contact" class="contact-form" method="post" name="registration">
+                                <div asp-validation-summary="All" class="form-row">
                                     <div class="form-group form-field col-md-4">
-                                        <input type="text" name="firstname" id="firstname" class="form-control input-form" placeholder="Your Name">
+                                        <input asp-for="FullName" type="text" id="firstname" class="form-control input-form" placeholder="Your Full Name">
                                     </div>
                                     <div class="form-group form-field col-md-4">
-                                        <input type="email" class="form-control input-form" name="email" id="email" placeholder="Email" data-required="text" data-required-email="email">
+                                        <input asp-for="Email" type="email" class="form-control input-form" id="email" placeholder="Email" data-required="text" data-required-email="email">
                                     </div>
                                     <div class="form-group form-field col-md-4">
-                                        <input type="number" class="form-control input-form" name="number" id="number" placeholder="Phone Number">
+                                        <input asp-for="PhoneNumber" type="text" class="form-control input-form"  id="number" placeholder="Phone Number">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="form-field margin-bottom-30">
-                                        <textarea name="message" id="message" id="thought" cols="30" rows="5" placeholder="Write message" data-required="text"></textarea>
+                                <div  class="form-group">
+                                    <div asp-validation-summary="All" class="form-field margin-bottom-30">
+                                        <textarea asp-for="Message" name="message" id="message" id="thought" cols="30" rows="5" placeholder="Write message" data-required="text"></textarea>
                                     </div>
                                 </div>
                                 <div class="btn-wrapper desktop-center margin-bottom-10">

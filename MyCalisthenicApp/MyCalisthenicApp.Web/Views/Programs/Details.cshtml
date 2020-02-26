@@ -1,11 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewData["Title"] = "Program-Details";
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MyCalisthenicApp</title>
+    <title>@ViewData["Title"]</title>
     <!-- favicon -->
     <link rel=icon href=/assets/img/favicon.png sizes="20x20" type="image/png">
     <!-- animate -->
@@ -39,8 +42,8 @@
         <div class="breadcrumb-inner">
             <h1 class="page-title">Program Details</h1>
             <ul class="page-list margin-bottom-0 margin-top-3">
-                <li><a href="/">Home</a></li>
-                <li><a href="/Programs/Details">Program Details</a></li>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Programs" asp-action="Details">Program Details</a></li>
             </ul>
         </div>
     </div>
@@ -157,12 +160,12 @@
                                             <h2 class="margin-top-25">
 
                                                 <span class="rating ml-0">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                    </span>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-half-o"></i>
+                                                </span>
                                             </h2>
                                             <div class="element-progress-bar pagination-progressbar">
                                                 <div class="d-flex">
@@ -274,41 +277,11 @@
                                                     </li>
                                                 </ul>
                                                 <div id="respond" class="comment-respond">
-                                                  
+
                                                     <h3 class="comment-reply-title">Leave a review</h3>
 
-                                                    <form id="comment_form" class="commentform">
-                                                        <h2 class="margin-top-25 margin-bottom-25">
+                                                   @await  Component.InvokeAsync("Comment")
 
-                                                            <span class="rating ml-0">
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                            </span>
-                                                        </h2>
-                                                        <div class="form-group margin-bottom-30">
-                                                            <textarea name="comment" id="comment" class="form-control w-100" cols="30" rows="9"></textarea>
-                                                        </div>
-                                                        <div class="row margin-bottom-13">
-                                                            <div class="col-sm-4">
-                                                                <div class="form-group">
-                                                                    <input type="text" id="author" name="author" value="" class="form-control" placeholder="Write your name">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <div class="form-group">
-                                                                    <input type="email" class="form-control" name="email" id="email" value="" placeholder="Enter your email">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <p class="form-submit">
-                                                                    <input name="submit" type="submit" id="submit" value="Submit Comment">
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -326,7 +299,7 @@
                                 </div>
                             </div>
 
-                         @*Redirect to programs categories*@
+                            @*Redirect to programs categories*@
 
                             <div class="widget widget_categories">
                                 <h5 class="widget-title">Categories</h5>
@@ -435,90 +408,9 @@
         </div>
     </div>
     <!-- home trainer end -->
-    <!-- client start -->
-    <div class="client-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title title-padding-bottom text-center">
-                        <p class="subtitle">Calisthenic Testimonial</p>
-                        <h1 class="title">Our Clients Say's</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="owl-carousel owl-theme">
-            <div class="item quote-style-1">
-                <div class="thumb">
-                    <img src="/assets/img/home/client/1.jpg" alt="client">
-                </div>
-                <div class="content">
-                    <h1>Arpita paul</h1>
-                    <p>"Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae libero. Nulla interdum erat nec tincidunt"</p>
-                </div>
-            </div>
-            <div class="item quote-style-1">
-                <div class="thumb">
-                    <img src="/assets/img/home/client/2.jpg" alt="client">
-                </div>
-                <div class="content">
-                    <h1>Susmita sen</h1>
-                    <p>"Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae libero. Nulla interdum erat nec tincidunt"</p>
-                </div>
-            </div>
-            <div class="item quote-style-1">
-                <div class="thumb">
-                    <img src="/assets/img/home/client/3.jpg" alt="client">
-                </div>
-                <div class="content">
-                    <h1>Dipa talukdar</h1>
-                    <p>"Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae libero. Nulla interdum erat nec tincidunt"</p>
-                </div>
-            </div>
-            <div class="item quote-style-1">
-                <div class="thumb">
-                    <img src="/assets/img/home/client/4.jpg" alt="client">
-                </div>
-                <div class="content">
-                    <h1>Sharifur Rahman</h1>
-                    <p>"Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae libero. Nulla interdum erat nec tincidunt"</p>
-                </div>
-            </div>
-            <div class="item quote-style-1">
-                <div class="thumb">
-                    <img src="/assets/img/home/client/7.jpg" alt="client">
-                </div>
-                <div class="content">
-                    <h1>Asaduzzaman</h1>
-                    <p>"Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae libero. Nulla interdum erat nec tincidunt"</p>
-                </div>
-            </div>
-            <div class="item quote-style-1">
-                <div class="thumb">
-                    <img src="/assets/img/home/client/6.jpg" alt="client">
-                </div>
-                <div class="content">
-                    <h1>Azharul Islam</h1>
-                    <p>"Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae libero. Nulla interdum erat nec tincidunt"</p>
-                </div>
-            </div>
-            <div class="item quote-style-1">
-                <div class="thumb">
-                    <img src="/assets/img/home/client/3.jpg" alt="client">
-                </div>
-                <div class="content">
-                    <h1>Jimmy H. Hines</h1>
-                    <p>"Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae libero. Nulla interdum erat nec tincidunt"</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- client end -->
-    <!-- back to top area start -->
-    <div class="back-to-top">
-        <span class="back-top"><i class="fa fa-angle-up"></i></span>
-    </div>
-    <!-- back to top area end -->
+
+    <partial name="~/Views/Shared/Partials/_OurClientsSayPartial.cshtml" />
+
     <!-- jquery -->
     <script src="/assets/js/jquery-2.2.4.min.js"></script>
     <!-- popper -->

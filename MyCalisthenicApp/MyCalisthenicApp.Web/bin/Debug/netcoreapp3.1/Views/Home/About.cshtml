@@ -1,11 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    ViewData["Title"] = "About";
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@ViewData["Title"] About</title>
+    <title>@ViewData["Title"]</title>
     <!-- favicon -->
     <link rel=icon href=/assets/img/favicon.png sizes="20x20" type="image/png">
     <!-- animate -->
@@ -38,8 +42,8 @@
         <div class="breadcrumb-inner">
             <h1 class="page-title">About us</h1>
             <ul class="page-list">
-                <li><a href="/">Home</a></li>
-                <li><a href="/Home/About">About Us</a></li>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Home" asp-action="About">About Us</a></li>
             </ul>
         </div>
     </div>

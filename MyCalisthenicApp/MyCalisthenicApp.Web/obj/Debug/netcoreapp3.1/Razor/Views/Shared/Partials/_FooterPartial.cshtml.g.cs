@@ -26,8 +26,22 @@ using MyCalisthenicApp.Web.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using MyCalisthenicApp.Web.ViewModels.Home;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using MyCalisthenicApp.Web.ViewModels.Blogs;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8f32d58eb16cad4d13992fe20aa9258cd18de576", @"/Views/Shared/Partials/_FooterPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"31b05da6bebe63efbdbf0cc1765d09bf7b12e39a", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"130a4f893102487b0e9f119fdba2626b7b2c29c5", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Partials__FooterPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Home", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -65,7 +79,7 @@ using MyCalisthenicApp.Web.Models;
                 <div class=""col-lg-4 col-xl-4 col-md-6"">
                     <div class=""footer-widget widget"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f32d58eb16cad4d13992fe20aa9258cd18de5764563", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f32d58eb16cad4d13992fe20aa9258cd18de5765012", async() => {
                 WriteLiteral("\r\n                            <img src=\"/assets/img/logo.png\" alt=\"footer logo\">\r\n                        ");
             }
             );

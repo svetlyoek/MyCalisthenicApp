@@ -1,11 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewData["Title"] = "Shop";
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MyCalisthenicApp</title>
+    <title>@ViewData["Title"]</title>
     <!-- favicon -->
     <link rel=icon href=/assets/img/favicon.png sizes="20x20" type="image/png">
     <!-- animate -->
@@ -40,8 +43,8 @@
         <div class="breadcrumb-inner">
             <h1 class="page-title">Shop</h1>
             <ul class="page-list margin-bottom-10">
-                <li><a href="/">Home</a></li>
-                <li><a href="/Home/Shop">Shop</a></li>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a  asp-controller="Home" asp-action="Shop">Shop</a></li>
             </ul>
         </div>
     </div>
@@ -81,319 +84,314 @@
                 </div>
             </div>
         </div>
-            <!-- search banner end -->
+        <!-- search banner end -->
+        @*TODO Implement Products here*@
 
-            @*TODO Implement Products here*@
-
-    <div class="row shopping-slider-item text-center">
-        <div class="col-md-3">
-            <div class="shop-single-item margin-bottom-50">
-                <div class="top-content">
-                    <div class="thumb">
-                        <img src="/assets/img/home/shopping/12.png" alt="shopping">
-                    </div>
-                    <div class="hover-content">
-                        <div class="btn-wrapper desktop-center">
-                            <a href="/Products/Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
+        <div class="row shopping-slider-item text-center">
+            <div class="col-md-3">
+                <div class="shop-single-item margin-bottom-50">
+                    <div class="top-content">
+                        <div class="thumb">
+                            <img src="/assets/img/home/shopping/12.png" alt="shopping">
+                        </div>
+                        <div class="hover-content">
+                            <div class="btn-wrapper desktop-center">
+                                <a  asp-controller="Products" asp-action="Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
+                            </div>
                         </div>
                     </div>
+                    <div class="bottom-content">
+                        <p class="subtitle">Fitness, Accessories</p>
+                        <h3>Free Dumbbell Ball</h3>
+                        <p class="price">
+                            <ins>
+                                <span class="woocommerce-Price-amount amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>34.00
+                                </span>
+                            </ins>
+                        </p>
+                    </div>
                 </div>
-                <div class="bottom-content">
-                    <p class="subtitle">Fitness, Accessories</p>
-                    <h3>Free Dumbbell Ball</h3>
-                    <p class="price">
-                        <ins>
-                            <span class="woocommerce-Price-amount amount">
-                                <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                            </span>
-                        </ins>
-                    </p>
+            </div>
+            <div class="col-md-3">
+                <div class="shop-single-item margin-bottom-50">
+                    <div class="top-content">
+                        <div class="thumb">
+                            <img src="/assets/img/home/shopping/1.png" alt="shopping">
+                        </div>
+                        <div class="hover-content">
+                            <div class="btn-wrapper desktop-center">
+                                <a asp-controller="Products" asp-action="Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-content">
+                        <p class="subtitle">Fitness, Accessories</p>
+                        <h3>Incline Bench Press</h3>
+                        <p class="price">
+                            <ins>
+                                <span class="woocommerce-Price-amount amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>34.00
+                                </span>
+                            </ins>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="shop-single-item margin-bottom-50">
+                    <div class="top-content">
+                        <div class="thumb">
+                            <img src="/assets/img/home/shopping/1.png" alt="shopping">
+                        </div>
+                        <div class="hover-content">
+                            <div class="btn-wrapper desktop-center">
+                                <a asp-controller="Products" asp-action="Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-content">
+                        <p class="subtitle">Fitness, Accessories</p>
+                        <h3>Incline Bench Press</h3>
+                        <p class="price">
+                            <ins>
+                                <span class="woocommerce-Price-amount amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>34.00
+                                </span>
+                            </ins>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="shop-single-item margin-bottom-50">
+                    <div class="top-content">
+                        <div class="thumb">
+                            <img src="/assets/img/home/shopping/1.png" alt="shopping">
+                        </div>
+                        <div class="hover-content">
+                            <div class="btn-wrapper desktop-center">
+                                <a asp-controller="Products" asp-action="Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-content">
+                        <p class="subtitle">Fitness, Accessories</p>
+                        <h3>Incline Bench Press</h3>
+                        <p class="price">
+                            <ins>
+                                <span class="woocommerce-Price-amount amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>34.00
+                                </span>
+                            </ins>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="shop-single-item margin-bottom-50">
+                    <div class="top-content">
+                        <div class="thumb">
+                            <img src="/assets/img/home/shopping/1.png" alt="shopping">
+                        </div>
+                        <div class="hover-content">
+                            <div class="btn-wrapper desktop-center">
+                                <a asp-controller="Products" asp-action="Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-content">
+                        <p class="subtitle">Fitness, Accessories</p>
+                        <h3>Incline Bench Press</h3>
+                        <p class="price">
+                            <ins>
+                                <span class="woocommerce-Price-amount amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>34.00
+                                </span>
+                            </ins>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="shop-single-item margin-bottom-50">
+                    <div class="top-content">
+                        <div class="thumb">
+                            <img src="/assets/img/home/shopping/1.png" alt="shopping">
+                        </div>
+                        <div class="hover-content">
+                            <div class="btn-wrapper desktop-center">
+                                <a asp-controller="Products" asp-action="Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-content">
+                        <p class="subtitle">Fitness, Accessories</p>
+                        <h3>Incline Bench Press</h3>
+                        <p class="price">
+                            <ins>
+                                <span class="woocommerce-Price-amount amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>34.00
+                                </span>
+                            </ins>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="shop-single-item margin-bottom-50">
+                    <div class="top-content">
+                        <div class="thumb">
+                            <img src="/assets/img/home/shopping/1.png" alt="shopping">
+                        </div>
+                        <div class="hover-content">
+                            <div class="btn-wrapper desktop-center">
+                                <a asp-controller="Products" asp-action="Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-content">
+                        <p class="subtitle">Fitness, Accessories</p>
+                        <h3>Incline Bench Press</h3>
+                        <p class="price">
+                            <ins>
+                                <span class="woocommerce-Price-amount amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>34.00
+                                </span>
+                            </ins>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="shop-single-item margin-bottom-50">
+                    <div class="top-content">
+                        <div class="thumb">
+                            <img src="/assets/img/home/shopping/1.png" alt="shopping">
+                        </div>
+                        <div class="hover-content">
+                            <div class="btn-wrapper desktop-center">
+                                <a asp-controller="Products" asp-action="Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-content">
+                        <p class="subtitle">Fitness, Accessories</p>
+                        <h3>Incline Bench Press</h3>
+                        <p class="price">
+                            <ins>
+                                <span class="woocommerce-Price-amount amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>34.00
+                                </span>
+                            </ins>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="shop-single-item margin-bottom-50">
+                    <div class="top-content">
+                        <div class="thumb">
+                            <img src="/assets/img/home/shopping/1.png" alt="shopping">
+                        </div>
+                        <div class="hover-content">
+                            <div class="btn-wrapper desktop-center">
+                                <a asp-controller="Products" asp-action="Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-content">
+                        <p class="subtitle">Fitness, Accessories</p>
+                        <h3>Incline Bench Press</h3>
+                        <p class="price">
+                            <ins>
+                                <span class="woocommerce-Price-amount amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>34.00
+                                </span>
+                            </ins>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="shop-single-item margin-bottom-50">
+                    <div class="top-content">
+                        <div class="thumb">
+                            <img src="/assets/img/home/shopping/1.png" alt="shopping">
+                        </div>
+                        <div class="hover-content">
+                            <div class="btn-wrapper desktop-center">
+                                <a asp-controller="Products" asp-action="Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-content">
+                        <p class="subtitle">Fitness, Accessories</p>
+                        <h3>Incline Bench Press</h3>
+                        <p class="price">
+                            <ins>
+                                <span class="woocommerce-Price-amount amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>34.00
+                                </span>
+                            </ins>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="shop-single-item margin-bottom-50">
+                    <div class="top-content">
+                        <div class="thumb">
+                            <img src="/assets/img/home/shopping/1.png" alt="shopping">
+                        </div>
+                        <div class="hover-content">
+                            <div class="btn-wrapper desktop-center">
+                                <a asp-controller="Products" asp-action="Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-content">
+                        <p class="subtitle">Fitness, Accessories</p>
+                        <h3>Incline Bench Press</h3>
+                        <p class="price">
+                            <ins>
+                                <span class="woocommerce-Price-amount amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>34.00
+                                </span>
+                            </ins>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="shop-single-item margin-bottom-50">
+                    <div class="top-content">
+                        <div class="thumb">
+                            <img src="/assets/img/home/shopping/1.png" alt="shopping">
+                        </div>
+                        <div class="hover-content">
+                            <div class="btn-wrapper desktop-center">
+                                <a asp-controller="Products" asp-action="Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-content">
+                        <p class="subtitle">Fitness, Accessories</p>
+                        <h3>Incline Bench Press</h3>
+                        <p class="price">
+                            <ins>
+                                <span class="woocommerce-Price-amount amount">
+                                    <span class="woocommerce-Price-currencySymbol">$</span>34.00
+                                </span>
+                            </ins>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="shop-single-item margin-bottom-50">
-                <div class="top-content">
-                    <div class="thumb">
-                        <img src="/assets/img/home/shopping/1.png" alt="shopping">
-                    </div>
-                    <div class="hover-content">
-                        <div class="btn-wrapper desktop-center">
-                            <a href="/Products/Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom-content">
-                    <p class="subtitle">Fitness, Accessories</p>
-                    <h3>Incline Bench Press</h3>
-                    <p class="price">
-                        <ins>
-                            <span class="woocommerce-Price-amount amount">
-                                <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                            </span>
-                        </ins>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="shop-single-item margin-bottom-50">
-                <div class="top-content">
-                    <div class="thumb">
-                        <img src="/assets/img/home/shopping/1.png" alt="shopping">
-                    </div>
-                    <div class="hover-content">
-                        <div class="btn-wrapper desktop-center">
-                            <a href="/Products/Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom-content">
-                    <p class="subtitle">Fitness, Accessories</p>
-                    <h3>Incline Bench Press</h3>
-                    <p class="price">
-                        <ins>
-                            <span class="woocommerce-Price-amount amount">
-                                <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                            </span>
-                        </ins>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="shop-single-item margin-bottom-50">
-                <div class="top-content">
-                    <div class="thumb">
-                        <img src="/assets/img/home/shopping/1.png" alt="shopping">
-                    </div>
-                    <div class="hover-content">
-                        <div class="btn-wrapper desktop-center">
-                            <a href="/Products/Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom-content">
-                    <p class="subtitle">Fitness, Accessories</p>
-                    <h3>Incline Bench Press</h3>
-                    <p class="price">
-                        <ins>
-                            <span class="woocommerce-Price-amount amount">
-                                <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                            </span>
-                        </ins>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="shop-single-item margin-bottom-50">
-                <div class="top-content">
-                    <div class="thumb">
-                        <img src="/assets/img/home/shopping/1.png" alt="shopping">
-                    </div>
-                    <div class="hover-content">
-                        <div class="btn-wrapper desktop-center">
-                            <a href="/Products/Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom-content">
-                    <p class="subtitle">Fitness, Accessories</p>
-                    <h3>Incline Bench Press</h3>
-                    <p class="price">
-                        <ins>
-                            <span class="woocommerce-Price-amount amount">
-                                <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                            </span>
-                        </ins>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="shop-single-item margin-bottom-50">
-                <div class="top-content">
-                    <div class="thumb">
-                        <img src="/assets/img/home/shopping/1.png" alt="shopping">
-                    </div>
-                    <div class="hover-content">
-                        <div class="btn-wrapper desktop-center">
-                            <a href="/Products/Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom-content">
-                    <p class="subtitle">Fitness, Accessories</p>
-                    <h3>Incline Bench Press</h3>
-                    <p class="price">
-                        <ins>
-                            <span class="woocommerce-Price-amount amount">
-                                <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                            </span>
-                        </ins>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="shop-single-item margin-bottom-50">
-                <div class="top-content">
-                    <div class="thumb">
-                        <img src="/assets/img/home/shopping/1.png" alt="shopping">
-                    </div>
-                    <div class="hover-content">
-                        <div class="btn-wrapper desktop-center">
-                            <a href="/Products/Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom-content">
-                    <p class="subtitle">Fitness, Accessories</p>
-                    <h3>Incline Bench Press</h3>
-                    <p class="price">
-                        <ins>
-                            <span class="woocommerce-Price-amount amount">
-                                <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                            </span>
-                        </ins>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="shop-single-item margin-bottom-50">
-                <div class="top-content">
-                    <div class="thumb">
-                        <img src="/assets/img/home/shopping/1.png" alt="shopping">
-                    </div>
-                    <div class="hover-content">
-                        <div class="btn-wrapper desktop-center">
-                            <a href="/Products/Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom-content">
-                    <p class="subtitle">Fitness, Accessories</p>
-                    <h3>Incline Bench Press</h3>
-                    <p class="price">
-                        <ins>
-                            <span class="woocommerce-Price-amount amount">
-                                <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                            </span>
-                        </ins>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="shop-single-item margin-bottom-50">
-                <div class="top-content">
-                    <div class="thumb">
-                        <img src="/assets/img/home/shopping/1.png" alt="shopping">
-                    </div>
-                    <div class="hover-content">
-                        <div class="btn-wrapper desktop-center">
-                            <a href="/Products/Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom-content">
-                    <p class="subtitle">Fitness, Accessories</p>
-                    <h3>Incline Bench Press</h3>
-                    <p class="price">
-                        <ins>
-                            <span class="woocommerce-Price-amount amount">
-                                <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                            </span>
-                        </ins>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="shop-single-item margin-bottom-50">
-                <div class="top-content">
-                    <div class="thumb">
-                        <img src="/assets/img/home/shopping/1.png" alt="shopping">
-                    </div>
-                    <div class="hover-content">
-                        <div class="btn-wrapper desktop-center">
-                            <a href="/Products/Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom-content">
-                    <p class="subtitle">Fitness, Accessories</p>
-                    <h3>Incline Bench Press</h3>
-                    <p class="price">
-                        <ins>
-                            <span class="woocommerce-Price-amount amount">
-                                <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                            </span>
-                        </ins>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="shop-single-item margin-bottom-50">
-                <div class="top-content">
-                    <div class="thumb">
-                        <img src="/assets/img/home/shopping/1.png" alt="shopping">
-                    </div>
-                    <div class="hover-content">
-                        <div class="btn-wrapper desktop-center">
-                            <a href="/Products/Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom-content">
-                    <p class="subtitle">Fitness, Accessories</p>
-                    <h3>Incline Bench Press</h3>
-                    <p class="price">
-                        <ins>
-                            <span class="woocommerce-Price-amount amount">
-                                <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                            </span>
-                        </ins>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="shop-single-item margin-bottom-50">
-                <div class="top-content">
-                    <div class="thumb">
-                        <img src="/assets/img/home/shopping/1.png" alt="shopping">
-                    </div>
-                    <div class="hover-content">
-                        <div class="btn-wrapper desktop-center">
-                            <a href="/Products/Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom-content">
-                    <p class="subtitle">Fitness, Accessories</p>
-                    <h3>Incline Bench Press</h3>
-                    <p class="price">
-                        <ins>
-                            <span class="woocommerce-Price-amount amount">
-                                <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                            </span>
-                        </ins>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
     </section>
     <!-- home shopping end -->
-    <!-- back to top area start -->
-    <div class="back-to-top">
-        <span class="back-top"><i class="fa fa-angle-up"></i></span>
-    </div>
-    <!-- back to top area end -->
+   
     <!-- jquery -->
     <script src="/assets/js/jquery-2.2.4.min.js"></script>
     <!-- popper -->

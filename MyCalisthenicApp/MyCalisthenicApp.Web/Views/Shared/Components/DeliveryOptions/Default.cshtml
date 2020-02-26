@@ -1,0 +1,96 @@
+﻿@*Implement delivery options here*@
+
+<div class="col-lg-7">
+    <div class="delivery-content">
+        <div class="title">
+            <h2>Choose delivery options</h2>
+        </div>
+        <div class="delivery-tab">
+            <ul class="nav nav-pills">
+                <li class="active"><a data-toggle="pill" href="#home" class="active"><i class="flaticon-delivery"></i> <span>Home Delivery</span></a></li>
+                <li><a data-toggle="pill" href="#menu1"><i class="flaticon-placeholder-1"></i> <span>Pick Up Point</span> </a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade in active show">
+                    <h2>Enter delivery address</h2>
+                    <div asp-validation-summary="All"  class="form-group">
+                        <form asp-controller="Orders" asp-action="Delivery" method="post" class="form">
+                            <div class="form-field margin-top-30 margin-bottom-30">
+                                <label for="name">Full Name</label>
+                                <input id="name" type="text" placeholder="Mr willium smith" class="input-form" />
+                            </div>
+                            <div class="form-field margin-top-30 margin-bottom-30">
+                                <label for="phn">Phone Number</label>
+                                <input id="phn" type="number" placeholder="+8374823 356345" class="input-form" />
+                            </div>
+                            <div class="form-field margin-top-30 margin-bottom-30">
+                                <label for="phn1">Alternative phone number (Optional)</label>
+                                <input id="phn1" type="number" placeholder="+8374823 356345" class="input-form" />
+                            </div>
+                            <div class="form-field margin-top-30">
+                                <label>City</label>
+                                <select class="select-form country_select">
+                                    <option value="Chandpur" selected>Chandpur</option>
+                                    <option value="Dhaka">Dhaka</option>
+                                    <option value="Comilla">Comilla</option>
+                                    <option value="Rajshahi">Rajshahi</option>
+                                </select>
+                            </div>
+                            <div class="form-field margin-top-30 margin-bottom-30">
+                                <label for="address">Address</label>
+                                <textarea id="address" cols="30" rows="5" placeholder="Iris Watson P.O. Box 283 8562 Fusce Rd. Frederick Nebraska 20620 (372) 587-2335"></textarea>
+                            </div>
+                            <div class="form-field margin-top-30 margin-bottom-30">
+                                <label for="instruction">Delivery Instructions (Optional)</label>
+                                <textarea id="instruction" cols="30" rows="5" placeholder="x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x"></textarea>
+                            </div>
+                            <div class="btn-wrapper">
+                                <a asp-controller="Home" asp-action="ShoppingCart" class="btn btn-element btn-lg-size btn-main-color btn-rounded">Go To Payment</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="menu1" class="tab-pane fade">
+                    <h2>Pick up point</h2>
+                    <div asp-validation-summary="All" class="form-group">
+                        <form asp-controller="Orders" asp-action="Delivery" method="post" class="form">
+                            <div class="form-field margin-top-30 margin-bottom-30">
+                                <label for="name1">Full Name</label>
+                                <input id="name1" type="text" placeholder="Mr willium smith" class="input-form" />
+                            </div>
+                            <div class="form-field margin-top-30 margin-bottom-30">
+                                <label for="phn2">Phone Number</label>
+                                <input id="phn2" type="number" placeholder="+8374823 356345" class="input-form" />
+                            </div>
+                            <div class="form-field margin-top-30 margin-bottom-30">
+                                <label for="phn3">Alternative phone number (Optional)</label>
+                                <input id="phn3" type="number" placeholder="+8374823 356345" class="input-form" />
+                            </div>
+                            <div class="form-field margin-top-30">
+                                <label>City</label>
+                                <select class="select-form country_select">
+                                    <option value="Chandpur" selected>Chandpur</option>
+                                    <option value="Dhaka">Dhaka</option>
+                                    <option value="Comilla">Comilla</option>
+                                    <option value="Rajshahi">Rajshahi</option>
+                                </select>
+                            </div>
+                            <div class="form-field margin-top-30 margin-bottom-30">
+                                <label for="address2">Address</label>
+                                <textarea id="address2" cols="30" rows="5" placeholder="Iris Watson P.O. Box 283 8562 Fusce Rd. Frederick Nebraska 20620 (372) 587-2335"></textarea>
+                            </div>
+                            <div class="form-field margin-top-30 margin-bottom-30">
+                                <label for="instruction2">Delivery Instructions (Optional)</label>
+                                <textarea id="instruction2" cols="30" rows="5" placeholder="x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x"></textarea>
+                            </div>
+                            <div class="btn-wrapper">
+                                <a asp-controller="Home" asp-action="ShoppingCart" class="btn btn-element btn-lg-size btn-main-color btn-rounded">Go To Payment</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

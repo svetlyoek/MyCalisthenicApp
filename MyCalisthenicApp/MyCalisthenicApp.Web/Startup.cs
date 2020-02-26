@@ -9,6 +9,7 @@ namespace MyCalisthenicApp.Web
     using Microsoft.Extensions.Hosting;
     using MyCalisthenicApp.Data;
     using MyCalisthenicApp.Models;
+    using System.Threading.Tasks;
 
     public class Startup
     {
@@ -43,10 +44,13 @@ namespace MyCalisthenicApp.Web
             }
             else
             {
-                app.UseExceptionHandler("/Shared/Error");
+                app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseStatusCodePagesWithRedirects("/Home/Error404?statusCode={0}");
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

@@ -82,7 +82,6 @@ E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Deb
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\MyCalisthenicApp.Web.RazorCoreGenerate.cache
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
@@ -107,7 +106,6 @@ E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Deb
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\wwwroot\lib\jquery\LICENSE.txt
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\Views\Home\Index.cshtml
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\Views\Home\Privacy.cshtml
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\Views\Shared\Error.cshtml
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\Views\Shared\_ValidationScriptsPartial.cshtml
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\Views\_ViewImports.cshtml
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\Views\_ViewStart.cshtml
@@ -658,3 +656,21 @@ E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Deb
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Partials\_ExploreMembershipPartial.cshtml.g.cs
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\Views\Shared\Components\SideBar\Default.cshtml
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\SideBar\Default.cshtml.g.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\ViewModels\ErrorViewModel.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\Views\Shared\Error404.cshtml
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error404.cshtml.g.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\Views\Shared\Partials\_MembershipPlansPartial.cshtml
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Partials\_MembershipPlansPartial.cshtml.g.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\Views\Shared\Components\HomeProducts\Default.cshtml
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\HomeProducts\Default.cshtml.g.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\Views\Shared\Components\HomePopularPrograms\Default.cshtml
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\HomePopularPrograms\Default.cshtml.g.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\Views\Shared\Components\HomeLatestNews\Default.cshtml
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\HomeLatestNews\Default.cshtml.g.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\Views\Shared\Partials\_OurClientsSayPartial.cshtml
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Partials\_OurClientsSayPartial.cshtml.g.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\Views\Shared\Components\Comment\Default.cshtml
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Comment\Default.cshtml.g.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\InvoiceSummary\Default.cshtml.g.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\DeliveryOptions\Default.cshtml.g.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\CreditCard\Default.cshtml.g.cs

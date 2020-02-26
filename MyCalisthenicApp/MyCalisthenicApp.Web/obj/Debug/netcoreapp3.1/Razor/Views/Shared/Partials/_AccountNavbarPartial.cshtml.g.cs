@@ -26,8 +26,22 @@ using MyCalisthenicApp.Web.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using MyCalisthenicApp.Web.ViewModels.Home;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using MyCalisthenicApp.Web.ViewModels.Blogs;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c1792c29b5e0c6bfd254f8495c8424cfb74e6329", @"/Views/Shared/Partials/_AccountNavbarPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"31b05da6bebe63efbdbf0cc1765d09bf7b12e39a", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"130a4f893102487b0e9f119fdba2626b7b2c29c5", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Partials__AccountNavbarPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("action", new global::Microsoft.AspNetCore.Html.HtmlString("index.html"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -87,7 +101,7 @@ using MyCalisthenicApp.Web.Models;
 <div class=""body-overlay"" id=""body-overlay""></div>
 <div class=""search-popup"" id=""search-popup"">
     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e63298839", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e63299288", async() => {
                 WriteLiteral("\r\n        <div class=\"form-group\">\r\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search.....\">\r\n        </div>\r\n        <button type=\"submit\" class=\"submit-btn\"><i class=\"fa fa-search\"></i></button>\r\n    ");
             }
             );
@@ -123,7 +137,7 @@ using MyCalisthenicApp.Web.Models;
             </div>
             <div class=""logo"">
                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632911279", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632911728", async() => {
                 WriteLiteral(" <img src=\"/assets/img/logo.png\" alt=\"logo\">");
             }
             );
@@ -141,7 +155,7 @@ using MyCalisthenicApp.Web.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n            </div>\r\n            <div class=\"collapse navbar-collapse\" id=\"billatrail_main_menu\">\r\n                <ul class=\"navbar-nav menu-open\">\r\n                    <li>\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632912896", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632913345", async() => {
                 WriteLiteral("Home");
             }
             );
@@ -159,7 +173,7 @@ using MyCalisthenicApp.Web.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    </li>\r\n\r\n                    <li class=\"hidden-md\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632914333", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632914782", async() => {
                 WriteLiteral("About");
             }
             );
@@ -177,7 +191,7 @@ using MyCalisthenicApp.Web.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n\r\n                    <li class=\"menu-item-has-children\">\r\n                        <a href=\"#\">Training</a>\r\n                        <ul class=\"sub-menu\">\r\n                            <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632915901", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632916350", async() => {
                 WriteLiteral("Programs");
             }
             );
@@ -195,7 +209,7 @@ using MyCalisthenicApp.Web.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n                        </ul>\r\n                    </li>\r\n                    <li class=\"menu-item-has-children\">\r\n                        <a href=\"#\">Trainer</a>\r\n                        <ul class=\"sub-menu\">\r\n                            <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632917529", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632917978", async() => {
                 WriteLiteral("Our Trainers");
             }
             );
@@ -213,7 +227,7 @@ using MyCalisthenicApp.Web.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n                        </ul>\r\n                    </li>\r\n\r\n                    <li class=\"menu-item-has-children\">\r\n                        <a href=\"#\">Shop</a>\r\n                        <ul class=\"sub-menu\">\r\n                            <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632919162", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632919611", async() => {
                 WriteLiteral("Shop");
             }
             );
@@ -231,7 +245,7 @@ using MyCalisthenicApp.Web.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n                            <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632920559", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632921008", async() => {
                 WriteLiteral("Shopping Bag");
             }
             );
@@ -249,7 +263,7 @@ using MyCalisthenicApp.Web.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n                            <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632921964", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632922413", async() => {
                 WriteLiteral("Checkout");
             }
             );
@@ -267,7 +281,7 @@ using MyCalisthenicApp.Web.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n                        </ul>\r\n                    </li>\r\n                    <li>\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632923447", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632923896", async() => {
                 WriteLiteral("Blog");
             }
             );
@@ -294,7 +308,7 @@ using MyCalisthenicApp.Web.Models;
 #line hidden
 #nullable disable
             WriteLiteral("                        <li class=\"nav-item\">\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632925271", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632925720", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper>();
@@ -325,7 +339,7 @@ using MyCalisthenicApp.Web.Models;
 #line hidden
 #nullable disable
             WriteLiteral("                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c1792c29b5e0c6bfd254f8495c8424cfb74e632927245", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c1792c29b5e0c6bfd254f8495c8424cfb74e632927694", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -348,7 +362,7 @@ using MyCalisthenicApp.Web.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n                    <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632928651", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1792c29b5e0c6bfd254f8495c8424cfb74e632929100", async() => {
                 WriteLiteral("Contact");
             }
             );

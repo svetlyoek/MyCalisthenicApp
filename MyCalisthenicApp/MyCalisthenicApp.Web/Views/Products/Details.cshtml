@@ -1,11 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewData["Title"] = "Product-Details";
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MyCalisthenicApp</title>
+    <title> ViewData["Title"]</title>
     <!-- favicon -->
     <link rel=icon href=/assets/img/favicon.png sizes="20x20" type="image/png">
     <!-- animate -->
@@ -37,10 +40,10 @@
     <!-- breadcrumb area -->
     <div class="breadcrumb-style-1" style="background-image:url(/assets/img/bg/shop-details.png);">
         <div class="breadcrumb-inner">
-            <h1 class="page-title">Shop</h1>
+            <h1 class="page-title">Product Details</h1>
             <ul class="page-list">
-                <li><a href="/">Home</a></li>
-                <li><a href="/Products/Details">Product Details</a></li>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Products" asp-action="Details">Product Details</a></li>
             </ul>
         </div>
     </div>
@@ -114,7 +117,7 @@
                         <p class="price">Price: $250.00 <span>$350.00</span> </p>
                         <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam esse ut quaerat fugiat ullam magni maxime, tempore aperiam voluptates veniam dolorem autem explicabo voluptate dignissimos quidem laboriosam eligendi exercitationem similique incidunt eveniet architecto quis quisquam quam. Aperiam quis dolorum earum omnis? Perferendis amet molestiae cum temporibus earum sint esse ratione velit nemo aut vel itaque, quidem reiciendis omnis sit harum rerum</p>
                         <div class="btn-wrapper">
-                            <a href="/Home/ShoppingCart" class="btn btn-element btn-medium-size btn-main-color btn-rounded">Add To Cart</a>
+                            <a asp-controller="Home" asp-action="ShoppingBag" class="btn btn-element btn-medium-size btn-main-color btn-rounded">Add To Cart</a>
                         </div>
                     </div>
                 </div>
@@ -270,38 +273,10 @@
                                             </li>
                                         </ul>
                                         <div id="respond" class="comment-respond">
-                                            <h3 class="comment-reply-title">Add a review</h3>
-                                            <form id="comment_form" class="commentform">
-                                                <h2 class="margin-top-25 margin-bottom-25">
-                                                    <span class="rating ml-0">
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    </span>
-                                                </h2>
-                                                <div class="form-group margin-bottom-30">
-                                                    <textarea name="comment" id="comment" class="form-control w-100" cols="30" rows="9"></textarea>
-                                                </div>
-                                                <div class="row margin-bottom-13">
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <input type="text" id="author" name="author" value="" class="form-control" placeholder="Write your name">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <input type="email" class="form-control" name="email" id="email" value="" placeholder="Enter your email">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <p class="form-submit">
-                                                            <input name="submit" type="submit" id="submit" value="Submit Review">
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </form>
+                                            <h3 class="comment-reply-title">Leave A Comment</h3>
+
+                                            @await Component.InvokeAsync("Comment")
+
                                         </div>
                                     </div>
                                 </div>
@@ -310,178 +285,24 @@
                     </div>
                 </div>
             </div>
+
+            <div class="shopping-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-title padding-top-93 padding-bottom-60 text-center">
+                                <h3 class="subtitle">Related Products</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    @await Component.InvokeAsync("HomeProducts")
+
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- home shopping start -->
-    <div class="shopping-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="related-product-title">Related Products</h1>
-                </div>
-            </div>
-            <div class="row shopping-slider-item shopping-slider3 text-center">
-                <div class="col-md-3 justify-content-center">
-                    <div class="shop-single-item">
-                        <div class="top-content">
-                            <div class="thumb">
-                                <img src="/assets/img/home/shopping/1.png" alt="shopping">
-                            </div>
-                            <div class="hover-content">
-                                <div class="btn-wrapper desktop-center">
-                                    <a href="/Products/Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom-content">
-                            <p class="subtitle">Fitness, Accessories</p>
-                            <h3><a href="product-details.html">Free Dumbbell Ball</a></h3>
-                            <p class="price">
-                                <ins>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                                    </span>
-                                </ins>
-                                <del>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>50.00
-                                    </span>
-                                </del>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 justify-content-center">
-                    <div class="shop-single-item">
-                        <div class="top-content">
-                            <div class="thumb">
-                                <img src="/assets/img/home/shopping/2.png" alt="shopping">
-                            </div>
-                            <div class="hover-content">
-                                <div class="btn-wrapper desktop-center">
-                                    <a href="/Products/Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom-content">
-                            <p class="subtitle">Fitness, Accessories</p>
-                            <h3><a href="product-details.html">Incline Bench Press</a></h3>
-                            <p class="price">
-                                <ins>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                                    </span>
-                                </ins>
-                                <del>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>50.00
-                                    </span>
-                                </del>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 justify-content-center">
-                    <div class="shop-single-item">
-                        <div class="top-content">
-                            <div class="thumb">
-                                <img src="/assets/img/home/shopping/3.png" alt="shopping">
-                            </div>
-                            <div class="hover-content">
-                                <div class="btn-wrapper desktop-center">
-                                    <a href="Products/Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom-content">
-                            <p class="subtitle">Fitness, Accessories</p>
-                            <h3><a href="product-details.html">Pec Deck Machine</a></h3>
-                            <p class="price">
-                                <ins>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                                    </span>
-                                </ins>
-                                <del>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>50.00
-                                    </span>
-                                </del>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 justify-content-center">
-                    <div class="shop-single-item">
-                        <div class="top-content">
-                            <div class="thumb">
-                                <img src="/assets/img/home/shopping/4.png" alt="shopping">
-                            </div>
-                            <div class="hover-content">
-                                <div class="btn-wrapper desktop-center">
-                                    <a href="Products/Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom-content">
-                            <p class="subtitle">Fitness, Accessories</p>
-                            <h3><a href="product-details.html">Pull-Down Machine</a></h3>
-                            <p class="price">
-                                <ins>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                                    </span>
-                                </ins>
-                                <del>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>50.00
-                                    </span>
-                                </del>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 justify-content-center">
-                    <div class="shop-single-item">
-                        <div class="top-content">
-                            <div class="thumb">
-                                <img src="/assets/img/home/shopping/1.png" alt="shopping">
-                            </div>
-                            <div class="hover-content">
-                                <div class="btn-wrapper desktop-center">
-                                    <a href="/Products/Details" class="btn btn-element btn-normal-size btn-rounded">Details</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom-content">
-                            <p class="subtitle">Fitness, Accessories</p>
-                            <h3><a href="product-details.html">Free Dumbbell Ball</a></h3>
-                            <p class="price">
-                                <ins>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                                    </span>
-                                </ins>
-                                <del>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>50.00
-                                    </span>
-                                </del>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- home shopping end -->
-   
-    <!-- back to top area start -->
-    <div class="back-to-top">
-        <span class="back-top"><i class="fa fa-angle-up"></i></span>
-    </div>
-    <!-- back to top area end -->
     <!-- jquery -->
     <script src="/assets/js/jquery-2.2.4.min.js"></script>
     <!-- popper -->

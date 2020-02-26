@@ -1,4 +1,5 @@
 ﻿@{
+    ViewData["Title"] = "Coming Soon";
     Layout = null;
 }
 <!DOCTYPE html>
@@ -8,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MyCalisthenicApp</title>
+    <title>@ViewData["Title"]</title>
     <!-- favicon -->
     <link rel=icon href=/assets/img/favicon.png sizes="20x20" type="image/png">
     <!-- animate -->
@@ -33,116 +34,17 @@
     <link rel="stylesheet" href="/assets/css/responsive.css">
 </head>
 <body>
-    <!-- preloader area start -->
-    <div class="preloader" id="preloader">
-        <div class="preloader-inner">
-            <div class="spinner">
-                <div class="dot1"></div>
-                <div class="dot2"></div>
-            </div>
-        </div>
-    </div>
-    <!-- preloader area end -->
-    <!-- search Popup -->
-    <div class="body-overlay" id="body-overlay"></div>
-    <div class="search-popup" id="search-popup">
-        <form action="index.html" class="search-form">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search.....">
-            </div>
-            <button type="submit" class="submit-btn"><i class="fa fa-search"></i></button>
-        </form>
-    </div>
-    <!-- //. search Popup -->
-    <!-- navbar start -->
-    <div class="zarxio-navbar" >
-        <nav class="navbar navbar-area navbar-expand-lg nav-style-01">
-            <div class="container nav-container"  >
-                <div class="responsive-mobile-menu">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#billatrail_main_menu"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                        <span class="bar1"></span>
-                        <span class="bar2"></span>
-                        <span class="bar3"></span>
-                    </button>
-                </div>
-                <div class="logo">
-                    <a href="/"> <img src="/assets/img/logo.png" alt="logo"></a>
-                </div>
-                <div class="collapse navbar-collapse" id="billatrail_main_menu">
-                    <ul class="navbar-nav menu-open">
-                        <li>
-                            <a href="/">Home</a>
-                        </li>
+   
+    <partial name="~/Views/Shared/Partials/_NavbarPartial.cshtml" />
 
-                        <li class="hidden-md"><a href="/Home/About">About</a></li>
-
-                        <li class="menu-item-has-children">
-                            <a href="#">Training</a>
-                            <ul class="sub-menu">
-                                <li><a href="/Home/Program">Programs</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-item-has-children">
-                            <a href="#">Trainer</a>
-                            <ul class="sub-menu">
-                                <li><a href="/Home/Trainer">Our Trainers</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="menu-item-has-children">
-                            <a href="#">Shop</a>
-                            <ul class="sub-menu">
-                                <li><a href="/Home/Shop">Shop</a></li>
-                                <li><a href="/Home/ShoppingBag">Shopping Bag</a></li>
-                                <li><a href="/Home/ShoppingCart">Checkout</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="/Home/Blog">Blog</a>
-                        </li>
-                        <li class="menu-item-has-children">
-                            <a href="#">Account</a>
-                            <ul class="sub-menu">
-                                <li><a href="/Users/Login">Sign In</a></li>
-                                <li><a href="/Users/Register">Sign Up</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/Home/Contact">Contact</a></li>
-                    </ul>
-                </div>
-
-                @*TODO Implement Search bar*@
-
-                <div class="nav-right-part">
-                    <ul>
-                        <li class="search" id="search">
-                            <a href="#"><i class="fa fa-search"></i></a>
-                        </li>
-                        <li>
-                            <div class="hamberger-area d-none d-lg-block">
-                                <div class="menu-toggle hamburger hamburger--squeeze is-active">
-                                    <div class="hamburger-box">
-                                        <div class="hamburger-inner"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <!-- navbar end -->
     <!-- coming-soon-area start -->
-    
-    <div class="coming-soon-area" style="background-image:url(/assets/img/coming-soon.jpeg);" >
-        <div class="content"  >
+
+    <div class="coming-soon-area" style="background-image:url(/assets/img/coming-soon.jpeg);">
+        <div class="content">
             <h1>COMING SOON</h1>
             <p>NO BOUNDARIES. NO LIMITS. NO MORE EXCUSES.</p>
-            <div class="input-group" >
-                <input type="text" class="form-control" name="email" placeholder="Enter Email">
+            <div asp-validation-summary="All" class="input-group">
+                <input asp-controller="Subscribes" asp-action="Subscribe" type="text" class="form-control" name="email" placeholder="Enter Email">
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Notify Me</button>
                 </span>

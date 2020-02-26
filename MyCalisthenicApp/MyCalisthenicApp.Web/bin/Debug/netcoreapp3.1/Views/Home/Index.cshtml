@@ -1,11 +1,16 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewData["Title"] = "Home";
+
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MyCalisthenicApp</title>
+    <title>@ViewData["Title"]</title>
     <!-- favicon -->
     <link rel=icon href=assets/img/favicon.png sizes="20x20" type="image/png">
     <!-- animate -->
@@ -58,7 +63,7 @@
                                 <p data-animation-in="fadeInLeft">FUEL YOUR</p>
                                 <h1 class="title1" data-animation-in="fadeInDown"> <span class="color-main">BODY</span> FITNESS</h1>
                                 <div class="btn-wrapper" data-animation-in="fadeInUp">
-                                    <a href="/Home/Membership" class="btn btn-slider">Be one of us</a>
+                                    <a asp-controller="Home" asp-action="Membership" class="btn btn-slider">Be one of us</a>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +78,7 @@
                                 <p data-animation-in="fadeInLeft">Improve</p>
                                 <h1 class="title1" data-animation-in="fadeInDown"> <span class="color-main">Your</span> Health</h1>
                                 <div class="btn-wrapper" data-animation-in="fadeInUp">
-                                    <a href="/Home/Membership" class="btn btn-slider">Be one of us</a>
+                                    <a asp-controller="Home" asp-action="Membership" class="btn btn-slider">Be one of us</a>
                                 </div>
                             </div>
                         </div>
@@ -88,7 +93,7 @@
                                 <p data-animation-in="fadeInLeft">Let's Change</p>
                                 <h1 class="title1" data-animation-in="fadeInDown"> <span class="color-main">Life</span> Style</h1>
                                 <div class="btn-wrapper" data-animation-in="fadeInUp">
-                                    <a href="/Home/Membership" class="btn btn-slider">Be one of us</a>
+                                    <a asp-controller="Home" asp-action="Membership" class="btn btn-slider">Be one of us</a>
                                 </div>
                             </div>
                         </div>
@@ -103,7 +108,7 @@
                                 <p data-animation-in="fadeInLeft">Start YOUR</p>
                                 <h1 class="title1" data-animation-in="fadeInDown"> <span class="color-main">Gym</span> Classes</h1>
                                 <div class="btn-wrapper" data-animation-in="fadeInUp">
-                                    <a href="/Home/Membership" class="btn btn-slider">Be one of us</a>
+                                    <a asp-controller="Home" asp-action="Membership" class="btn btn-slider">Be one of us</a>
                                 </div>
                             </div>
                         </div>
@@ -140,12 +145,12 @@
 
         <!-- video button -->
         <div class="cart-btn">
-            <a href="/Home/ShoppingBag"><i class="flaticon-cart"></i><span class="badge">3</span></a>
+            <a asp-controller="Home" asp-action="ShoppingCart"><i class="flaticon-cart"></i><span class="badge">3</span></a>
         </div>
 
         <!-- scroll down -->
         <div class="scroll">
-            <a href="/Home/About">
+            <a asp-controller="Home" asp-action="About">
                 <div class="scroll-btn">
                     <span></span>
                     <ul>
@@ -159,10 +164,10 @@
 
         <div class="banner-small-slider">
             <div class="small-slider">
-                <div class="slider-image1"><img src="assets/img/home/sm-slider/1.png" alt=""></div>
-                <div class="slider-image1"><img src="assets/img/home/sm-slider/2.png" alt=""></div>
-                <div class="slider-image1"><img src="assets/img/home/sm-slider/3.png" alt=""></div>
-                <div class="slider-image1"><img src="assets/img/home/sm-slider/4.png" alt=""></div>
+                <div class="slider-image1"><img src="assets/img/home/sm-slider/1.png" alt="slider-image1"></div>
+                <div class="slider-image1"><img src="assets/img/home/sm-slider/2.png" alt="slider-image2"></div>
+                <div class="slider-image1"><img src="assets/img/home/sm-slider/3.png" alt="slider-image3"></div>
+                <div class="slider-image1"><img src="assets/img/home/sm-slider/4.png" alt="slider-image4"></div>
             </div>
             <div class="controler-wrapper d-none d-lg-block">
                 <div class="progressbar">
@@ -178,15 +183,15 @@
     <div class="home-about">
         <div class="floating-icon" id="service_info_item">
             <div class="floating-icon__is floating-icon-info">
-                <a href="/Home/Contact"> <i class="flaticon-phone-call"></i></a>
+                <a asp-controller="Home" asp-action="Contact"> <i class="flaticon-phone-call"></i></a>
             </div>
             <!--floating-icon-is-->
             <div class="floating-icon__is floating-icon-location">
-                <a href="/Home/Contact"><i class="flaticon-placeholder"></i></a>
+                <a asp-controller="Home" asp-action="Contact"><i class="flaticon-placeholder"></i></a>
             </div>
             <!--floating-icon-is-->
             <div class="floating-icon__is floating-icon-message">
-                <a href="/Home/Contact"><i class="flaticon-email"></i></a>
+                <a asp-controller="Home" asp-action="Contact"><i class="flaticon-email"></i></a>
             </div>
             <!--floating-icon-is-->
         </div>
@@ -209,7 +214,7 @@
                                 <p>Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis libero. Nulla interdum erat nec tincidunt laoreet. In ac consequat risus. Donec a lectus mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In maximus volutpat vehicula. Morbi ut dui iss. Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis libero. Nulla interdum erat nec tincidunt laoreet. In ac consequat risus. Donec a lectus mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In maximus volutpat vehicula. Morbi ut dui iss.</p>
                                 <p class="hidden-md">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In maximus volutpat vehicula. Morbi ut dui iss. Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis libero. Nulla interdum erat nec tincidunt laoreet. In ac consequat risus. Donec a lectus mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In maximus volutpat vehicula. </p>
                                 <div class="btn-wrapper margin-top-40">
-                                    <a href="/Home/About" class="btn btn-element btn-normal-size btn-main-color btn-rounded mr-5">Read More</a>
+                                    <a asp-controller="Home" asp-action="About" class="btn btn-element btn-normal-size btn-main-color btn-rounded mr-5">Read More</a>
                                 </div>
                             </div>
                         </div>
@@ -241,7 +246,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="service-box-style-01">
                                     <div class="sb-icon">
-                                        <a href="/Home/Shop"><i class="flaticon-weight" aria-hidden="true"></i></a>
+                                        <a asp-controller="Home" asp-action="Shop"><i class="flaticon-weight" aria-hidden="true"></i></a>
                                     </div>
                                     <div class="sb-content">
                                         <h4 class="title">Strength equipment</h4>
@@ -252,7 +257,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="service-box-style-01">
                                     <div class="sb-icon">
-                                        <a href="/Home/Shop"><i class="flaticon-gym-1" aria-hidden="true"></i></a>
+                                        <a asp-controller="Home" asp-action="Shop"><i class="flaticon-gym-1" aria-hidden="true"></i></a>
                                     </div>
                                     <div class="sb-content">
                                         <h4 class="title">Gym equipment</h4>
@@ -267,7 +272,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="service-box-style-01">
                                     <div class="sb-icon">
-                                        <a href="/Home/Shop"><i class="flaticon-woman" aria-hidden="true"></i></a>
+                                        <a asp-controller="Home" asp-action="Shop"><i class="flaticon-woman" aria-hidden="true"></i></a>
                                     </div>
                                     <div class="sb-content">
                                         <h4 class="title">Health equipment</h4>
@@ -279,7 +284,7 @@
 
                                 <div class="service-box-style-01">
                                     <div class="sb-icon">
-                                        <a href="/Home/Shop"><i class="flaticon-weightlifting" aria-hidden="true"></i></a>
+                                        <a asp-controller="Home" asp-action="Membership"><i class="flaticon-weightlifting" aria-hidden="true"></i></a>
                                     </div>
                                     <div class="sb-content">
                                         <h4 class="title">Weight equipment</h4>
@@ -294,7 +299,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="service-box-style-01">
                                     <div class="sb-icon">
-                                        <a href="/Home/Shop"><i class="flaticon-gym" aria-hidden="true"></i></a>
+                                        <a asp-controller="Home" asp-action="Membership"><i class="flaticon-gym" aria-hidden="true"></i></a>
                                     </div>
                                     <div class="sb-content">
                                         <h4 class="title">Energy equipment</h4>
@@ -305,7 +310,7 @@
                             <div class="col-xl-3 col-lg-6 col-md-6">
                                 <div class="service-box-style-01">
                                     <div class="sb-icon">
-                                        <a href="/Home/Shop"><i class="flaticon-weight-lifting" aria-hidden="true"></i></a>
+                                        <a asp-controller="Home" asp-action="Membership"><i class="flaticon-weight-lifting" aria-hidden="true"></i></a>
                                     </div>
                                     <div class="sb-content">
                                         <h4 class="title">Fitness equipment</h4>
@@ -320,635 +325,33 @@
         </div>
     </div>
     <!-- home service end -->
-    <!-- home explore start -->
-    <div class="explore-area explore-bg margin-top-50" style="background-image: url(assets/img/home/explore.jpg);">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="explore-title">
-                        <div class="title">
-                            <h2>Explore calisthenic</h2>
-                        </div>
-                        <div class="btn-wrapper">
-                            <a href="/Home/Membership" class="btn btn-element btn-lg btn-main">Join with us</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- home explore end -->
-    <!-- popular classes start -->
-    @*TODO Implement programs here*@
 
-    <div class="popular-classes">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title title-padding-bottom text-center">
-                        <p class="subtitle">What do you want to learn today?</p>
-                        <h1 class="title">Popular Programs</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="popular-slider">
-                        <div class="single-popular-item">
-                            <div class="popular-item-style-01">
-                                <div class="thumb">
-                                    <img src="assets/img/home/popular/1.png" alt="slider1">
-                                </div>
-                                <div class="content">
-                                    <p>Muscles Build</p>
-                                </div>
-                                <div class="hover-element">
-                                    <div class="hover-top">
-                                        <span>Body Shaper</span><br>
-                                        <a href="#" class="btn">H. Hines</a>
-                                    </div>
+    <partial name="~/Views/Shared/Partials/_ExploreMembershipPartial.cshtml" />
 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-popular-item">
-                            <div class="popular-item-style-01">
-                                <div class="thumb">
-                                    <img src="assets/img/home/popular/2.png" alt="slider1">
-                                </div>
-                                <div class="content">
-                                    <p>Body Build</p>
-                                </div>
-                                <div class="hover-element">
-                                    <div class="hover-top">
-                                        <span>Body Shaper</span><br>
-                                        <a href="#" class="btn">Sharifur</a>
-                                    </div>
+    @await Component.InvokeAsync("HomePopularPrograms")
 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-popular-item">
-                            <div class="popular-item-style-01">
-                                <div class="thumb">
-                                    <img src="assets/img/home/popular/3.png" alt="slider1">
-                                </div>
-                                <div class="content">
-                                    <p>Fitness Build</p>
-                                </div>
-                                <div class="hover-element">
-                                    <div class="hover-top">
-                                        <span>Body Shaper</span><br>
-                                        <a href="#" class="btn">Naeem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-popular-item">
-                            <div class="popular-item-style-01">
-                                <div class="thumb">
-                                    <img src="assets/img/home/popular/4.png" alt="slider1">
-                                </div>
-                                <div class="content">
-                                    <p>Mind Refress</p>
-                                </div>
-                                <div class="hover-element">
-                                    <div class="hover-top">
-                                        <span>Body Shaper</span><br>
-                                        <a href="#" class="btn">Janice Mcreaken</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-popular-item">
-                            <div class="popular-item-style-01">
-                                <div class="thumb">
-                                    <img src="assets/img/home/popular/1.png" alt="slider1">
-                                </div>
-                                <div class="content">
-                                    <p>Muscles Build</p>
-                                </div>
-                                <div class="hover-element">
-                                    <div class="hover-top">
-                                        <span>Body Shaper</span><br>
-                                        <a href="#" class="btn">John Smith</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- popular classes end -->
-
-    @*Implement programs here*@
-
-    <!-- pricing start -->
-    <div class="pricing-area padding-top-90">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title padding-bottom-65 text-center">
-                        <p class="subtitle">Become A Part of us</p>
-                        <h1 class="title">Our Membership</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-pricing-style-01 pricing-item-bg1">
-                        <h2 class="off-style-1">10% Off</h2>
-                        <div class="pricing-icon text-center">
-                            <a href="/Home/ShoppingCart"><i class="flaticon-weight" aria-hidden="true"></i></a>
-                        </div>
-                        <div class="plan-title">
-                            <h3>Biginner plan</h3>
-                        </div>
-                        <ul>
-                            <li><span>$50</span></li>
-                            <li>Price is per year</li>
-                            <li>24 Hours Support</li>
-                            <li> All Over the World</li>
-                            <li>Customer Managment</li>
-                            <li>Business & Financ Analysing</li>
-                            <li>Unlimited Tires</li>
-                        </ul>
-                        <div class="btn-wrapper desktop-center">
-                            <a href="/Home/ShoppingCart" class="btn btn-element btn-normal-size btn-transparent-color btn-rounded">Select Plan</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-pricing-style-01 active pricing-item-bg2">
-                        <h2 class="off-style-1">20% Off</h2>
-                        <div class="pricing-icon text-center">
-                            <a href="/Home/ShoppingCart"><i class="flaticon-weight-lifting" aria-hidden="true"></i></a>
-                        </div>
-                        <div class="plan-title">
-                            <h3>Intermediate plan</h3>
-                        </div>
-                        <ul>
-                            <li><span>$70</span></li>
-                            <li>Price is per year</li>
-                            <li>24 Hours Support</li>
-                            <li> All Over the World</li>
-                            <li>Customer Managment</li>
-                            <li>Business & Financ Analysing</li>
-                            <li>Unlimited Tires</li>
-                        </ul>
-                        <div class="btn-wrapper desktop-center">
-                            <a href="/Home/ShoppingCart" class="btn btn-element btn-normal-size btn-transparent-color btn-rounded">Select Plan</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-pricing-style-01 pricing-item-bg3">
-                        <h2 class="off-style-1">20% Off</h2>
-                        <div class="pricing-icon text-center">
-                            <a href="/Home/ShoppingCart"><i class="flaticon-woman" aria-hidden="true"></i></a>
-                        </div>
-                        <div class="plan-title">
-                            <h3>Ultimate plan</h3>
-                        </div>
-                        <ul>
-                            <li><span>$90</span></li>
-                            <li>Price is per year</li>
-                            <li>24 Hours Support</li>
-                            <li> All Over the World</li>
-                            <li>Customer Managment</li>
-                            <li>Business & Financ Analysing</li>
-                            <li>Unlimited Tires</li>
-                        </ul>
-                        <div class="btn-wrapper desktop-center">
-                            <a href="/Home/ShoppingCart" class="btn btn-element btn-normal-size btn-transparent-color btn-rounded">Select Plan</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- pricing end -->
-    <!-- home shopping start -->
-    @*TODO Redirect to shop*@
+    <partial name="~/Views/Shared/Partials/_MembershipPlansPartial.cshtml" />
 
     <div class="shopping-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title padding-top-93 padding-bottom-60 text-center">
-                        <p class="subtitle">Products</p>
+                        <p class="subtitle">Calisthenic Products</p>
                         <h1 class="title">Let's Shopping</h1>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12 shopping-slider shopping-slider-item text-center">
-                    <div class="shop-single-item">
-                        <div class="top-content">
-                            <div class="thumb">
-                                <img src="assets/img/home/shopping/1.png" alt="shopping">
-                            </div>
-                            <div class="hover-content">
-                                <div class="btn-wrapper desktop-center">
-                                    <a href="#" class="btn btn-element btn-normal-size btn-rounded">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom-content">
-                            <p class="subtitle">Fitness, Accessories</p>
-                            <h3><a href="product-details.html">Free Dumbbell Ball</a></h3>
-                            <p class="price">
-                                <ins>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                                    </span>
-                                </ins>
-                                <del>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>50.00
-                                    </span>
-                                </del>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="shop-single-item">
-                        <div class="top-content">
-                            <div class="thumb">
-                                <img src="assets/img/home/shopping/2.png" alt="shopping">
-                            </div>
-                            <div class="hover-content">
-                                <div class="btn-wrapper desktop-center">
-                                    <a href="#" class="btn btn-element btn-normal-size btn-rounded">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom-content">
-                            <p class="subtitle">Gym, Accessories</p>
-                            <h3><a href="product-details.html">Incline Bench Press</a></h3>
-                            <p class="price">
-                                <ins>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                                    </span>
-                                </ins>
-                                <del>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>50.00
-                                    </span>
-                                </del>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="shop-single-item">
-                        <div class="top-content">
-                            <div class="thumb">
-                                <img src="assets/img/home/shopping/3.png" alt="shopping">
-                            </div>
-                            <div class="hover-content">
-                                <div class="btn-wrapper desktop-center">
-                                    <a href="#" class="btn btn-element btn-normal-size btn-rounded">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom-content">
-                            <p class="subtitle">Health, Accessories</p>
-                            <h3><a href="product-details.html">Pec Deck Machine</a></h3>
-                            <p class="price">
-                                <ins>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                                    </span>
-                                </ins>
-                                <del>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>50.00
-                                    </span>
-                                </del>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="shop-single-item">
-                        <div class="top-content">
-                            <div class="thumb">
-                                <img src="assets/img/home/shopping/4.png" alt="shopping">
-                            </div>
-                            <div class="hover-content">
-                                <div class="btn-wrapper desktop-center">
-                                    <a href="#" class="btn btn-element btn-normal-size btn-rounded">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom-content">
-                            <p class="subtitle">Weight, Accessories</p>
-                            <h3><a href="product-details.html">Pull-Down Machine</a></h3>
-                            <p class="price">
-                                <ins>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                                    </span>
-                                </ins>
-                                <del>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>50.00
-                                    </span>
-                                </del>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="shop-single-item">
-                        <div class="top-content">
-                            <div class="thumb">
-                                <img src="assets/img/home/shopping/5.png" alt="shopping">
-                            </div>
-                            <div class="hover-content">
-                                <div class="btn-wrapper desktop-center">
-                                    <a href="#" class="btn btn-element btn-normal-size btn-rounded">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom-content">
-                            <p class="subtitle">Yoga, Accessories</p>
-                            <h3><a href="product-details.html">Inclined Bench Press</a></h3>
-                            <p class="price">
-                                <ins>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                                    </span>
-                                </ins>
-                                <del>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>50.00
-                                    </span>
-                                </del>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="shop-single-item">
-                        <div class="top-content">
-                            <div class="thumb">
-                                <img src="assets/img/home/shopping/12.png" alt="shopping">
-                            </div>
-                            <div class="hover-content">
-                                <div class="btn-wrapper desktop-center">
-                                    <a href="#" class="btn btn-element btn-normal-size btn-rounded">Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom-content">
-                            <p class="subtitle">Health, Accessories</p>
-                            <h3><a href="product-details.html">Hammer Strength</a></h3>
-                            <p class="price">
-                                <ins>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>34.00
-                                    </span>
-                                </ins>
-                                <del>
-                                    <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>50.00
-                                    </span>
-                                </del>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- home shopping end -->
-    <!-- news-area start -->
-    @*TODO Redirect to blog*@
 
-    <div class="news-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title title-padding text-center">
-                        <p class="subtitle">Calisthenic News For You</p>
-                        <h1 class="title">Latest News</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 col-sm-12 col-11 news-slider text-center">
-                    <div class="news-item-style-01">
-                        <div class="thumb">
-                            <img src="assets/img/home/news/1.png" alt="news">
-                        </div>
-                        <div class="content">
-                            <div class="blog-meta">
-                                <h6 class="d-flex justify-content-between"><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> By Rasel</a><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 9 comments</a></h6>
-                            </div>
-                            <h3>Cable Pulley gym</h3>
-                            <p>Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis</p>
-                        </div>
-                        <div class="hover-content">
-                            <span class="border-bottom">20 Dec</span><br>
-                            <span>2019</span>
-                        </div>
-                    </div>
-                    <div class="news-item-style-01">
-                        <div class="thumb">
-                            <img src="assets/img/home/news/2.png" alt="news">
-                        </div>
-                        <div class="content">
-                            <div class="blog-meta">
-                                <h6 class="d-flex justify-content-between"><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> By Nasir</a><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 7 comments</a></h6>
-                            </div>
-                            <h3><a href="blog-details.html">Just like a stability</a></h3>
-                            <p>Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis</p>
-                        </div>
-                        <div class="hover-content">
-                            <span class="border-bottom">25 Dec</span><br>
-                            <span>2019</span>
-                        </div>
-                    </div>
-                    <div class="news-item-style-01">
-                        <div class="thumb">
-                            <img src="assets/img/home/news/3.png" alt="news">
-                        </div>
-                        <div class="content">
-                            <div class="blog-meta">
-                                <h6 class="d-flex justify-content-between"><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> By Fuad</a><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 4 comments</a></h6>
-                            </div>
-                            <h3><a href="blog-details.html">Nulla tempus, augue</a></h3>
-                            <p>Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis</p>
-                        </div>
-                        <div class="hover-content">
-                            <span class="border-bottom">24 Jun</span><br>
-                            <span>2019</span>
-                        </div>
-                    </div>
-                    <div class="news-item-style-01">
-                        <div class="thumb">
-                            <img src="assets/img/home/news/4.png" alt="news">
-                        </div>
-                        <div class="content">
-                            <div class="blog-meta">
-                                <h6 class="d-flex justify-content-between"><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> By Robin</a><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 8 comments</a></h6>
-                            </div>
-                            <h3><a href="blog-details.html">Train different parts</a></h3>
-                            <p>Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis</p>
-                        </div>
-                        <div class="hover-content">
-                            <span class="border-bottom">14 Jan</span><br>
-                            <span>2019</span>
-                        </div>
-                    </div>
-                    <div class="news-item-style-01">
-                        <div class="thumb">
-                            <img src="assets/img/home/news/5.png" alt="news">
-                        </div>
-                        <div class="content">
-                            <div class="blog-meta">
-                                <h6 class="d-flex justify-content-between"><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> By Asad</a><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 9 comments</a></h6>
-                            </div>
-                            <h3><a href="blog-details.html">World wide occasion</a></h3>
-                            <p>Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis</p>
-                        </div>
-                        <div class="hover-content">
-                            <span class="border-bottom">10 Jan</span><br>
-                            <span>2019</span>
-                        </div>
-                    </div>
-                    <div class="news-item-style-01">
-                        <div class="thumb">
-                            <img src="assets/img/home/news/6.png" alt="news">
-                        </div>
-                        <div class="content">
-                            <div class="blog-meta">
-                                <h6 class="d-flex justify-content-between"><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> By Naeem</a><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 7 comments</a></h6>
-                            </div>
-                            <h3><a href="blog-details.html">Easy solution here</a></h3>
-                            <p>Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis</p>
-                        </div>
-                        <div class="hover-content">
-                            <span class="border-bottom">09 Aug</span><br>
-                            <span>2019</span>
-                        </div>
-                    </div>
-                    <div class="news-item-style-01">
-                        <div class="thumb">
-                            <img src="assets/img/home/news/7.png" alt="news">
-                        </div>
-                        <div class="content">
-                            <div class="blog-meta">
-                                <h6 class="d-flex justify-content-between"><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> By Admin</a><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 3 comments</a></h6>
-                            </div>
-                            <h3><a href="blog-details.html">Doing something new</a></h3>
-                            <p>Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis</p>
-                        </div>
-                        <div class="hover-content">
-                            <span class="border-bottom">03 May</span><br>
-                            <span>2019</span>
-                        </div>
-                    </div>
-                    <div class="news-item-style-01">
-                        <div class="thumb">
-                            <img src="assets/img/home/news/8.png" alt="news">
-                        </div>
-                        <div class="content">
-                            <div class="blog-meta">
-                                <h6 class="d-flex justify-content-between"><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i> By John</a><a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 6 comments</a></h6>
-                            </div>
-                            <h3><a href="blog-details.html">Gym fair 2019</a></h3>
-                            <p>Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis</p>
-                        </div>
-                        <div class="hover-content">
-                            <span class="border-bottom">12 Jul</span><br>
-                            <span>2019</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @await Component.InvokeAsync("HomeProducts")
+
         </div>
     </div>
-    <!-- news-area end -->
-    <!-- client start -->
-    <div class="client-area margin-top-50">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title title-padding-bottom text-center">
-                        <p class="subtitle">Calisthenic Testimonial</p>
-                        <h1 class="title">Our Clients Say's</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="owl-carousel owl-theme">
-            <div class="item quote-style-1">
-                <div class="thumb">
-                    <img src="assets/img/home/client/1.jpg" alt="client">
-                </div>
-                <div class="content">
-                    <h1>Arpita paul</h1>
-                    <p>"Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae libero. Nulla interdum erat nec tincidunt"</p>
-                </div>
-            </div>
-            <div class="item quote-style-1">
-                <div class="thumb">
-                    <img src="assets/img/home/client/2.jpg" alt="client">
-                </div>
-                <div class="content">
-                    <h1>Susmita sen</h1>
-                    <p>"Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae libero. Nulla interdum erat nec tincidunt"</p>
-                </div>
-            </div>
-            <div class="item quote-style-1">
-                <div class="thumb">
-                    <img src="assets/img/home/client/3.jpg" alt="client">
-                </div>
-                <div class="content">
-                    <h1>Dipa talukdar</h1>
-                    <p>"Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae libero. Nulla interdum erat nec tincidunt"</p>
-                </div>
-            </div>
-            <div class="item quote-style-1">
-                <div class="thumb">
-                    <img src="assets/img/home/client/4.jpg" alt="client">
-                </div>
-                <div class="content">
-                    <h1>Jimmy H. Hines</h1>
-                    <p>"Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae libero. Nulla interdum erat nec tincidunt"</p>
-                </div>
-            </div>
-            <div class="item quote-style-1">
-                <div class="thumb">
-                    <img src="assets/img/home/client/5.jpg" alt="client">
-                </div>
-                <div class="content">
-                    <h1>Sharifur Rahman</h1>
-                    <p>"Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae libero. Nulla interdum erat nec tincidunt"</p>
-                </div>
-            </div>
-            <div class="item quote-style-1">
-                <div class="thumb">
-                    <img src="assets/img/home/client/6.jpg" alt="client">
-                </div>
-                <div class="content">
-                    <h1>Azharul Naeem</h1>
-                    <p>"Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae libero. Nulla interdum erat nec tincidunt"</p>
-                </div>
-            </div>
-            <div class="item quote-style-1">
-                <div class="thumb">
-                    <img src="assets/img/home/client/7.jpg" alt="client">
-                </div>
-                <div class="content">
-                    <h1>Asaduzzaman</h1>
-                    <p>"Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae libero. Nulla interdum erat nec tincidunt"</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- client end -->
-    <!-- back to top area end -->
+
+    @await Component.InvokeAsync("HomeLatestNews")
+
+    <partial name="~/Views/Shared/Partials/_OurClientsSayPartial.cshtml" />
+
     <!-- jquery -->
     <script src="assets/js/jquery-2.2.4.min.js"></script>
     <!-- popper -->

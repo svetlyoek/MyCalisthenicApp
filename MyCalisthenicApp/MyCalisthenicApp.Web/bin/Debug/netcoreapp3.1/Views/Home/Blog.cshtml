@@ -1,11 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewData["Title"] = "Blog";
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@ViewData["Title"] Blog</title>
+    <title>@ViewData["Title"]</title>
     <!-- favicon -->
     <link rel=icon href=/assets/img/favicon.png sizes="20x20" type="image/png">
     <!-- animate -->
@@ -42,8 +46,8 @@
         <div class="breadcrumb-inner">
             <h1 class="page-title">Latest News</h1>
             <ul class="page-list margin-bottom-10">
-                <li><a href="/">Home</a></li>
-                <li><a href="/Home/Blog">Blog</a></li>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Home" asp-action="Blog">Blog</a></li>
             </ul>
         </div>
     </div>
@@ -143,7 +147,7 @@
                                                 </div>
                                                 <h5><a asp-controller="Blogs" asp-action="Details">Best Cardio Exercises</a></h5>
                                                 <p>Sometimes ‘short and sweet’ workouts are all you need. If you've done a HIIT workout before you would agree. Prepared do an dissuade be.</p>
-                                                <a asp-controller ="Blogs" asp-action="Details" class="blog-more">Read More</a>
+                                                <a asp-controller="Blogs" asp-action="Details" class="blog-more">Read More</a>
                                             </div>
                                         </div>
                                     </div>
@@ -159,10 +163,6 @@
         </div>
     </div>
 
-    <!-- back to top area start -->
-    <div class="back-to-top">
-        <span class="back-top"><i class="fa fa-angle-up"></i></span>
-    </div>
     <!-- back to top area end -->
     <!-- jquery -->
     <script src="/assets/js/jquery-2.2.4.min.js"></script>
