@@ -1,5 +1,6 @@
 namespace MyCalisthenicApp.Web
 {
+    using AutoMapper;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
@@ -9,7 +10,10 @@ namespace MyCalisthenicApp.Web
     using Microsoft.Extensions.Hosting;
     using MyCalisthenicApp.Data;
     using MyCalisthenicApp.Models;
-    using System.Threading.Tasks;
+    using MyCalisthenicApp.Services;
+    using MyCalisthenicApp.Services.Contracts;
+    using MyCalisthenicApp.Web.MappingConfiguration;
+    using System;
 
     public class Startup
     {
@@ -26,12 +30,21 @@ namespace MyCalisthenicApp.Web
             services.AddDbContext<MyCalisthenicAppDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<MyCalisthenicAppDbContext>()
                 .AddDefaultTokenProviders()
                 .AddDefaultUI();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+
+            services.AddAutoMapper(cfg => {
+                cfg.AddProfile<MyCalisthenicAppProfile>();
+            });
+
+            services.AddTransient<IUserRequestsService, UserRequestService>();
+            services.AddTransient<IProgramsService, ProgramsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +71,7 @@ namespace MyCalisthenicApp.Web
 
             app.UseAuthentication();
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {

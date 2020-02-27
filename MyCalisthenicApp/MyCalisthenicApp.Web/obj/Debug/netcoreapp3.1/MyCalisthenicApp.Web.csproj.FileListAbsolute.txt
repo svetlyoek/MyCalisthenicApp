@@ -533,8 +533,6 @@ E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Deb
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\IKVM.OpenJDK.XML.XPath.dll
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\IKVM.Runtime.JNI.dll
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\IKVM.Runtime.dll
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\MyCalisthenicApp.Web.MvcApplicationPartsAssemblyInfo.cs
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\MyCalisthenicApp.Web.MvcApplicationPartsAssemblyInfo.cache
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\Views\Shared\ComingSoon.cshtml
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\ComingSoon.cshtml.g.cs
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\wwwroot\assets\img\coming-soon.jpg
@@ -674,3 +672,11 @@ E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Deb
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\InvoiceSummary\Default.cshtml.g.cs
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\DeliveryOptions\Default.cshtml.g.cs
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\CreditCard\Default.cshtml.g.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\AutoMapper.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\MyCalisthenicApp.Services.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\MyCalisthenicApp.Services.pdb
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\wwwroot\assets\css\tag-helpers-color.css
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Facebook.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\MyCalisthenicApp.Web.MvcApplicationPartsAssemblyInfo.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\MyCalisthenicApp.Web.MvcApplicationPartsAssemblyInfo.cache

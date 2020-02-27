@@ -1,4 +1,4 @@
-﻿namespace MyCalisthenicApp.Models.ShopEntities
+﻿namespace MyCalisthenicApp.Models
 {
     using MyCalisthenicApp.Data.Common.Models;
     using System;
@@ -14,16 +14,14 @@
         }
 
         [Required]
-        [MaxLength(DataValidations.UserRequestNameMaxLength)]
-        public string Name { get; set; }
-
-        [Required]
-        [MaxLength(DataValidations.UserRequestTitleMaxLength)]
-        public string Title { get; set; }
+        [MaxLength(DataValidations.UserRequestFullNameMaxLength)]
+        public string FullName { get; set; }
 
         [Required]
         [EmailAddress]
         public string Email { get; set; }
+
+        public string PhoneNumber { get; set; }
 
         [Required]
         [MaxLength(DataValidations.UserRequestContentMaxLength)]

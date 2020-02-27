@@ -1,22 +1,33 @@
 ﻿namespace MyCalisthenicApp.Web.Components
 {
     using Microsoft.AspNetCore.Mvc;
+    using MyCalisthenicApp.Services.Contracts;
+    using MyCalisthenicApp.Web.ViewModels.Programs;
+    using System.Linq;
 
     [ViewComponent(Name = "HomePopularPrograms")]
     public class HomePopularProgramsViewComponent : ViewComponent
     {
-        public HomePopularProgramsViewComponent()
+        private readonly IProgramsService programsService;
+
+        public HomePopularProgramsViewComponent(IProgramsService programsService)
         {
-            //TODO
-            //Inject service here
+            this.programsService = programsService;
+
         }
 
         //TODO Async
         public IViewComponentResult Invoke()
         {
-            //TODO View-list from latest n count of posts
+            var programs = this.programsService.GetFivePopularPrograms()
+                .Select(p => new HomePopularProgramsViewModel
+                {
+                    Title = p.Title,
+                    ImageUrl = p.Image.Url
+                })
+                .ToList();
 
-            return View();
+            return this.View(programs);
         }
     }
 }

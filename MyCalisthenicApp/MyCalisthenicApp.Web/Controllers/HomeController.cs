@@ -2,33 +2,48 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
+    using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.Web.Models;
+    using MyCalisthenicApp.Web.ViewModels.Home;
     using System.Diagnostics;
-    using System.Threading.Tasks;
 
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IUserRequestsService userRequestsService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,IUserRequestsService userRequestsService)
         {
-            _logger = logger;
+            this._logger = logger;
+            this.userRequestsService = userRequestsService;
         }
 
-        //TODO Make all services and methods async
-
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return await Task.Run(View);
+            return this.View();
         }
 
         public IActionResult About()
         {
-            return View();
+            return this.View();
         }
+
         public IActionResult Contact()
         {
-            return View();
+            return this.View();
+        }
+
+        [HttpPost]
+        public IActionResult Contact(ContactRequestInputViewModel inputModel)
+        {
+            if(!this.ModelState.IsValid)
+            {
+                return this.View();
+            }
+
+            this.userRequestsService.Create(inputModel.FullName, inputModel.Email, inputModel.PhoneNumber, inputModel.Content);
+
+            return this.RedirectToAction("/Home/Index");
         }
 
         public IActionResult Trainer()

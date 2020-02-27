@@ -224,14 +224,14 @@
         }
       }
     },
-    "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Web\\MyCalisthenicApp.Web.csproj": {
+    "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Services\\MyCalisthenicApp.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Web\\MyCalisthenicApp.Web.csproj",
-        "projectName": "MyCalisthenicApp.Web",
-        "projectPath": "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Web\\MyCalisthenicApp.Web.csproj",
+        "projectUniqueName": "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Services\\MyCalisthenicApp.Services.csproj",
+        "projectName": "MyCalisthenicApp.Services",
+        "projectPath": "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Services\\MyCalisthenicApp.Services.csproj",
         "packagesPath": "C:\\Users\\Svetoslav\\.nuget\\packages\\",
-        "outputPath": "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Web\\obj\\",
+        "outputPath": "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -264,10 +264,87 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Web\\MyCalisthenicApp.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Web\\MyCalisthenicApp.Web.csproj",
+        "projectName": "MyCalisthenicApp.Web",
+        "projectPath": "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Web\\MyCalisthenicApp.Web.csproj",
+        "packagesPath": "C:\\Users\\Svetoslav\\.nuget\\packages\\",
+        "outputPath": "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Svetoslav\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Data\\MyCalisthenicApp.Data.csproj": {
+                "projectPath": "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Data\\MyCalisthenicApp.Data.csproj"
+              },
+              "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Services\\MyCalisthenicApp.Services.csproj": {
+                "projectPath": "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Services\\MyCalisthenicApp.Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "IKVM": {
               "target": "Package",
               "version": "[8.1.5717, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Facebook": {
+              "target": "Package",
+              "version": "[3.1.2, )"
             },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",

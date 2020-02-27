@@ -42,7 +42,8 @@
         #endregion
 
         #region User validations
-        public const int ApplicationUserFullNameMaxLength = 50;
+        public const int ApplicationUserFirstNameMaxLength = 30;
+        public const int ApplicationUserLastNameMaxLength = 30;
         #endregion
 
         #region Address validations
@@ -66,8 +67,7 @@
         #endregion
 
         #region User request validations
-        public const int UserRequestNameMaxLength = 50;
-        public const int UserRequestTitleMaxLength = 30;
+        public const int UserRequestFullNameMaxLength = 50;
         public const int UserRequestContentMaxLength = 500;
         #endregion
 

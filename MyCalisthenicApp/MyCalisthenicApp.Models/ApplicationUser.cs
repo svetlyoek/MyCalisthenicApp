@@ -25,8 +25,12 @@
         }
 
         [Required]
-        [MaxLength(DataValidations.ApplicationUserFullNameMaxLength)]
-        public string FullName { get; set; }
+        [MaxLength(DataValidations.ApplicationUserFirstNameMaxLength)]
+        public string FirstName { get; set; }
+
+        [Required]
+        [MaxLength(DataValidations.ApplicationUserLastNameMaxLength)]
+        public string LastName { get; set; }
 
         public bool IsDeleted { get; set; }
 

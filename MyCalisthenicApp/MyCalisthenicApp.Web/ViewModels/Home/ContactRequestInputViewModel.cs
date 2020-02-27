@@ -16,7 +16,7 @@
         public string PhoneNumber { get; set; }
 
         [Required]
-        [MaxLength(WebValidations.ContactMessageMaxLength)]
-        public string Message { get; set; }
+        [MaxLength(WebValidations.ContactContentMaxLength)]
+        public string Content { get; set; }
     }
 }

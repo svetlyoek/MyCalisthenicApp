@@ -1,6 +1,6 @@
 ﻿@page
 @model LoginModel
-@{ 
+@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -13,6 +13,8 @@
     <title>@ViewData["Title"] Login</title>
     <!-- favicon -->
     <link rel=icon href=/assets/img/favicon.png sizes="20x20" type="image/png">
+    <!-- tag-helpers-colors -->
+    <link rel="stylesheet" href="/assets/css/tag-helpers-color.css">
     <!-- animate -->
     <link rel="stylesheet" href="/assets/css/animate.css">
     <!-- bootstrap -->
@@ -50,17 +52,19 @@
                         <h3>Login Your Account!</h3>
                         <p>Don't have an account? <a asp-area="Identity" asp-page="/Account/Register">Register</a></p>
                         <a class="btn btn-primary btn-lg btn-block"><i class="fa fa-facebook-square"></i> Login via facebook</a>
-                        <form>
+                        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
                             <div class="form-group text-left">
-                                <label for="email">Email Address <i class="fa fa-smile-o" aria-hidden="true"></i></label>
-                                <input type="email" class="form-control" id="email" placeholder="santa.bevilard@gmail.com">
+                                <label asp-for="Input.Email">Email Address </label>
+                                <input asp-for="Input.Email" type="email" class="form-control" id="email">
+                                <span asp-validation-for="Input.Email"></span>
                             </div>
                             <div class="form-group text-left">
-                                <label for="password">Password <span class="color-red password-alert">(Hey you forgot to create the password)</span> <i class="fa fa-smile-o color-red" aria-hidden="true"></i></label>
-                                <input type="password" class="form-control" id="password" placeholder="******">
+                                <label asp-for="Input.Password">Password </label>
+                                <input asp-for="Input.Password" type="password" class="form-control" id="password">
+                                <span asp-validation-for="Input.Password"></span>
                             </div>
-                            <a class="btn btn-success btn-lg btn-block text-white">Login</a>
-                            <p>By joining, you agree to the <a href="/Home/Privacy">Terms</a> and <a href="/Home/Privacy">Privacy Policy</a>.</p>
+                            <button type="submit" class="btn btn-success btn-lg btn-block text-white">Login</button>
+                            <p>By joining, you agree to the <a asp-controller="Home" asp-action="Privacy">Terms</a> and <a asp-controller="Home" asp-action="Privacy">Privacy Policy</a>.</p>
                         </form>
                     </div>
                 </div>

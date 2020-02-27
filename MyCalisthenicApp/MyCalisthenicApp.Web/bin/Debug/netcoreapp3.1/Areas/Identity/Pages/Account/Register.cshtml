@@ -13,6 +13,8 @@
     <title>@ViewData["Title"] Register</title>
     <!-- favicon -->
     <link rel=icon href=~/assets/img/favicon.png sizes="20x20" type="image/png">
+    <!-- tag-helpers-colors -->
+    <link rel="stylesheet" href="~/assets/css/tag-helpers-color.css">
     <!-- animate -->
     <link rel="stylesheet" href="~/assets/css/animate.css">
     <!-- bootstrap -->
@@ -72,27 +74,36 @@
                         <h3>Join our community!</h3>
                         <p>Already have an account? <a asp-area="Identity" asp-page="/Account/Login">Login</a></p>
                         <a class="btn btn-primary btn-lg btn-block"><i class="fa fa-facebook-square"></i> Join via facebook</a>
-                        <form method="post">
-                            <div class="form-row">
+                        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                            <div  class="form-row">
                                 <div class="form-group col-md-6 text-left">
-                                    <label for="fname">First Name <i class="fa fa-smile-o" aria-hidden="true"></i></label>
-                                    <input type="text" class="form-control" id="fname" placeholder="First Name">
+                                    <label asp-for="Input.FirsName">First Name </label>
+                                    <input asp-for="Input.FirsName" type="text" class="form-control" id="fname">
+                                    <span asp-validation-for="Input.FirsName"></span>
                                 </div>
                                 <div class="form-group col-md-6 text-left">
-                                    <label for="lname">Last Name <i class="fa fa-smile-o" aria-hidden="true"></i></label>
-                                    <input type="text" class="form-control" id="lname" placeholder="Last Name">
+                                    <label asp-for="Input.LastName">Last Name </label>
+                                    <input asp-for="Input.LastName" type="text" class="form-control" id="lname">
+                                    <span asp-validation-for="Input.LastName"></span>
                                 </div>
                             </div>
                             <div class="form-group text-left">
-                                <label for="email">Email Address <i class="fa fa-smile-o" aria-hidden="true"></i></label>
-                                <input type="email" class="form-control" id="email" placeholder="santa.bevilard@gmail.com">
+                                <label asp-for="Input.Email">Email Address </label>
+                                <input asp-for="Input.Email" type="email" class="form-control" id="email">
+                                <span asp-validation-for="Input.Email"></span>
                             </div>
                             <div class="form-group text-left">
-                                <label for="password">Password <span class="color-red password-alert">(Hey you forgot to create the password)</span> <i class="fa fa-smile-o color-red" aria-hidden="true"></i></label>
-                                <input type="password" class="form-control" id="password" placeholder="******">
+                                <label asp-for="Input.Password">Password </label>
+                                <input asp-for="Input.Password" type="password" class="form-control" id="password">
+                                <span asp-validation-for="Input.Password"></span>
+                            </div>
+                            <div class="form-group text-left">
+                                <label asp-for="Input.ConfirmPassword">Confirmation Password </label>
+                                <input asp-for="Input.ConfirmPassword" type="password" class="form-control" id="password">
+                                <span asp-validation-for="Input.ConfirmPassword"></span>
                             </div>
                             <button type="submit" class="btn btn-success btn-lg btn-block text-white">Join our community</button>
-                            <p>By joining, you agree to the <a href="/Home/Privacy">Terms</a> and <a href="/Home/Privacy">Privacy Policy</a>.</p>
+                            <p>By joining, you agree to the <a asp-controller="Home" asp-action="Privacy">Terms</a> and <a asp-controller="Home" asp-action="Privacy">Privacy Policy</a>.</p>
                         </form>
                     </div>
                 </div>

@@ -61,29 +61,33 @@
                         <div class="col-lg-12">
                             <div class="contact-title text-center">
                                 <h2 class="title">Drop us a line</h2>
-                                <p class="subtitle">If you got any questions, or you just want to say hello to us feel free to send us a message</p>
+                                <p class="subtitle">If you got any questions, or you just want to say hello to us, feel free to send us a message</p>
                             </div>
                         </div>
                         <div  class="col-lg-10 offset-lg-1">
                             <form  asp-controller="Home" asp-action="Contact" class="contact-form" method="post" name="registration">
-                                <div asp-validation-summary="All" class="form-row">
+                                <div class="form-row">
                                     <div class="form-group form-field col-md-4">
-                                        <input asp-for="FullName" type="text" id="firstname" class="form-control input-form" placeholder="Your Full Name">
+                                        <input asp-for="FullName" type="text" id="fullName" class="form-control input-form" placeholder="Your Full Name">
+                                        <span asp-validation-for="FullName"></span>
                                     </div>
                                     <div class="form-group form-field col-md-4">
-                                        <input asp-for="Email" type="email" class="form-control input-form" id="email" placeholder="Email" data-required="text" data-required-email="email">
+                                        <input asp-for="Email" type="text" class="form-control input-form" id="email" placeholder="Email" data-required="text" data-required-email="email">
+                                        <span asp-validation-for="Email"></span>
                                     </div>
                                     <div class="form-group form-field col-md-4">
-                                        <input asp-for="PhoneNumber" type="text" class="form-control input-form"  id="number" placeholder="Phone Number">
+                                        <input asp-for="PhoneNumber" type="text" class="form-control input-form" id="phoneNumber" placeholder="Phone Number">
+                                        <span asp-validation-for="PhoneNumber"></span>
                                     </div>
                                 </div>
                                 <div  class="form-group">
-                                    <div asp-validation-summary="All" class="form-field margin-bottom-30">
-                                        <textarea asp-for="Message" name="message" id="message" id="thought" cols="30" rows="5" placeholder="Write message" data-required="text"></textarea>
+                                    <div class="form-field margin-bottom-30">
+                                        <textarea asp-for="Content" id="content" cols="30" rows="5" placeholder="Write message" data-required="text"></textarea>
+                                        <span asp-validation-for="Content"></span>
                                     </div>
                                 </div>
                                 <div class="btn-wrapper desktop-center margin-bottom-10">
-                                    <button type="submit" class="btn btn-element btn-normal-size btn-main-color">Submit Message</button>
+                                    <button  type="submit" class="btn btn-element btn-normal-size btn-main-color">Submit Message</button>
                                 </div>
                             </form>
                         </div>
