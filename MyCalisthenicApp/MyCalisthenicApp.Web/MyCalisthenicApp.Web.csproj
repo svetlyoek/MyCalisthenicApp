@@ -23,13 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MyCalisthenicApp.Data\MyCalisthenicApp.Data.csproj" />
     <ProjectReference Include="..\MyCalisthenicApp.Services\MyCalisthenicApp.Services.csproj" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Compile Update="ViewModels\ErrorViewModel.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
+    <ProjectReference Include="..\MyCalisthenicApp.ViewModels\MyCalisthenicApp.ViewModels.csproj" />
   </ItemGroup>
 
 

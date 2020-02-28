@@ -21,27 +21,27 @@ using MyCalisthenicApp.Web;
 #nullable disable
 #nullable restore
 #line 2 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
-using MyCalisthenicApp.Web.Models;
+using MyCalisthenicApp.ViewModels.Home;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 3 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
-using MyCalisthenicApp.Web.ViewModels.Home;
+using MyCalisthenicApp.ViewModels.Blogs;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 4 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
-using MyCalisthenicApp.Web.ViewModels.Blogs;
+using MyCalisthenicApp.ViewModels.Programs;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f9fe579f4978c8b7511be32527087659d1bd42a6", @"/Views/Shared/ComingSoon.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1c3028c37dddf333e64d18bc4bb6ea3d4c2f2e47", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"482532b39bec3821e962ef52ec081a483f481a68", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_ComingSoon : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("rel", new global::Microsoft.AspNetCore.Html.HtmlString("stylesheet"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -86,7 +86,7 @@ using MyCalisthenicApp.Web.ViewModels.Blogs;
 #line hidden
 #nullable disable
             WriteLiteral("<!DOCTYPE html>\r\n<html lang=\"en\">\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f9fe579f4978c8b7511be32527087659d1bd42a65907", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f9fe579f4978c8b7511be32527087659d1bd42a65908", async() => {
                 WriteLiteral("\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n    <title>");
 #nullable restore
 #line 12 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\Shared\ComingSoon.cshtml"
@@ -96,7 +96,7 @@ using MyCalisthenicApp.Web.ViewModels.Blogs;
 #line hidden
 #nullable disable
                 WriteLiteral("</title>\r\n    <!-- favicon -->\r\n    <link rel=icon href=/assets/img/favicon.png sizes=\"20x20\" type=\"image/png\">\r\n    <!-- tag-helpers-colors -->\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f9fe579f4978c8b7511be32527087659d1bd42a66837", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f9fe579f4978c8b7511be32527087659d1bd42a66838", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -144,9 +144,9 @@ using MyCalisthenicApp.Web.ViewModels.Blogs;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f9fe579f4978c8b7511be32527087659d1bd42a69726", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f9fe579f4978c8b7511be32527087659d1bd42a69727", async() => {
                 WriteLiteral("\r\n   \r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f9fe579f4978c8b7511be32527087659d1bd42a69995", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f9fe579f4978c8b7511be32527087659d1bd42a69996", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -169,7 +169,7 @@ using MyCalisthenicApp.Web.ViewModels.Blogs;
             <h1>COMING SOON</h1>
             <p>NO BOUNDARIES. NO LIMITS. NO MORE EXCUSES.</p>
             ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f9fe579f4978c8b7511be32527087659d1bd42a611453", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f9fe579f4978c8b7511be32527087659d1bd42a611454", async() => {
                     WriteLiteral(@"
                 <input asp-controller=""Subscribes"" asp-action=""Subscribe"" type=""text"" class=""form-control"" name=""email"" placeholder=""Enter Email"">
                 <span class=""input-group-btn"">

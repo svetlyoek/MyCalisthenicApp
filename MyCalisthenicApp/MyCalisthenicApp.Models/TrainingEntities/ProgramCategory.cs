@@ -14,6 +14,7 @@
             this.CreatedOn = DateTime.UtcNow;
             this.Comments = new HashSet<Comment>();
             this.Exercises = new HashSet<Exercise>();
+            this.Programs = new HashSet<Program>();
         }
 
         [Required]
@@ -26,7 +27,7 @@
 
         public int? LikeCount { get; set; }
 
-        public virtual Program Program { get; set; }
+        public virtual ICollection<Program> Programs { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
 

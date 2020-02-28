@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyCalisthenicApp.Data\MyCalisthenicApp.Data.csproj" />
+    <ProjectReference Include="..\MyCalisthenicApp.Mapping\MyCalisthenicApp.Mapping.csproj" />
+    <ProjectReference Include="..\MyCalisthenicApp.ViewModels\MyCalisthenicApp.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

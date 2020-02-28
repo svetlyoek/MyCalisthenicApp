@@ -41,6 +41,8 @@
                 .WithOne(op => op.Product)
                 .HasForeignKey(op => op.ProductId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+        
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿ <!-- popular classes start -->
-@model List<MyCalisthenicApp.Web.ViewModels.Programs.HomePopularProgramsViewModel>
+﻿@model IEnumerable<HomePopularProgramsViewModel>
 
 <div class="popular-classes">
     <div class="container">
@@ -27,81 +26,12 @@
                                 <div class="hover-element">
                                     <div class="hover-top">
                                         <span>@program.Title</span><br>
-                                        <a asp-controller="Programs" asp-action="Details" class="btn">H. Hines</a>
+                                        <a asp-controller="Programs" asp-action="Details" class="btn" asp-route-id="@program.Id">Details</a>
                                     </div>
 
                                 </div>
                             </div>
                         </div>
-                        <div class="single-popular-item">
-                            <div class="popular-item-style-01">
-                                <div class="thumb">
-                                    <img src="@program.ImageUrl" alt="slider1">
-                                </div>
-                                <div class="content">
-                                    <p>@program.Title</p>
-                                </div>
-                                <div class="hover-element">
-                                    <div class="hover-top">
-                                        <span>Body Shaper</span><br>
-                                        <a asp-controller="Programs" asp-action="Details" class="btn">Sharifur</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-popular-item">
-                            <div class="popular-item-style-01">
-                                <div class="thumb">
-                                    <img src="@program.ImageUrl" alt="slider1">
-                                </div>
-                                <div class="content">
-                                    <p>@program.Title</p>
-                                </div>
-                                <div class="hover-element">
-                                    <div class="hover-top">
-                                        <span>Body Shaper</span><br>
-                                        <a asp-controller="Programs" asp-action="Details" class="btn">Naeem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-popular-item">
-                            <div class="popular-item-style-01">
-                                <div class="thumb">
-                                    <img src="@program.ImageUrl" alt="slider1">
-                                </div>
-                                <div class="content">
-                                    <p>@program.Title</p>
-                                </div>
-                                <div class="hover-element">
-                                    <div class="hover-top">
-                                        <span>Body Shaper</span><br>
-                                        <a asp-controller="Programs" asp-action="Details" class="btn">Janice Mcreaken</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-popular-item">
-                            <div class="popular-item-style-01">
-                                <div class="thumb">
-                                    <img src="@program.ImageUrl" alt="slider1">
-                                </div>
-                                <div class="content">
-                                    <p>@program.Title</p>
-                                </div>
-                                <div class="hover-element">
-                                    <div class="hover-top">
-                                        <span>Body Shaper</span><br>
-                                        <a asp-controller="Programs" asp-action="Details" class="btn">John Smith</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
                     }
 
                 </div>

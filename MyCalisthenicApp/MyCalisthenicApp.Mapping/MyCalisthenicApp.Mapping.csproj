@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyCalisthenicApp.Models\MyCalisthenicApp.Models.csproj" />
+    <ProjectReference Include="..\MyCalisthenicApp.ViewModels\MyCalisthenicApp.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

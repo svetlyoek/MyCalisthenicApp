@@ -309,9 +309,6 @@ namespace MyCalisthenicApp.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -337,10 +334,6 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.HasIndex("AuthorId");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("ImageId")
-                        .IsUnique()
-                        .HasFilter("[ImageId] IS NOT NULL");
 
                     b.ToTable("Post");
                 });
@@ -447,10 +440,6 @@ namespace MyCalisthenicApp.Data.Migrations
                         .HasColumnType("nvarchar(1000)")
                         .HasMaxLength(1000);
 
-                    b.Property<string>("ImageId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -467,11 +456,7 @@ namespace MyCalisthenicApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId")
-                        .IsUnique();
-
-                    b.HasIndex("ImageId")
-                        .IsUnique();
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Programs");
                 });
@@ -606,14 +591,22 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("ExerciseId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("PostId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("ProductId")
-                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProgramId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Url")
@@ -622,7 +615,13 @@ namespace MyCalisthenicApp.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ExerciseId");
+
+                    b.HasIndex("PostId");
+
                     b.HasIndex("ProductId");
+
+                    b.HasIndex("ProgramId");
 
                     b.ToTable("Images");
                 });
@@ -907,7 +906,7 @@ namespace MyCalisthenicApp.Data.Migrations
 
                     b.Property<string>("ImageId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -929,9 +928,6 @@ namespace MyCalisthenicApp.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ImageId")
-                        .IsUnique();
 
                     b.HasIndex("ProgramCategoryId");
 
@@ -1066,10 +1062,6 @@ namespace MyCalisthenicApp.Data.Migrations
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.HasOne("MyCalisthenicApp.Models.ShopEntities.Image", "Image")
-                        .WithOne("Post")
-                        .HasForeignKey("MyCalisthenicApp.Models.BlogEntities.Post", "ImageId");
                 });
 
             modelBuilder.Entity("MyCalisthenicApp.Models.Comment", b =>
@@ -1099,15 +1091,9 @@ namespace MyCalisthenicApp.Data.Migrations
             modelBuilder.Entity("MyCalisthenicApp.Models.Program", b =>
                 {
                     b.HasOne("MyCalisthenicApp.Models.ProgramCategory", "Category")
-                        .WithOne("Program")
-                        .HasForeignKey("MyCalisthenicApp.Models.Program", "CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MyCalisthenicApp.Models.ShopEntities.Image", "Image")
-                        .WithOne("Program")
-                        .HasForeignKey("MyCalisthenicApp.Models.Program", "ImageId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .WithMany("Programs")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -1127,11 +1113,25 @@ namespace MyCalisthenicApp.Data.Migrations
 
             modelBuilder.Entity("MyCalisthenicApp.Models.ShopEntities.Image", b =>
                 {
+                    b.HasOne("MyCalisthenicApp.Models.TrainingEntities.Exercise", "Exercise")
+                        .WithMany("Images")
+                        .HasForeignKey("ExerciseId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("MyCalisthenicApp.Models.BlogEntities.Post", "Post")
+                        .WithMany("Images")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("MyCalisthenicApp.Models.ShopEntities.Product", "Product")
                         .WithMany("Images")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("MyCalisthenicApp.Models.Program", "Program")
+                        .WithMany("Images")
+                        .HasForeignKey("ProgramId")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("MyCalisthenicApp.Models.ShopEntities.Order", b =>
@@ -1190,12 +1190,6 @@ namespace MyCalisthenicApp.Data.Migrations
 
             modelBuilder.Entity("MyCalisthenicApp.Models.TrainingEntities.Exercise", b =>
                 {
-                    b.HasOne("MyCalisthenicApp.Models.ShopEntities.Image", "Image")
-                        .WithOne("Exercise")
-                        .HasForeignKey("MyCalisthenicApp.Models.TrainingEntities.Exercise", "ImageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("MyCalisthenicApp.Models.ProgramCategory", "ProgramCategory")
                         .WithMany("Exercises")
                         .HasForeignKey("ProgramCategoryId")

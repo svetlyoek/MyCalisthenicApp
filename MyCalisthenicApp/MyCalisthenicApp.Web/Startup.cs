@@ -9,11 +9,10 @@ namespace MyCalisthenicApp.Web
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using MyCalisthenicApp.Data;
+    using MyCalisthenicApp.Mapping.MappingConfiguration;
     using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Services;
     using MyCalisthenicApp.Services.Contracts;
-    using MyCalisthenicApp.Web.MappingConfiguration;
-    using System;
 
     public class Startup
     {

@@ -1,10 +1,11 @@
 ﻿namespace MyCalisthenicApp.Services.Contracts
 {
-    using MyCalisthenicApp.Models;
+    using MyCalisthenicApp.ViewModels.Programs;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     public interface IProgramsService
     {
-        IEnumerable<Program> GetFivePopularPrograms();
+       Task<IEnumerable<HomePopularProgramsViewModel>> GetFivePopularProgramsAsync();
     }
 }

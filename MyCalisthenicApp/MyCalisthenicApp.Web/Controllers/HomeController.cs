@@ -3,8 +3,8 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
     using MyCalisthenicApp.Services.Contracts;
-    using MyCalisthenicApp.Web.Models;
-    using MyCalisthenicApp.Web.ViewModels.Home;
+    using MyCalisthenicApp.ViewModels;
+    using MyCalisthenicApp.ViewModels.Home;
     using System.Diagnostics;
 
     public class HomeController : Controller

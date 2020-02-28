@@ -19,6 +19,13 @@
                 .WithOne(c => c.Category)
                 .HasForeignKey(c => c.CategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            programCategory
+                .HasMany(pc => pc.Programs)
+                .WithOne(p => p.Category)
+                .HasForeignKey(p => p.CategoryId)
+                .OnDelete(DeleteBehavior.Restrict);
+
         }
     }
 }

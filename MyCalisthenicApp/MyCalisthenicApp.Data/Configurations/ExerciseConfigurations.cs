@@ -9,9 +9,10 @@
         public void Configure(EntityTypeBuilder<Exercise> exercise)
         {
             exercise
-                .HasOne(e => e.Image)
+                .HasMany(e => e.Images)
                 .WithOne(i => i.Exercise)
-                .HasForeignKey<Exercise>(e => e.ImageId);
+                .HasForeignKey(i=>i.ExerciseId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             exercise
                 .HasOne(e => e.ProgramCategory)

@@ -1,0 +1,5 @@
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\bin\Debug\netstandard2.0\MyCalisthenicApp.Mapping.deps.json
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\bin\Debug\netstandard2.0\MyCalisthenicApp.Mapping.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\obj\Debug\netstandard2.0\MyCalisthenicApp.Mapping.csprojAssemblyReference.cache
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\obj\Debug\netstandard2.0\MyCalisthenicApp.Mapping.AssemblyInfoInputs.cache
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\obj\Debug\netstandard2.0\MyCalisthenicApp.Mapping.AssemblyInfo.cs

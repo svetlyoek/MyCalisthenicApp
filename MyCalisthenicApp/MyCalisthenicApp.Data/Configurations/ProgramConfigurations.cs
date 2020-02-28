@@ -9,14 +9,16 @@
         public void Configure(EntityTypeBuilder<Program> program)
         {
             program
-                .HasOne(p => p.Image)
+                .HasMany(p => p.Images)
                 .WithOne(i => i.Program)
-                .HasForeignKey<Program>(p => p.ImageId);
+                .HasForeignKey(i=>i.ProgramId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             program
                 .HasOne(p => p.Category)
-                .WithOne(c => c.Program)
-                .HasForeignKey<Program>(p => p.CategoryId);
+                .WithMany(c => c.Programs)
+                .HasForeignKey(p => p.CategoryId)
+                .OnDelete(DeleteBehavior.Restrict);
 
 
         }

@@ -1,0 +1,16 @@
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\bin\Debug\netstandard2.1\ErrorViewModel.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\bin\Debug\netstandard2.1\MyCalisthenicApp.Mapping.deps.json
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\bin\Debug\netstandard2.1\MyCalisthenicApp.Mapping.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\bin\Debug\netstandard2.1\MyCalisthenicApp.Mapping.pdb
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\bin\Debug\netstandard2.1\MyCalisthenicApp.Data.Common.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\bin\Debug\netstandard2.1\MyCalisthenicApp.Models.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\bin\Debug\netstandard2.1\MyCalisthenicApp.ViewModels.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\bin\Debug\netstandard2.1\MyCalisthenicApp.Models.pdb
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\bin\Debug\netstandard2.1\MyCalisthenicApp.ViewModels.pdb
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\bin\Debug\netstandard2.1\MyCalisthenicApp.Data.Common.pdb
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\obj\Debug\netstandard2.1\MyCalisthenicApp.Mapping.csprojAssemblyReference.cache
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\obj\Debug\netstandard2.1\MyCalisthenicApp.Mapping.AssemblyInfoInputs.cache
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\obj\Debug\netstandard2.1\MyCalisthenicApp.Mapping.AssemblyInfo.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\obj\Debug\netstandard2.1\MyCalisthenicApp.Mapping.csproj.CopyComplete
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\obj\Debug\netstandard2.1\MyCalisthenicApp.Mapping.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\obj\Debug\netstandard2.1\MyCalisthenicApp.Mapping.pdb

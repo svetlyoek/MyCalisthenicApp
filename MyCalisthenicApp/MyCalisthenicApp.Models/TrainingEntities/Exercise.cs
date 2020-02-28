@@ -3,6 +3,7 @@
     using MyCalisthenicApp.Data.Common.Models;
     using MyCalisthenicApp.Models.ShopEntities;
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     public class Exercise : BaseDeletableEntity<string>
@@ -11,6 +12,7 @@
         {
             this.IsDeleted = false;
             this.CreatedOn = DateTime.UtcNow;
+            this.Images = new HashSet<Image>();
         }
 
         [Required]
@@ -23,8 +25,6 @@
         [Required]
         public string ImageId { get; set; }
 
-        public virtual Image Image { get; set; }
-
         [Required]
         public string VideoUrl { get; set; }
 
@@ -32,6 +32,8 @@
         public string ProgramCategoryId { get; set; }
 
         public virtual ProgramCategory ProgramCategory { get; set; }
+
+        public virtual ICollection<Image> Images { get; set; }
 
     }
 }

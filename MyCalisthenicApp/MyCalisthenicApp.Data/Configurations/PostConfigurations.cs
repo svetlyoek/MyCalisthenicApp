@@ -21,9 +21,10 @@
                 .OnDelete(DeleteBehavior.Restrict);
 
             post
-                .HasOne(p => p.Image)
+                .HasMany(p => p.Images)
                 .WithOne(i => i.Post)
-                .HasForeignKey<Post>(p => p.ImageId);
+                .HasForeignKey(p => p.PostId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             post
                 .HasMany(p => p.Comments)

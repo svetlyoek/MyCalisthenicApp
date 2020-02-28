@@ -14,6 +14,7 @@
             this.IsPublic = true;
             this.IsDeleted = false;
             this.Comments = new HashSet<Comment>();
+            this.Images = new HashSet<Image>();
         }
 
         [Required]
@@ -35,14 +36,12 @@
 
         public virtual BlogCategory Category { get; set; }
 
-        public string ImageId { get; set; }
-
-        public virtual Image Image { get; set; }
-
         public string VideoUrl { get; set; }
 
         public bool IsPublic { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
+
+        public virtual ICollection<Image> Images { get; set; }
     }
 }

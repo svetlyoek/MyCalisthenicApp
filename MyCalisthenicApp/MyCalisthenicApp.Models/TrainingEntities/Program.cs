@@ -4,6 +4,7 @@
     using MyCalisthenicApp.Models.Enums;
     using MyCalisthenicApp.Models.ShopEntities;
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     public class Program : BaseDeletableEntity<string>
@@ -12,6 +13,7 @@
         {
             this.IsDeleted = false;
             this.CreatedOn = DateTime.UtcNow;
+            this.Images = new HashSet<Image>();
         }
 
         [Required]
@@ -25,14 +27,11 @@
         public string Description { get; set; }
 
         [Required]
-        public string ImageId { get; set; }
-
-        public Image Image { get; set; }
-
-        [Required]
         public string CategoryId { get; set; }
 
         public virtual ProgramCategory Category { get; set; }
+
+        public virtual ICollection<Image> Images { get; set; }
 
     }
 }

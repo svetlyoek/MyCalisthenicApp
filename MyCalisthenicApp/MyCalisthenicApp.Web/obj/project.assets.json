@@ -2445,6 +2445,22 @@
           "bin/placeholder/MyCalisthenicApp.Data.Common.dll": {}
         }
       },
+      "MyCalisthenicApp.Mapping/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "AutoMapper": "8.0.0",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "6.0.0",
+          "MyCalisthenicApp.Models": "1.0.0",
+          "MyCalisthenicApp.ViewModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MyCalisthenicApp.Mapping.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyCalisthenicApp.Mapping.dll": {}
+        }
+      },
       "MyCalisthenicApp.Models/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
@@ -2464,7 +2480,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "MyCalisthenicApp.Data": "1.0.0"
+          "MyCalisthenicApp.Data": "1.0.0",
+          "MyCalisthenicApp.Mapping": "1.0.0",
+          "MyCalisthenicApp.ViewModels": "1.0.0"
         },
         "compile": {
           "bin/placeholder/MyCalisthenicApp.Services.dll": {}
@@ -2475,6 +2493,19 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "MyCalisthenicApp.ViewModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "System.ComponentModel.Annotations": "4.7.0"
+        },
+        "compile": {
+          "bin/placeholder/MyCalisthenicApp.ViewModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MyCalisthenicApp.ViewModels.dll": {}
+        }
       }
     }
   },
@@ -8184,6 +8215,11 @@
       "path": "../MyCalisthenicApp.Data.Common/MyCalisthenicApp.Data.Common.csproj",
       "msbuildProject": "../MyCalisthenicApp.Data.Common/MyCalisthenicApp.Data.Common.csproj"
     },
+    "MyCalisthenicApp.Mapping/1.0.0": {
+      "type": "project",
+      "path": "../MyCalisthenicApp.Mapping/MyCalisthenicApp.Mapping.csproj",
+      "msbuildProject": "../MyCalisthenicApp.Mapping/MyCalisthenicApp.Mapping.csproj"
+    },
     "MyCalisthenicApp.Models/1.0.0": {
       "type": "project",
       "path": "../MyCalisthenicApp.Models/MyCalisthenicApp.Models.csproj",
@@ -8193,6 +8229,11 @@
       "type": "project",
       "path": "../MyCalisthenicApp.Services/MyCalisthenicApp.Services.csproj",
       "msbuildProject": "../MyCalisthenicApp.Services/MyCalisthenicApp.Services.csproj"
+    },
+    "MyCalisthenicApp.ViewModels/1.0.0": {
+      "type": "project",
+      "path": "../MyCalisthenicApp.ViewModels/MyCalisthenicApp.ViewModels.csproj",
+      "msbuildProject": "../MyCalisthenicApp.ViewModels/MyCalisthenicApp.ViewModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -8208,7 +8249,8 @@
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.1",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.1",
       "MyCalisthenicApp.Data >= 1.0.0",
-      "MyCalisthenicApp.Services >= 1.0.0"
+      "MyCalisthenicApp.Services >= 1.0.0",
+      "MyCalisthenicApp.ViewModels >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -8246,6 +8288,9 @@
             },
             "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Services\\MyCalisthenicApp.Services.csproj": {
               "projectPath": "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Services\\MyCalisthenicApp.Services.csproj"
+            },
+            "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.ViewModels\\MyCalisthenicApp.ViewModels.csproj": {
+              "projectPath": "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.ViewModels\\MyCalisthenicApp.ViewModels.csproj"
             }
           }
         }

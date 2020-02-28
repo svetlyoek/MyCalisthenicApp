@@ -36,6 +36,7 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.1",
           "MyCalisthenicApp.Data": "1.0.0",
           "MyCalisthenicApp.Services": "1.0.0",
+          "MyCalisthenicApp.ViewModels": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -2271,6 +2272,20 @@
           "MyCalisthenicApp.Data.Common.dll": {}
         }
       },
+      "MyCalisthenicApp.Mapping/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "8.0.0",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "6.0.0",
+          "MyCalisthenicApp.Models": "1.0.0",
+          "MyCalisthenicApp.ViewModels": "1.0.0"
+        },
+        "runtime": {
+          "MyCalisthenicApp.Mapping.dll": {}
+        },
+        "compile": {
+          "MyCalisthenicApp.Mapping.dll": {}
+        }
+      },
       "MyCalisthenicApp.Models/1.0.0": {
         "dependencies": {
           "EntityFramework": "6.4.0",
@@ -2286,13 +2301,26 @@
       },
       "MyCalisthenicApp.Services/1.0.0": {
         "dependencies": {
-          "MyCalisthenicApp.Data": "1.0.0"
+          "MyCalisthenicApp.Data": "1.0.0",
+          "MyCalisthenicApp.Mapping": "1.0.0",
+          "MyCalisthenicApp.ViewModels": "1.0.0"
         },
         "runtime": {
           "MyCalisthenicApp.Services.dll": {}
         },
         "compile": {
           "MyCalisthenicApp.Services.dll": {}
+        }
+      },
+      "MyCalisthenicApp.ViewModels/1.0.0": {
+        "dependencies": {
+          "System.ComponentModel.Annotations": "4.7.0"
+        },
+        "runtime": {
+          "MyCalisthenicApp.ViewModels.dll": {}
+        },
+        "compile": {
+          "MyCalisthenicApp.ViewModels.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -4904,12 +4932,22 @@
       "serviceable": false,
       "sha512": ""
     },
+    "MyCalisthenicApp.Mapping/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "MyCalisthenicApp.Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
     "MyCalisthenicApp.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MyCalisthenicApp.ViewModels/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
