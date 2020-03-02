@@ -13,6 +13,8 @@ namespace MyCalisthenicApp.Web
     using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Services;
     using MyCalisthenicApp.Services.Contracts;
+    using MyCalisthenicApp.Web.Middlewares;
+    using System;
 
     public class Startup
     {
@@ -30,24 +32,36 @@ namespace MyCalisthenicApp.Web
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 15;
+                options.Password.RequiredUniqueChars = 0;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+            })
                 .AddEntityFrameworkStores<MyCalisthenicAppDbContext>()
                 .AddDefaultTokenProviders()
                 .AddDefaultUI();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
 
 
-            services.AddAutoMapper(cfg => {
+            services.AddAutoMapper(cfg =>
+            {
                 cfg.AddProfile<MyCalisthenicAppProfile>();
             });
 
             services.AddTransient<IUserRequestsService, UserRequestService>();
             services.AddTransient<IProgramsService, ProgramsService>();
+            services.AddTransient<IShoppingCartsService, ShoppingCartsService>();
         }
 
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -61,6 +75,7 @@ namespace MyCalisthenicApp.Web
                 app.UseHsts();
             }
 
+
             app.UseStatusCodePagesWithRedirects("/Home/Error404?statusCode={0}");
 
             app.UseHttpsRedirection();
@@ -70,15 +85,21 @@ namespace MyCalisthenicApp.Web
 
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseSeedRolesMiddleware();
 
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "areaRoute",
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
         }
     }
 }

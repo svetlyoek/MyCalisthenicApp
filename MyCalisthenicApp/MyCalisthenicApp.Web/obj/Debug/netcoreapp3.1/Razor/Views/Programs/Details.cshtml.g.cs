@@ -40,8 +40,15 @@ using MyCalisthenicApp.ViewModels.Programs;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using MyCalisthenicApp.Web.Common;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3439a18a817e73d1d3c485d65036641d72364f09", @"/Views/Programs/Details.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"482532b39bec3821e962ef52ec081a483f481a68", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0eccbceb5d37572a2ecfc3ea2987ccde39829229", @"/Views/_ViewImports.cshtml")]
     public class Views_Programs_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Home", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -85,7 +92,7 @@ using MyCalisthenicApp.ViewModels.Programs;
 #line hidden
 #nullable disable
             WriteLiteral("<!DOCTYPE html>\r\n<html lang=\"en\">\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3439a18a817e73d1d3c485d65036641d72364f095853", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3439a18a817e73d1d3c485d65036641d72364f096068", async() => {
                 WriteLiteral("\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n    <title>");
 #nullable restore
 #line 11 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\Programs\Details.cshtml"
@@ -131,7 +138,7 @@ using MyCalisthenicApp.ViewModels.Programs;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3439a18a817e73d1d3c485d65036641d72364f098597", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3439a18a817e73d1d3c485d65036641d72364f098812", async() => {
                 WriteLiteral(@"
     <!-- breadcrumb area -->
     <div class=""breadcrumb-style-1 class-details-breadcrumb-overlay"" style=""background-image:url(/assets/img/bg/program-details.png);"">
@@ -139,7 +146,7 @@ using MyCalisthenicApp.ViewModels.Programs;
             <h1 class=""page-title"">Program Details</h1>
             <ul class=""page-list margin-bottom-0 margin-top-3"">
                 <li>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3439a18a817e73d1d3c485d65036641d72364f099213", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3439a18a817e73d1d3c485d65036641d72364f099428", async() => {
                     WriteLiteral("Home");
                 }
                 );
@@ -157,7 +164,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("</li>\r\n                <li>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3439a18a817e73d1d3c485d65036641d72364f0910669", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3439a18a817e73d1d3c485d65036641d72364f0910884", async() => {
                     WriteLiteral("Program Details");
                 }
                 );
@@ -583,7 +590,7 @@ using MyCalisthenicApp.ViewModels.Programs;
     <!-- home trainer end -->
 
     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3439a18a817e73d1d3c485d65036641d72364f0941363", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3439a18a817e73d1d3c485d65036641d72364f0941578", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

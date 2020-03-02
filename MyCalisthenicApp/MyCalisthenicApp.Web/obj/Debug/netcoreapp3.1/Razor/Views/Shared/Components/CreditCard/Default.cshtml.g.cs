@@ -40,8 +40,15 @@ using MyCalisthenicApp.ViewModels.Programs;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using MyCalisthenicApp.Web.Common;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dda12ce60acfb234af2a41142643a9ec7615cd8d", @"/Views/Shared/Components/CreditCard/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"482532b39bec3821e962ef52ec081a483f481a68", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0eccbceb5d37572a2ecfc3ea2987ccde39829229", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_CreditCard_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Payments", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -75,9 +82,9 @@ using MyCalisthenicApp.ViewModels.Programs;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("\r\n<div id=\"home\" class=\"tab-pane fade in active show\">\r\n    <div class=\"all-tab-content\">\r\n        <h2>Payment Details</h2>\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dda12ce60acfb234af2a41142643a9ec7615cd8d5416", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dda12ce60acfb234af2a41142643a9ec7615cd8d5631", async() => {
                 WriteLiteral("\r\n            <div class=\"form-group\">\r\n                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dda12ce60acfb234af2a41142643a9ec7615cd8d5731", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dda12ce60acfb234af2a41142643a9ec7615cd8d5946", async() => {
                     WriteLiteral(@"
                     <div class=""form-row"">
                         <div class=""form-group col-xl-8 col-lg-6"">

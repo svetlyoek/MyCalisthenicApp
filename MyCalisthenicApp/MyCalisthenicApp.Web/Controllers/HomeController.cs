@@ -38,7 +38,7 @@
         {
             if(!this.ModelState.IsValid)
             {
-                return this.View();
+                return this.View(inputModel);
             }
 
             this.userRequestsService.Create(inputModel.FullName, inputModel.Email, inputModel.PhoneNumber, inputModel.Content);

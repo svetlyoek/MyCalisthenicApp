@@ -40,8 +40,15 @@ using MyCalisthenicApp.ViewModels.Programs;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using MyCalisthenicApp.Web.Common;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0cb2e538923440e955d9a60a817bc7709334d5a7", @"/Views/Shared/Partials/_MembershipPlansPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"482532b39bec3821e962ef52ec081a483f481a68", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0eccbceb5d37572a2ecfc3ea2987ccde39829229", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Partials__MembershipPlansPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Home", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -88,7 +95,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                     <h2 class=""off-style-1"">10% Off</h2>
                     <div class=""pricing-icon text-center"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0cb2e538923440e955d9a60a817bc7709334d5a75482", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0cb2e538923440e955d9a60a817bc7709334d5a75697", async() => {
                 WriteLiteral("<i class=\"flaticon-weight\" aria-hidden=\"true\"></i>");
             }
             );
@@ -121,7 +128,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                     </ul>
                     <div class=""btn-wrapper desktop-center"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0cb2e538923440e955d9a60a817bc7709334d5a77556", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0cb2e538923440e955d9a60a817bc7709334d5a77771", async() => {
                 WriteLiteral("Select Plan");
             }
             );
@@ -148,7 +155,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                     <h2 class=""off-style-1"">20% Off</h2>
                     <div class=""pricing-icon text-center"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0cb2e538923440e955d9a60a817bc7709334d5a79357", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0cb2e538923440e955d9a60a817bc7709334d5a79572", async() => {
                 WriteLiteral("<i class=\"flaticon-weight-lifting\" aria-hidden=\"true\"></i>");
             }
             );
@@ -181,7 +188,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                     </ul>
                     <div class=""btn-wrapper desktop-center"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0cb2e538923440e955d9a60a817bc7709334d5a711443", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0cb2e538923440e955d9a60a817bc7709334d5a711658", async() => {
                 WriteLiteral("Select Plan");
             }
             );
@@ -208,7 +215,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                     <h2 class=""off-style-1"">20% Off</h2>
                     <div class=""pricing-icon text-center"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0cb2e538923440e955d9a60a817bc7709334d5a713238", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0cb2e538923440e955d9a60a817bc7709334d5a713453", async() => {
                 WriteLiteral("<i class=\"flaticon-woman\" aria-hidden=\"true\"></i>");
             }
             );
@@ -241,7 +248,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                     </ul>
                     <div class=""btn-wrapper desktop-center"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0cb2e538923440e955d9a60a817bc7709334d5a715312", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0cb2e538923440e955d9a60a817bc7709334d5a715527", async() => {
                 WriteLiteral("Select Plan");
             }
             );

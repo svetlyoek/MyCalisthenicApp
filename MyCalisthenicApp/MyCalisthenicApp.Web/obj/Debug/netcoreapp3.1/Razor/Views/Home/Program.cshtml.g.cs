@@ -40,8 +40,15 @@ using MyCalisthenicApp.ViewModels.Programs;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using MyCalisthenicApp.Web.Common;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"30f43a7c9f813716422a3c84153cf5a17a913a72", @"/Views/Home/Program.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"482532b39bec3821e962ef52ec081a483f481a68", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0eccbceb5d37572a2ecfc3ea2987ccde39829229", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Program : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Home", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -88,7 +95,7 @@ using MyCalisthenicApp.ViewModels.Programs;
 #line hidden
 #nullable disable
             WriteLiteral("<!DOCTYPE html>\r\n<html lang=\"en\">\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a726852", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a727067", async() => {
                 WriteLiteral("\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n    <title>");
 #nullable restore
 #line 11 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\Home\Program.cshtml"
@@ -134,7 +141,7 @@ using MyCalisthenicApp.ViewModels.Programs;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a729588", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a729803", async() => {
                 WriteLiteral(@"
 
     <!-- breadcrumb area -->
@@ -143,7 +150,7 @@ using MyCalisthenicApp.ViewModels.Programs;
             <h1 class=""page-title"">Programs</h1>
             <ul class=""page-list margin-bottom-2"">
                 <li>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7210173", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7210388", async() => {
                     WriteLiteral("Home");
                 }
                 );
@@ -161,7 +168,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("</li>\r\n                <li>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7211630", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7211845", async() => {
                     WriteLiteral("Program");
                 }
                 );
@@ -192,7 +199,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                             <div class=""hover-content"">
                                 <div class=""btn-wrapper desktop-center"">
                                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7213894", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7214109", async() => {
                     WriteLiteral("Details");
                 }
                 );
@@ -211,7 +218,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"bottom-content\">\r\n                            <h3>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7215620", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7215835", async() => {
                     WriteLiteral("Yoga Class 01");
                 }
                 );
@@ -243,7 +250,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                             <div class=""hover-content"">
                                 <div class=""btn-wrapper desktop-center"">
                                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7217878", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7218093", async() => {
                     WriteLiteral("Details");
                 }
                 );
@@ -262,7 +269,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"bottom-content\">\r\n                            <h3>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7219604", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7219819", async() => {
                     WriteLiteral("Yoga Class 02");
                 }
                 );
@@ -294,7 +301,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                             <div class=""hover-content"">
                                 <div class=""btn-wrapper desktop-center"">
                                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7221862", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7222077", async() => {
                     WriteLiteral("Details");
                 }
                 );
@@ -313,7 +320,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"bottom-content\">\r\n                            <h3>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7223588", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7223803", async() => {
                     WriteLiteral("Gym Class 01");
                 }
                 );
@@ -345,7 +352,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                             <div class=""hover-content"">
                                 <div class=""btn-wrapper desktop-center"">
                                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7225845", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7226060", async() => {
                     WriteLiteral("Details");
                 }
                 );
@@ -364,7 +371,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"bottom-content\">\r\n                            <h3>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7227571", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7227786", async() => {
                     WriteLiteral("Gym Class 02");
                 }
                 );
@@ -396,7 +403,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                             <div class=""hover-content"">
                                 <div class=""btn-wrapper desktop-center"">
                                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7229828", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7230043", async() => {
                     WriteLiteral("Details");
                 }
                 );
@@ -415,7 +422,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"bottom-content\">\r\n                            <h3>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7231554", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7231769", async() => {
                     WriteLiteral("Fitness Class 01");
                 }
                 );
@@ -447,7 +454,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                             <div class=""hover-content"">
                                 <div class=""btn-wrapper desktop-center"">
                                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7233815", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7234030", async() => {
                     WriteLiteral("Details");
                 }
                 );
@@ -466,7 +473,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"bottom-content\">\r\n                            <h3>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7235541", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7235756", async() => {
                     WriteLiteral("Fitness Class 02");
                 }
                 );
@@ -498,7 +505,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                             <div class=""hover-content"">
                                 <div class=""btn-wrapper desktop-center"">
                                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7237802", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7238017", async() => {
                     WriteLiteral("Details");
                 }
                 );
@@ -517,7 +524,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"bottom-content\">\r\n                            <h3>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7239528", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7239743", async() => {
                     WriteLiteral("Body Class 01");
                 }
                 );
@@ -549,7 +556,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                             <div class=""hover-content"">
                                 <div class=""btn-wrapper desktop-center"">
                                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7241786", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7242001", async() => {
                     WriteLiteral("Details");
                 }
                 );
@@ -568,7 +575,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"bottom-content\">\r\n                            <h3>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7243512", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7243727", async() => {
                     WriteLiteral("Body Class 02");
                 }
                 );
@@ -600,7 +607,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                             <div class=""hover-content"">
                                 <div class=""btn-wrapper desktop-center"">
                                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7245770", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7245985", async() => {
                     WriteLiteral("Details");
                 }
                 );
@@ -619,7 +626,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"bottom-content\">\r\n                            <h3>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7247496", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30f43a7c9f813716422a3c84153cf5a17a913a7247711", async() => {
                     WriteLiteral("Body Class 03");
                 }
                 );
@@ -648,7 +655,7 @@ using MyCalisthenicApp.ViewModels.Programs;
     <!-- home shopping end -->
    
     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "30f43a7c9f813716422a3c84153cf5a17a913a7249339", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "30f43a7c9f813716422a3c84153cf5a17a913a7249554", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -663,7 +670,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "30f43a7c9f813716422a3c84153cf5a17a913a7250524", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "30f43a7c9f813716422a3c84153cf5a17a913a7250739", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

@@ -40,8 +40,15 @@ using MyCalisthenicApp.ViewModels.Programs;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using MyCalisthenicApp.Web.Common;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"26d257e46ba6ea271997049d34cd51fdfc0808ca", @"/Views/Shared/Components/DeliveryOptions/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"482532b39bec3821e962ef52ec081a483f481a68", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0eccbceb5d37572a2ecfc3ea2987ccde39829229", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_DeliveryOptions_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("value", "Chandpur", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -100,9 +107,9 @@ using MyCalisthenicApp.ViewModels.Programs;
                 <div id=""home"" class=""tab-pane fade in active show"">
                     <h2>Enter delivery address</h2>
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca8852", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca9067", async() => {
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca9133", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca9348", async() => {
                     WriteLiteral(@"
                             <div class=""form-field margin-top-30 margin-bottom-30"">
                                 <label for=""name"">Full Name</label>
@@ -119,7 +126,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                             <div class=""form-field margin-top-30"">
           ");
                     WriteLiteral("                      <label>City</label>\r\n                                <select class=\"select-form country_select\">\r\n                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca10659", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca10874", async() => {
                         WriteLiteral("Chandpur");
                     }
                     );
@@ -138,7 +145,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca12320", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca12535", async() => {
                         WriteLiteral("Dhaka");
                     }
                     );
@@ -154,7 +161,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca13643", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca13858", async() => {
                         WriteLiteral("Comilla");
                     }
                     );
@@ -170,7 +177,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca14968", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca15183", async() => {
                         WriteLiteral("Rajshahi");
                     }
                     );
@@ -198,7 +205,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                             </div>
                             <div class=""btn-wrapper"">
                                 ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca17290", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca17505", async() => {
                         WriteLiteral("Go To Payment");
                     }
                     );
@@ -259,9 +266,9 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                </div>\r\n                <div id=\"menu1\" class=\"tab-pane fade\">\r\n                    <h2>Pick up point</h2>\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca22307", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca22522", async() => {
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca22589", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca22804", async() => {
                     WriteLiteral(@"
                             <div class=""form-field margin-top-30 margin-bottom-30"">
                                 <label for=""name1"">Full Name</label>
@@ -278,7 +285,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
                             <div class=""form-field margin-top-30"">
       ");
                     WriteLiteral("                          <label>City</label>\r\n                                <select class=\"select-form country_select\">\r\n                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca24120", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca24335", async() => {
                         WriteLiteral("Chandpur");
                     }
                     );
@@ -297,7 +304,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca25781", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca25996", async() => {
                         WriteLiteral("Dhaka");
                     }
                     );
@@ -313,7 +320,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca27104", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca27319", async() => {
                         WriteLiteral("Comilla");
                     }
                     );
@@ -329,7 +336,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
                     WriteLiteral("\r\n                                    ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca28429", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca28644", async() => {
                         WriteLiteral("Rajshahi");
                     }
                     );
@@ -357,7 +364,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
                             </div>
                             <div class=""btn-wrapper"">
                                 ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca30755", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26d257e46ba6ea271997049d34cd51fdfc0808ca30970", async() => {
                         WriteLiteral("Go To Payment");
                     }
                     );

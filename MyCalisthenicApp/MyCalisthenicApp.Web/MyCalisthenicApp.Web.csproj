@@ -133,7 +133,7 @@
     <Content Update="Areas\Identity\Pages\Account\_ViewImports.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="Areas\Identity\Pages\Error.cshtml">
+    <Content Update="Areas\Identity\Pages\Shared\Error.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="Areas\Identity\Pages\_ValidationScriptsPartial.cshtml">
@@ -1276,6 +1276,11 @@
     <Content Update="wwwroot\lib\jquery\LICENSE.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Areas\Administrator\ViewModels\" />
   </ItemGroup>
 
 </Project>

@@ -40,8 +40,15 @@ using MyCalisthenicApp.ViewModels.Programs;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using MyCalisthenicApp.Web.Common;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"71ae84b052616dbd42ff12189ca4c136f0a1833a", @"/Views/Shared/Components/HomeProducts/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"482532b39bec3821e962ef52ec081a483f481a68", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0eccbceb5d37572a2ecfc3ea2987ccde39829229", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_HomeProducts_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Home", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -85,7 +92,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                 <div class=""hover-content"">
                     <div class=""btn-wrapper desktop-center"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a5857", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a6072", async() => {
                 WriteLiteral("Add to cart");
             }
             );
@@ -104,7 +111,7 @@ using MyCalisthenicApp.ViewModels.Programs;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"bottom-content\">\r\n                <p class=\"subtitle\">Fitness, Accessories</p>\r\n                <h3>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a7516", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a7731", async() => {
                 WriteLiteral("Free Dumbbell Ball");
             }
             );
@@ -144,7 +151,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                 <div class=""hover-content"">
                     <div class=""btn-wrapper desktop-center"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a9861", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a10076", async() => {
                 WriteLiteral("Add to cart");
             }
             );
@@ -163,7 +170,7 @@ using MyCalisthenicApp.ViewModels.Programs;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"bottom-content\">\r\n                <p class=\"subtitle\">Gym, Accessories</p>\r\n                <h3>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a11516", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a11732", async() => {
                 WriteLiteral("Incline Bench Press");
             }
             );
@@ -203,7 +210,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                 <div class=""hover-content"">
                     <div class=""btn-wrapper desktop-center"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a13863", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a14079", async() => {
                 WriteLiteral("Add to cart");
             }
             );
@@ -222,7 +229,7 @@ using MyCalisthenicApp.ViewModels.Programs;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"bottom-content\">\r\n                <p class=\"subtitle\">Health, Accessories</p>\r\n                <h3>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a15522", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a15738", async() => {
                 WriteLiteral("Pec Deck Machine");
             }
             );
@@ -262,7 +269,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                 <div class=""hover-content"">
                     <div class=""btn-wrapper desktop-center"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a17866", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a18082", async() => {
                 WriteLiteral("Add to cart");
             }
             );
@@ -281,7 +288,7 @@ using MyCalisthenicApp.ViewModels.Programs;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"bottom-content\">\r\n                <p class=\"subtitle\">Weight, Accessories</p>\r\n                <h3>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a19525", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a19741", async() => {
                 WriteLiteral("Pull-Down Machine");
             }
             );
@@ -321,7 +328,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                 <div class=""hover-content"">
                     <div class=""btn-wrapper desktop-center"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a21870", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a22086", async() => {
                 WriteLiteral("Add to cart");
             }
             );
@@ -340,7 +347,7 @@ using MyCalisthenicApp.ViewModels.Programs;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"bottom-content\">\r\n                <p class=\"subtitle\">Yoga, Accessories</p>\r\n                <h3>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a23527", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a23743", async() => {
                 WriteLiteral("Inclined Bench Press");
             }
             );
@@ -380,7 +387,7 @@ using MyCalisthenicApp.ViewModels.Programs;
                 <div class=""hover-content"">
                     <div class=""btn-wrapper desktop-center"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a25876", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a26092", async() => {
                 WriteLiteral("Add to cart");
             }
             );
@@ -399,7 +406,7 @@ using MyCalisthenicApp.ViewModels.Programs;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"bottom-content\">\r\n                <p class=\"subtitle\">Health, Accessories</p>\r\n                <h3>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a27535", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "71ae84b052616dbd42ff12189ca4c136f0a1833a27751", async() => {
                 WriteLiteral("Hammer Strength");
             }
             );

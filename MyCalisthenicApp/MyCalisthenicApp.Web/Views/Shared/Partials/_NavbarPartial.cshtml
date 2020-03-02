@@ -68,10 +68,10 @@
                         <a asp-controller="Home" asp-action="Blog">Blog</a>
                     </li>
 
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                    @if (User.Identity.IsAuthenticated && User.IsInRole(GlobalConstants.AdministratorRoleName))
                     {
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="Administrator" asp-controller="Home" asp-action="Index"></a>
+                            <a class="nav-link text-white" asp-area="Administrator" asp-controller="Administrator" asp-action="Index"></a>
                         </li>
                     }
 
