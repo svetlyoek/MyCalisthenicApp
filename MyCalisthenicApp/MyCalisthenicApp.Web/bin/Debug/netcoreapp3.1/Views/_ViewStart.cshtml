@@ -1,3 +1,14 @@
-﻿@{
-    Layout = "Layouts/_Layout";
+﻿@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+    {
+
+        Layout = "~/Views/Shared/Layouts/_LayoutAdmin.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/Layouts/_Layout.cshtml";
+
+    }
 }

@@ -2,11 +2,8 @@
 {
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Identity;
-    using MyCalisthenicApp.Data;
     using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Models.ShopEntities;
-    using MyCalisthenicApp.Services;
-    using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.Web.Common;
     using System;
     using System.Linq;
@@ -15,52 +12,39 @@
     public class SeedRolesMiddleware
     {
         private readonly RequestDelegate next;
-      
+
 
         public SeedRolesMiddleware(RequestDelegate next)
         {
             this.next = next;
-           
+
         }
 
         public async Task InvokeAsync(
             HttpContext httpContext,
             UserManager<ApplicationUser> userManager,
-            RoleManager<IdentityRole> roleManager,
-            MyCalisthenicAppDbContext dbContext,
-            IShoppingCartsService shoppingCartsService)
+            RoleManager<IdentityRole> roleManager)
 
         {
-            SeedUserInRoles(userManager, shoppingCartsService)
+            SeedUserInRoles(userManager, roleManager)
                  .GetAwaiter()
                  .GetResult();
-
-            SeedRoles(roleManager)
-                .GetAwaiter()
-                .GetResult();
 
             await this.next(httpContext);
         }
 
-        private static async Task SeedRoles(RoleManager<IdentityRole> roleManager)
-        {
-            if (!await roleManager.RoleExistsAsync(GlobalConstants.AdministratorRoleName))
-            {
-                await roleManager.CreateAsync(new IdentityRole(GlobalConstants.AdministratorRoleName));
-            }
-        }
 
-        private static async Task SeedUserInRoles(UserManager<ApplicationUser> userManager, IShoppingCartsService shoppingCartsService,
-             MyCalisthenicAppDbContext dbContext)
+        private static async Task SeedUserInRoles(UserManager<ApplicationUser> userManager,
+            RoleManager<IdentityRole> roleManager)
         {
             if (!userManager.Users.Any())
             {
                 var user = new ApplicationUser
                 {
-                    Id=Guid.NewGuid().ToString(),
+                    Id = Guid.NewGuid().ToString(),
                     FirstName = GlobalConstants.AdministratorFirstName,
                     LastName = GlobalConstants.AdministratorLastName,
-                    UserName = GlobalConstants.AdministratorUsername,
+                    UserName = GlobalConstants.AdministratorEmail,
                     Email = GlobalConstants.AdministratorEmail,
                     ShoppingCart = new ShoppingCart
                     {
@@ -70,14 +54,20 @@
                     },
 
                 };
-               
+
+                var role = await roleManager.CreateAsync(new IdentityRole
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = GlobalConstants.AdministratorRoleName
+                });
+
+
                 var result = await userManager.CreateAsync(user, GlobalConstants.AdministratorPassword);
 
                 if (result.Succeeded)
                 {
                     await userManager.AddToRoleAsync(user, GlobalConstants.AdministratorRoleName);
-                    await shoppingCartsService.AssignShoppingCartToUser(user);
-                   
+
                 }
 
             }

@@ -47,8 +47,22 @@ using MyCalisthenicApp.Web.Common;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using MyCalisthenicApp.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dd58e10d7d2d6387010c31e8c756d5f750e5a62f", @"/Views/Shared/Components/SideBar/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0eccbceb5d37572a2ecfc3ea2987ccde39829229", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"31e7bbf7e96303ff855298cb2379837af1f63526", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_SideBar_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("search-form"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -82,7 +96,7 @@ using MyCalisthenicApp.Web.Common;
         {
             WriteLiteral("\r\n");
             WriteLiteral("\r\n<div class=\"col-lg-4\">\r\n    <div class=\"blog-right-content widget-area sidebar\">\r\n        <div class=\"widget widget_search\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f5342", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f5770", async() => {
                 WriteLiteral(@"
                 <div class=""form-group"">
                     <input type=""text"" name=""search"" class=""form-control"" placeholder=""Search here"">
@@ -112,7 +126,7 @@ using MyCalisthenicApp.Web.Common;
             <div class=""share-img-item"">
                 <div class=""img-part"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f7220", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f7648", async() => {
                 WriteLiteral("<img src=\"/assets/img/blog/latest-post.png\"");
                 BeginWriteAttribute("alt", " alt=\"", 845, "\"", 851, 0);
                 EndWriteAttribute();
@@ -142,7 +156,7 @@ using MyCalisthenicApp.Web.Common;
             <div class=""share-img-item"">
                 <div class=""img-part"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f9142", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f9570", async() => {
                 WriteLiteral("<img src=\"/assets/img/blog/post2.png\"");
                 BeginWriteAttribute("alt", " alt=\"", 1309, "\"", 1315, 0);
                 EndWriteAttribute();
@@ -172,7 +186,7 @@ using MyCalisthenicApp.Web.Common;
             <div class=""share-img-item"">
                 <div class=""img-part"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f11065", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f11493", async() => {
                 WriteLiteral("<img src=\"/assets/img/blog/post3.png\"");
                 BeginWriteAttribute("alt", " alt=\"", 1778, "\"", 1784, 0);
                 EndWriteAttribute();
@@ -202,7 +216,7 @@ using MyCalisthenicApp.Web.Common;
             <div class=""share-img-item"">
                 <div class=""img-part"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f12984", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f13412", async() => {
                 WriteLiteral("<img src=\"/assets/img/blog/post4.png\"");
                 BeginWriteAttribute("alt", " alt=\"", 2242, "\"", 2248, 0);
                 EndWriteAttribute();

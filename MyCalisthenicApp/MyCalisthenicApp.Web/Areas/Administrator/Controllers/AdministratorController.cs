@@ -7,9 +7,6 @@
     [Authorize(Roles = "Administrator")]
     public class AdministratorController : Controller
     {
-        public IActionResult Index()
-        {
-            return this.View();
-        }
+       
     }
 }

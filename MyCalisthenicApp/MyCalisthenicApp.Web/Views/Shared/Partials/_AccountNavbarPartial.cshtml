@@ -8,7 +8,6 @@
     </div>
 </div>
 <!-- preloader area end -->
-
 <!-- search Popup -->
 <div class="body-overlay" id="body-overlay"></div>
 <div class="search-popup" id="search-popup">
@@ -20,7 +19,6 @@
     </form>
 </div>
 <!-- //. search Popup -->
-
 <!-- navbar start -->
 <div class="calisthenic-navbar">
     <nav class="navbar navbar-area navbar-expand-lg black-bg nav-style-02">
@@ -70,7 +68,7 @@
                         <a asp-controller="Home" asp-action="Blog">Blog</a>
                     </li>
 
-                    @if ( User.IsInRole(GlobalConstants.AdministratorRoleName))
+                    @if (User.IsInRole(GlobalConstants.AdministratorRoleName))
                     {
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="Administrator" asp-controller="Administrator" asp-action="Index"></a>

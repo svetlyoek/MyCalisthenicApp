@@ -75,7 +75,8 @@
                         <p>Already have an account? <a asp-area="Identity" asp-page="/Account/Login">Login</a></p>
                         <a class="btn btn-primary btn-lg btn-block"><i class="fa fa-facebook-square"></i> Join via facebook</a>
                         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                            <div  class="form-row">
+                            <div asp-validation-summary="ModelOnly"></div>
+                            <div class="form-row">
                                 <div class="form-group col-md-6 text-left">
                                     <label asp-for="Input.FirsName"></label>
                                     <input asp-for="Input.FirsName" type="text" class="form-control" id="fname">

@@ -1,0 +1,28 @@
+﻿@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a asp-area="Identity" asp-page="/Account/Logout">Logout</a></li>
+        </ul>
+    </nav>
+    <h2>Hello from administration area!!!</h2>
+
+    <div>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
+
