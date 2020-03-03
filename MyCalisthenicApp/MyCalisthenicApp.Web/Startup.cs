@@ -61,6 +61,8 @@ namespace MyCalisthenicApp.Web
             services.AddTransient<IUserRequestsService, UserRequestService>();
             services.AddTransient<IProgramsService, ProgramsService>();
             services.AddTransient<IShoppingCartsService, ShoppingCartsService>();
+
+            //Just trying something
         }
 
 
