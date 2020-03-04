@@ -14,8 +14,8 @@
             <div class="tab-content">
                 <div id="home" class="tab-pane fade in active show">
                     <h2>Enter delivery address</h2>
-                    <div asp-validation-summary="All"  class="form-group">
-                        <form asp-controller="Orders" asp-action="Delivery" method="post" class="form">
+                    <div  class="form-group">
+                        <form  method="post" class="form">
                             <div class="form-field margin-top-30 margin-bottom-30">
                                 <label for="name">Full Name</label>
                                 <input id="name" type="text" placeholder="Mr willium smith" class="input-form" />
@@ -46,15 +46,15 @@
                                 <textarea id="instruction" cols="30" rows="5" placeholder="x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x"></textarea>
                             </div>
                             <div class="btn-wrapper">
-                                <a asp-controller="Home" asp-action="ShoppingCart" class="btn btn-element btn-lg-size btn-main-color btn-rounded">Go To Payment</a>
+                                <a asp-controller="ShoppingCarts" asp-action="Index" class="btn btn-element btn-lg-size btn-main-color btn-rounded">Go To Payment</a>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div id="menu1" class="tab-pane fade">
                     <h2>Pick up point</h2>
-                    <div asp-validation-summary="All" class="form-group">
-                        <form asp-controller="Orders" asp-action="Delivery" method="post" class="form">
+                    <div  class="form-group">
+                        <form  method="post" class="form">
                             <div class="form-field margin-top-30 margin-bottom-30">
                                 <label for="name1">Full Name</label>
                                 <input id="name1" type="text" placeholder="Mr willium smith" class="input-form" />
@@ -85,7 +85,7 @@
                                 <textarea id="instruction2" cols="30" rows="5" placeholder="x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x"></textarea>
                             </div>
                             <div class="btn-wrapper">
-                                <a asp-controller="Home" asp-action="ShoppingCart" class="btn btn-element btn-lg-size btn-main-color btn-rounded">Go To Payment</a>
+                                <a asp-controller="ShoppingCarts" asp-action="Index" class="btn btn-element btn-lg-size btn-main-color btn-rounded">Go To Payment</a>
                             </div>
                         </form>
                     </div>

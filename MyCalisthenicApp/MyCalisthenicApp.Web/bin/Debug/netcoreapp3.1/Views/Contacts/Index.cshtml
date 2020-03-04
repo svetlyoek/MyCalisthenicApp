@@ -1,0 +1,183 @@
+﻿@model ContactRequestInputViewModel
+
+@{ 
+    ViewData["Title"] = "Contact";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@ViewData["Title"]</title>
+    <!-- favicon -->
+    <link rel=icon href=/assets/img/favicon.png sizes="20x20" type="image/png">
+    <!-- animate -->
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+    <!-- Slick -->
+    <link rel="stylesheet" href="/assets/css/slick.css" />
+    <link rel="stylesheet" href="/assets/css/slick-theme.css" />
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+    <!-- flaticon -->
+    <link rel="stylesheet" href="/assets/css/flaticon.css">
+    <!-- hamburgers -->
+    <link rel="stylesheet" href="/assets/css/hamburgers.min.css">
+    <!-- nice select -->
+    <link rel="stylesheet" href="/assets/css/nice-select.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- responsive Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+
+</head>
+<body>
+
+    <!-- breadcrumb area -->
+    <div class="breadcrumb-style-1 contact-breadcrumb-overlay" style="background-image:url(/assets/img/bg/contact.png);">
+        <div class="breadcrumb-inner">
+            <h1 class="page-title">Contact us</h1>
+            <ul class="page-list">
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Contacts" asp-action="Index">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- breadcrumb area end -->
+    <!-- contact area -->
+    <div class="contact-area padding-top-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="contact-top">
+                        <div class="col-lg-12">
+                            <div class="contact-title text-center">
+                                <h2 class="title">Drop us a line</h2>
+                                <p class="subtitle">If you got any questions, or you just want to say hello to us, feel free to send us a message</p>
+                            </div>
+                        </div>
+                        <div  class="col-lg-10 offset-lg-1">
+                            <form  asp-controller="Contacts" asp-action="Index" class="contact-form" method="post" name="registration">
+                                <div class="form-row">
+                                    <div class="form-group form-field col-md-4">
+                                        <input asp-for="FullName" type="text" id="fullName" class="form-control input-form" placeholder="Your Full Name">
+                                        <span asp-validation-for="FullName"></span>
+                                    </div>
+                                    <div class="form-group form-field col-md-4">
+                                        <input asp-for="Email" type="text" class="form-control input-form" id="email" placeholder="Email" data-required="text" data-required-email="email">
+                                        <span asp-validation-for="Email"></span>
+                                    </div>
+                                    <div class="form-group form-field col-md-4">
+                                        <input asp-for="PhoneNumber" type="text" class="form-control input-form" id="phoneNumber" placeholder="Phone Number">
+                                        <span asp-validation-for="PhoneNumber"></span>
+                                    </div>
+                                </div>
+                                <div  class="form-group">
+                                    <div class="form-field margin-bottom-30">
+                                        <textarea asp-for="Content" id="content" cols="30" rows="5" placeholder="Write message" data-required="text"></textarea>
+                                        <span asp-validation-for="Content"></span>
+                                    </div>
+                                </div>
+                                <div class="btn-wrapper desktop-center margin-bottom-10">
+                                    <button  type="submit" class="btn btn-element btn-normal-size btn-main-color">Submit Message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="mapouter">
+                        <div class="gmap_canvas">
+                            <iframe width="100%" height="500" id="gmap_canvas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d194133.12945020216!2d25.471797077246347!3d42.98369466690003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a91879e06d5fa9%3A0x400a01269bf5020!2z0JTRgNGP0L3QvtCy0L4!5e0!3m2!1sbg!2sbg!4v1582224110178!5m2!1sbg!2sbg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            <a href="https://www.embedgooglemap.net/blog/elementor-pro-discount-code-review/">elementor review</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row padding-top-90">
+                <div class="col-lg-4 margin-bottom-30">
+                    <div class="contact-box h-100">
+                        <div class="contact-icon">
+                            <i class="flaticon-placeholder"></i>
+                        </div>
+                        <h3 class="cb-title">Office Address</h3>
+                        <span>9, Kapitan Raicho street, Dryanovo <br> Bulgaria</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 margin-bottom-30">
+                    <div class="contact-box h-100">
+                        <div class="contact-icon">
+                            <i class="flaticon-search"></i>
+                        </div>
+                        <h3 class="cb-title">Email</h3>
+                        <span>svetoslav.kazakov@outlook.com </span>
+                    </div>
+                </div>
+                <div class="col-lg-4 margin-bottom-30">
+                    <div class="contact-box h-100">
+                        <div class="contact-icon">
+                            <i class="flaticon-phone-call"></i>
+                        </div>
+                        <h3 class="cb-title">Phone</h3>
+                        <span>+359888414232</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact area end -->
+    <!-- back to top area start -->
+    <div class="back-to-top">
+        <span class="back-top"><i class="fa fa-angle-up"></i></span>
+    </div>
+    <!-- back to top area end -->
+    <!-- jquery -->
+    <script src="/assets/js/jquery-2.2.4.min.js"></script>
+    <!-- popper -->
+    <script src="/assets/js/popper.min.js"></script>
+    <!-- bootstrap -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <!-- magnific popup -->
+    <script src="/assets/js/jquery.magnific-popup.js"></script>
+    <!-- Slick -->
+    <script src="/assets/js/slick.min.js"></script>
+    <!-- Slick Animation -->
+    <script src="/assets/js/slick-animation.js"></script>
+    <!-- wow -->
+    <script src="/assets/js/wow.min.js"></script>
+    <!-- nice select -->
+    <script src="/assets/js/nice-select.js"></script>
+    <!-- owl carousel -->
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <!-- waypoint -->
+    <script src="/assets/js/waypoints.min.js"></script>
+    <!-- counterup -->
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <!-- imageloaded -->
+    <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+    <!-- isotope -->
+    <script src="/assets/js/isotope.pkgd.min.js"></script>
+    <!-- validate -->
+    <script src="/assets/js/jquery.validate.min.js"></script>
+    <!-- contact form -->
+    <script src="/assets/js/contact-form.js"></script>
+    <!-- rProgressbar -->
+    <script src="/assets/js/jQuery.rProgressbar.min.js"></script>
+    <!-- main js -->
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/script.js"></script>
+
+    <script src="/assets/js/map.active.js"></script>
+</body>
+</html>
+

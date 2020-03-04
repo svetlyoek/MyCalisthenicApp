@@ -2,10 +2,12 @@
 @model LockoutModel
 @{
     ViewData["Title"] = "Locked out";
-    Layout = "~/Views/Shared/Layouts/_Layout.cshtml";
+    Layout = "~/Views/Shared/Layouts/_LayoutIdentity.cshtml";
 }
 
-<header>
-    <h1 class="text-danger">@ViewData["Title"]</h1>
-    <p class="text-danger">This account has been locked out, please try again later.</p>
-</header>
+<body>
+    <div style="height:600px;">
+        <h1 class="text-danger">@ViewData["Title"]</h1>
+        <p class="text-danger">This account has been locked out, please try again later.</p>
+    </div>
+</body>

@@ -2,20 +2,16 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
-    using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels;
-    using MyCalisthenicApp.ViewModels.Home;
     using System.Diagnostics;
 
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IUserRequestsService userRequestsService;
 
-        public HomeController(ILogger<HomeController> logger,IUserRequestsService userRequestsService)
+        public HomeController(ILogger<HomeController> logger)
         {
             this._logger = logger;
-            this.userRequestsService = userRequestsService;
         }
 
         public IActionResult Index()
@@ -28,58 +24,7 @@
             return this.View();
         }
 
-        public IActionResult Contact()
-        {
-            return this.View();
-        }
-
-        [HttpPost]
-        public IActionResult Contact(ContactRequestInputViewModel inputModel)
-        {
-            if(!this.ModelState.IsValid)
-            {
-                return this.View(inputModel);
-            }
-
-            this.userRequestsService.Create(inputModel.FullName, inputModel.Email, inputModel.PhoneNumber, inputModel.Content);
-
-            return this.RedirectToAction("/Home/Index");
-        }
-
-        public IActionResult Trainer()
-        {
-            return View();
-        }
-
-        public IActionResult Program()
-        {
-            return View();
-        }
-
-        public IActionResult Membership()
-        {
-            return View();
-        }
-        public IActionResult Shop()
-        {
-            return View();
-        }
-
-        public IActionResult Blog()
-        {
-            return this.View();
-        }
-
-        public IActionResult ShoppingBag()
-        {
-            return View();
-        }
-
-        public IActionResult ShoppingCart()
-        {
-            return View();
-        }
-
+        [HttpGet("~/Views/Home/Privacy.cshtml")]
         public IActionResult Privacy()
         {
             return View();

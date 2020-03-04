@@ -50,6 +50,10 @@
 
             [Display(Name = "Remember me?")]
             public bool RememberMe { get; set; }
+
+            [Required]
+            [Range(typeof(bool), "true", "true", ErrorMessage = "You must accept the Terms and Privacy Policy.")]
+            public bool AcceptPrivacy { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)

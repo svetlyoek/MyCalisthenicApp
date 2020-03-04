@@ -51,10 +51,34 @@
                     <div class="sign-content signup-content text-center h-100">
                         <h3>Login Your Account!</h3>
                         <p>Don't have an account? <a asp-area="Identity" asp-page="/Account/Register">Register</a></p>
-                        <a class="btn btn-primary btn-lg btn-block"><i class="fa fa-facebook-square"></i> Login via facebook</a>
+                        @{
+                            if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                            {
+                                <div>
+                                    <p>
+                                        There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                                        for details on setting up this ASP.NET application to support logging in via external services.
+                                    </p>
+                                </div>
+                            }
+                            else
+                            {
+                                <form asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                                    <div>
+                                        <p>
+                                            @foreach (var provider in Model.ExternalLogins)
+                                            {
+                                                @*<a class="btn btn-primary btn-lg btn-block" name="provider" value="@provider.Name"><i class="fa fa-facebook-square"></i>  Log in via @provider.DisplayName</a>*@
+                                                <button type="submit" class="btn btn-primary btn-lg btn-block" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account"><i class="fab fa-facebook">@provider.DisplayName</i></button>
+                                            }
+                                        </p>
+                                    </div>
+                                </form>
+                            }
+                        }
                         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
                             <div asp-validation-summary="ModelOnly"></div>
-                            <div  class="form-group text-left">
+                            <div class="form-group text-left">
                                 <label asp-for="Input.Email"></label>
                                 <input asp-for="Input.Email" type="email" class="form-control" id="email">
                                 <span asp-validation-for="Input.Email"></span>
@@ -64,8 +88,9 @@
                                 <input asp-for="Input.Password" type="password" class="form-control" id="password">
                                 <span asp-validation-for="Input.Password"></span>
                             </div>
-                            <button type="submit" class="btn btn-success btn-lg btn-block text-white">Login</button>
-                            <p>By joining, you agree to the <a asp-controller="Home" asp-action="Privacy">Terms</a> and <a asp-controller="Home" asp-action="Privacy">Privacy Policy</a>.</p>
+                            <button type="submit" class="btn btn-success btn-lg btn-block text-white">Join our community</button>
+                            <input type="radio" asp-for="Input.AcceptPrivacy" value="true" /><p>By clicking, you agree to the <a asp-controller="Home" asp-action="Privacy">Terms</a> and <a asp-controller="Home" asp-action="Privacy">Privacy Policy</a>.</p>
+                            <span asp-validation-for="Input.AcceptPrivacy"></span>
                         </form>
                     </div>
                 </div>

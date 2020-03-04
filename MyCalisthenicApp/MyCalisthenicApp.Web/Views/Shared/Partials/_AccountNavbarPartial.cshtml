@@ -46,26 +46,26 @@
                     <li class="menu-item-has-children">
                         <a href="#">Training</a>
                         <ul class="sub-menu">
-                            <li><a asp-controller="Home" asp-action="Program">Programs</a></li>
+                            <li><a asp-controller="Programs" asp-action="Index">Programs</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children">
                         <a href="#">Trainer</a>
                         <ul class="sub-menu">
-                            <li><a asp-controller="Home" asp-action="Trainer">Our Trainers</a></li>
+                            <li><a asp-controller="Trainers" asp-action="Index">Our Trainers</a></li>
                         </ul>
                     </li>
 
                     <li class="menu-item-has-children">
                         <a href="#">Shop</a>
                         <ul class="sub-menu">
-                            <li><a asp-controller="Home" asp-action="Shop">Shop</a></li>
-                            <li><a asp-controller="Home" asp-action="ShoppingBag">Shopping Bag</a></li>
-                            <li><a asp-controller="Home" asp-action="ShoppingCart">Checkout</a></li>
+                            <li><a asp-controller="Shops" asp-action="Index">Shop</a></li>
+                            <li><a asp-controller="ShoppingBags" asp-action="Index">Shopping Bag</a></li>
+                            <li><a asp-controller="ShoppingCarts" asp-action="Index">Checkout</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a asp-controller="Home" asp-action="Blog">Blog</a>
+                        <a asp-controller="Blogs" asp-action="Index">Blog</a>
                     </li>
 
                     @if (User.IsInRole(GlobalConstants.AdministratorRoleName))
@@ -80,7 +80,7 @@
                         <partial name="~/Views/Shared/Partials/_AccountPartial.cshtml" />
                     }
 
-                    <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-controller="Contacts" asp-action="Index">Contact</a></li>
                 </ul>
             </div>
 

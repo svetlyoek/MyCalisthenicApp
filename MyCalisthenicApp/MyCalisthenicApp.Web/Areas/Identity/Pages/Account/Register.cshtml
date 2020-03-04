@@ -73,7 +73,6 @@
                         </div>
                         <h3>Join our community!</h3>
                         <p>Already have an account? <a asp-area="Identity" asp-page="/Account/Login">Login</a></p>
-                        <a class="btn btn-primary btn-lg btn-block"><i class="fa fa-facebook-square"></i> Join via facebook</a>
                         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
                             <div asp-validation-summary="ModelOnly"></div>
                             <div class="form-row">
@@ -104,7 +103,8 @@
                                 <span asp-validation-for="Input.ConfirmPassword"></span>
                             </div>
                             <button type="submit" class="btn btn-success btn-lg btn-block text-white">Join our community</button>
-                            <p>By joining, you agree to the <a asp-controller="Home" asp-action="Privacy">Terms</a> and <a asp-controller="Home" asp-action="Privacy">Privacy Policy</a>.</p>
+                            <input type="radio" asp-for="Input.AcceptPrivacy" value="true" /><p>By clicking, you agree to the <a asp-controller="Home" asp-action="Privacy">Terms</a> and <a asp-controller="Home" asp-action="Privacy">Privacy Policy</a>.</p>
+                            <span asp-validation-for="Input.AcceptPrivacy"></span>
                         </form>
                     </div>
                 </div>

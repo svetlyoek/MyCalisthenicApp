@@ -3,6 +3,7 @@ namespace MyCalisthenicApp.Web
     using AutoMapper;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
@@ -28,6 +29,13 @@ namespace MyCalisthenicApp.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
             services.AddDbContext<MyCalisthenicAppDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -43,7 +51,7 @@ namespace MyCalisthenicApp.Web
                 options.Lockout.MaxFailedAccessAttempts = 10;
 
                 options.User.RequireUniqueEmail = true;
-               
+
             })
                 .AddEntityFrameworkStores<MyCalisthenicAppDbContext>()
                 .AddDefaultTokenProviders()
@@ -62,7 +70,12 @@ namespace MyCalisthenicApp.Web
             services.AddTransient<IProgramsService, ProgramsService>();
             services.AddTransient<IShoppingCartsService, ShoppingCartsService>();
 
-            //Just trying something
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = this.Configuration["Authentication:Facebook:AppId"];
+                facebookOptions.AppSecret = this.Configuration["Authentication:Facebook:AppSecret"];
+            });
+
         }
 
 
@@ -92,6 +105,7 @@ namespace MyCalisthenicApp.Web
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseSeedRolesMiddleware();
+            app.UseCookiePolicy();
 
 
             app.UseEndpoints(endpoints =>
