@@ -73,13 +73,24 @@
                         </div>
                         <h3>Join our community!</h3>
                         <p>Already have an account? <a asp-area="Identity" asp-page="/Account/Login">Login</a></p>
+                        <form asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                            <div>
+                                <p>
+                                    @foreach (var provider in Model.ExternalLogins)
+                                    {
+                                        @*<a class="btn btn-primary btn-lg btn-block" name="provider" value="@provider.Name"><i class="fa fa-facebook-square"></i>  Log in via @provider.DisplayName</a>*@
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block" name="provider" value="@provider.Name" title="Register in using your @provider.DisplayName account"><i class="fab fa-facebook">@provider.DisplayName</i></button>
+                                    }
+                                </p>
+                            </div>
+                        </form>
                         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
                             <div asp-validation-summary="ModelOnly"></div>
                             <div class="form-row">
                                 <div class="form-group col-md-6 text-left">
-                                    <label asp-for="Input.FirsName"></label>
-                                    <input asp-for="Input.FirsName" type="text" class="form-control" id="fname">
-                                    <span asp-validation-for="Input.FirsName"></span>
+                                    <label asp-for="Input.FirstName"></label>
+                                    <input asp-for="Input.FirstName" type="text" class="form-control" id="fname">
+                                    <span asp-validation-for="Input.FirstName"></span>
                                 </div>
                                 <div class="form-group col-md-6 text-left">
                                     <label asp-for="Input.LastName"></label>

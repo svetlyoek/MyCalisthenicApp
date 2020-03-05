@@ -63,7 +63,7 @@
 
             [Required]
             [Display(Name = "First Name")]
-            public string FirsName { get; set; }
+            public string FirstName { get; set; }
 
             [Required]
             [Display(Name = "Last Name")]
@@ -96,7 +96,7 @@
                 {
                     UserName = Input.Email,
                     Email = Input.Email,
-                    FirstName = Input.FirsName,
+                    FirstName = Input.FirstName,
                     LastName = Input.LastName,
 
                 };

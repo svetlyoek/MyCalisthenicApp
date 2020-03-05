@@ -36,16 +36,16 @@
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-       
+
         public IActionResult Error404(int statusCode)
         {
-            if(statusCode==404)
+            if (statusCode == 404)
             {
                 return View();
             }
 
             return this.Redirect("Error");
-            
+
         }
 
         public IActionResult ComingSoon()

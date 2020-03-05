@@ -70,7 +70,8 @@ namespace MyCalisthenicApp.Web
             services.AddTransient<IProgramsService, ProgramsService>();
             services.AddTransient<IShoppingCartsService, ShoppingCartsService>();
 
-            services.AddAuthentication().AddFacebook(facebookOptions =>
+
+        services.AddAuthentication().AddFacebook(facebookOptions =>
             {
                 facebookOptions.AppId = this.Configuration["Authentication:Facebook:AppId"];
                 facebookOptions.AppSecret = this.Configuration["Authentication:Facebook:AppSecret"];

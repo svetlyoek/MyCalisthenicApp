@@ -653,8 +653,6 @@ E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Deb
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\MyCalisthenicApp.Services.pdb
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\wwwroot\assets\css\tag-helpers-color.css
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Facebook.dll
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\MyCalisthenicApp.Web.MvcApplicationPartsAssemblyInfo.cs
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\MyCalisthenicApp.Web.MvcApplicationPartsAssemblyInfo.cache
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\ErrorViewModel.cs
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\MyCalisthenicApp.ViewModels.dll
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\MyCalisthenicApp.ViewModels.pdb
@@ -691,3 +689,7 @@ E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Deb
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shops\Index.cshtml.g.cs
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Trainers\Index.cshtml.g.cs
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Partials\_CookieConsentPartial.cshtml.g.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\SendGrid.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Home\SendEmail.cshtml.g.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\MyCalisthenicApp.Web.MvcApplicationPartsAssemblyInfo.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\MyCalisthenicApp.Web.MvcApplicationPartsAssemblyInfo.cache

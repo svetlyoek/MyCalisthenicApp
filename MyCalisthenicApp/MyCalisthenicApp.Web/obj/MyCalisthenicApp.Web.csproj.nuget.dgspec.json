@@ -342,6 +342,16 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.13.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -512,6 +522,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.1, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.13.0, )"
             }
           },
           "imports": [
