@@ -8,7 +8,6 @@
     {
         public void Configure(EntityTypeBuilder<Order> order)
         {
-
             order
                  .Property(op => op.TotalPrice)
                  .HasColumnType("decimal(18,2)");
@@ -38,7 +37,6 @@
                 .WithOne(op => op.Order)
                 .HasForeignKey(op => op.OrderId)
                 .OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }

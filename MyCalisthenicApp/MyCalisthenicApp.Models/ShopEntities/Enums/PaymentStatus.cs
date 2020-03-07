@@ -5,6 +5,6 @@
         Denied = 1,
         Paid = 2,
         Unpaid = 3,
-        Expired = 4
+        Expired = 4,
     }
 }

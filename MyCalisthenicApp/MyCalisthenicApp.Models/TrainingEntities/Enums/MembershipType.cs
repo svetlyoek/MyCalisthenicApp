@@ -3,6 +3,6 @@
     public enum MembershipType
     {
         Free = 1,
-        Premium = 2
+        Premium = 2,
     }
 }

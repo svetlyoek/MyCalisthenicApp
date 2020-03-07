@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace MyCalisthenicApp.Data.Migrations
+﻿namespace MyCalisthenicApp.Data.Migrations
 {
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class PropertiesChangedInUserRequest : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,7 +19,7 @@ namespace MyCalisthenicApp.Data.Migrations
                 table: "UserRequests",
                 maxLength: 50,
                 nullable: false,
-                defaultValue: "");
+                defaultValue: " ");
 
             migrationBuilder.AddColumn<string>(
                 name: "PhoneNumber",
@@ -75,7 +75,7 @@ namespace MyCalisthenicApp.Data.Migrations
                 type: "nvarchar(50)",
                 maxLength: 50,
                 nullable: false,
-                defaultValue: "");
+                defaultValue: " ");
 
             migrationBuilder.AddColumn<string>(
                 name: "Title",
@@ -83,7 +83,7 @@ namespace MyCalisthenicApp.Data.Migrations
                 type: "nvarchar(30)",
                 maxLength: 30,
                 nullable: false,
-                defaultValue: "");
+                defaultValue: " ");
 
             migrationBuilder.AlterColumn<string>(
                 name: "Name",

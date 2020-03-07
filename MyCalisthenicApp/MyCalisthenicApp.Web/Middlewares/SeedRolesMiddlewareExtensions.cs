@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
-
-namespace MyCalisthenicApp.Web.Middlewares
+﻿namespace MyCalisthenicApp.Web.Middlewares
 {
+    using Microsoft.AspNetCore.Builder;
+
     public static class SeedRolesMiddlewareExtensions
     {
         public static IApplicationBuilder UseSeedRolesMiddleware(this IApplicationBuilder builder)

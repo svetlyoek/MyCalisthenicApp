@@ -1,14 +1,16 @@
 ﻿namespace MyCalisthenicApp.Models.ShopEntities
 {
-    using MyCalisthenicApp.Data.Common.Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
+    using MyCalisthenicApp.Data.Common.Models;
 
     public class ShoppingCart : BaseDeletableEntity<string>
     {
         public ShoppingCart()
         {
+            this.Id = Guid.NewGuid().ToString();
             this.IsDeleted = false;
             this.CreatedOn = DateTime.UtcNow;
             this.Products = new HashSet<ShoppingCartProduct>();

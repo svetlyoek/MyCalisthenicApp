@@ -1,12 +1,13 @@
 ﻿namespace MyCalisthenicApp.Data
 {
+    using System.Reflection;
+
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Models.BlogEntities;
     using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.Models.TrainingEntities;
-    using System.Reflection;
 
     public class MyCalisthenicAppDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -51,11 +52,9 @@
 
         public DbSet<ProgramCategory> ProgramCategories { get; set; }
 
-
         public DbSet<Comment> Comments { get; set; }
 
         public DbSet<Membership> Memberships { get; set; }
-
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -63,6 +62,5 @@
 
             base.OnModelCreating(builder);
         }
-
     }
 }

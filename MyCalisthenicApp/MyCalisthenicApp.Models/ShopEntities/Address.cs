@@ -1,14 +1,16 @@
 ﻿namespace MyCalisthenicApp.Models.ShopEntities
 {
-    using MyCalisthenicApp.Data.Common.Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
+    using MyCalisthenicApp.Data.Common.Models;
 
     public class Address : BaseDeletableEntity<string>
     {
         public Address()
         {
+            this.Id = Guid.NewGuid().ToString();
             this.CreatedOn = DateTime.UtcNow;
             this.IsDeleted = false;
             this.Orders = new HashSet<Order>();

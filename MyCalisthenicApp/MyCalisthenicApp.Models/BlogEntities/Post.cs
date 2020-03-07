@@ -1,15 +1,17 @@
 ﻿namespace MyCalisthenicApp.Models.BlogEntities
 {
-    using MyCalisthenicApp.Data.Common.Models;
-    using MyCalisthenicApp.Models.ShopEntities;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
+    using MyCalisthenicApp.Data.Common.Models;
+    using MyCalisthenicApp.Models.ShopEntities;
 
     public class Post : BaseDeletableEntity<string>
     {
         public Post()
         {
+            this.Id = Guid.NewGuid().ToString();
             this.PublishDate = DateTime.UtcNow;
             this.IsPublic = true;
             this.IsDeleted = false;

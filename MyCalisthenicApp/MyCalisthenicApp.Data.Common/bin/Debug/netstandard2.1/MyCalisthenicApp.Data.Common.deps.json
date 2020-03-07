@@ -9,12 +9,14 @@
     ".NETStandard,Version=v2.1/": {
       "MyCalisthenicApp.Data.Common/1.0.0": {
         "dependencies": {
+          "StyleCop.Analyzers": "1.1.118",
           "System.ComponentModel.Annotations": "4.7.0"
         },
         "runtime": {
           "MyCalisthenicApp.Data.Common.dll": {}
         }
       },
+      "StyleCop.Analyzers/1.1.118": {},
       "System.ComponentModel.Annotations/4.7.0": {
         "runtime": {
           "lib/netstandard2.1/System.ComponentModel.Annotations.dll": {
@@ -30,6 +32,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "StyleCop.Analyzers/1.1.118": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Onx6ovGSqXSK07n/0eM3ZusiNdB6cIlJdabQhWGgJp3Vooy9AaLS/tigeybOJAobqbtggTamoWndz72JscZBvw==",
+      "path": "stylecop.analyzers/1.1.118",
+      "hashPath": "stylecop.analyzers.1.1.118.nupkg.sha512"
     },
     "System.ComponentModel.Annotations/4.7.0": {
       "type": "package",

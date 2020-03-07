@@ -75,22 +75,35 @@
                                 </form>
                             }
                         }
-                        <form method="post">
-                            <div asp-validation-summary="ModelOnly"></div>
-                            <div class="form-group text-left">
-                                <label asp-for="Input.Email"></label>
-                                <input asp-for="Input.Email" type="email" class="form-control" id="email">
-                                <span asp-validation-for="Input.Email"></span>
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly"></div>
+                        <div class="form-group text-left">
+                            <label asp-for="Input.Email"></label>
+                            <input asp-for="Input.Email" type="email" class="form-control" id="email">
+                            <span asp-validation-for="Input.Email"></span>
+                        </div>
+                        <div class="form-group text-left">
+                            <label asp-for="Input.Password"></label>
+                            <input asp-for="Input.Password" type="password" class="form-control" id="password">
+                            <span asp-validation-for="Input.Password"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label asp-for="Input.RememberMe">
+                                    <input asp-for="Input.RememberMe" />
+                                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                </label>
                             </div>
-                            <div class="form-group text-left">
-                                <label asp-for="Input.Password"></label>
-                                <input asp-for="Input.Password" type="password" class="form-control" id="password">
-                                <span asp-validation-for="Input.Password"></span>
-                            </div>
-                            <button type="submit" class="btn btn-success btn-lg btn-block text-white">Join our community</button>
-                            <input type="radio" asp-for="Input.AcceptPrivacy" value="true" /><p>By clicking, you agree to the <a asp-controller="Home" asp-action="Privacy">Terms</a> and <a asp-controller="Home" asp-action="Privacy">Privacy Policy</a>.</p>
-                            <span asp-validation-for="Input.AcceptPrivacy"></span>
-                        </form>
+                        </div>
+                        <div class="form-group">
+                            <p>
+                                <a class="text-danger" id="forgot-password" asp-page="./ForgotPassword">Forgot password</a>
+                            </p>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-lg btn-block text-white">Join our community</button>
+                        <input type="radio" asp-for="Input.AcceptPrivacy" value="true" /><p>By clicking, you agree to the <a asp-controller="Home" asp-action="Privacy">Terms</a> and <a asp-controller="Home" asp-action="Privacy">Privacy Policy</a>.</p>
+                        <span asp-validation-for="Input.AcceptPrivacy"></span>
+                    </form>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6">

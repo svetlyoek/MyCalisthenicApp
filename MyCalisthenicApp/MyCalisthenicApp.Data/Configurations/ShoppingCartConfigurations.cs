@@ -8,13 +8,11 @@
     {
         public void Configure(EntityTypeBuilder<ShoppingCart> shoppingCart)
         {
-
             shoppingCart
                 .HasMany(sc => sc.Products)
                 .WithOne(scp => scp.ShoppingCart)
                 .HasForeignKey(scp => scp.ShoppingCartId)
                 .OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }

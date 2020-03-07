@@ -1,7 +1,8 @@
 ﻿namespace MyCalisthenicApp.Data.Common.Models
 {
-    using MyCalisthenicApp.Data.Common.Contracts;
     using System;
+
+    using MyCalisthenicApp.Data.Common.Contracts;
 
     public class BaseDeletableEntity<TKey> : BaseEntity<TKey>, IDeletableEntity
     {

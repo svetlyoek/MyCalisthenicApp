@@ -31,7 +31,6 @@
                .WithMany(p => p.Images)
                .HasForeignKey(i => i.ProgramId)
                .OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }

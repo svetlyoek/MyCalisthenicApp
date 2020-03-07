@@ -21,21 +21,21 @@ using MyCalisthenicApp.Web;
 #nullable disable
 #nullable restore
 #line 2 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
-using MyCalisthenicApp.ViewModels.Home;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 3 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
 using MyCalisthenicApp.ViewModels.Blogs;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+#line 3 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
 using MyCalisthenicApp.ViewModels.Programs;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using MyCalisthenicApp.ViewModels.Contacts;
 
 #line default
 #line hidden
@@ -61,8 +61,15 @@ using Microsoft.AspNetCore.Identity;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 8 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using MyCalisthenicApp.Services.MessageSender;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d3aab2a72cac62425bec412ef49a256fa43c730a", @"/Views/Blogs/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"31e7bbf7e96303ff855298cb2379837af1f63526", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dff7a0426a8bf6117b8c3299c99e8690b8a23961", @"/Views/_ViewImports.cshtml")]
     public class Views_Blogs_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Home", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -105,7 +112,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a6330", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a6561", async() => {
                 WriteLiteral("\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n    <title>");
 #nullable restore
 #line 12 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\Blogs\Index.cshtml"
@@ -151,7 +158,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a9168", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a9399", async() => {
                 WriteLiteral(@"
 
     <!-- breadcrumb area -->
@@ -160,7 +167,7 @@ using Microsoft.AspNetCore.Identity;
             <h1 class=""page-title"">Latest News</h1>
             <ul class=""page-list margin-bottom-10"">
                 <li>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a9750", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a9981", async() => {
                     WriteLiteral("Home");
                 }
                 );
@@ -178,7 +185,7 @@ using Microsoft.AspNetCore.Identity;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("</li>\r\n                <li>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a11206", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a11437", async() => {
                     WriteLiteral("Blog");
                 }
                 );
@@ -214,7 +221,7 @@ using Microsoft.AspNetCore.Identity;
                                             <div class=""blog-detail"">
                                                 <div class=""blog-meta"">
                                                     <h6><a href=""#"">Dec 7, 2019</a><span class=""float-right text-right"">");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a13531", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a13762", async() => {
                     WriteLiteral("Admin");
                 }
                 );
@@ -232,7 +239,7 @@ using Microsoft.AspNetCore.Identity;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("</span></h6>\r\n                                                </div>\r\n                                                <h5>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a15086", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a15317", async() => {
                     WriteLiteral("Best Cardio Gym");
                 }
                 );
@@ -250,7 +257,7 @@ using Microsoft.AspNetCore.Identity;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("</h5>\r\n                                                <p>Sometimes ‘short and sweet’ workouts are all you need. If you\'ve done a HIIT workout before you would agree.</p>\r\n                                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a16750", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a16981", async() => {
                     WriteLiteral("Read More");
                 }
                 );
@@ -286,7 +293,7 @@ using Microsoft.AspNetCore.Identity;
                                             <div class=""blog-detail"">
                                                 <div class=""blog-meta"">
                                                     <h6 class=""d-flex"">");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a19516", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a19747", async() => {
                     WriteLiteral("Oct 7, 2019");
                 }
                 );
@@ -303,7 +310,7 @@ using Microsoft.AspNetCore.Identity;
                 }
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a20916", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a21147", async() => {
                     WriteLiteral("Admin");
                 }
                 );
@@ -320,7 +327,7 @@ using Microsoft.AspNetCore.Identity;
                 }
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a22310", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a22541", async() => {
                     WriteLiteral("3 Comments");
                 }
                 );
@@ -338,7 +345,7 @@ using Microsoft.AspNetCore.Identity;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("</h6>\r\n                                                </div>\r\n                                                <h5>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a23863", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a24094", async() => {
                     WriteLiteral("Best Cardio Exercises");
                 }
                 );
@@ -356,7 +363,7 @@ using Microsoft.AspNetCore.Identity;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("</h5>\r\n                                                <p>Sometimes ‘short and sweet’ workouts are all you need. If you\'ve done a HIIT workout before you would agree. Prepared do an dissuade be.</p>\r\n                                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a25561", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a25792", async() => {
                     WriteLiteral("Read More");
                 }
                 );
@@ -389,7 +396,7 @@ using Microsoft.AspNetCore.Identity;
                                             <div class=""blog-detail"">
                                                 <div class=""blog-meta"">
                                                     <h6 class=""d-flex"">");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a27953", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a28184", async() => {
                     WriteLiteral("Oct 09, 2019");
                 }
                 );
@@ -406,7 +413,7 @@ using Microsoft.AspNetCore.Identity;
                 }
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a29354", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a29585", async() => {
                     WriteLiteral("Admin");
                 }
                 );
@@ -423,7 +430,7 @@ using Microsoft.AspNetCore.Identity;
                 }
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a30748", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a30979", async() => {
                     WriteLiteral("3 Comments");
                 }
                 );
@@ -441,7 +448,7 @@ using Microsoft.AspNetCore.Identity;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("</h6>\r\n                                                </div>\r\n                                                <h5>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a32301", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a32532", async() => {
                     WriteLiteral("Best Cardio Exercises");
                 }
                 );
@@ -459,7 +466,7 @@ using Microsoft.AspNetCore.Identity;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("</h5>\r\n                                                <p>Sometimes ‘short and sweet’ workouts are all you need. If you\'ve done a HIIT workout before you would agree. Prepared do an dissuade be.</p>\r\n                                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a33999", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a34230", async() => {
                     WriteLiteral("Read More");
                 }
                 );
@@ -486,7 +493,7 @@ using Microsoft.AspNetCore.Identity;
                                             <div class=""blog-detail"">
                                                 <div class=""blog-meta"">
                                                     <h6>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a36005", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a36236", async() => {
                     WriteLiteral("Sept 07, 2019");
                 }
                 );
@@ -504,7 +511,7 @@ using Microsoft.AspNetCore.Identity;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("<span class=\"float-right text-right\">");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a37481", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a37712", async() => {
                     WriteLiteral("Admin");
                 }
                 );
@@ -526,7 +533,7 @@ using Microsoft.AspNetCore.Identity;
                                                 <h5><a href=""blog-details.html"">Something new</a></h5>
                                                 <p>Sometimes ‘short and sweet’ workouts are all you need. If you've done a HIIT workout before you would agree.</p>
                                                 ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a39300", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a39531", async() => {
                     WriteLiteral("Read More");
                 }
                 );
@@ -556,7 +563,7 @@ using Microsoft.AspNetCore.Identity;
                                             <div class=""blog-detail"">
                                                 <div class=""blog-meta"">
                                                     <h6>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a41680", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a41911", async() => {
                     WriteLiteral("Oct 07, 2019");
                 }
                 );
@@ -574,7 +581,7 @@ using Microsoft.AspNetCore.Identity;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("<span class=\"float-right text-right\">");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a43155", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a43386", async() => {
                     WriteLiteral("Admin");
                 }
                 );
@@ -592,7 +599,7 @@ using Microsoft.AspNetCore.Identity;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("</span></h6>\r\n                                                </div>\r\n                                                <h5>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a44710", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a44941", async() => {
                     WriteLiteral("Make healthy life");
                 }
                 );
@@ -610,7 +617,7 @@ using Microsoft.AspNetCore.Identity;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("</h5>\r\n                                                <p>Sometimes ‘short and sweet’ workouts are all you need. If you\'ve done a HIIT workout before you would agree.</p>\r\n                                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a46376", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a46607", async() => {
                     WriteLiteral("Read More");
                 }
                 );
@@ -646,7 +653,7 @@ using Microsoft.AspNetCore.Identity;
                                             <div class=""blog-detail"">
                                                 <div class=""blog-meta"">
                                                     <h6 class=""d-flex"">");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a49142", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a49373", async() => {
                     WriteLiteral("Oct 7, 2019");
                 }
                 );
@@ -663,7 +670,7 @@ using Microsoft.AspNetCore.Identity;
                 }
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a50542", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a50773", async() => {
                     WriteLiteral("Admin");
                 }
                 );
@@ -680,7 +687,7 @@ using Microsoft.AspNetCore.Identity;
                 }
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a51936", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a52167", async() => {
                     WriteLiteral("3 Comments");
                 }
                 );
@@ -698,7 +705,7 @@ using Microsoft.AspNetCore.Identity;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("</h6>\r\n                                                </div>\r\n                                                <h5>");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a53489", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a53720", async() => {
                     WriteLiteral("Best Cardio Exercises");
                 }
                 );
@@ -716,7 +723,7 @@ using Microsoft.AspNetCore.Identity;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("</h5>\r\n                                                <p>Sometimes ‘short and sweet’ workouts are all you need. If you\'ve done a HIIT workout before you would agree. Prepared do an dissuade be.</p>\r\n                                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a55187", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3aab2a72cac62425bec412ef49a256fa43c730a55418", async() => {
                     WriteLiteral("Read More");
                 }
                 );

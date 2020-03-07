@@ -5,6 +5,6 @@
         EasyPay = 1,
         Epay = 2,
         CashOnDelivery = 3,
-        Card = 4
+        Card = 4,
     }
 }

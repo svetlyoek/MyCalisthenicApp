@@ -11,7 +11,7 @@
             program
                 .HasMany(p => p.Images)
                 .WithOne(i => i.Program)
-                .HasForeignKey(i=>i.ProgramId)
+                .HasForeignKey(i => i.ProgramId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             program
@@ -19,8 +19,6 @@
                 .WithMany(c => c.Programs)
                 .HasForeignKey(p => p.CategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-
         }
     }
 }

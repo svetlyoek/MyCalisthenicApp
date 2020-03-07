@@ -1,9 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-MyCalisthenicApp.Web-783D9519-9CFF-4897-AFA2-9FFF2CFDEB4D</UserSecretsId>
   </PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>..\Rules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="stylecop.json" />
+  </ItemGroup>
 
 
   <ItemGroup>
@@ -17,12 +23,16 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
-    <PackageReference Include="SendGrid" Version="9.13.0" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 
   <ItemGroup>
     <ProjectReference Include="..\MyCalisthenicApp.Data\MyCalisthenicApp.Data.csproj" />
+    <ProjectReference Include="..\MyCalisthenicApp.Mapping\MyCalisthenicApp.Mapping.csproj" />
     <ProjectReference Include="..\MyCalisthenicApp.Services\MyCalisthenicApp.Services.csproj" />
     <ProjectReference Include="..\MyCalisthenicApp.ViewModels\MyCalisthenicApp.ViewModels.csproj" />
   </ItemGroup>

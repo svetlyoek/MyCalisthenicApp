@@ -8,7 +8,7 @@
 
         public const string AdministratorLastName = "Kazakov";
 
-        public const string AdministratorEmail = "svetoslav.kazakov@outlook.com";
+        public const string AdministratorEmail = "svetlyo_svetlyo@abv.bg";
 
         public const string AdministratorPassword = "svetlyoek87";
 
@@ -16,5 +16,6 @@
 
         public const string AdministratorCardCVV = "478";
 
+        public const int MaxFailedAccessAttempts = 10;
     }
 }

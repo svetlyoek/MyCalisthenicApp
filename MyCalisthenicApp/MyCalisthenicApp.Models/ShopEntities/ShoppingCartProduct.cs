@@ -16,6 +16,5 @@
 
         [Range(DataValidations.ShoppingCartProductQuantityMinValue, DataValidations.ShoppingCartProductQuantityMaxValue)]
         public int? Quantity { get; set; }
-
     }
 }

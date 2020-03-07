@@ -7,6 +7,5 @@
     [Authorize(Roles = "Administrator")]
     public class AdministratorController : Controller
     {
-       
     }
 }

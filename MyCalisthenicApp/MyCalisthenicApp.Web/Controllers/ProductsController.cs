@@ -6,7 +6,7 @@
     {
         public IActionResult Details()
         {
-            return View();
+            return this.View();
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿@model ContactRequestInputViewModel
+﻿@model ContactInputViewModel
 
-@{ 
+@{
     ViewData["Title"] = "Contact";
 }
 
@@ -40,7 +40,16 @@
 
 </head>
 <body>
+    @*<div>
+            <div>
+                @if (ViewBag.Exception != null)
+                {
+                    <div>@ViewBag.Exception</div>
 
+
+                }
+            </div>
+        </div>*@
     <!-- breadcrumb area -->
     <div class="breadcrumb-style-1 contact-breadcrumb-overlay" style="background-image:url(/assets/img/bg/contact.png);">
         <div class="breadcrumb-inner">
@@ -64,37 +73,41 @@
                                 <p class="subtitle">If you got any questions, or you just want to say hello to us, feel free to send us a message</p>
                             </div>
                         </div>
-                        <div  class="col-lg-10 offset-lg-1">
-                            <form  asp-controller="Contacts" asp-action="Index" class="contact-form" method="post" name="registration">
-                                <div class="form-row">
-                                    <div class="form-group form-field col-md-4">
-                                        <input asp-for="FullName" type="text" id="fullName" class="form-control input-form" placeholder="Your Full Name">
-                                        <span asp-validation-for="FullName"></span>
-                                    </div>
-                                    <div class="form-group form-field col-md-4">
-                                        <input asp-for="Email" type="text" class="form-control input-form" id="email" placeholder="Email" data-required="text" data-required-email="email">
-                                        <span asp-validation-for="Email"></span>
-                                    </div>
-                                    <div class="form-group form-field col-md-4">
-                                        <input asp-for="PhoneNumber" type="text" class="form-control input-form" id="phoneNumber" placeholder="Phone Number">
-                                        <span asp-validation-for="PhoneNumber"></span>
-                                    </div>
+                        <div class="col-lg-10 offset-lg-1">
+                            <form method="post">
+                                <div asp-validation-summary="All" class="text-danger"></div>
+                                <div class="form-group">
+                                    <label class="text-dark" asp-for="FullName"></label>
+                                    <input asp-for="FullName" class="form-control" />
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
                                 </div>
-                                <div  class="form-group">
-                                    <div class="form-field margin-bottom-30">
-                                        <textarea asp-for="Content" id="content" cols="30" rows="5" placeholder="Write message" data-required="text"></textarea>
-                                        <span asp-validation-for="Content"></span>
-                                    </div>
+                                <div class="form-group">
+                                    <label class="text-dark" asp-for="Email"></label>
+                                    <input asp-for="Email" class="form-control" value="@this.User.Identity.Name" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
-                                <div class="btn-wrapper desktop-center margin-bottom-10">
-                                    <button  type="submit" class="btn btn-element btn-normal-size btn-main-color">Submit Message</button>
+                                <div class="form-group">
+                                    <label class="text-dark" asp-for="Title"></label>
+                                    <input asp-for="Title" class="form-control" />
+                                    <span asp-validation-for="Title" class="text-danger"></span>
                                 </div>
+                                <div class="form-group">
+                                    <label class="text-dark" asp-for="Content"></label>
+                                    <textarea asp-for="Content" class="form-control" rows="5"></textarea>
+                                    <span asp-validation-for="Content" class="text-danger"></span>
+                                </div>
+                                @*<p>
+                                        Натискайки бутона "Изпратете ни съобщение", вие потвърждавате, че сте запознати и съгласни с нашата
+                                        <a asp-area="" asp-controller="Home" asp-action="Privacy">политика за опазване на личните данни</a>
+                                    </p>*@
+                                @*<input type="hidden" id="RecaptchaValue" name="RecaptchaValue" />*@
+                                <button type="submit" class="btn btn-primary">Send message</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row margin-top-50">
                 <div class="col-lg-12">
                     <div class="mapouter">
                         <div class="gmap_canvas">

@@ -1,5 +1,7 @@
 namespace MyCalisthenicApp.Web
 {
+    using System;
+
     using AutoMapper;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -14,14 +16,15 @@ namespace MyCalisthenicApp.Web
     using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Services;
     using MyCalisthenicApp.Services.Contracts;
+    using MyCalisthenicApp.Services.MessageSender;
+    using MyCalisthenicApp.Web.Common;
     using MyCalisthenicApp.Web.Middlewares;
-    using System;
 
     public class Startup
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            this.Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -38,7 +41,7 @@ namespace MyCalisthenicApp.Web
 
             services.AddDbContext<MyCalisthenicAppDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    this.Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
@@ -48,10 +51,11 @@ namespace MyCalisthenicApp.Web
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
 
-                options.Lockout.MaxFailedAccessAttempts = 10;
+                options.Lockout.MaxFailedAccessAttempts = GlobalConstants.MaxFailedAccessAttempts;
 
                 options.User.RequireUniqueEmail = true;
 
+                options.SignIn.RequireConfirmedEmail = true;
             })
                 .AddEntityFrameworkStores<MyCalisthenicAppDbContext>()
                 .AddDefaultTokenProviders()
@@ -59,7 +63,6 @@ namespace MyCalisthenicApp.Web
 
             services.AddControllersWithViews();
             services.AddRazorPages();
-
 
             services.AddAutoMapper(cfg =>
             {
@@ -70,15 +73,15 @@ namespace MyCalisthenicApp.Web
             services.AddTransient<IProgramsService, ProgramsService>();
             services.AddTransient<IShoppingCartsService, ShoppingCartsService>();
 
+            services.AddTransient<IEmailSender>(
+                serviceProvider => new SendGridEmailSender(this.Configuration["SendGrid:ApiKey"]));
 
-        services.AddAuthentication().AddFacebook(facebookOptions =>
+            services.AddAuthentication().AddFacebook(facebookOptions =>
             {
                 facebookOptions.AppId = this.Configuration["Authentication:Facebook:AppId"];
                 facebookOptions.AppSecret = this.Configuration["Authentication:Facebook:AppSecret"];
             });
-
         }
-
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
@@ -91,10 +94,10 @@ namespace MyCalisthenicApp.Web
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
 
             app.UseStatusCodePagesWithRedirects("/Home/Error404?statusCode={0}");
 
@@ -108,7 +111,6 @@ namespace MyCalisthenicApp.Web
             app.UseSeedRolesMiddleware();
             app.UseCookiePolicy();
 
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -120,7 +122,6 @@ namespace MyCalisthenicApp.Web
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
-
         }
     }
 }

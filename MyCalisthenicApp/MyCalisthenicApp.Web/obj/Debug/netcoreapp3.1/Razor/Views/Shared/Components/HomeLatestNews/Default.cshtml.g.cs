@@ -21,21 +21,21 @@ using MyCalisthenicApp.Web;
 #nullable disable
 #nullable restore
 #line 2 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
-using MyCalisthenicApp.ViewModels.Home;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 3 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
 using MyCalisthenicApp.ViewModels.Blogs;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+#line 3 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
 using MyCalisthenicApp.ViewModels.Programs;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using MyCalisthenicApp.ViewModels.Contacts;
 
 #line default
 #line hidden
@@ -61,8 +61,15 @@ using Microsoft.AspNetCore.Identity;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 8 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using MyCalisthenicApp.Services.MessageSender;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"505df39aa3f44cbcad372224cdce535dbb9eab35", @"/Views/Shared/Components/HomeLatestNews/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"31e7bbf7e96303ff855298cb2379837af1f63526", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dff7a0426a8bf6117b8c3299c99e8690b8a23961", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_HomeLatestNews_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Blogs", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -114,7 +121,7 @@ using Microsoft.AspNetCore.Identity;
                             <h6 class=""d-flex justify-content-between""><i class=""fa fa-user-o"" aria-hidden=""true""></i> By Rasel<i class=""fa fa-comment-o"" aria-hidden=""true""></i> 9 comments</h6>
                         </div>
                         <h3>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "505df39aa3f44cbcad372224cdce535dbb9eab356107", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "505df39aa3f44cbcad372224cdce535dbb9eab356338", async() => {
                 WriteLiteral("World Wide Ocassion");
             }
             );
@@ -148,7 +155,7 @@ using Microsoft.AspNetCore.Identity;
                             <h6 class=""d-flex justify-content-between""><i class=""fa fa-user-o"" aria-hidden=""true""></i> By Rasel<i class=""fa fa-comment-o"" aria-hidden=""true""></i> 9 comments</h6>
                         </div>
                         <h3>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "505df39aa3f44cbcad372224cdce535dbb9eab358436", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "505df39aa3f44cbcad372224cdce535dbb9eab358667", async() => {
                 WriteLiteral("World Wide Ocassion");
             }
             );
@@ -182,7 +189,7 @@ using Microsoft.AspNetCore.Identity;
                             <h6 class=""d-flex justify-content-between""><i class=""fa fa-user-o"" aria-hidden=""true""></i> By Rasel<i class=""fa fa-comment-o"" aria-hidden=""true""></i> 9 comments</h6>
                         </div>
                         <h3>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "505df39aa3f44cbcad372224cdce535dbb9eab3510765", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "505df39aa3f44cbcad372224cdce535dbb9eab3510996", async() => {
                 WriteLiteral("World Wide Ocassion");
             }
             );
@@ -216,7 +223,7 @@ using Microsoft.AspNetCore.Identity;
                             <h6 class=""d-flex justify-content-between""><i class=""fa fa-user-o"" aria-hidden=""true""></i> By Rasel<i class=""fa fa-comment-o"" aria-hidden=""true""></i> 9 comments</h6>
                         </div>
                         <h3>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "505df39aa3f44cbcad372224cdce535dbb9eab3513095", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "505df39aa3f44cbcad372224cdce535dbb9eab3513326", async() => {
                 WriteLiteral("World Wide Ocassion");
             }
             );
@@ -250,7 +257,7 @@ using Microsoft.AspNetCore.Identity;
                             <h6 class=""d-flex justify-content-between""><i class=""fa fa-user-o"" aria-hidden=""true""></i> By Rasel<i class=""fa fa-comment-o"" aria-hidden=""true""></i> 9 comments</h6>
                         </div>
                         <h3>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "505df39aa3f44cbcad372224cdce535dbb9eab3515425", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "505df39aa3f44cbcad372224cdce535dbb9eab3515656", async() => {
                 WriteLiteral("World Wide Ocassion");
             }
             );
@@ -284,7 +291,7 @@ using Microsoft.AspNetCore.Identity;
                             <h6 class=""d-flex justify-content-between""><i class=""fa fa-user-o"" aria-hidden=""true""></i> By Rasel<i class=""fa fa-comment-o"" aria-hidden=""true""></i> 9 comments</h6>
                         </div>
                         <h3>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "505df39aa3f44cbcad372224cdce535dbb9eab3517755", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "505df39aa3f44cbcad372224cdce535dbb9eab3517986", async() => {
                 WriteLiteral("World Wide Ocassion");
             }
             );
@@ -318,7 +325,7 @@ using Microsoft.AspNetCore.Identity;
                             <h6 class=""d-flex justify-content-between""><i class=""fa fa-user-o"" aria-hidden=""true""></i> By Rasel<i class=""fa fa-comment-o"" aria-hidden=""true""></i> 9 comments</h6>
                         </div>
                         <h3>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "505df39aa3f44cbcad372224cdce535dbb9eab3520085", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "505df39aa3f44cbcad372224cdce535dbb9eab3520316", async() => {
                 WriteLiteral("World Wide Ocassion");
             }
             );
@@ -352,7 +359,7 @@ using Microsoft.AspNetCore.Identity;
                             <h6 class=""d-flex justify-content-between""><i class=""fa fa-user-o"" aria-hidden=""true""></i> By Rasel<i class=""fa fa-comment-o"" aria-hidden=""true""></i> 9 comments</h6>
                         </div>
                         <h3>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "505df39aa3f44cbcad372224cdce535dbb9eab3522415", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "505df39aa3f44cbcad372224cdce535dbb9eab3522646", async() => {
                 WriteLiteral("World Wide Ocassion");
             }
             );

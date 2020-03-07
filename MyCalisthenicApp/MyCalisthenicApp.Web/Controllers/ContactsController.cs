@@ -1,17 +1,22 @@
 ﻿namespace MyCalisthenicApp.Web.Controllers
 {
+    using System.Threading.Tasks;
+
     using Microsoft.AspNetCore.Mvc;
     using MyCalisthenicApp.Services.Contracts;
-    using MyCalisthenicApp.ViewModels.Home;
-    using System.Threading.Tasks;
+    using MyCalisthenicApp.Services.MessageSender;
+    using MyCalisthenicApp.ViewModels.Contacts;
+    using MyCalisthenicApp.Web.Common;
 
     public class ContactsController : Controller
     {
         private readonly IUserRequestsService userRequestsService;
+        private readonly IEmailSender emailSender;
 
-        public ContactsController(IUserRequestsService userRequestsService)
+        public ContactsController(IUserRequestsService userRequestsService, IEmailSender emailSender)
         {
             this.userRequestsService = userRequestsService;
+            this.emailSender = emailSender;
         }
 
         public IActionResult Index()
@@ -20,16 +25,28 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(ContactRequestInputViewModel inputModel)
+        public async Task<IActionResult> Index(ContactInputViewModel inputModel)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.View(inputModel);
             }
 
-            await this.userRequestsService.CreateAsync(inputModel.FullName, inputModel.Email, inputModel.PhoneNumber, inputModel.Content);
+            await this.userRequestsService.CreateAsync(inputModel.FullName, inputModel.Email, inputModel.Content);
 
-            return this.RedirectToAction("/Home/Index");
+            await this.emailSender.SendEmailAsync(
+               inputModel.Email,
+               inputModel.FullName,
+               GlobalConstants.AdministratorEmail,
+               inputModel.Title,
+               inputModel.Content);
+
+            return this.RedirectToAction("Successfull");
+        }
+
+        public IActionResult Successfull()
+        {
+            return this.View();
         }
     }
 }

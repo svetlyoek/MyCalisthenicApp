@@ -1,8 +1,10 @@
 ﻿namespace MyCalisthenicApp.Services
 {
-    using MyCalisthenicApp.Services.Contracts;
+    using System.Threading.Tasks;
+
     using MyCalisthenicApp.Data;
     using MyCalisthenicApp.Models;
+    using MyCalisthenicApp.Services.Contracts;
 
     public class UserRequestService : IUserRequestsService
     {
@@ -13,19 +15,18 @@
             this.dbContext = dbContext;
         }
 
-        public void Create(string fullName, string email, string phoneNumber, string content)
+        public async Task CreateAsync(string fullName, string email, string content)
         {
             var userRequest = new UserRequest
             {
                 FullName = fullName,
                 Email = email,
-                PhoneNumber = phoneNumber,
-                Content = content
+                Content = content,
             };
 
-            this.dbContext.UserRequests.Add(userRequest);
+            await this.dbContext.UserRequests.AddAsync(userRequest);
 
-            this.dbContext.SaveChanges();
+            await this.dbContext.SaveChangesAsync();
         }
     }
 }

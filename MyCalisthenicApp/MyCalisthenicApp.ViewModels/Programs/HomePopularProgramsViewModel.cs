@@ -1,7 +1,8 @@
 ﻿namespace MyCalisthenicApp.ViewModels.Programs
 {
-    using MyCalisthenicApp.ViewModels.Validations;
     using System.ComponentModel.DataAnnotations;
+
+    using MyCalisthenicApp.ViewModels.Validations;
 
     public class HomePopularProgramsViewModel
     {
@@ -14,8 +15,5 @@
 
         [Required]
         public string ImageUrl { get; set; }
-
     }
-
 }
-

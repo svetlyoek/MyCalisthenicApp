@@ -1,8 +1,9 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace MyCalisthenicApp.Data.Migrations
+﻿namespace MyCalisthenicApp.Data.Migrations
 {
+    using System;
+
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -14,7 +15,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     Id = table.Column<string>(nullable: false),
                     Name = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedName = table.Column<string>(maxLength: 256, nullable: true),
-                    ConcurrencyStamp = table.Column<string>(nullable: true)
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -30,7 +31,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
-                    Name = table.Column<string>(maxLength: 50, nullable: false)
+                    Name = table.Column<string>(maxLength: 50, nullable: false),
                 },
                 constraints: table =>
                 {
@@ -47,7 +48,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(maxLength: 50, nullable: false),
-                    PostCode = table.Column<string>(maxLength: 30, nullable: false)
+                    PostCode = table.Column<string>(maxLength: 30, nullable: false),
                 },
                 constraints: table =>
                 {
@@ -65,7 +66,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     MonthlyPrice = table.Column<decimal>(nullable: false),
-                    YearlyPrice = table.Column<decimal>(nullable: false)
+                    YearlyPrice = table.Column<decimal>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -82,7 +83,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(maxLength: 20, nullable: false),
-                    Sort = table.Column<int>(nullable: false)
+                    Sort = table.Column<int>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -100,7 +101,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(maxLength: 30, nullable: false),
                     Description = table.Column<string>(maxLength: 500, nullable: false),
-                    LikeCount = table.Column<int>(nullable: true)
+                    LikeCount = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -118,7 +119,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     CardNumber = table.Column<string>(maxLength: 30, nullable: false),
                     CVV = table.Column<string>(maxLength: 5, nullable: false),
-                    ExpirationDate = table.Column<DateTime>(nullable: false)
+                    ExpirationDate = table.Column<DateTime>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -137,7 +138,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     Name = table.Column<string>(maxLength: 30, nullable: false),
                     PriceToHome = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
                     PriceToOffice = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
-                    IsDefault = table.Column<bool>(nullable: false)
+                    IsDefault = table.Column<bool>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -158,7 +159,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     Email = table.Column<string>(nullable: false),
                     Content = table.Column<string>(maxLength: 500, nullable: false),
                     Seen = table.Column<bool>(nullable: false),
-                    PublishDate = table.Column<DateTime>(nullable: true)
+                    PublishDate = table.Column<DateTime>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -173,7 +174,7 @@ namespace MyCalisthenicApp.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     RoleId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
-                    ClaimValue = table.Column<string>(nullable: true)
+                    ClaimValue = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -201,7 +202,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     Color = table.Column<int>(nullable: false),
                     Description = table.Column<string>(maxLength: 1000, nullable: false),
                     IsSoldOut = table.Column<bool>(nullable: false),
-                    CategoryId = table.Column<string>(nullable: false)
+                    CategoryId = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -238,7 +239,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     ModifiedOn = table.Column<DateTime>(nullable: true),
-                    ShoppingCartId = table.Column<string>(nullable: true)
+                    ShoppingCartId = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -261,7 +262,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     Url = table.Column<string>(nullable: false),
-                    ProductId = table.Column<string>(nullable: false)
+                    ProductId = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -280,7 +281,7 @@ namespace MyCalisthenicApp.Data.Migrations
                 {
                     ShoppingCartId = table.Column<string>(nullable: false),
                     ProductId = table.Column<string>(nullable: false),
-                    Quantity = table.Column<int>(nullable: true)
+                    Quantity = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -313,7 +314,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     Street = table.Column<string>(maxLength: 50, nullable: false),
                     BuildingNumber = table.Column<string>(maxLength: 10, nullable: false),
                     CityId = table.Column<string>(nullable: false),
-                    UserId = table.Column<string>(nullable: true)
+                    UserId = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -341,7 +342,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     UserId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true),
-                    ApplicationUserId = table.Column<string>(nullable: true)
+                    ApplicationUserId = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -368,7 +369,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     ProviderKey = table.Column<string>(maxLength: 128, nullable: false),
                     ProviderDisplayName = table.Column<string>(nullable: true),
                     UserId = table.Column<string>(nullable: false),
-                    ApplicationUserId = table.Column<string>(nullable: true)
+                    ApplicationUserId = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -393,7 +394,7 @@ namespace MyCalisthenicApp.Data.Migrations
                 {
                     UserId = table.Column<string>(nullable: false),
                     RoleId = table.Column<string>(nullable: false),
-                    ApplicationUserId = table.Column<string>(nullable: true)
+                    ApplicationUserId = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -425,7 +426,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     UserId = table.Column<string>(nullable: false),
                     LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
                     Name = table.Column<string>(maxLength: 128, nullable: false),
-                    Value = table.Column<string>(nullable: true)
+                    Value = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -451,7 +452,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     Description = table.Column<string>(maxLength: 100, nullable: true),
                     ImageId = table.Column<string>(nullable: false),
                     VideoUrl = table.Column<string>(nullable: false),
-                    ProgramCategoryId = table.Column<string>(nullable: false)
+                    ProgramCategoryId = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -486,7 +487,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     CategoryId = table.Column<string>(nullable: false),
                     ImageId = table.Column<string>(nullable: true),
                     VideoUrl = table.Column<string>(nullable: true),
-                    IsPublic = table.Column<bool>(nullable: false)
+                    IsPublic = table.Column<bool>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -524,7 +525,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     Type = table.Column<int>(nullable: false),
                     Description = table.Column<string>(maxLength: 1000, nullable: false),
                     ImageId = table.Column<string>(nullable: false),
-                    CategoryId = table.Column<string>(nullable: false)
+                    CategoryId = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -566,7 +567,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     EasyPayNumber = table.Column<string>(nullable: true),
                     PaymentType = table.Column<int>(nullable: false),
                     UserId = table.Column<string>(nullable: false),
-                    DeliveryAddressId = table.Column<string>(nullable: false)
+                    DeliveryAddressId = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -599,7 +600,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     Rating = table.Column<int>(nullable: true),
                     PostId = table.Column<string>(nullable: true),
                     ProductId = table.Column<string>(nullable: true),
-                    CategoryId = table.Column<string>(nullable: true)
+                    CategoryId = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -637,7 +638,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     OrderId = table.Column<string>(nullable: false),
                     ProductId = table.Column<string>(nullable: false),
                     Quantity = table.Column<int>(nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                 },
                 constraints: table =>
                 {

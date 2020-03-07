@@ -1,15 +1,17 @@
 ﻿namespace MyCalisthenicApp.Models
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+
     using MyCalisthenicApp.Data.Common.Models;
     using MyCalisthenicApp.Models.BlogEntities;
     using MyCalisthenicApp.Models.ShopEntities;
-    using System;
-    using System.ComponentModel.DataAnnotations;
 
     public class Comment : BaseDeletableEntity<string>
     {
         public Comment()
         {
+            this.Id = Guid.NewGuid().ToString();
             this.IsDeleted = false;
             this.CreatedOn = DateTime.UtcNow;
         }
@@ -36,6 +38,5 @@
         public string CategoryId { get; set; }
 
         public virtual ProgramCategory Category { get; set; }
-
     }
 }

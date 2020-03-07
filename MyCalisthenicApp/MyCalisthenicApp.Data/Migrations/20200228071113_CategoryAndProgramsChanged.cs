@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace MyCalisthenicApp.Data.Migrations
+﻿namespace MyCalisthenicApp.Data.Migrations
 {
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class CategoryAndProgramsChanged : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

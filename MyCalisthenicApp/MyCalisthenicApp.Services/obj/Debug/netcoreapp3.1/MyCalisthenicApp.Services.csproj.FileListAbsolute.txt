@@ -15,8 +15,5 @@ E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services\ob
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services\obj\Debug\netcoreapp3.1\MyCalisthenicApp.Services.csproj.CopyComplete
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services\obj\Debug\netcoreapp3.1\MyCalisthenicApp.Services.dll
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services\obj\Debug\netcoreapp3.1\MyCalisthenicApp.Services.pdb
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services\bin\Debug\netcoreapp3.1\ErrorViewModel.cs
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services\bin\Debug\netcoreapp3.1\MyCalisthenicApp.ViewModels.dll
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services\bin\Debug\netcoreapp3.1\MyCalisthenicApp.ViewModels.pdb
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services\bin\Debug\netcoreapp3.1\MyCalisthenicApp.Mapping.dll
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services\bin\Debug\netcoreapp3.1\MyCalisthenicApp.Mapping.pdb

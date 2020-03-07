@@ -1265,7 +1265,7 @@
           }
         }
       },
-      "SendGrid/9.13.0": {
+      "Sendgrid/9.12.0": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "9.0.1"
@@ -1276,6 +1276,9 @@
         "runtime": {
           "lib/netstandard2.0/SendGrid.dll": {}
         }
+      },
+      "StyleCop.Analyzers/1.1.118": {
+        "type": "package"
       },
       "System.CodeDom/4.7.0": {
         "type": "package",
@@ -2492,25 +2495,22 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "AutoMapper": "8.0.0",
           "Microsoft.Extensions.Options": "3.1.2",
           "MyCalisthenicApp.Data": "1.0.0",
-          "MyCalisthenicApp.Mapping": "1.0.0",
           "MyCalisthenicApp.ViewModels": "1.0.0",
-          "SendGrid": "9.13.0"
+          "SendGrid": "9.12.0"
         },
         "compile": {
           "bin/placeholder/MyCalisthenicApp.Services.dll": {}
         },
         "runtime": {
           "bin/placeholder/MyCalisthenicApp.Services.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       },
       "MyCalisthenicApp.ViewModels/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
           "System.ComponentModel.Annotations": "4.7.0"
         },
@@ -4699,10 +4699,10 @@
         "version.txt"
       ]
     },
-    "SendGrid/9.13.0": {
-      "sha512": "ZkYkdZ/4KYdu6Ewrf8ZGSc8WIScVq8+CtPgf3tUlvVxtFKJ+zld0Ki6Nv4Z2Drt5qbK3TDmFNIRwiKXnrtVfTQ==",
+    "Sendgrid/9.12.0": {
+      "sha512": "HrH336vKylh6Yy4bqKFNPf0Rk1C7CDd4WX7D2f7D/g0Dy584Wx2Qh7vdM+NgAkHTWQ7bKwl7K9DZ9BiFKbimdA==",
       "type": "package",
-      "path": "sendgrid/9.13.0",
+      "path": "sendgrid/9.12.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4715,8 +4715,33 @@
         "lib/netstandard2.0/SendGrid.dll",
         "lib/netstandard2.0/SendGrid.pdb",
         "lib/netstandard2.0/SendGrid.xml",
-        "sendgrid.9.13.0.nupkg.sha512",
+        "sendgrid.9.12.0.nupkg.sha512",
         "sendgrid.nuspec"
+      ]
+    },
+    "StyleCop.Analyzers/1.1.118": {
+      "sha512": "Onx6ovGSqXSK07n/0eM3ZusiNdB6cIlJdabQhWGgJp3Vooy9AaLS/tigeybOJAobqbtggTamoWndz72JscZBvw==",
+      "type": "package",
+      "path": "stylecop.analyzers/1.1.118",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "THIRD-PARTY-NOTICES.txt",
+        "analyzers/dotnet/cs/StyleCop.Analyzers.CodeFixes.dll",
+        "analyzers/dotnet/cs/StyleCop.Analyzers.dll",
+        "analyzers/dotnet/cs/de-DE/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/en-GB/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/es-MX/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/fr-FR/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/pl-PL/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/pt-BR/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/ru-RU/StyleCop.Analyzers.resources.dll",
+        "stylecop.analyzers.1.1.118.nupkg.sha512",
+        "stylecop.analyzers.nuspec",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
       ]
     },
     "System.CodeDom/4.7.0": {
@@ -8283,9 +8308,10 @@
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.1",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.1",
       "MyCalisthenicApp.Data >= 1.0.0",
+      "MyCalisthenicApp.Mapping >= 1.0.0",
       "MyCalisthenicApp.Services >= 1.0.0",
       "MyCalisthenicApp.ViewModels >= 1.0.0",
-      "SendGrid >= 9.13.0"
+      "StyleCop.Analyzers >= 1.1.118"
     ]
   },
   "packageFolders": {
@@ -8320,6 +8346,9 @@
           "projectReferences": {
             "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Data\\MyCalisthenicApp.Data.csproj": {
               "projectPath": "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Data\\MyCalisthenicApp.Data.csproj"
+            },
+            "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Mapping\\MyCalisthenicApp.Mapping.csproj": {
+              "projectPath": "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Mapping\\MyCalisthenicApp.Mapping.csproj"
             },
             "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Services\\MyCalisthenicApp.Services.csproj": {
               "projectPath": "E:\\Soft Uni\\CODES\\MyCalisthenicApp\\MyCalisthenicApp\\MyCalisthenicApp.Services\\MyCalisthenicApp.Services.csproj"
@@ -8379,9 +8408,11 @@
             "target": "Package",
             "version": "[3.1.1, )"
           },
-          "SendGrid": {
+          "StyleCop.Analyzers": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
             "target": "Package",
-            "version": "[9.13.0, )"
+            "version": "[1.1.118, )"
           }
         },
         "imports": [

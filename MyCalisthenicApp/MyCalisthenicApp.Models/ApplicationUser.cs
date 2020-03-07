@@ -1,22 +1,23 @@
 ﻿namespace MyCalisthenicApp.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
     using Microsoft.AspNetCore.Identity;
     using MyCalisthenicApp.Data.Common.Contracts;
     using MyCalisthenicApp.Models.BlogEntities;
     using MyCalisthenicApp.Models.ShopEntities;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
         public ApplicationUser()
         {
-            
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
 
+            this.Id = Guid.NewGuid().ToString();
             this.IsDeleted = false;
             this.CreatedOn = DateTime.UtcNow;
             this.Posts = new HashSet<Post>();
@@ -58,6 +59,5 @@
         public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
-
     }
 }

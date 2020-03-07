@@ -1,17 +1,18 @@
 ﻿namespace MyCalisthenicApp.Web.Controllers
 {
+    using System.Diagnostics;
+
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
     using MyCalisthenicApp.ViewModels;
-    using System.Diagnostics;
 
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<HomeController> logger;
 
         public HomeController(ILogger<HomeController> logger)
         {
-            this._logger = logger;
+            this.logger = logger;
         }
 
         public IActionResult Index()
@@ -27,30 +28,28 @@
         [HttpGet("~/Views/Home/Privacy.cshtml")]
         public IActionResult Privacy()
         {
-            return View();
+            return this.View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return this.View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
         }
-
 
         public IActionResult Error404(int statusCode)
         {
             if (statusCode == 404)
             {
-                return View();
+                return this.View();
             }
 
             return this.Redirect("Error");
-
         }
 
         public IActionResult ComingSoon()
         {
-            return View();
+            return this.View();
         }
     }
 }

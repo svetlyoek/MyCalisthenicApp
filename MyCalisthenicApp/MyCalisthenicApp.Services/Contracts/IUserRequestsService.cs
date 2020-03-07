@@ -1,7 +1,9 @@
 ﻿namespace MyCalisthenicApp.Services.Contracts
 {
+    using System.Threading.Tasks;
+
     public interface IUserRequestsService
     {
-        void Create(string fullName, string email, string phoneNumber, string content);
+        Task CreateAsync(string fullName, string email, string content);
     }
 }

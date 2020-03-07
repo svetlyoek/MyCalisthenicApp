@@ -5,6 +5,6 @@
         Processing = 1,
         Processed = 2,
         Sent = 3,
-        Delivered = 4
+        Delivered = 4,
     }
 }

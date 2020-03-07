@@ -1,15 +1,17 @@
 ﻿namespace MyCalisthenicApp.Models.ShopEntities
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+
     using MyCalisthenicApp.Data.Common.Models;
     using MyCalisthenicApp.Models.BlogEntities;
     using MyCalisthenicApp.Models.TrainingEntities;
-    using System;
-    using System.ComponentModel.DataAnnotations;
 
     public class Image : BaseDeletableEntity<string>
     {
         public Image()
         {
+            this.Id = Guid.NewGuid().ToString();
             this.IsDeleted = false;
             this.CreatedOn = DateTime.UtcNow;
         }
@@ -32,6 +34,5 @@
         public string ProgramId { get; set; }
 
         public virtual Program Program { get; set; }
-
     }
 }

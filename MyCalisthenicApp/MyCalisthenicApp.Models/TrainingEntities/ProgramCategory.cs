@@ -1,15 +1,17 @@
 ﻿namespace MyCalisthenicApp.Models
 {
-    using MyCalisthenicApp.Data.Common.Models;
-    using MyCalisthenicApp.Models.TrainingEntities;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
+    using MyCalisthenicApp.Data.Common.Models;
+    using MyCalisthenicApp.Models.TrainingEntities;
 
     public class ProgramCategory : BaseDeletableEntity<string>
     {
         public ProgramCategory()
         {
+            this.Id = Guid.NewGuid().ToString();
             this.IsDeleted = false;
             this.CreatedOn = DateTime.UtcNow;
             this.Comments = new HashSet<Comment>();
@@ -32,6 +34,5 @@
         public virtual ICollection<Comment> Comments { get; set; }
 
         public virtual ICollection<Exercise> Exercises { get; set; }
-
     }
 }

@@ -1,13 +1,15 @@
 ﻿namespace MyCalisthenicApp.Models.ShopEntities
 {
-    using MyCalisthenicApp.Data.Common.Models;
     using System;
     using System.ComponentModel.DataAnnotations;
+
+    using MyCalisthenicApp.Data.Common.Models;
 
     public class Supplier : BaseDeletableEntity<string>
     {
         public Supplier()
         {
+            this.Id = Guid.NewGuid().ToString();
             this.CreatedOn = DateTime.UtcNow;
             this.IsDeleted = false;
             this.IsDefault = true;

@@ -12,7 +12,7 @@
                 .HasKey(op => new
                 {
                     op.OrderId,
-                    op.ProductId
+                    op.ProductId,
                 });
 
             orderProduct
@@ -30,8 +30,6 @@
                 .WithMany(p => p.Orders)
                 .HasForeignKey(op => op.ProductId)
                 .OnDelete(DeleteBehavior.Restrict);
-
         }
-
     }
 }

@@ -1,15 +1,17 @@
 ﻿namespace MyCalisthenicApp.Models.ShopEntities
 {
-    using MyCalisthenicApp.Data.Common.Models;
-    using MyCalisthenicApp.Models.ShopEntities.Enums;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
+    using MyCalisthenicApp.Data.Common.Models;
+    using MyCalisthenicApp.Models.ShopEntities.Enums;
 
     public class ProductCategory : BaseDeletableEntity<string>
     {
         public ProductCategory()
         {
+            this.Id = Guid.NewGuid().ToString();
             this.IsDeleted = false;
             this.CreatedOn = DateTime.UtcNow;
             this.Products = new HashSet<Product>();

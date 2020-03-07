@@ -1,13 +1,14 @@
 ﻿namespace MyCalisthenicApp.Services
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
     using AutoMapper;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Programs;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
 
     public class ProgramsService : IProgramsService
     {
@@ -27,7 +28,7 @@
                 .Take(5)
                 .ToListAsync();
 
-            var programsViewModel = mapper.Map<IEnumerable<HomePopularProgramsViewModel>>(popularPrograms);
+            var programsViewModel = this.mapper.Map<IEnumerable<HomePopularProgramsViewModel>>(popularPrograms);
 
             return programsViewModel;
         }

@@ -1,13 +1,15 @@
 ﻿namespace MyCalisthenicApp.Models
 {
-    using MyCalisthenicApp.Data.Common.Models;
     using System;
     using System.ComponentModel.DataAnnotations;
+
+    using MyCalisthenicApp.Data.Common.Models;
 
     public class UserRequest : BaseDeletableEntity<string>
     {
         public UserRequest()
         {
+            this.Id = Guid.NewGuid().ToString();
             this.IsDeleted = false;
             this.CreatedOn = DateTime.UtcNow;
             this.Seen = false;
@@ -21,14 +23,10 @@
         [EmailAddress]
         public string Email { get; set; }
 
-        public string PhoneNumber { get; set; }
-
         [Required]
         [MaxLength(DataValidations.UserRequestContentMaxLength)]
         public string Content { get; set; }
 
         public bool Seen { get; set; }
-
-        public DateTime? PublishDate { get; set; }
     }
 }

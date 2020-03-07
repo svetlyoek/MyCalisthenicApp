@@ -31,7 +31,6 @@
                 .WithOne(c => c.Post)
                 .HasForeignKey(c => c.PostId)
                 .OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }

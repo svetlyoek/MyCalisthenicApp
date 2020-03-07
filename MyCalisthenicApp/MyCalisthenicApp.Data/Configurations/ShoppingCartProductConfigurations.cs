@@ -12,7 +12,7 @@
                  .HasKey(scp => new
                  {
                      scp.ProductId,
-                     scp.ShoppingCartId
+                     scp.ShoppingCartId,
                  });
 
             shoppingCartProduct

@@ -21,21 +21,21 @@ using MyCalisthenicApp.Web;
 #nullable disable
 #nullable restore
 #line 2 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
-using MyCalisthenicApp.ViewModels.Home;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 3 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
 using MyCalisthenicApp.ViewModels.Blogs;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+#line 3 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
 using MyCalisthenicApp.ViewModels.Programs;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using MyCalisthenicApp.ViewModels.Contacts;
 
 #line default
 #line hidden
@@ -61,8 +61,15 @@ using Microsoft.AspNetCore.Identity;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 8 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using MyCalisthenicApp.Services.MessageSender;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dd58e10d7d2d6387010c31e8c756d5f750e5a62f", @"/Views/Shared/Components/SideBar/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"31e7bbf7e96303ff855298cb2379837af1f63526", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dff7a0426a8bf6117b8c3299c99e8690b8a23961", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_SideBar_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("search-form"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -96,7 +103,7 @@ using Microsoft.AspNetCore.Identity;
         {
             WriteLiteral("\r\n");
             WriteLiteral("\r\n<div class=\"col-lg-4\">\r\n    <div class=\"blog-right-content widget-area sidebar\">\r\n        <div class=\"widget widget_search\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f5770", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f6001", async() => {
                 WriteLiteral(@"
                 <div class=""form-group"">
                     <input type=""text"" name=""search"" class=""form-control"" placeholder=""Search here"">
@@ -126,7 +133,7 @@ using Microsoft.AspNetCore.Identity;
             <div class=""share-img-item"">
                 <div class=""img-part"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f7648", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f7879", async() => {
                 WriteLiteral("<img src=\"/assets/img/blog/latest-post.png\"");
                 BeginWriteAttribute("alt", " alt=\"", 845, "\"", 851, 0);
                 EndWriteAttribute();
@@ -156,7 +163,7 @@ using Microsoft.AspNetCore.Identity;
             <div class=""share-img-item"">
                 <div class=""img-part"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f9570", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f9801", async() => {
                 WriteLiteral("<img src=\"/assets/img/blog/post2.png\"");
                 BeginWriteAttribute("alt", " alt=\"", 1309, "\"", 1315, 0);
                 EndWriteAttribute();
@@ -186,7 +193,7 @@ using Microsoft.AspNetCore.Identity;
             <div class=""share-img-item"">
                 <div class=""img-part"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f11493", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f11724", async() => {
                 WriteLiteral("<img src=\"/assets/img/blog/post3.png\"");
                 BeginWriteAttribute("alt", " alt=\"", 1778, "\"", 1784, 0);
                 EndWriteAttribute();
@@ -216,7 +223,7 @@ using Microsoft.AspNetCore.Identity;
             <div class=""share-img-item"">
                 <div class=""img-part"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f13412", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd58e10d7d2d6387010c31e8c756d5f750e5a62f13643", async() => {
                 WriteLiteral("<img src=\"/assets/img/blog/post4.png\"");
                 BeginWriteAttribute("alt", " alt=\"", 2242, "\"", 2248, 0);
                 EndWriteAttribute();

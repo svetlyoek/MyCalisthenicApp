@@ -1,16 +1,18 @@
 ﻿namespace MyCalisthenicApp.Models
 {
-    using MyCalisthenicApp.Data.Common.Models;
-    using MyCalisthenicApp.Models.Enums;
-    using MyCalisthenicApp.Models.ShopEntities;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
+    using MyCalisthenicApp.Data.Common.Models;
+    using MyCalisthenicApp.Models.Enums;
+    using MyCalisthenicApp.Models.ShopEntities;
 
     public class Program : BaseDeletableEntity<string>
     {
         public Program()
         {
+            this.Id = Guid.NewGuid().ToString();
             this.IsDeleted = false;
             this.CreatedOn = DateTime.UtcNow;
             this.Images = new HashSet<Image>();
@@ -32,6 +34,5 @@
         public virtual ProgramCategory Category { get; set; }
 
         public virtual ICollection<Image> Images { get; set; }
-
     }
 }

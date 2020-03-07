@@ -1,8 +1,9 @@
 ﻿namespace MyCalisthenicApp.Data.Common.Models
 {
-    using MyCalisthenicApp.Data.Common.Contracts;
     using System;
     using System.ComponentModel.DataAnnotations;
+
+    using MyCalisthenicApp.Data.Common.Contracts;
 
     public abstract class BaseEntity<TKey> : IAuditInfo
     {

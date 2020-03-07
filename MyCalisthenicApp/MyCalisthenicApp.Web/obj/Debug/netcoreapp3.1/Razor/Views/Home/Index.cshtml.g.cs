@@ -21,21 +21,21 @@ using MyCalisthenicApp.Web;
 #nullable disable
 #nullable restore
 #line 2 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
-using MyCalisthenicApp.ViewModels.Home;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 3 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
 using MyCalisthenicApp.ViewModels.Blogs;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+#line 3 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
 using MyCalisthenicApp.ViewModels.Programs;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using MyCalisthenicApp.ViewModels.Contacts;
 
 #line default
 #line hidden
@@ -61,8 +61,15 @@ using Microsoft.AspNetCore.Identity;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 8 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\_ViewImports.cshtml"
+using MyCalisthenicApp.Services.MessageSender;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f5c2dbedf1806dbd6019f6d4499ef89b246dbc41", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"31e7bbf7e96303ff855298cb2379837af1f63526", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dff7a0426a8bf6117b8c3299c99e8690b8a23961", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Memberships", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -118,7 +125,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4110061", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4110292", async() => {
                 WriteLiteral("\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n    <title>");
 #nullable restore
 #line 13 "E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\Views\Home\Index.cshtml"
@@ -175,7 +182,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4113180", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4113411", async() => {
                 WriteLiteral(@"
     <!-- banner start -->
     <div class=""banner-area banner-style-one"" style=""background-image:url(assets/img/bg/1.png);"">
@@ -195,7 +202,7 @@ using Microsoft.AspNetCore.Identity;
                                 <h1 class=""title1"" data-animation-in=""fadeInDown""> <span class=""color-main"">BODY</span> FITNESS</h1>
                                 <div class=""btn-wrapper"" data-animation-in=""fadeInUp"">
                                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4114391", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4114622", async() => {
                     WriteLiteral("Be one of us");
                 }
                 );
@@ -229,7 +236,7 @@ using Microsoft.AspNetCore.Identity;
                                 <h1 class=""title1"" data-animation-in=""fadeInDown""> <span class=""color-main"">Your</span> Health</h1>
                                 <div class=""btn-wrapper"" data-animation-in=""fadeInUp"">
                                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4116704", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4116935", async() => {
                     WriteLiteral("Be one of us");
                 }
                 );
@@ -263,7 +270,7 @@ using Microsoft.AspNetCore.Identity;
                                 <h1 class=""title1"" data-animation-in=""fadeInDown""> <span class=""color-main"">Life</span> Style</h1>
                                 <div class=""btn-wrapper"" data-animation-in=""fadeInUp"">
                                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4119021", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4119252", async() => {
                     WriteLiteral("Be one of us");
                 }
                 );
@@ -297,7 +304,7 @@ using Microsoft.AspNetCore.Identity;
                                 <h1 class=""title1"" data-animation-in=""fadeInDown""> <span class=""color-main"">Gym</span> Classes</h1>
                                 <div class=""btn-wrapper"" data-animation-in=""fadeInUp"">
                                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4121337", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4121568", async() => {
                     WriteLiteral("Be one of us");
                 }
                 );
@@ -345,7 +352,7 @@ using Microsoft.AspNetCore.Identity;
                 <a href=""https://www.youtub");
                 WriteLiteral("e.com/user/TheMiamiTrainer/videos\" target=\"_blank\" class=\"icon-text\">\r\n                    <i class=\"fa fa-youtube\"></i>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n\r\n");
                 WriteLiteral("\r\n        <!-- video button -->\r\n        <div class=\"cart-btn\">\r\n            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4124274", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4124505", async() => {
                     WriteLiteral("<i class=\"flaticon-cart\"></i><span class=\"badge\">3</span>");
                 }
                 );
@@ -363,7 +370,7 @@ using Microsoft.AspNetCore.Identity;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n        </div>\r\n\r\n        <!-- scroll down -->\r\n        <div class=\"scroll\">\r\n            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4125863", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4126094", async() => {
                     WriteLiteral(@"
                 <div class=""scroll-btn"">
                     <span></span>
@@ -410,7 +417,7 @@ using Microsoft.AspNetCore.Identity;
     </div>
     <!-- banner end -");
                 WriteLiteral("->\r\n    <!-- home-about start -->\r\n    <div class=\"home-about\">\r\n        <div class=\"floating-icon\" id=\"service_info_item\">\r\n            <div class=\"floating-icon__is floating-icon-info\">\r\n                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4128886", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4129117", async() => {
                     WriteLiteral(" <i class=\"flaticon-phone-call\"></i>");
                 }
                 );
@@ -428,7 +435,7 @@ using Microsoft.AspNetCore.Identity;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n            </div>\r\n            <!--floating-icon-is-->\r\n            <div class=\"floating-icon__is floating-icon-location\">\r\n                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4130501", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4130732", async() => {
                     WriteLiteral("<i class=\"flaticon-placeholder\"></i>");
                 }
                 );
@@ -446,7 +453,7 @@ using Microsoft.AspNetCore.Identity;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n            </div>\r\n            <!--floating-icon-is-->\r\n            <div class=\"floating-icon__is floating-icon-message\">\r\n                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4132115", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4132346", async() => {
                     WriteLiteral("<i class=\"flaticon-email\"></i>");
                 }
                 );
@@ -487,7 +494,7 @@ using Microsoft.AspNetCore.Identity;
                 WriteLiteral(@"met eu dui. Vestibulum rutrum dignissim arcu, vitae convallis libero. Nulla interdum erat nec tincidunt laoreet. In ac consequat risus. Donec a lectus mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In maximus volutpat vehicula. Morbi ut dui iss. Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis libero. Nulla interdum erat nec tincidunt laoreet. In ac consequat risus. Donec a lectus mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In maximus volutpat vehicula. Morbi ut dui iss.</p>
                                 <p class=""hidden-md"">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In maximus volutpat vehicula. Morbi ut dui iss. Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis libero. Nulla interdum erat nec tincidunt laoreet. In ac consequat risus. Donec a le");
                 WriteLiteral("ctus mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In maximus volutpat vehicula. </p>\r\n                                <div class=\"btn-wrapper margin-top-40\">\r\n                                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4135973", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4136204", async() => {
                     WriteLiteral("Read More");
                 }
                 );
@@ -525,7 +532,7 @@ using Microsoft.AspNetCore.Identity;
                         <p class=""subtitle"">Service we provide</p>
                         <h1 class=""title"">Our Services</h1>
                         ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4138155", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4138386", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -554,7 +561,7 @@ using Microsoft.AspNetCore.Identity;
                                 <div class=""service-box-style-01"">
                                     <div class=""sb-icon"">
                                         ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4139995", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4140226", async() => {
                     WriteLiteral("<i class=\"flaticon-weight\" aria-hidden=\"true\"></i>");
                 }
                 );
@@ -583,7 +590,7 @@ using Microsoft.AspNetCore.Identity;
                                 <div class=""service-box-style-01"">
                                     <div class=""sb-icon"">
                                         ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4142191", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4142422", async() => {
                     WriteLiteral("<i class=\"flaticon-gym-1\" aria-hidden=\"true\"></i>");
                 }
                 );
@@ -616,7 +623,7 @@ using Microsoft.AspNetCore.Identity;
                                 <div class=""service-box-style-01"">
                                     <div class=""sb-icon"">
                                         ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4144564", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4144795", async() => {
                     WriteLiteral("<i class=\"flaticon-woman\" aria-hidden=\"true\"></i>");
                 }
                 );
@@ -646,7 +653,7 @@ using Microsoft.AspNetCore.Identity;
                                 <div class=""service-box-style-01"">
                                     <div class=""sb-icon"">
                                         ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4146759", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4146990", async() => {
                     WriteLiteral("<i class=\"flaticon-weightlifting\" aria-hidden=\"true\"></i>");
                 }
                 );
@@ -679,7 +686,7 @@ using Microsoft.AspNetCore.Identity;
                                 <div class=""service-box-style-01"">
                                     <div class=""sb-icon"">
                                         ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4149143", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4149374", async() => {
                     WriteLiteral("<i class=\"flaticon-gym\" aria-hidden=\"true\"></i>");
                 }
                 );
@@ -708,7 +715,7 @@ using Microsoft.AspNetCore.Identity;
                                 <div class=""service-box-style-01"">
                                     <div class=""sb-icon"">
                                         ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4151334", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4151565", async() => {
                     WriteLiteral("<i class=\"flaticon-weight-lifting\" aria-hidden=\"true\"></i>");
                 }
                 );
@@ -742,7 +749,7 @@ using Microsoft.AspNetCore.Identity;
     <!-- home service end -->
 
     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4153463", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4153694", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -765,7 +772,7 @@ Write(await Component.InvokeAsync("HomePopularPrograms"));
 #line hidden
 #nullable disable
                 WriteLiteral("\r\n\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4154936", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4155167", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -809,7 +816,7 @@ Write(await Component.InvokeAsync("HomeLatestNews"));
 #line hidden
 #nullable disable
                 WriteLiteral("\r\n\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4157184", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f5c2dbedf1806dbd6019f6d4499ef89b246dbc4157415", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

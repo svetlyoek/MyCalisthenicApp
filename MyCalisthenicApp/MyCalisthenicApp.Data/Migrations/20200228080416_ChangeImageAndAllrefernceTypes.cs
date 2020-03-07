@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace MyCalisthenicApp.Data.Migrations
+﻿namespace MyCalisthenicApp.Data.Migrations
 {
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class ChangeImageAndAllrefernceTypes : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -150,7 +150,7 @@ namespace MyCalisthenicApp.Data.Migrations
                 table: "Programs",
                 type: "nvarchar(450)",
                 nullable: false,
-                defaultValue: "");
+                defaultValue: " ");
 
             migrationBuilder.AddColumn<string>(
                 name: "ImageId",

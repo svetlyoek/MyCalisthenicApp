@@ -35,9 +35,10 @@
           "Microsoft.EntityFrameworkCore.Tools": "3.1.1",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.1",
           "MyCalisthenicApp.Data": "1.0.0",
+          "MyCalisthenicApp.Mapping": "1.0.0",
           "MyCalisthenicApp.Services": "1.0.0",
           "MyCalisthenicApp.ViewModels": "1.0.0",
-          "SendGrid": "9.13.0",
+          "StyleCop.Analyzers": "1.1.118",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -1483,20 +1484,21 @@
           }
         }
       },
-      "SendGrid/9.13.0": {
+      "Sendgrid/9.12.0": {
         "dependencies": {
           "Newtonsoft.Json": "12.0.2"
         },
         "runtime": {
           "lib/netstandard2.0/SendGrid.dll": {
-            "assemblyVersion": "9.13.0.0",
-            "fileVersion": "9.13.0.0"
+            "assemblyVersion": "9.12.0.0",
+            "fileVersion": "9.12.0.0"
           }
         },
         "compile": {
           "lib/netstandard2.0/SendGrid.dll": {}
         }
       },
+      "StyleCop.Analyzers/1.1.118": {},
       "System.CodeDom/4.7.0": {
         "runtime": {
           "lib/netstandard2.0/System.CodeDom.dll": {
@@ -2316,11 +2318,11 @@
       },
       "MyCalisthenicApp.Services/1.0.0": {
         "dependencies": {
+          "AutoMapper": "8.0.0",
           "Microsoft.Extensions.Options": "3.1.2",
           "MyCalisthenicApp.Data": "1.0.0",
-          "MyCalisthenicApp.Mapping": "1.0.0",
           "MyCalisthenicApp.ViewModels": "1.0.0",
-          "SendGrid": "9.13.0"
+          "Sendgrid": "9.12.0"
         },
         "runtime": {
           "MyCalisthenicApp.Services.dll": {}
@@ -4435,12 +4437,19 @@
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
     },
-    "SendGrid/9.13.0": {
+    "Sendgrid/9.12.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ZkYkdZ/4KYdu6Ewrf8ZGSc8WIScVq8+CtPgf3tUlvVxtFKJ+zld0Ki6Nv4Z2Drt5qbK3TDmFNIRwiKXnrtVfTQ==",
-      "path": "sendgrid/9.13.0",
-      "hashPath": "sendgrid.9.13.0.nupkg.sha512"
+      "sha512": "sha512-HrH336vKylh6Yy4bqKFNPf0Rk1C7CDd4WX7D2f7D/g0Dy584Wx2Qh7vdM+NgAkHTWQ7bKwl7K9DZ9BiFKbimdA==",
+      "path": "sendgrid/9.12.0",
+      "hashPath": "sendgrid.9.12.0.nupkg.sha512"
+    },
+    "StyleCop.Analyzers/1.1.118": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Onx6ovGSqXSK07n/0eM3ZusiNdB6cIlJdabQhWGgJp3Vooy9AaLS/tigeybOJAobqbtggTamoWndz72JscZBvw==",
+      "path": "stylecop.analyzers/1.1.118",
+      "hashPath": "stylecop.analyzers.1.1.118.nupkg.sha512"
     },
     "System.CodeDom/4.7.0": {
       "type": "package",

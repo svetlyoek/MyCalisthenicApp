@@ -1,14 +1,16 @@
 ﻿namespace MyCalisthenicApp.Models.ShopEntities
 {
-    using MyCalisthenicApp.Data.Common.Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
+    using MyCalisthenicApp.Data.Common.Models;
 
     public class City : BaseDeletableEntity<string>
     {
         public City()
         {
+            this.Id = Guid.NewGuid().ToString();
             this.IsDeleted = false;
             this.CreatedOn = DateTime.UtcNow;
             this.Addresses = new HashSet<Address>();
@@ -23,7 +25,5 @@
         public string PostCode { get; set; }
 
         public virtual ICollection<Address> Addresses { get; set; }
-
-
     }
 }

@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace MyCalisthenicApp.Data.Migrations
+﻿namespace MyCalisthenicApp.Data.Migrations
 {
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class UserPropsChanged : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,14 +15,14 @@ namespace MyCalisthenicApp.Data.Migrations
                 table: "AspNetUsers",
                 maxLength: 30,
                 nullable: false,
-                defaultValue: "");
+                defaultValue: " ");
 
             migrationBuilder.AddColumn<string>(
                 name: "LastName",
                 table: "AspNetUsers",
                 maxLength: 30,
                 nullable: false,
-                defaultValue: "");
+                defaultValue: " ");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -41,7 +41,7 @@ namespace MyCalisthenicApp.Data.Migrations
                 type: "nvarchar(50)",
                 maxLength: 50,
                 nullable: false,
-                defaultValue: "");
+                defaultValue: " ");
         }
     }
 }
