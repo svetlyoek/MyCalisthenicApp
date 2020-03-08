@@ -1,8 +1,0 @@
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services\bin\Debug\netstandard2.0\MyCalisthenicApp.Services.deps.json
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services\bin\Debug\netstandard2.0\MyCalisthenicApp.Services.dll
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services\bin\Debug\netstandard2.0\MyCalisthenicApp.Services.pdb
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services\obj\Debug\netstandard2.0\MyCalisthenicApp.Services.csprojAssemblyReference.cache
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services\obj\Debug\netstandard2.0\MyCalisthenicApp.Services.AssemblyInfoInputs.cache
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services\obj\Debug\netstandard2.0\MyCalisthenicApp.Services.AssemblyInfo.cs
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services\obj\Debug\netstandard2.0\MyCalisthenicApp.Services.dll
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Services\obj\Debug\netstandard2.0\MyCalisthenicApp.Services.pdb

@@ -1,8 +1,0 @@
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.ViewModels\bin\Debug\netstandard2.0\MyCalisthenicApp.ViewModels.deps.json
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.ViewModels\bin\Debug\netstandard2.0\MyCalisthenicApp.ViewModels.dll
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.ViewModels\obj\Debug\netstandard2.0\MyCalisthenicApp.ViewModels.AssemblyInfoInputs.cache
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.ViewModels\obj\Debug\netstandard2.0\MyCalisthenicApp.ViewModels.AssemblyInfo.cs
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.ViewModels\obj\Debug\netstandard2.0\MyCalisthenicApp.ViewModels.csprojAssemblyReference.cache
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.ViewModels\bin\Debug\netstandard2.0\MyCalisthenicApp.ViewModels.pdb
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.ViewModels\obj\Debug\netstandard2.0\MyCalisthenicApp.ViewModels.dll
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.ViewModels\obj\Debug\netstandard2.0\MyCalisthenicApp.ViewModels.pdb
