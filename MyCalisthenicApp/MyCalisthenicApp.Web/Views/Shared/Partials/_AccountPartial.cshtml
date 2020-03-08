@@ -7,6 +7,8 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
+    <li><a class="text-danger" asp-area="Identity" asp-page="/Account/Manage/Index">My profile</a></li>
+
     <li><a asp-area="Identity" asp-page="/Account/Logout">Logout</a></li>
 
 }

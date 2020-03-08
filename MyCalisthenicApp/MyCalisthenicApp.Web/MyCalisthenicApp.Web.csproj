@@ -1286,6 +1286,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Administrator\ViewModels\" />
+    <Folder Include="Areas\Administrator\Views\Shared\" />
   </ItemGroup>
 
 </Project>

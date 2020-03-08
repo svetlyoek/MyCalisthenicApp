@@ -55,6 +55,7 @@ namespace MyCalisthenicApp.Web
 
                 options.User.RequireUniqueEmail = true;
 
+                options.SignIn.RequireConfirmedAccount = true;
                 options.SignIn.RequireConfirmedEmail = true;
             })
                 .AddEntityFrameworkStores<MyCalisthenicAppDbContext>()

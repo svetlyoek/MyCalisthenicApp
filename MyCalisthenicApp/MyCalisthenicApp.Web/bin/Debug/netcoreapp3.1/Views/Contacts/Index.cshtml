@@ -1,4 +1,5 @@
-﻿@model ContactInputViewModel
+﻿@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+@model ContactInputViewModel
 
 @{
     ViewData["Title"] = "Contact";
@@ -40,16 +41,6 @@
 
 </head>
 <body>
-    @*<div>
-            <div>
-                @if (ViewBag.Exception != null)
-                {
-                    <div>@ViewBag.Exception</div>
-
-
-                }
-            </div>
-        </div>*@
     <!-- breadcrumb area -->
     <div class="breadcrumb-style-1 contact-breadcrumb-overlay" style="background-image:url(/assets/img/bg/contact.png);">
         <div class="breadcrumb-inner">
@@ -96,11 +87,7 @@
                                     <textarea asp-for="Content" class="form-control" rows="5"></textarea>
                                     <span asp-validation-for="Content" class="text-danger"></span>
                                 </div>
-                                @*<p>
-                                        Натискайки бутона "Изпратете ни съобщение", вие потвърждавате, че сте запознати и съгласни с нашата
-                                        <a asp-area="" asp-controller="Home" asp-action="Privacy">политика за опазване на личните данни</a>
-                                    </p>*@
-                                @*<input type="hidden" id="RecaptchaValue" name="RecaptchaValue" />*@
+                                <input type="hidden" id="RecaptchaValue" name="RecaptchaValue" />
                                 <button type="submit" class="btn btn-primary">Send message</button>
                             </form>
                         </div>
@@ -148,6 +135,17 @@
             </div>
         </div>
     </div>
+    @section Scripts
+{
+        <script src="https://www.google.com/recaptcha/api.js?render=@this.Configuration["GoogleReCaptcha:Key"]"></script>
+        <script>
+        grecaptcha.ready(function () {
+            grecaptcha.execute('@this.Configuration["GoogleReCaptcha:Key"]', { action: 'contact_form' }).then(function (token) {
+                document.getElementById("RecaptchaValue").value = token;
+            });
+        });
+        </script>
+    }
     <!-- contact area end -->
     <!-- back to top area start -->
     <div class="back-to-top">
