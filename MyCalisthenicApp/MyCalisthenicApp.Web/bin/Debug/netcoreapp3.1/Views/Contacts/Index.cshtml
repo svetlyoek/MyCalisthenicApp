@@ -87,7 +87,7 @@
                                     <textarea asp-for="Content" class="form-control" rows="5"></textarea>
                                     <span asp-validation-for="Content" class="text-danger"></span>
                                 </div>
-                                <input type="hidden" id="RecaptchaValue" name="RecaptchaValue" />
+                                @*<input type="hidden" id="RecaptchaValue" name="RecaptchaValue" />*@
                                 <button type="submit" class="btn btn-primary">Send message</button>
                             </form>
                         </div>
@@ -135,7 +135,7 @@
             </div>
         </div>
     </div>
-    @section Scripts
+    @*@section Scripts
 {
         <script src="https://www.google.com/recaptcha/api.js?render=@this.Configuration["GoogleReCaptcha:Key"]"></script>
         <script>
@@ -145,7 +145,7 @@
             });
         });
         </script>
-    }
+    }*@
     <!-- contact area end -->
     <!-- back to top area start -->
     <div class="back-to-top">

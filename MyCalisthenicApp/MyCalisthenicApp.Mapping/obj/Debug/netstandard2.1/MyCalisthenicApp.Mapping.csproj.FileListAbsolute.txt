@@ -13,3 +13,5 @@ E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\obj
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\obj\Debug\netstandard2.1\MyCalisthenicApp.Mapping.csproj.CopyComplete
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\obj\Debug\netstandard2.1\MyCalisthenicApp.Mapping.dll
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\obj\Debug\netstandard2.1\MyCalisthenicApp.Mapping.pdb
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\bin\Debug\netstandard2.1\MyCalisthenicApp.Web.Infrastructure.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Mapping\bin\Debug\netstandard2.1\MyCalisthenicApp.Web.Infrastructure.pdb

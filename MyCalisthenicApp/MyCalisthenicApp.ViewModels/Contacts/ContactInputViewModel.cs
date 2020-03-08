@@ -3,6 +3,7 @@
     using System.ComponentModel.DataAnnotations;
 
     using MyCalisthenicApp.ViewModels.Validations;
+    using MyCalisthenicApp.Web.Infrastructure.Captcha;
 
     public class ContactInputViewModel
     {
@@ -25,5 +26,8 @@
         [StringLength(WebValidations.ContactContentMaxLength, ErrorMessage = WebValidations.InvalidContactContentLength, MinimumLength = WebValidations.ContactContentMinLength)]
         [Display(Name = "Message content")]
         public string Content { get; set; }
+
+        //[GoogleReCaptchaValidation]
+        //public string RecaptchaValue { get; set; }
     }
 }

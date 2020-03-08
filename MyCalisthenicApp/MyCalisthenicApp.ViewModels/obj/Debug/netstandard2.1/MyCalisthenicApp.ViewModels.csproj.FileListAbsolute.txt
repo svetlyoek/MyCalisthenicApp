@@ -6,3 +6,6 @@ E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.ViewModels\
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.ViewModels\obj\Debug\netstandard2.1\MyCalisthenicApp.ViewModels.AssemblyInfo.cs
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.ViewModels\obj\Debug\netstandard2.1\MyCalisthenicApp.ViewModels.dll
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.ViewModels\obj\Debug\netstandard2.1\MyCalisthenicApp.ViewModels.pdb
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.ViewModels\bin\Debug\netstandard2.1\MyCalisthenicApp.Web.Infrastructure.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.ViewModels\bin\Debug\netstandard2.1\MyCalisthenicApp.Web.Infrastructure.pdb
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.ViewModels\obj\Debug\netstandard2.1\MyCalisthenicApp.ViewModels.csproj.CopyComplete

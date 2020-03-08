@@ -1,0 +1,8 @@
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web.Infrastructure\bin\Debug\netstandard2.0\MyCalisthenicApp.Web.Infrastructure.deps.json
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web.Infrastructure\bin\Debug\netstandard2.0\MyCalisthenicApp.Web.Infrastructure.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web.Infrastructure\obj\Debug\netstandard2.0\MyCalisthenicApp.Web.Infrastructure.csprojAssemblyReference.cache
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web.Infrastructure\obj\Debug\netstandard2.0\MyCalisthenicApp.Web.Infrastructure.AssemblyInfoInputs.cache
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web.Infrastructure\obj\Debug\netstandard2.0\MyCalisthenicApp.Web.Infrastructure.AssemblyInfo.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web.Infrastructure\bin\Debug\netstandard2.0\MyCalisthenicApp.Web.Infrastructure.pdb
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web.Infrastructure\obj\Debug\netstandard2.0\MyCalisthenicApp.Web.Infrastructure.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web.Infrastructure\obj\Debug\netstandard2.0\MyCalisthenicApp.Web.Infrastructure.pdb

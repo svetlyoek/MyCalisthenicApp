@@ -692,3 +692,6 @@ E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Deb
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\MyCalisthenicApp.Web.MvcApplicationPartsAssemblyInfo.cs
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\MyCalisthenicApp.Web.MvcApplicationPartsAssemblyInfo.cache
 E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\obj\Debug\netcoreapp3.1\Razor\Views\Contacts\Successfull.cshtml.g.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\MyCalisthenicApp.Web.Infrastructure.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\MyCalisthenicApp.Web\bin\Debug\netcoreapp3.1\MyCalisthenicApp.Web.Infrastructure.pdb
