@@ -7,11 +7,12 @@
 
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
-    using Microsoft.AspNetCore.Identity.UI.Services;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.RazorPages;
     using Microsoft.AspNetCore.WebUtilities;
     using MyCalisthenicApp.Models;
+    using MyCalisthenicApp.Services.MessageSender;
+    using MyCalisthenicApp.Web.Common;
 
     [AllowAnonymous]
     public class ForgotPasswordModel : PageModel
@@ -46,7 +47,7 @@
                     return this.RedirectToPage("./ForgotPasswordConfirmation");
                 }
 
-                // For more information on how to enable account confirmation and password reset please 
+                // For more information on how to enable account confirmation and password reset please
                 // visit https://go.microsoft.com/fwlink/?LinkID=532713
                 var code = await this.userManager.GeneratePasswordResetTokenAsync(user);
                 code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
@@ -57,6 +58,8 @@
                     protocol: this.Request.Scheme);
 
                 await this.emailSender.SendEmailAsync(
+                    GlobalConstants.ApplicationEmail,
+                    GlobalConstants.AdministratorRoleName,
                     this.Input.Email,
                     "Reset Password",
                     $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");

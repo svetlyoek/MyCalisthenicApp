@@ -7,6 +7,7 @@
     using MyCalisthenicApp.Data.Common.Models;
     using MyCalisthenicApp.Models.Enums;
     using MyCalisthenicApp.Models.ShopEntities;
+    using MyCalisthenicApp.Models.TrainingEntities.Enums;
 
     public class Program : BaseDeletableEntity<string>
     {
@@ -30,6 +31,8 @@
 
         [Required]
         public string CategoryId { get; set; }
+
+        public MembershipType MembershipType { get; set; }
 
         public virtual ProgramCategory Category { get; set; }
 

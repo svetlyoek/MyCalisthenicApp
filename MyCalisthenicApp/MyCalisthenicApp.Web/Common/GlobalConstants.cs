@@ -4,6 +4,8 @@
     {
         public const string AdministratorRoleName = "Administrator";
 
+        public const string ApplicationEmail = "mycalisthenicapp@noreply.com";
+
         public const string AdministratorFirstName = "Svetoslav";
 
         public const string AdministratorLastName = "Kazakov";

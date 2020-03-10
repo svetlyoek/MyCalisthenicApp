@@ -7,6 +7,8 @@
 
     public interface IProgramsService
     {
-       Task<IEnumerable<HomePopularProgramsViewModel>> GetFivePopularProgramsAsync();
+        Task<IEnumerable<HomePopularProgramsViewModel>> GetFivePopularProgramsAsync();
+
+        Task<ProgramDetailsViewModel> GetProgramDetailsByIdAsync(string id);
     }
 }

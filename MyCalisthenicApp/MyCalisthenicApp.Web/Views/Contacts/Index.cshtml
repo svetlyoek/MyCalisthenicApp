@@ -1,4 +1,4 @@
-﻿@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+﻿@inject Microsoft.Extensions.Configuration.IConfiguration Configuration;
 @model ContactInputViewModel
 
 @{
@@ -38,7 +38,6 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <!-- responsive Stylesheet -->
     <link rel="stylesheet" href="/assets/css/responsive.css">
-
 </head>
 <body>
     <!-- breadcrumb area -->
@@ -87,7 +86,6 @@
                                     <textarea asp-for="Content" class="form-control" rows="5"></textarea>
                                     <span asp-validation-for="Content" class="text-danger"></span>
                                 </div>
-                                @*<input type="hidden" id="RecaptchaValue" name="RecaptchaValue" />*@
                                 <button type="submit" class="btn btn-primary">Send message</button>
                             </form>
                         </div>
@@ -135,23 +133,14 @@
             </div>
         </div>
     </div>
-    @*@section Scripts
-{
-        <script src="https://www.google.com/recaptcha/api.js?render=@this.Configuration["GoogleReCaptcha:Key"]"></script>
-        <script>
-        grecaptcha.ready(function () {
-            grecaptcha.execute('@this.Configuration["GoogleReCaptcha:Key"]', { action: 'contact_form' }).then(function (token) {
-                document.getElementById("RecaptchaValue").value = token;
-            });
-        });
-        </script>
-    }*@
     <!-- contact area end -->
     <!-- back to top area start -->
     <div class="back-to-top">
         <span class="back-top"><i class="fa fa-angle-up"></i></span>
     </div>
+
     <!-- back to top area end -->
+
     <!-- jquery -->
     <script src="/assets/js/jquery-2.2.4.min.js"></script>
     <!-- popper -->

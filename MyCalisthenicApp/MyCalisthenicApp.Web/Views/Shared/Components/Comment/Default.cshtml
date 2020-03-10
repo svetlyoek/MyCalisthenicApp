@@ -1,18 +1,18 @@
 ﻿@model CommentInputViewModel
 
-<form  method="post" id="comment_form" class="commentform">
+<form method="post" id="comment_form" class="commentform">
     <div asp-validation-for="All" class="form-group margin-bottom-30">
         <textarea asp-for="Message" name="comment" id="comment" class="form-control w-100" cols="30" rows="9"></textarea>
     </div>
     <div class="row">
         <div class="col-sm-4">
             <div class="form-group">
-                <input asp-for="FullName" type="text" id="author" name="author" value="FullName" class="form-control" placeholder="Write your full name">
+                <input asp-for="FirstName" type="text" id="author" name="firstName" value="FirstName" class="form-control" placeholder="Write your first name">
             </div>
         </div>
         <div class="col-sm-4">
             <div class="form-group">
-                <input asp-for="Email" type="email" class="form-control" name="email" id="email" value="Email" placeholder="Enter your email">
+                <input asp-for="LastName" type="text" class="form-control" name="lastName" id="text" value="LastName" placeholder="Write your last name">
             </div>
         </div>
         <div class="col-sm-4">

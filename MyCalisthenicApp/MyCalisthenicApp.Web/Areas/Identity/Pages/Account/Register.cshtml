@@ -79,7 +79,7 @@
                                     @foreach (var provider in Model.ExternalLogins)
                                     {
                                         @*<a class="btn btn-primary btn-lg btn-block" name="provider" value="@provider.Name"><i class="fa fa-facebook-square"></i>  Log in via @provider.DisplayName</a>*@
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block" name="provider" value="@provider.Name" title="Register in using your @provider.DisplayName account"><i class="fab fa-facebook">@provider.DisplayName</i></button>
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block" name="provider" value="@provider.Name" title="Register using your @provider.DisplayName account"><i class="fab fa-facebook">@provider.DisplayName</i></button>
                                     }
                                 </p>
                             </div>

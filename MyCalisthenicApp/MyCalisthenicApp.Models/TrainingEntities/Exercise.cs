@@ -25,9 +25,6 @@
         public string Description { get; set; }
 
         [Required]
-        public string ImageId { get; set; }
-
-        [Required]
         public string VideoUrl { get; set; }
 
         [Required]

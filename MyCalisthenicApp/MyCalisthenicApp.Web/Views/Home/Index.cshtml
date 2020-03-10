@@ -144,9 +144,7 @@
         @*TODO Implement shopping cart*@
 
         <!-- video button -->
-        <div class="cart-btn">
-            <a asp-controller="ShoppingCarts" asp-action="Index"><i class="flaticon-cart"></i><span class="badge">3</span></a>
-        </div>
+        @await Component.InvokeAsync("ShoppingBagIndexProductsCount")
 
         <!-- scroll down -->
         <div class="scroll">

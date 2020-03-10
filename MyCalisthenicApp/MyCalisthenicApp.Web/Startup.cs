@@ -19,7 +19,6 @@ namespace MyCalisthenicApp.Web
     using MyCalisthenicApp.Services.MessageSender;
     using MyCalisthenicApp.Web.Common;
     using MyCalisthenicApp.Web.Middlewares;
-
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -55,8 +54,7 @@ namespace MyCalisthenicApp.Web
 
                 options.User.RequireUniqueEmail = true;
 
-                //options.SignIn.RequireConfirmedEmail = true;
-
+                options.SignIn.RequireConfirmedEmail = true;
             })
                 .AddEntityFrameworkStores<MyCalisthenicAppDbContext>()
                 .AddDefaultTokenProviders()
@@ -70,9 +68,14 @@ namespace MyCalisthenicApp.Web
                 cfg.AddProfile<MyCalisthenicAppProfile>();
             });
 
+            // Application services
             services.AddTransient<IUserRequestsService, UserRequestService>();
             services.AddTransient<IProgramsService, ProgramsService>();
             services.AddTransient<IShoppingCartsService, ShoppingCartsService>();
+            services.AddTransient<IShoppingBagsService, ShoppingBagsService>();
+            services.AddTransient<IExercisesService, ExercisesService>();
+            services.AddTransient<ICommentsService, CommentsService>();
+            services.AddTransient<ICategoriesService, CategoriesService>();
 
             services.AddTransient<IEmailSender>(
                 serviceProvider => new SendGridEmailSender(this.Configuration["SendGrid:ApiKey"]));
