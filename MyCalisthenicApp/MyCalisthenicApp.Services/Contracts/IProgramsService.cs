@@ -10,5 +10,7 @@
         Task<IEnumerable<HomePopularProgramsViewModel>> GetFivePopularProgramsAsync();
 
         Task<ProgramDetailsViewModel> GetProgramDetailsByIdAsync(string id);
+
+        Task<IEnumerable<ProgramViewModel>> GetAllProgramsAsync();
     }
 }

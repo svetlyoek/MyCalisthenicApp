@@ -41,8 +41,8 @@
                 {
                     FirstName = GlobalConstants.AdministratorFirstName,
                     LastName = GlobalConstants.AdministratorLastName,
-                    UserName = GlobalConstants.AdministratorEmail,
-                    Email = GlobalConstants.AdministratorEmail,
+                    UserName = GlobalConstants.AdministratorReceiveEmail,
+                    Email = GlobalConstants.AdministratorReceiveEmail,
                     ShoppingCart = new ShoppingCart
                     {
                         CardNumber = GlobalConstants.AdministratorCardNumber,

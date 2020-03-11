@@ -1,11 +1,12 @@
 ﻿namespace MyCalisthenicApp.Web.Controllers
 {
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Mvc;
     using MyCalisthenicApp.Services.Contracts;
 
-    public class ProgramsController : Controller
+    public class ProgramsController : BaseController
     {
         private readonly IProgramsService programsService;
         private readonly ICategoriesService categoriesService;
@@ -24,13 +25,20 @@
             this.commentsService = commentsService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return this.View();
+            var programs = await this.programsService.GetAllProgramsAsync();
+
+            return this.View(programs);
         }
 
         public async Task<IActionResult> Details(string id)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View("Error404");
+            }
+
             var programDetails = await this.programsService
                 .GetProgramDetailsByIdAsync(id);
 

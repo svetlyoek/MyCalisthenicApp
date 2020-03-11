@@ -14,10 +14,12 @@
             this.commentsService = commentsService;
         }
 
-        public IViewComponentResult Invoke(CommentInputViewModel commentModel)
+        [HttpPost]
+        public IViewComponentResult Invoke(string id, CommentInputViewModel commentModel)
         {
+            this.commentsService.CreateCommentAsync(id, commentModel);
 
-            return this.View(new CommentInputViewModel());
+            return this.View(commentModel);
         }
     }
 }

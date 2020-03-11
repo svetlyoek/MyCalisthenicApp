@@ -19,6 +19,7 @@ namespace MyCalisthenicApp.Web
     using MyCalisthenicApp.Services.MessageSender;
     using MyCalisthenicApp.Web.Common;
     using MyCalisthenicApp.Web.Middlewares;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -76,6 +77,7 @@ namespace MyCalisthenicApp.Web
             services.AddTransient<IExercisesService, ExercisesService>();
             services.AddTransient<ICommentsService, CommentsService>();
             services.AddTransient<ICategoriesService, CategoriesService>();
+            services.AddTransient<IMembershipsService, MembershipsService>();
 
             services.AddTransient<IEmailSender>(
                 serviceProvider => new SendGridEmailSender(this.Configuration["SendGrid:ApiKey"]));

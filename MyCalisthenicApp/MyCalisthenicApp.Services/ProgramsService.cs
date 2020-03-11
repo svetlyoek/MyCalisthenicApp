@@ -23,6 +23,18 @@
             this.mapper = mapper;
         }
 
+        public async Task<IEnumerable<ProgramViewModel>> GetAllProgramsAsync()
+        {
+            var programs = await this.dbContext
+                .Programs
+                .Include(i => i.Images)
+                .ToListAsync();
+
+            var programsViewModel = this.mapper.Map<IEnumerable<ProgramViewModel>>(programs);
+
+            return programsViewModel;
+        }
+
         public async Task<IEnumerable<HomePopularProgramsViewModel>> GetFivePopularProgramsAsync()
         {
             var popularPrograms = await this.dbContext.Programs

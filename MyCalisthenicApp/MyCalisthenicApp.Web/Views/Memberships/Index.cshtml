@@ -49,7 +49,7 @@
     </div>
     <!-- breadcrumb area end -->
 
-    <partial name="~/Views/Shared/Partials/_MembershipPlansPartial.cshtml" />
+    @await Component.InvokeAsync("MembershipPlans");
 
     <partial name="~/Views/Shared/Partials/_OurExpertPartial.cshtml" />
 

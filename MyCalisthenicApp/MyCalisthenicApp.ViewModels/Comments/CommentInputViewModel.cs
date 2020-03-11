@@ -8,14 +8,6 @@
     {
         [Required]
         [MaxLength(WebValidations.CommentMessageMaxLength)]
-        public string Message { get; set; }
-
-        [Required]
-        [MaxLength(WebValidations.CommentFirstNameMaxLength)]
-        public string FirstName { get; set; }
-
-        [Required]
-        [MaxLength(WebValidations.CommentLastNameMaxLength)]
-        public string LastName { get; set; }
+        public string Text { get; set; }
     }
 }

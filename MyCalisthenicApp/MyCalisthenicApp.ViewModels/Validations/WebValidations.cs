@@ -15,8 +15,5 @@
 
         // Comment validations
         public const int CommentMessageMaxLength = 200;
-        public const int CommentFirstNameMaxLength = 50;
-        public const int CommentLastNameMaxLength = 50;
-
     }
 }

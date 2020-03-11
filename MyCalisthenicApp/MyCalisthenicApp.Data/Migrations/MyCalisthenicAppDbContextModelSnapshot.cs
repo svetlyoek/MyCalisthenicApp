@@ -406,13 +406,13 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("MonthlyPrice")
+                    b.Property<decimal?>("MonthlyPrice")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("YearlyPrice")
+                    b.Property<decimal?>("YearlyPrice")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");

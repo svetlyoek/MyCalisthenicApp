@@ -17,7 +17,6 @@
     using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Services.MessageSender;
     using MyCalisthenicApp.Web.Common;
-
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
@@ -116,7 +115,7 @@
                         protocol: this.Request.Scheme);
 
                     await this.emailSender.SendEmailAsync(
-                        GlobalConstants.ApplicationEmail,
+                        GlobalConstants.ApplicationSendEmail,
                         GlobalConstants.AdministratorRoleName,
                         this.Input.Email,
                         "Confirm your email",

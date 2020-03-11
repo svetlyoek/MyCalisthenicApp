@@ -4,13 +4,13 @@
     {
         public const string AdministratorRoleName = "Administrator";
 
-        public const string ApplicationEmail = "mycalisthenicapp@noreply.com";
+        public const string ApplicationSendEmail = "mycalisthenicapp@gmail.com";
 
         public const string AdministratorFirstName = "Svetoslav";
 
         public const string AdministratorLastName = "Kazakov";
 
-        public const string AdministratorEmail = "svetlyo_svetlyo@abv.bg";
+        public const string AdministratorReceiveEmail = "svetoslav.kazakov@outlook.com";
 
         public const string AdministratorPassword = "svetlyoek87";
 

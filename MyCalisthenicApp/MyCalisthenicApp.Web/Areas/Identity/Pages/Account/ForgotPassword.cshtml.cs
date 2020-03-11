@@ -58,7 +58,7 @@
                     protocol: this.Request.Scheme);
 
                 await this.emailSender.SendEmailAsync(
-                    GlobalConstants.ApplicationEmail,
+                    GlobalConstants.ApplicationSendEmail,
                     GlobalConstants.AdministratorRoleName,
                     this.Input.Email,
                     "Reset Password",

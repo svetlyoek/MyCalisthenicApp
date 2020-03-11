@@ -23,4 +23,8 @@
     <Folder Include="Home\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyCalisthenicApp.Web.Infrastructure\MyCalisthenicApp.Web.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

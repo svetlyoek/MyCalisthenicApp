@@ -28,7 +28,17 @@
 
         public async Task CreateCommentAsync(string id, CommentInputViewModel commentModel)
         {
-           
+            var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userFromDb = await this.dbContext.Users.FindAsync(userId);
+            var comment = new Comment
+            {
+                Text = commentModel.Text,
+                AuthorId = userId,
+                Author = userFromDb,
+                CategoryId = id,
+            };
+            await this.dbContext.Comments.AddAsync(comment);
+            await this.dbContext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<CommentViewModel>> GetCommentsByCategoryId(string id)

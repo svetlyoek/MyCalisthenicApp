@@ -8,7 +8,7 @@
     using MyCalisthenicApp.ViewModels.Contacts;
     using MyCalisthenicApp.Web.Common;
 
-    public class ContactsController : Controller
+    public class ContactsController : BaseController
     {
         private readonly IUserRequestsService userRequestsService;
         private readonly IEmailSender emailSender;
@@ -37,7 +37,7 @@
             await this.emailSender.SendEmailAsync(
                inputModel.Email,
                inputModel.FullName,
-               GlobalConstants.AdministratorEmail,
+               GlobalConstants.AdministratorReceiveEmail,
                inputModel.Title,
                inputModel.Content);
 

@@ -328,7 +328,7 @@
 
     @await Component.InvokeAsync("HomePopularPrograms")
 
-    <partial name="~/Views/Shared/Partials/_MembershipPlansPartial.cshtml" />
+    @await Component.InvokeAsync("MembershipPlans");
 
     <div class="shopping-area">
         <div class="container">

@@ -32,6 +32,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCalisthenicApp.ViewModels
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCalisthenicApp.Mapping", "MyCalisthenicApp.Mapping\MyCalisthenicApp.Mapping.csproj", "{B81B70CB-A8B5-448F-B65B-A2C71A15168E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCalisthenicApp.Web.Infrastructure", "MyCalisthenicApp.Web.Infrastructure\MyCalisthenicApp.Web.Infrastructure.csproj", "{B676DC93-E7B8-41CF-95D0-8EA5B95830C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,10 @@ Global
 		{B81B70CB-A8B5-448F-B65B-A2C71A15168E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B81B70CB-A8B5-448F-B65B-A2C71A15168E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B81B70CB-A8B5-448F-B65B-A2C71A15168E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B676DC93-E7B8-41CF-95D0-8EA5B95830C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B676DC93-E7B8-41CF-95D0-8EA5B95830C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B676DC93-E7B8-41CF-95D0-8EA5B95830C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B676DC93-E7B8-41CF-95D0-8EA5B95830C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +89,7 @@ Global
 		{19E140CC-605B-4DBD-BBEF-8B67D8A1B2D2} = {DC3BDE2C-261F-47A0-8ACA-9595BC218D13}
 		{F85C626B-60C2-407C-8FCB-ADD23DA02142} = {30CD025E-1F3D-4679-AAD8-A6622835327D}
 		{B81B70CB-A8B5-448F-B65B-A2C71A15168E} = {49231202-204B-4F1E-9E6C-4C2D3331BB7C}
+		{B676DC93-E7B8-41CF-95D0-8EA5B95830C2} = {DC3BDE2C-261F-47A0-8ACA-9595BC218D13}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {40364747-396C-4636-B71A-E722B610AF31}

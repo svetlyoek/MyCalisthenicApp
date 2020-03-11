@@ -103,7 +103,6 @@
                                             <h2 class="margin-top-10 margin-bottom-30">Workouts</h2>
                                             @foreach (var exercise in Model.Category.Exercises)
                                             {
-
                                                 <div class="d-flex justify-content-between align-items-center text-center margin-bottom-15">
                                                     <h4 class="course-overview"><img src="@exercise.ImageUrl" alt="exercise-image" height="120" width="200">&nbsp; @exercise.Name</h4>
                                                     <p style="color:red;">@Model.Type.ToString()</p>
@@ -113,7 +112,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             }
                                         </div>
                                     </div>
@@ -124,7 +122,6 @@
                                             <h4 class="comments-title">Reviews</h4>
                                             @foreach (var comment in Model.Category.Comments)
                                             {
-
                                                 <ul class="comment-list">
                                                     <li class="comment">
                                                         <div class="single-comment justify-content-between d-flex">
@@ -149,7 +146,7 @@
 
                                                 <h3 class="comment-reply-title">Leave a review</h3>
 
-                                                @await Component.InvokeAsync("Comment",  new CommentInputViewModel())
+                                                @await Component.InvokeAsync("Comment", new {id = Model.Category.Id})
 
                                             </div>
                                         </div>

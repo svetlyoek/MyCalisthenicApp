@@ -6,7 +6,7 @@
     using Microsoft.Extensions.Logging;
     using MyCalisthenicApp.ViewModels;
 
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> logger;
 
