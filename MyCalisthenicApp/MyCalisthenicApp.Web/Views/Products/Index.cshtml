@@ -1,0 +1,155 @@
+﻿@model IEnumerable<ProductsViewModel>
+@{
+    ViewData["Title"] = "Shop";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@ViewData["Title"]</title>
+    <!-- favicon -->
+    <link rel=icon href=/assets/img/favicon.png sizes="20x20" type="image/png">
+    <!-- animate -->
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+    <!-- Slick -->
+    <link rel="stylesheet" href="/assets/css/slick.css" />
+    <link rel="stylesheet" href="/assets/css/slick-theme.css" />
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+    <!-- flaticon -->
+    <link rel="stylesheet" href="/assets/css/flaticon.css">
+    <!-- hamburgers -->
+    <link rel="stylesheet" href="/assets/css/hamburgers.min.css">
+    <!-- nice select -->
+    <link rel="stylesheet" href="/assets/css/nice-select.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- responsive Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+
+</head>
+<body>
+
+    <!-- breadcrumb area -->
+    <div class="breadcrumb-style-1" style="background-image:url(/assets/img/bg/shop.png);">
+        <div class="breadcrumb-inner">
+            <h1 class="page-title">Shop</h1>
+            <ul class="page-list margin-bottom-10">
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Products" asp-action="Index">Shop</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- breadcrumb area end -->
+    <!-- home shopping start -->
+    @*Change drop-down with enumlist with html tag*@
+    <section class="shopping-area margin-top-90">
+        <div class="container">
+            <!-- search banner -->
+            <div class="search-banner margin-bottom-50">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row d-flex justify-content-lg-between flex-column flex-md-row align-items-center text-center">
+                            <div class="form-field margin-top-10 margin-bottom-10 ">
+                                <select class="select-form country_select">
+                                    <option value="search" selected>Sort</option>
+                                    <option value="all">Alphabetically, A-Z</option>
+                                    <option value="dum">Alphabetically, Z-A</option>
+                                    <option value="yoga">Price, low to high</option>
+                                    <option value="yoga">Price, high to low</option>
+                                </select>
+                            </div>
+
+                            <div class="search-menu">
+                                <ul>
+                                    <li><a @Html.ActionLink("All", "Index", "Products")></a></li>
+
+                                    @foreach (var name in Enum.GetValues(typeof(ProductCategoryType)))
+                                    {
+                                        <li><a @Html.ActionLink(name.ToString(), "Filter", "Products", new { name = name.ToString() })></a></li>
+                                    }
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- search banner end -->
+
+        <div class="row shopping-slider-item text-center">
+            @foreach (var product in Model)
+            {
+                <div class="col-md-3">
+                    <div class="shop-single-item margin-bottom-50">
+                        <div class="top-content">
+                            <div class="thumb">
+                                <img src="@product.ImageUrl" alt="shopping">
+                            </div>
+                            <div class="hover-content">
+                                <div class="btn-wrapper desktop-center">
+                                    <a asp-controller="Products" asp-action="Details" asp-route-id="@product.Id" class="btn btn-element btn-normal-size btn-rounded">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottom-content">
+                            <p class="subtitle">@product.Category</p>
+                            <h3>@product.Name</h3>
+                            <p class="price">
+                                <ins>
+                                    <span class="woocommerce-Price-amount amount">
+                                        <span class="woocommerce-Price-currencySymbol">$</span>@product.Price
+                                    </span>
+                                </ins>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+    <!-- home shopping end -->
+    <!-- jquery -->
+    <script src="/assets/js/jquery-2.2.4.min.js"></script>
+    <!-- popper -->
+    <script src="/assets/js/popper.min.js"></script>
+    <!-- bootstrap -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <!-- magnific popup -->
+    <script src="/assets/js/jquery.magnific-popup.js"></script>
+    <!-- Slick -->
+    <script src="/assets/js/slick.min.js"></script>
+    <!-- Slick Animation -->
+    <script src="/assets/js/slick-animation.js"></script>
+    <!-- wow -->
+    <script src="/assets/js/wow.min.js"></script>
+    <!-- nice select -->
+    <script src="/assets/js/nice-select.js"></script>
+    <!-- owl carousel -->
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <!-- waypoint -->
+    <script src="/assets/js/waypoints.min.js"></script>
+    <!-- counterup -->
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <!-- imageloaded -->
+    <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+    <!-- isotope -->
+    <script src="/assets/js/isotope.pkgd.min.js"></script>
+    <!-- rProgressbar -->
+    <script src="/assets/js/jQuery.rProgressbar.min.js"></script>
+    <!-- main js -->
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/script.js"></script>
+
+</body>
+</html>

@@ -53,5 +53,41 @@
 
             return this.View(programDetails);
         }
+
+        public async Task<IActionResult> FilterByBeginner()
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View("Error404");
+            }
+
+            var programs = await this.programsService.GetProgramsByCategoryAsync("Beginner");
+
+            return this.View("Index", programs);
+        }
+
+        public async Task<IActionResult> FilterByIntermediate()
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View("Error404");
+            }
+
+            var programs = await this.programsService.GetProgramsByCategoryAsync("Intermediate");
+
+            return this.View("Index", programs);
+        }
+
+        public async Task<IActionResult> Filter(string type)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View("Error404");
+            }
+
+            var programs = await this.programsService.GetProgramsByCategoryAsync(type);
+
+            return this.View("Index", programs);
+        }
     }
 }

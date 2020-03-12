@@ -28,9 +28,13 @@
         [Range(DataValidations.ProductPriceMinValue, double.MaxValue)]
         public decimal Price { get; set; }
 
-        public ProductSize Size { get; set; }
+        public ProductSize? Size { get; set; }
 
-        public ProductColor Color { get; set; }
+        public ProductColor? Color { get; set; }
+
+        public ProductSort Sort { get; set; } = ProductSort.Newest;
+
+        public ProductCategoryType? Type { get; set; }
 
         [Required]
         [MaxLength(DataValidations.ProductDescriptionMaxLength)]

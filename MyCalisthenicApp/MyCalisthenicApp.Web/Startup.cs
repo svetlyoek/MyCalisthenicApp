@@ -78,6 +78,7 @@ namespace MyCalisthenicApp.Web
             services.AddTransient<ICommentsService, CommentsService>();
             services.AddTransient<ICategoriesService, CategoriesService>();
             services.AddTransient<IMembershipsService, MembershipsService>();
+            services.AddTransient<IProductsService, ProductsService>();
 
             services.AddTransient<IEmailSender>(
                 serviceProvider => new SendGridEmailSender(this.Configuration["SendGrid:ApiKey"]));

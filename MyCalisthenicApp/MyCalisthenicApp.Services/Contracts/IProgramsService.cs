@@ -12,5 +12,7 @@
         Task<ProgramDetailsViewModel> GetProgramDetailsByIdAsync(string id);
 
         Task<IEnumerable<ProgramViewModel>> GetAllProgramsAsync();
+
+        Task<IEnumerable<ProgramViewModel>> GetProgramsByCategoryAsync(string type);
     }
 }

@@ -21,8 +21,6 @@
         [MaxLength(DataValidations.ShopCategoryNameMaxLength)]
         public string Name { get; set; }
 
-        public ProductSort Sort { get; set; }
-
         public virtual ICollection<Product> Products { get; set; }
     }
 }

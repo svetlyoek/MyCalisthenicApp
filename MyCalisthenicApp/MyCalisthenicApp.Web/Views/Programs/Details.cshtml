@@ -146,7 +146,7 @@
 
                                                 <h3 class="comment-reply-title">Leave a review</h3>
 
-                                                @await Component.InvokeAsync("Comment", new {id = Model.Category.Id})
+                                                @await Component.InvokeAsync("Comment", new { id = Model.Category.Id })
 
                                             </div>
                                         </div>
@@ -165,14 +165,14 @@
                                 </div>
                             </div>
 
-                            @*Redirect to programs categories*@
-
                             <div class="widget widget_categories">
                                 <h5 class="widget-title">Categories</h5>
                                 <ul class="cat-menu">
-                                    <li><a href="#">Beginner</a></li>
-                                    <li><a href="#">Intermediate</a></li>
-                                    <li><a href="#">Advanced</a></li>
+                                    @foreach (var type in Enum.GetValues(typeof(ProgramType)))
+                                    {
+                                        <li><a @Html.ActionLink(type.ToString(), "Filter", "Programs", new { type = type.ToString() })></a></li>
+                                    }
+
                                 </ul>
                             </div>
                         </div>

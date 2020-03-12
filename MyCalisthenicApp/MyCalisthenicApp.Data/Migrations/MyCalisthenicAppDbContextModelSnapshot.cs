@@ -732,7 +732,7 @@ namespace MyCalisthenicApp.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Color")
+                    b.Property<int?>("Color")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
@@ -763,7 +763,13 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(5,2)");
 
-                    b.Property<int>("Size")
+                    b.Property<int?>("Size")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Sort")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Type")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -794,9 +800,6 @@ namespace MyCalisthenicApp.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
-
-                    b.Property<int>("Sort")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
