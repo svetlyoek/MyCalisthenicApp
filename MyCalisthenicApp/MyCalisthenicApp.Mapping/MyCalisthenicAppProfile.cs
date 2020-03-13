@@ -39,6 +39,11 @@
                 .ForMember(x => x.ImageUrl, y => y.MapFrom(src => src.Images.Select(i => i.Url).FirstOrDefault()))
                 .ForMember(x => x.Category, y => y.MapFrom(src => src.Category.Name))
                 .ForMember(x => x.Sort, y => y.MapFrom(src => src.Sort.ToString()));
+
+            this.CreateMap<Product, ProductDetailsViewModel>()
+                .ForMember(x => x.Category, y => y.MapFrom(src => src.Category.Name))
+                 .ForMember(x => x.Size, y => y.MapFrom(src => src.Size.ToString()))
+                 .ForMember(x => x.Color, y => y.MapFrom(src => src.Color.ToString()));
         }
     }
 }

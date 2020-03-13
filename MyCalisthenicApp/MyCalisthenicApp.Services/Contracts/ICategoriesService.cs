@@ -6,6 +6,6 @@
 
     public interface ICategoriesService
     {
-        Task<CategoryViewModel> GetCategoryByProgramId(string id);
+        Task<CategoryViewModel> GetCategoryByProgramIdAsync(string id);
     }
 }

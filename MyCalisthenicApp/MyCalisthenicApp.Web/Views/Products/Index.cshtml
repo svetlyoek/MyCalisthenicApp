@@ -60,22 +60,43 @@
                     <div class="col-lg-12">
                         <div class="row d-flex justify-content-lg-between flex-column flex-md-row align-items-center text-center">
                             <div class="form-field margin-top-10 margin-bottom-10 ">
-                                <select class="select-form country_select">
-                                    <option value="search" selected>Sort</option>
-                                    <option value="all">Alphabetically, A-Z</option>
-                                    <option value="dum">Alphabetically, Z-A</option>
-                                    <option value="yoga">Price, low to high</option>
-                                    <option value="yoga">Price, high to low</option>
-                                </select>
-                            </div>
+                                <div class="search-menu">
+                                    <ul>
+                                        @{ int counter = 0;
+                                            var customSort = string.Empty;
 
+                                        }
+                                        @foreach (var sort in Enum.GetValues(typeof(ProductSort)))
+                                        {
+                                            counter++;
+
+                                            if (counter == 1 || counter == 2)
+                                            {
+                                                <li>@Html.ActionLink(sort.ToString(), "Sort", "Products", new { sort = sort.ToString() })</li>
+                                            }
+                                            if (counter == 3)
+                                            {
+                                                customSort = "Price Ascending";
+                                                <li>@Html.ActionLink(customSort, "Sort", "Products", new { sort = sort.ToString() })</li>
+                                            }
+                                            else if (counter == 4)
+                                            {
+                                                customSort = "Price Descending";
+                                                <li>@Html.ActionLink(customSort, "Sort", "Products", new { sort = sort.ToString() })</li>
+                                            }
+
+                                        }
+
+                                    </ul>
+                                </div>
+                            </div>
                             <div class="search-menu">
                                 <ul>
-                                    <li><a @Html.ActionLink("All", "Index", "Products")></a></li>
+                                    <li> @Html.ActionLink("All", "Index", "Products")</li>
 
                                     @foreach (var name in Enum.GetValues(typeof(ProductCategoryType)))
                                     {
-                                        <li><a @Html.ActionLink(name.ToString(), "Filter", "Products", new { name = name.ToString() })></a></li>
+                                        <li>@Html.ActionLink(name.ToString(), "Filter", "Products", new { name = name.ToString() })</li>
                                     }
 
                                 </ul>

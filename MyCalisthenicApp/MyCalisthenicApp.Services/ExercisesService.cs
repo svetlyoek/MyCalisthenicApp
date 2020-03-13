@@ -21,7 +21,7 @@
             this.mapper = mapper;
         }
 
-        public async Task<IEnumerable<ExercisesViewModel>> GetExercisesByCategoryId(string id)
+        public async Task<IEnumerable<ExercisesViewModel>> GetExercisesByCategoryIdAsync(string id)
         {
             var exercises = await this.dbContext.Exercises
                  .Include(i => i.Images)

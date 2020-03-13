@@ -7,6 +7,6 @@
 
     public interface IExercisesService
     {
-        Task<IEnumerable<ExercisesViewModel>> GetExercisesByCategoryId(string id);
+        Task<IEnumerable<ExercisesViewModel>> GetExercisesByCategoryIdAsync(string id);
     }
 }

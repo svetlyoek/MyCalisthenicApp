@@ -1,6 +1,5 @@
 ﻿namespace MyCalisthenicApp.Web.Controllers
 {
-    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Mvc;
@@ -42,13 +41,13 @@
             var programDetails = await this.programsService
                 .GetProgramDetailsByIdAsync(id);
 
-            var category = await this.categoriesService.GetCategoryByProgramId(id);
+            var category = await this.categoriesService.GetCategoryByProgramIdAsync(id);
             programDetails.Category = category;
 
-            var exercises = await this.exercisesService.GetExercisesByCategoryId(category.Id);
+            var exercises = await this.exercisesService.GetExercisesByCategoryIdAsync(category.Id);
             category.Exercises = exercises;
 
-            var comments = await this.commentsService.GetCommentsByCategoryId(category.Id);
+            var comments = await this.commentsService.GetCommentsByCategoryIdAsync(category.Id);
             category.Comments = comments;
 
             return this.View(programDetails);

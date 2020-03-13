@@ -7,7 +7,9 @@
 
     public interface ICommentsService
     {
-        Task<IEnumerable<CommentViewModel>> GetCommentsByCategoryId(string id);
+        Task<IEnumerable<CommentViewModel>> GetCommentsByCategoryIdAsync(string id);
+
+        Task<IEnumerable<CommentViewModel>> GetCommentsByProductIdAsync(string id);
 
         Task CreateCommentAsync(string id, CommentInputViewModel commentModel);
     }

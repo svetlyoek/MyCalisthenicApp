@@ -11,6 +11,10 @@
 
         Task<IEnumerable<ProductsViewModel>> GetAllProductsAsync();
 
-        Task<IEnumerable<ProductsViewModel>> GetProductsByCategory(string name);
+        Task<IEnumerable<ProductsViewModel>> GetProductsByCategoryAsync(string name);
+
+        Task<IEnumerable<ProductsViewModel>> GetProductsAndSortAsync(string sort);
+
+        Task<ProductDetailsViewModel> GetProductsByIdAsync(string id);
     }
 }

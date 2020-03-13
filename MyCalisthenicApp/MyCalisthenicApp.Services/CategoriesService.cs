@@ -20,7 +20,7 @@
             this.mapper = mapper;
         }
 
-        public async Task<CategoryViewModel> GetCategoryByProgramId(string id)
+        public async Task<CategoryViewModel> GetCategoryByProgramIdAsync(string id)
         {
             var category = await this.dbContext
                 .ProgramCategories

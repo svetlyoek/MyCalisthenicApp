@@ -8,6 +8,7 @@
     {
         [Required]
         [MaxLength(WebValidations.CommentMessageMaxLength)]
+        [MinLength(WebValidations.CommentMessageMinLength)]
         public string Text { get; set; }
     }
 }

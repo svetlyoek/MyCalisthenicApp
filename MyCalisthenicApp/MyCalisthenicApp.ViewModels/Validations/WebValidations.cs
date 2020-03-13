@@ -15,5 +15,6 @@
 
         // Comment validations
         public const int CommentMessageMaxLength = 200;
+        public const int CommentMessageMinLength = 10;
     }
 }

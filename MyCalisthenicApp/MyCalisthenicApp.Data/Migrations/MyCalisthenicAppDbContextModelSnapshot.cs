@@ -752,6 +752,9 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.Property<bool>("IsSoldOut")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("LikesCount")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
@@ -766,7 +769,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.Property<int?>("Size")
                         .HasColumnType("int");
 
-                    b.Property<int>("Sort")
+                    b.Property<int?>("Sort")
                         .HasColumnType("int");
 
                     b.Property<int?>("Type")

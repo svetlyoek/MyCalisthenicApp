@@ -37,16 +37,32 @@
                 Author = userFromDb,
                 CategoryId = id,
             };
-            await this.dbContext.Comments.AddAsync(comment);
-            await this.dbContext.SaveChangesAsync();
+
+            var category = this.dbContext.ProgramCategories.Where(pc => pc.Id == id).FirstOrDefault();
+            category.Comments.Add(comment);
+            //await this.dbContext.Comments.AddAsync(comment);
+            //await this.dbContext.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<CommentViewModel>> GetCommentsByCategoryId(string id)
+        public async Task<IEnumerable<CommentViewModel>> GetCommentsByCategoryIdAsync(string id)
         {
             var comments = await this.dbContext
                  .Comments
                  .Include(u => u.Author)
                  .Where(c => c.CategoryId == id)
+                 .ToListAsync();
+
+            var commentsViewModel = this.mapper.Map<IEnumerable<CommentViewModel>>(comments);
+
+            return commentsViewModel;
+        }
+
+        public async Task<IEnumerable<CommentViewModel>> GetCommentsByProductIdAsync(string id)
+        {
+            var comments = await this.dbContext
+                 .Comments
+                 .Include(u => u.Author)
+                 .Where(c => c.ProductId == id)
                  .ToListAsync();
 
             var commentsViewModel = this.mapper.Map<IEnumerable<CommentViewModel>>(comments);

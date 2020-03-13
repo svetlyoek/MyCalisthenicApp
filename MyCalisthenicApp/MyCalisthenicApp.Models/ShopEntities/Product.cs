@@ -32,9 +32,11 @@
 
         public ProductColor? Color { get; set; }
 
-        public ProductSort Sort { get; set; } = ProductSort.Newest;
+        public ProductSort? Sort { get; set; }
 
         public ProductCategoryType? Type { get; set; }
+
+        public int? LikesCount { get; set; }
 
         [Required]
         [MaxLength(DataValidations.ProductDescriptionMaxLength)]

@@ -4,7 +4,7 @@
     {
         Newest = 1,
         Oldest = 2,
-        PriceDescending = 3,
-        PriceAscending = 4,
+        PriceAscending = 3,
+        PriceDescending = 4,
     }
 }

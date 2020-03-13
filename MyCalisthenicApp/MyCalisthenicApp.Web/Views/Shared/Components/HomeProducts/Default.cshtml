@@ -28,10 +28,10 @@
                         </ins>
                         <del>
                             <span class="woocommerce-Price-amount amount">
-                                @{ decimal discountPrice = product.Price + (product.Price * 0.2M);
+                                @{ decimal spanPrice = product.Price + (product.Price * 0.2M);
 
                                 }
-                                <span class="woocommerce-Price-currencySymbol">$</span>@discountPrice.ToString("0.00")
+                                <span class="woocommerce-Price-currencySymbol">$</span>@spanPrice.ToString("0.00")
                             </span>
                         </del>
                     </p>

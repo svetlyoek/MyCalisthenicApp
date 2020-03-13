@@ -86,9 +86,9 @@
                                             </div>
                                             <div class="class-list d-sm-flex justify-content-between">
                                                 <ul>
-                                                    <li><<i class="fa fa-check"></i> Pellentesque pellentesque odio et porta.</li>
-                                                    <li><<i class="fa fa-check"></i> Proin et augue et justo accumsan.</li>
-                                                    <li><i class="fa fa-check"></i> Donec viverra urna id congue.</a></li>
+                                                    <li><i class="fa fa-check"></i> Pellentesque pellentesque odio et porta.</li>
+                                                    <li><i class="fa fa-check"></i> Proin et augue et justo accumsan.</li>
+                                                    <li><i class="fa fa-check"></i> Donec viverra urna id congue.</li>
                                                 </ul>
                                                 <ul>
                                                     <li><i class="fa fa-check"></i> Pellentesque pellentesque odio et porta.</li>
@@ -117,7 +117,7 @@
                                     </div>
                                     <div id="menu2" class="tab-pane fade">
                                         <h5>Likes</h5>
-                                        <p style="font-size:18px;"><i style="color:dodgerblue;font-size:22px;" class="fa fa-thumbs-up"></i>@Model.Category.LikeCount</p>
+                                        <p style="font-size:18px;"><i style="color:dodgerblue;font-size:22px;" class="fa fa-thumbs-up"></i>@(Model.Category.LikeCount==null?0:Model.Category.LikeCount)</p>
                                         <div id="comments" class="comments-area comments-area-wrapper">
                                             <h4 class="comments-title">Reviews</h4>
                                             @foreach (var comment in Model.Category.Comments)
