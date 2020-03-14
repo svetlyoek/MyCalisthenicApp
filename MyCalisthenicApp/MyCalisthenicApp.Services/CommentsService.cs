@@ -6,6 +6,7 @@
     using System.Threading.Tasks;
 
     using AutoMapper;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
@@ -38,10 +39,9 @@
                 CategoryId = id,
             };
 
-            var category = this.dbContext.ProgramCategories.Where(pc => pc.Id == id).FirstOrDefault();
-            category.Comments.Add(comment);
-            //await this.dbContext.Comments.AddAsync(comment);
-            //await this.dbContext.SaveChangesAsync();
+            await this.dbContext.Comments.AddAsync(comment);
+
+            await this.dbContext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<CommentViewModel>> GetCommentsByCategoryIdAsync(string id)

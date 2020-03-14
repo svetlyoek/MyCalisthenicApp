@@ -61,7 +61,7 @@
 
     <partial name="~/Views/Shared/Partials/_BrandAreaPartial.cshtml" />
 
-    <partial name="~/Views/Shared/Partials/_FooterPartial.cshtml" />
+    @await Html.PartialAsync("~/Views/Shared/Partials/_SubscribePartial.cshtml", new SubscribeInputViewModel());
 
     <!-- back to top area start -->
     <div class="back-to-top">

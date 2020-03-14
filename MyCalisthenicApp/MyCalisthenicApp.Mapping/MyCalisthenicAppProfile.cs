@@ -4,10 +4,14 @@
 
     using AutoMapper;
     using MyCalisthenicApp.Models;
+    using MyCalisthenicApp.Models.BlogEntities;
     using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.Models.TrainingEntities;
+    using MyCalisthenicApp.ViewModels.Categories;
+    using MyCalisthenicApp.ViewModels.Comments;
     using MyCalisthenicApp.ViewModels.Exercises;
     using MyCalisthenicApp.ViewModels.Memberships;
+    using MyCalisthenicApp.ViewModels.Posts;
     using MyCalisthenicApp.ViewModels.Products;
     using MyCalisthenicApp.ViewModels.Programs;
 
@@ -44,6 +48,15 @@
                 .ForMember(x => x.Category, y => y.MapFrom(src => src.Category.Name))
                  .ForMember(x => x.Size, y => y.MapFrom(src => src.Size.ToString()))
                  .ForMember(x => x.Color, y => y.MapFrom(src => src.Color.ToString()));
+
+            this.CreateMap<Post, PopularPostsHomeViewModel>()
+                .ForMember(x => x.ImageUrl, y => y.MapFrom(src => src.Images.Select(i => i.Url).FirstOrDefault()))
+                .ForMember(x => x.AuthorName, y => y.MapFrom(src => src.Author.FirstName + " " + src.Author.LastName))
+                .ForMember(x => x.CommentsCount, y => y.MapFrom(src => src.Comments.Count));
+
+            this.CreateMap<ProgramCategory, CategoryViewModel>();
+
+            this.CreateMap<Comment, CommentViewModel>();
         }
     }
 }

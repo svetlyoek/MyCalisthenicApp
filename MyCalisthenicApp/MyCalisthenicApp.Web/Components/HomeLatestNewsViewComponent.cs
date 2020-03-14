@@ -1,22 +1,26 @@
 ﻿namespace MyCalisthenicApp.Web.Components
 {
     using Microsoft.AspNetCore.Mvc;
+    using MyCalisthenicApp.Services.Contracts;
 
     [ViewComponent(Name = "HomeLatestNews")]
     public class HomeLatestNewsViewComponent : ViewComponent
     {
-        public HomeLatestNewsViewComponent()
+        private readonly IPostsService postsService;
+
+        public HomeLatestNewsViewComponent(IPostsService postsService)
         {
-            //TODO
-            //Inject service here
+            this.postsService = postsService;
         }
 
-        //TODO Async
         public IViewComponentResult Invoke()
         {
-            //TODO View-list from latest n count of posts
+            var posts = this.postsService.GetPopularPostsAsync()
+                .GetAwaiter()
+                .GetResult();
 
-            return View();
+            return this.View(posts);
+
         }
     }
 }

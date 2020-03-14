@@ -1,0 +1,15 @@
+﻿@model CommentInputViewModel
+
+<form asp-controller="Comments" asp-action="Create" method="post" id="comment_form" class="commentform">
+    <div class="form-group margin-bottom-30 text-danger">
+        <textarea asp-for="Text" class="form-control w-100" cols="30" rows="9"></textarea>
+        <span asp-validation-for="Text" class="text-danger"></span>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <p class="form-submit">
+                <button type="submit" class="btn btn-success">Submit Comment</button>
+            </p>
+        </div>
+    </div>
+</form>

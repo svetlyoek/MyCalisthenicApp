@@ -1,5 +1,5 @@
-﻿ <!-- news-area start -->
-@*TODO Redirect to blog*@
+﻿@model IEnumerable<PopularPostsHomeViewModel>
+<!-- news-area start -->
 
 <div class="news-area">
     <div class="container">
@@ -11,138 +11,36 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
+
             <div class="col-lg-12 col-sm-12 col-11 news-slider text-center">
-                <div class="news-item-style-01">
-                    <div class="thumb">
-                        <img src="assets/img/home/news/1.png" alt="news">
-                    </div>
-                    <div class="content">
-                        <div class="blog-meta">
-                            <h6 class="d-flex justify-content-between"><i class="fa fa-user-o" aria-hidden="true"></i> By Rasel<i class="fa fa-comment-o" aria-hidden="true"></i> 9 comments</h6>
+                @foreach (var post in Model)
+                {
+                    <div class="news-item-style-01">
+                        <div class="thumb">
+                            <img src="@post.ImageUrl" alt="news">
                         </div>
-                        <h3><a asp-controller="Blogs" asp-action="Details">World Wide Ocassion</a></h3>
-                        <p>Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis</p>
-                    </div>
-                    <div class="hover-content">
-                        <span class="border-bottom">20 Dec</span><br>
-                        <span>2019</span>
-                    </div>
-                </div>
-                <div class="news-item-style-01">
-                    <div class="thumb">
-                        <img src="assets/img/home/news/2.png" alt="news">
-                    </div>
-                    <div class="content">
-                        <div class="blog-meta">
-                            <h6 class="d-flex justify-content-between"><i class="fa fa-user-o" aria-hidden="true"></i> By Rasel<i class="fa fa-comment-o" aria-hidden="true"></i> 9 comments</h6>
+                        <div class="content">
+                            <div class="blog-meta">
+                                <h6 class="d-flex justify-content-between"><i class="fa fa-user-o" aria-hidden="true"></i>@post.AuthorName<i class="fa fa-comment-o" aria-hidden="true"></i>@post.CommentsCount</h6>
+                            </div>
+                            <h3><a asp-controller="Posts" asp-action="Details">@post.Title</a></h3>
+                            <p>@post.Description</p>
                         </div>
-                        <h3><a asp-controller="Blogs" asp-action="Details">World Wide Ocassion</a></h3>
-                        <p>Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis</p>
-                    </div>
-                    <div class="hover-content">
-                        <span class="border-bottom">25 Dec</span><br>
-                        <span>2019</span>
-                    </div>
-                </div>
-                <div class="news-item-style-01">
-                    <div class="thumb">
-                        <img src="assets/img/home/news/3.png" alt="news">
-                    </div>
-                    <div class="content">
-                        <div class="blog-meta">
-                            <h6 class="d-flex justify-content-between"><i class="fa fa-user-o" aria-hidden="true"></i> By Rasel<i class="fa fa-comment-o" aria-hidden="true"></i> 9 comments</h6>
+                        <div class="hover-content">
+                            @{
+                                var dayMonth = post.CreatedOn.Day.ToString() + " " + post.CreatedOn.Month.ToString();
+                            }
+                            <span class="border-bottom">@dayMonth</span><br>
+                            <span>@post.CreatedOn.Year.ToString()</span>
                         </div>
-                        <h3><a asp-controller="Blogs" asp-action="Details">World Wide Ocassion</a></h3>
-                        <p>Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis</p>
                     </div>
-                    <div class="hover-content">
-                        <span class="border-bottom">24 Jun</span><br>
-                        <span>2019</span>
-                    </div>
-                </div>
-                <div class="news-item-style-01">
-                    <div class="thumb">
-                        <img src="assets/img/home/news/4.png" alt="news">
-                    </div>
-                    <div class="content">
-                        <div class="blog-meta">
-                            <h6 class="d-flex justify-content-between"><i class="fa fa-user-o" aria-hidden="true"></i> By Rasel<i class="fa fa-comment-o" aria-hidden="true"></i> 9 comments</h6>
-                        </div>
-                        <h3><a asp-controller="Blogs" asp-action="Details">World Wide Ocassion</a></h3>
-                        <p>Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis</p>
-                    </div>
-                    <div class="hover-content">
-                        <span class="border-bottom">14 Jan</span><br>
-                        <span>2019</span>
-                    </div>
-                </div>
-                <div class="news-item-style-01">
-                    <div class="thumb">
-                        <img src="assets/img/home/news/5.png" alt="news">
-                    </div>
-                    <div class="content">
-                        <div class="blog-meta">
-                            <h6 class="d-flex justify-content-between"><i class="fa fa-user-o" aria-hidden="true"></i> By Rasel<i class="fa fa-comment-o" aria-hidden="true"></i> 9 comments</h6>
-                        </div>
-                        <h3><a asp-controller="Blogs" asp-action="Details">World Wide Ocassion</a></h3>
-                        <p>Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis</p>
-                    </div>
-                    <div class="hover-content">
-                        <span class="border-bottom">10 Jan</span><br>
-                        <span>2019</span>
-                    </div>
-                </div>
-                <div class="news-item-style-01">
-                    <div class="thumb">
-                        <img src="assets/img/home/news/6.png" alt="news">
-                    </div>
-                    <div class="content">
-                        <div class="blog-meta">
-                            <h6 class="d-flex justify-content-between"><i class="fa fa-user-o" aria-hidden="true"></i> By Rasel<i class="fa fa-comment-o" aria-hidden="true"></i> 9 comments</h6>
-                        </div>
-                        <h3><a asp-controller="Blogs" asp-action="Details">World Wide Ocassion</a></h3>
-                        <p>Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis</p>
-                    </div>
-                    <div class="hover-content">
-                        <span class="border-bottom">09 Aug</span><br>
-                        <span>2019</span>
-                    </div>
-                </div>
-                <div class="news-item-style-01">
-                    <div class="thumb">
-                        <img src="assets/img/home/news/7.png" alt="news">
-                    </div>
-                    <div class="content">
-                        <div class="blog-meta">
-                            <h6 class="d-flex justify-content-between"><i class="fa fa-user-o" aria-hidden="true"></i> By Rasel<i class="fa fa-comment-o" aria-hidden="true"></i> 9 comments</h6>
-                        </div>
-                        <h3><a asp-controller="Blogs" asp-action="Details">World Wide Ocassion</a></h3>
-                        <p>Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis</p>
-                    </div>
-                    <div class="hover-content">
-                        <span class="border-bottom">03 May</span><br>
-                        <span>2019</span>
-                    </div>
-                </div>
-                <div class="news-item-style-01">
-                    <div class="thumb">
-                        <img src="assets/img/home/news/8.png" alt="news">
-                    </div>
-                    <div class="content">
-                        <div class="blog-meta">
-                            <h6 class="d-flex justify-content-between"><i class="fa fa-user-o" aria-hidden="true"></i> By Rasel<i class="fa fa-comment-o" aria-hidden="true"></i> 9 comments</h6>
-                        </div>
-                        <h3><a asp-controller="Blogs" asp-action="Details">World Wide Ocassion</a></h3>
-                        <p>Praesent a diam at velit finibus vehicula sit amet eu dui. Vestibulum rutrum dignissim arcu, vitae convallis</p>
-                    </div>
-                    <div class="hover-content">
-                        <span class="border-bottom">12 Jul</span><br>
-                        <span>2019</span>
-                    </div>
-                </div>
+                }
             </div>
         </div>
+
     </div>
 </div>
+
 <!-- news-area end -->

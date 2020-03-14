@@ -8,12 +8,13 @@
 
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
-    using Microsoft.AspNetCore.Identity.UI.Services;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.RazorPages;
     using Microsoft.AspNetCore.WebUtilities;
     using Microsoft.Extensions.Logging;
     using MyCalisthenicApp.Models;
+    using MyCalisthenicApp.Services.MessageSender;
+    using MyCalisthenicApp.Web.Common;
 
     [AllowAnonymous]
     public class ExternalLoginModel : PageModel
@@ -158,6 +159,8 @@
                             protocol: this.Request.Scheme);
 
                         await this.emailSender.SendEmailAsync(
+                            GlobalConstants.ApplicationSendEmail,
+                            GlobalConstants.AdministratorRoleName,
                             this.Input.Email,
                             "Confirm your email",
                             $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");

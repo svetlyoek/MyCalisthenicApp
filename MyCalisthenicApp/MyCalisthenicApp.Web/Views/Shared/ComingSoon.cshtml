@@ -1,4 +1,5 @@
-﻿@{
+﻿@model SubscribeInputViewModel
+@{
     ViewData["Title"] = "Coming Soon";
     Layout = null;
 }
@@ -36,7 +37,7 @@
     <link rel="stylesheet" href="/assets/css/responsive.css">
 </head>
 <body>
-   
+
     <partial name="~/Views/Shared/Partials/_NavbarPartial.cshtml" />
 
     <!-- coming-soon-area start -->
@@ -45,12 +46,15 @@
         <div class="content">
             <h1>COMING SOON</h1>
             <p>NO BOUNDARIES. NO LIMITS. NO MORE EXCUSES.</p>
-            <div asp-validation-summary="All" class="input-group">
-                <input asp-controller="Subscribes" asp-action="Subscribe" type="text" class="form-control" name="email" placeholder="Enter Email">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Notify Me</button>
-                </span>
-            </div>
+            <form asp-controller="Home" asp-action="ComingSoon" method="post">
+                <div class="input-group">
+                    <input asp-for="Email" type="email" class="form-control" name="email" placeholder="Enter Email">
+                    <span class="input-group-btn">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <button class="btn btn-default" type="submit">Notify Me</button>
+                    </span>
+                </div>
+            </form>
             <div class="countdown"></div>
         </div>
     </div>

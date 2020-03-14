@@ -7,6 +7,7 @@ namespace MyCalisthenicApp.Web
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
@@ -61,7 +62,10 @@ namespace MyCalisthenicApp.Web
                 .AddDefaultTokenProviders()
                 .AddDefaultUI();
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews(options =>
+            {
+                options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+            });
             services.AddRazorPages();
 
             services.AddAutoMapper(cfg =>
@@ -80,6 +84,7 @@ namespace MyCalisthenicApp.Web
             services.AddTransient<IMembershipsService, MembershipsService>();
             services.AddTransient<IProductsService, ProductsService>();
             services.AddTransient<IImagesService, ImagesService>();
+            services.AddTransient<IPostsService, PostsService>();
 
             services.AddTransient<IEmailSender>(
                 serviceProvider => new SendGridEmailSender(this.Configuration["SendGrid:ApiKey"]));

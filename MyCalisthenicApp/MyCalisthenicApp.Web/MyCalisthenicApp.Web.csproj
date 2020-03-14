@@ -156,13 +156,13 @@
     <Content Update="Areas\Identity\Pages\_ViewStart.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="Views\Blogs\Details.cshtml">
+    <Content Update="Views\Posts\Details.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="Views\Home\About.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="Views\Blogs\Index.cshtml">
+    <Content Update="Views\Posts\Index.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="Views\Contacts\Index.cshtml">
@@ -201,9 +201,6 @@
     <Content Update="Views\Shared\ComingSoon.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="Views\Shared\Components\Comment\Default.cshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Update="Views\Shared\Components\HomeLatestNews\Default.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -223,9 +220,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="Views\Shared\Partials\_ExploreMembershipPartial.cshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="Views\Shared\Partials\_FooterPartial.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="Views\Shared\Partials\_NavbarPartial.cshtml">

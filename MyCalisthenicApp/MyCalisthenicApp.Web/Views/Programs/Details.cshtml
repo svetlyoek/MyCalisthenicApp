@@ -117,7 +117,7 @@
                                     </div>
                                     <div id="menu2" class="tab-pane fade">
                                         <h5>Likes</h5>
-                                        <p style="font-size:18px;"><i style="color:dodgerblue;font-size:22px;" class="fa fa-thumbs-up"></i>@(Model.Category.LikeCount==null?0:Model.Category.LikeCount)</p>
+                                        <p style="font-size:18px;"><i style="color:dodgerblue;font-size:22px;" class="fa fa-thumbs-up"></i>@(Model.Category.LikeCount == null ? 0 : Model.Category.LikeCount)</p>
                                         <div id="comments" class="comments-area comments-area-wrapper">
                                             <h4 class="comments-title">Reviews</h4>
                                             @foreach (var comment in Model.Category.Comments)
@@ -146,7 +146,10 @@
 
                                                 <h3 class="comment-reply-title">Leave a review</h3>
 
-                                                @await Component.InvokeAsync("Comment", new { id = Model.Category.Id })
+                                                @Html.ActionLink(Model.Category.Id, "Create", "Comments", new { id = Model.Category.Id })
+
+                                                @await Html.PartialAsync("~/Views/Shared/Partials/_CommentPartial.cshtml",
+                                               new CommentInputViewModel { })
 
                                             </div>
                                         </div>

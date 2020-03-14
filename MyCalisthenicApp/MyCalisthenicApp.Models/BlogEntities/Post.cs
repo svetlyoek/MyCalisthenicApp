@@ -12,7 +12,7 @@
         public Post()
         {
             this.Id = Guid.NewGuid().ToString();
-            this.PublishDate = DateTime.UtcNow;
+            this.CreatedOn = DateTime.UtcNow;
             this.IsPublic = true;
             this.IsDeleted = false;
             this.Comments = new HashSet<Comment>();
@@ -30,8 +30,6 @@
         public string AuthorId { get; set; }
 
         public virtual ApplicationUser Author { get; set; }
-
-        public DateTime PublishDate { get; set; }
 
         [Required]
         public string CategoryId { get; set; }
