@@ -28,6 +28,7 @@
         {
             var programs = await this.dbContext
                 .Programs
+                  .Where(c => c.IsDeleted == false)
                 .Include(i => i.Images)
                 .ToListAsync();
 
@@ -40,6 +41,7 @@
         {
             var popularPrograms = await this.dbContext.Programs
                 .Include(i => i.Images)
+                  .Where(c => c.IsDeleted == false)
                 .Take(5)
                 .ToListAsync();
 
@@ -52,6 +54,7 @@
         {
             var program = await this.dbContext
                 .Programs.Include(p => p.Images)
+                  .Where(c => c.IsDeleted == false)
                 .Include(c => c.Category)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
@@ -72,6 +75,7 @@
             var programs = await this.dbContext
                 .Programs.Include(i => i.Images)
                 .Where(p => p.Type == myEnum)
+                  .Where(c => c.IsDeleted == false)
                 .Select(p => p).ToListAsync();
 
             var programsViewModel = this.mapper.Map<IEnumerable<ProgramViewModel>>(programs);

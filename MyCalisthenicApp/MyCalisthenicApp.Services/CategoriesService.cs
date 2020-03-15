@@ -27,6 +27,7 @@
                 .Include(cm => cm.Comments)
                 .Include(ex => ex.Exercises)
                 .Where(c => c.Programs.Any(p => p.Id == id))
+                .Where(c => c.IsDeleted == false)
                 .FirstOrDefaultAsync();
 
             var categoryViewModel = this.mapper.Map<CategoryViewModel>(category);

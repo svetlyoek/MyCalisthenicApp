@@ -26,6 +26,7 @@
             var exercises = await this.dbContext.Exercises
                  .Include(i => i.Images)
                  .Where(e => e.ProgramCategoryId == id)
+                  .Where(c => c.IsDeleted == false)
                  .Select(e => e)
                  .ToListAsync();
 

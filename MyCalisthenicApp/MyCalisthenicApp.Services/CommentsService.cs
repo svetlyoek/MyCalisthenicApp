@@ -50,7 +50,22 @@
                  .Comments
                  .Include(u => u.Author)
                  .Where(c => c.CategoryId == id)
+                 .Where(c => c.IsDeleted == false)
                  .ToListAsync();
+
+            var commentsViewModel = this.mapper.Map<IEnumerable<CommentViewModel>>(comments);
+
+            return commentsViewModel;
+        }
+
+        public async Task<IEnumerable<CommentViewModel>> GetCommentsByPostIdAsync(string id)
+        {
+            var comments = await this.dbContext
+                .Comments
+                .Include(u => u.Author)
+                .Where(c => c.PostId == id)
+                .Where(c => c.IsDeleted == false)
+                .ToListAsync();
 
             var commentsViewModel = this.mapper.Map<IEnumerable<CommentViewModel>>(comments);
 
@@ -63,6 +78,7 @@
                  .Comments
                  .Include(u => u.Author)
                  .Where(c => c.ProductId == id)
+                  .Where(c => c.IsDeleted == false)
                  .ToListAsync();
 
             var commentsViewModel = this.mapper.Map<IEnumerable<CommentViewModel>>(comments);

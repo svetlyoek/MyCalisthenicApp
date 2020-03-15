@@ -54,9 +54,12 @@
                 .ForMember(x => x.AuthorName, y => y.MapFrom(src => src.Author.FirstName + " " + src.Author.LastName))
                 .ForMember(x => x.CommentsCount, y => y.MapFrom(src => src.Comments.Count));
 
-            this.CreateMap<ProgramCategory, CategoryViewModel>();
+            this.CreateMap<Post, PostDetailsViewModel>()
+                .ForMember(x => x.ImageUrl, y => y.MapFrom(src => src.Images.Select(i => i.Url).FirstOrDefault()))
+                .ForMember(x => x.Author, y => y.MapFrom(src => src.Author.FirstName + " " + src.Author.LastName));
 
-            this.CreateMap<Comment, CommentViewModel>();
+            this.CreateMap<Post, PostDetailsSidebarViewModel>()
+                .ForMember(x => x.ImageUrl, y => y.MapFrom(src => src.Images.Select(i => i.Url).FirstOrDefault()));
         }
     }
 }

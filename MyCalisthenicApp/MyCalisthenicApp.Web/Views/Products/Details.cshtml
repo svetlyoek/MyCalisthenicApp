@@ -160,12 +160,13 @@
                                                     </li>
                                                 </ul>
                                             }
-                                            <div id="respond" class="comment-respond">
-                                                <h3 class="comment-reply-title">Leave A Comment</h3>
+                                        <div id="respond" class="comment-respond">
+                                            <h3 class="comment-reply-title">Leave A Comment</h3>
 
-                                                @await Component.InvokeAsync("Comment", new { id = Model.Id })
+                                            @await Html.PartialAsync("~/Views/Shared/Partials/_CommentPartial.cshtml",
+                                         new CommentInputViewModel { })
 
-                                            </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>

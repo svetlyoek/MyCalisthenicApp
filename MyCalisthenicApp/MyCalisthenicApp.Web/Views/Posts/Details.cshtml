@@ -1,4 +1,5 @@
-﻿@{
+﻿@model PostDetailsViewModel
+@{
     ViewData["Title"] = "Blog-Details";
 }
 <!DOCTYPE html>
@@ -56,104 +57,63 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <article class="blog-details">
-                            <div class="blog-img">
-                                <img src="/assets/img/bg/blog-top.png" class="attachment-siiimple_full size-siiimple_full wp-post-image" alt="">
-                            </div>
+
+                            @if (Model.VideoUrl != null)
+                            {
+                                <iframe width="730" height="400" src="@Model.VideoUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            }
+                            else
+                            {
+                                <div class="blog-img">
+                                    <img src="@Model.ImageUrl" class="attachment-siiimple_full size-siiimple_full wp-post-image" alt="">
+                                </div>
+                            }
+
                             <div class="blog-details-content">
-                                <h6> October 7, 2019<a asp-controller="Posts" asp-action="Details"><span>Admin</span></a></h6>
-                                <h2>Improve your health</h2>
-                                <p>Sometimes ‘short and sweet’ workouts are all you need. If you've done a HIIT workout before you would agree. Prepared do an dissuade be so whatever steepest. Yet her beyond looked either day wished nay. By doubtful disposed do juvenile an. Now curiosity you explained immediate. .</p>
-                                <p>we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.</p>
-                                <p>Sometimes ‘short and sweet’ workouts are all you need. If you've done a HIIT workout before you would agree. Prepared do an dissuade be so whatever steepest. Yet her beyond looked either day wished nay. By doubtful disposed do juvenile an. Now curiosity you explained immediate. .</p>
+
+                                <h6>@Model.CreatedOn.ToString("dd/MM/yyyy")<span>Admin-@Model.Author</span></h6>
+                                <h2>@Model.Title</h2>
+                                <p>@Model.Description</p>
                             </div>
                         </article>
 
-                        @*Implement reply and comments here*@
-
                         <div id="comments" class="comments-area comments-area-wrapper">
                             <h4 class="comments-title">Comments</h4>
-                            <ul class="comment-list">
-                                <li class="comment">
-                                    <div class="single-comment justify-content-between d-flex">
-                                        <div class="user justify-content-between d-flex">
-                                            <div class="thumb">
-                                                <img alt="" src="/assets/img/blog/avatar.png" class="avatar">
-                                            </div>
-                                            <div class="desc">
-                                                <div class="d-flex justify-content-between comment_title">
-                                                    <div class="d-flex align-items-center">
-                                                        <h5>Sharifur</h5>
+                            @foreach (var comment in Model.Comments)
+                            {
+                                <ul class="comment-list">
+                                    <li class="comment">
+                                        <div class="single-comment justify-content-between d-flex">
+                                            <div class="user justify-content-between d-flex">
+                                                <div class="desc">
+                                                    <div class="d-flex justify-content-between comment_title">
+                                                        <div class="d-flex align-items-center">
+                                                            <h5>@comment.Author.FirstName&nbsp;@comment.Author.LastName</h5>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="comment-content">
-                                                    <p>Sometimes ‘short and sweet’ workouts are all you need. If you've done a HIIT workout before you would agree. Prepared do an dissuade be so whatever steepest.</p>
-                                                </div>
-                                                <div class="reply-btn">
-                                                    <a class="comment-reply-link" href="#">Reply</a>
+                                                    <div class="comment-content">
+                                                        <p>@comment.Text</p>
+                                                    </div>
+                                                    <p><i style="color:dodgerblue;" class="fa fa-thumbs-up"></i>@(comment.Rating == null ? 0 : comment.Rating)</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <ul class="children">
-                                        <li class="comment">
-                                            <div class="single-comment justify-content-between d-flex">
-                                                <div class="user justify-content-between d-flex">
-                                                    <div class="thumb">
-                                                        <img alt="" src="assets/img/blog/avatar2.jpg" class="avatar">
-                                                    </div>
-                                                    <div class="desc">
-                                                        <div class="d-flex justify-content-between comment_title">
-                                                            <div class="d-flex align-items-center">
-                                                                <h5>Naeem</h5>
-                                                            </div>
-                                                        </div>
-                                                        <div class="comment-content">
-                                                            <p>Sometimes ‘short and sweet’ workouts are all you need. If you've done a HIIT workout before you would agree. Prepared do an dissuade be so whatever steepest.</p>
-                                                        </div>
-                                                        <div class="reply-btn">
-                                                            <a class="comment-reply-link" href="#">Reply</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="comment">
-                                    <div class="single-comment justify-content-between d-flex">
-                                        <div class="user justify-content-between d-flex">
-                                            <div class="thumb">
-                                                <img alt="" src="assets/img/blog/avatar3.jpg" class="avatar">
-                                            </div>
-                                            <div class="desc">
-                                                <div class="d-flex justify-content-between comment_title">
-                                                    <div class="d-flex align-items-center">
-                                                        <h5>Asade</h5>
-                                                    </div>
-                                                </div>
-                                                <div class="comment-content">
-                                                    <p>Sometimes ‘short and sweet’ workouts are all you need. If you've done a HIIT workout before you would agree. Prepared do an dissuade be so whatever steepest.</p>
-                                                </div>
-                                                <div class="reply-btn">
-                                                    <a class="comment-reply-link" href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                                    </li>
+                                </ul>
+                            }
 
                             <div id="respond" class="comment-respond">
                                 <h3 class="comment-reply-title">Leave A Reply</h3>
 
-                                @await Component.InvokeAsync("Comment")
+                                @await Html.PartialAsync("~/Views/Shared/Partials/_CommentPartial.cshtml",
+                                         new CommentInputViewModel { })
 
                             </div>
 
                         </div>
                     </div>
-                   
-                    @await  Component.InvokeAsync("SideBar")
+
+                    @await Component.InvokeAsync("SideBar", new PostDetailsSidebarViewModel())
                 </div>
             </div>
         </main>

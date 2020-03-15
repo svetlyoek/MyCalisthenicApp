@@ -4,6 +4,8 @@
 
     public class PopularPostsHomeViewModel
     {
+        public string Id { get; set; }
+
         public string ImageUrl { get; set; }
 
         public DateTime CreatedOn { get; set; }

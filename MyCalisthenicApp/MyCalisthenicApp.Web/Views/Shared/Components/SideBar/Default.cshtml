@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<PostDetailsSidebarViewModel>
 @*TODO Implement serach engine*@
 
 <div class="col-lg-4">
@@ -15,42 +15,19 @@
             <div class="eidget-title">
                 <h1>Latest posts</h1>
             </div>
-            <div class="share-img-item">
-                <div class="img-part">
-                    <a asp-controller="Blogs" asp-action="Details"><img src="/assets/img/blog/latest-post.png" alt=""></a>
+            @foreach (var post in Model)
+            {
+                <div class="share-img-item">
+                    <div class="img-part">
+                        <a asp-controller="Posts" asp-action="Details" asp-route-id="@post.Id"><img src="@post.ImageUrl" alt="post-image"></a>
+                    </div>
+                    <div class="content-part">
+                        <h4>@post.Title</h4>
+                        <span class="text">@post.Description</span>
+                    </div>
                 </div>
-                <div class="content-part">
-                    <h4>People new gym center</h4>
-                    <span class="text">There are many variations of passages of Lorem Ipsum</span>
-                </div>
-            </div>
-            <div class="share-img-item">
-                <div class="img-part">
-                    <a asp-controller="Blogs" asp-action="Details"><img src="/assets/img/blog/post2.png" alt=""></a>
-                </div>
-                <div class="content-part">
-                    <h4>Just like a stability ball</h4>
-                    <span class="text">There are many variations of passages of Lorem Ipsum</span>
-                </div>
-            </div>
-            <div class="share-img-item">
-                <div class="img-part">
-                    <a asp-controller="Blogs" asp-action="Details"><img src="/assets/img/blog/post3.png" alt=""></a>
-                </div>
-                <div class="content-part">
-                    <h4>Cable Pulley Machines</h4>
-                    <span class="text">There are many variations of passages of Lorem Ipsum</span>
-                </div>
-            </div>
-            <div class="share-img-item">
-                <div class="img-part">
-                    <a asp-controller="Blogs" asp-action="Details"><img src="/assets/img/blog/post4.png" alt=""></a>
-                </div>
-                <div class="content-part">
-                    <h4>Train different parts</h4>
-                    <span class="text">There are many variations of passages of Lorem Ipsum</span>
-                </div>
-            </div>
+            }
+
         </div>
         <div class="widget">
             <div class="thumb only-thumb">
@@ -58,17 +35,49 @@
             </div>
         </div>
 
-        @*TODO Categories here*@
-
         <div class="widget widget_categories">
             <h5 class="widget-title">Categories</h5>
             <ul class="cat-menu">
-                <li><a href="#">How to</a></li>
-                <li><a href="#">Beginner Calisthenic</a></li>
-                <li><a href="#">Advanced Calisthenic</a></li>
-                <li><a href="#">Motivation</a></li>
-                <li><a href="#">Workout/Training</a></li>
-                <li><a href="#">Skills/Tehcnique</a></li>
+                @{ int counter = 0;
+                    var customSort = string.Empty;
+
+                }
+                @foreach (var sort in Enum.GetValues(typeof(CategoryType)))
+                {
+                    counter++;
+
+                    if (counter == 1)
+                    {
+                        customSort = "How To";
+                        <li>@Html.ActionLink(customSort, "Sort", "Posts", new { sort = customSort })</li>
+                    }
+                    if (counter == 2)
+                    {
+                        customSort = "Beginner Calisthenic";
+                        <li>@Html.ActionLink(customSort, "Sort", "Posts", new { sort = customSort })</li>
+                    }
+                    else if (counter == 3)
+                    {
+                        customSort = "Advanced Calisthenic";
+                        <li>@Html.ActionLink(customSort, "Sort", "Posts", new { sort = customSort })</li>
+                    }
+                    else if (counter == 4)
+                    {
+                        <li>@Html.ActionLink(sort.ToString(), "Sort", "Posts", new { sort = sort.ToString() })</li>
+                    }
+                    else if (counter == 5)
+                    {
+                        customSort = "Workout/Training";
+                        <li>@Html.ActionLink(customSort, "Sort", "Posts", new { sort = customSort })</li>
+                    }
+                    else if (counter == 6)
+                    {
+                        customSort = "Skills/Techniques";
+                        <li>@Html.ActionLink(customSort, "Sort", "Posts", new { sort = customSort })</li>
+                    }
+
+                }
+
             </ul>
         </div>
     </div>

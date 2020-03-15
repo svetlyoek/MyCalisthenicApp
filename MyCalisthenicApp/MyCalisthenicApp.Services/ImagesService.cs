@@ -21,6 +21,7 @@
         {
             var images = await this.dbCotext
                 .Images.Where(i => i.ProductId == id)
+                 .Where(c => c.IsDeleted == false)
                 .Select(i => i.Url)
                 .ToListAsync();
 

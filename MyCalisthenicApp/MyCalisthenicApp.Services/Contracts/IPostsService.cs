@@ -8,5 +8,14 @@
     public interface IPostsService
     {
         Task<IEnumerable<PopularPostsHomeViewModel>> GetPopularPostsAsync();
+
+        Task<PostDetailsViewModel> GetPostDetailsById(string id);
+
+        Task<IEnumerable<PostDetailsSidebarViewModel>> GetFourLatestPosts();
+
+        Task<IEnumerable<PostDetailsViewModel>> GetAllPostsAsync();
+
+        Task<IEnumerable<PostDetailsViewModel>> SortPostsByCategoryAsync(string sort);
+
     }
 }

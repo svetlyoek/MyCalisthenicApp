@@ -11,6 +11,8 @@
 
         Task<IEnumerable<CommentViewModel>> GetCommentsByProductIdAsync(string id);
 
+        Task<IEnumerable<CommentViewModel>> GetCommentsByPostIdAsync(string id);
+
         Task CreateCommentAsync(string id, CommentInputViewModel commentModel);
     }
 }

@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<PostDetailsViewModel>
+
+@{
     ViewData["Title"] = "Blog";
 }
 
@@ -61,96 +63,25 @@
                         <div class="col-lg-12">
                             <div class="blog-single-item">
                                 <div class="row">
-                                    <div class="col-lg-4">
-                                        <div class="blog-item-inner">
-                                            <div class="blog-detail">
-                                                <div class="blog-meta">
-                                                    <h6><a href="#">Dec 7, 2019</a><span class="float-right text-right"><a asp-controller="Blogs" asp-action="Details">Admin</a></span></h6>
+                                    @foreach (var post in Model)
+                                    {
+                                        <div class="col-lg-4">
+                                            <div class="blog-item-inner">
+                                                <div class="blog-detail">
+                                                    <div class="blog-meta">
+                                                        <h6>@post.CreatedOn.ToString("dd/MM/yyyy")<span class="float-right text-right">Admin-@post.Author</span></h6>
+                                                    </div>
+                                                    <h5><a asp-controller="Posts" asp-action="Details" asp-route-id="@post.Id">@post.Title</a></h5>
+                                                    <p>@post.Title</p>
+                                                    <a asp-controller="Posts" asp-action="Details" asp-route-id="@post.Id" class="blog-more">Read More</a>
                                                 </div>
-                                                <h5><a asp-controller="Posts" asp-action="Details">Best Cardio Gym</a></h5>
-                                                <p>Sometimes ‘short and sweet’ workouts are all you need. If you've done a HIIT workout before you would agree.</p>
-                                                <a asp-controller="Posts" asp-action="Details" class="blog-more">Read More</a>
-                                            </div>
-                                            <div class="blog-img">
-                                                <img src="assets/img/blog/blog-sm-item.png" alt="">
+                                                <div class="blog-img">
+                                                    <img src="@post.ImageUrl" alt="">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <div class="blog-item-inner">
-                                            <div class="blog-img">
-                                                <img src="assets/img/blog/blog-lg-item.png" alt="">
-                                            </div>
-                                            <div class="blog-detail">
-                                                <div class="blog-meta">
-                                                    <h6 class="d-flex"><a asp-controller="Posts" asp-action="Details">Oct 7, 2019</a><a asp-controller="Blogs" asp-action="Details">Admin</a><a asp-controller="Blogs" asp-action="Details">3 Comments</a></h6>
-                                                </div>
-                                                <h5><a asp-controller="Posts" asp-action="Details">Best Cardio Exercises</a></h5>
-                                                <p>Sometimes ‘short and sweet’ workouts are all you need. If you've done a HIIT workout before you would agree. Prepared do an dissuade be.</p>
-                                                <a asp-controller="Posts" asp-action="Details" class="blog-more">Read More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <div class="blog-item-inner">
-                                            <div class="blog-img">
-                                                <img src="assets/img/blog/blog-lg-item.png" alt="">
-                                            </div>
-                                            <div class="blog-detail">
-                                                <div class="blog-meta">
-                                                    <h6 class="d-flex"><a asp-controller="Posts" asp-action="Details">Oct 09, 2019</a><a asp-controller="Blogs" asp-action="Details">Admin</a><a asp-controller="Blogs" asp-action="Details">3 Comments</a></h6>
-                                                </div>
-                                                <h5><a asp-controller="Posts" asp-action="Details">Best Cardio Exercises</a></h5>
-                                                <p>Sometimes ‘short and sweet’ workouts are all you need. If you've done a HIIT workout before you would agree. Prepared do an dissuade be.</p>
-                                                <a asp-controller="Posts" asp-action="Details" class="blog-more">Read More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="blog-item-inner">
-                                            <div class="blog-detail">
-                                                <div class="blog-meta">
-                                                    <h6><a asp-controller="Blogs" asp-action="Details">Sept 07, 2019</a><span class="float-right text-right"><a asp-controller="Blogs" asp-action="Details">Admin</a></span></h6>
-                                                </div>
-                                                <h5><a href="blog-details.html">Something new</a></h5>
-                                                <p>Sometimes ‘short and sweet’ workouts are all you need. If you've done a HIIT workout before you would agree.</p>
-                                                <a asp-controller="Blogs" asp-action="Details" class="blog-more">Read More</a>
-                                            </div>
-                                            <div class="blog-img">
-                                                <img src="assets/img/blog/blog-sm-item.png" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="blog-item-inner">
-                                            <div class="blog-detail">
-                                                <div class="blog-meta">
-                                                    <h6><a asp-controller="Posts" asp-action="Details">Oct 07, 2019</a><span class="float-right text-right"><a asp-controller="Blogs" asp-action="Details">Admin</a></span></h6>
-                                                </div>
-                                                <h5><a asp-controller="Posts" asp-action="Details">Make healthy life</a></h5>
-                                                <p>Sometimes ‘short and sweet’ workouts are all you need. If you've done a HIIT workout before you would agree.</p>
-                                                <a asp-controller="Posts" asp-action="Details" class="blog-more">Read More</a>
-                                            </div>
-                                            <div class="blog-img">
-                                                <img src="assets/img/blog/blog-sm-item.png" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <div class="blog-item-inner">
-                                            <div class="blog-img">
-                                                <img src="assets/img/blog/blog-lg-item.png" alt="">
-                                            </div>
-                                            <div class="blog-detail">
-                                                <div class="blog-meta">
-                                                    <h6 class="d-flex"><a asp-controller="Posts" asp-action="Details">Oct 7, 2019</a><a asp-controller="Blogs" asp-action="Details">Admin</a><a asp-controller="Blogs" asp-action="Details">3 Comments</a></h6>
-                                                </div>
-                                                <h5><a asp-controller="Posts" asp-action="Details">Best Cardio Exercises</a></h5>
-                                                <p>Sometimes ‘short and sweet’ workouts are all you need. If you've done a HIIT workout before you would agree. Prepared do an dissuade be.</p>
-                                                <a asp-controller="Posts" asp-action="Details" class="blog-more">Read More</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    }
+
                                 </div>
                             </div>
                         </div>

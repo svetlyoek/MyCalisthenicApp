@@ -1,5 +1,6 @@
 ﻿namespace MyCalisthenicApp.Services
 {
+    using System.Linq;
     using System.Threading.Tasks;
 
     using AutoMapper;
@@ -23,6 +24,7 @@
         {
             var orderProducts = await this.dbContext.Orders
                 .Include(o => o.Products)
+                  .Where(c => c.IsDeleted == false)
                 .ToListAsync();
 
             var orderProductsViewModel = this.mapper.Map<ShoppingBagIndexProductsCountViewModel>(orderProducts);

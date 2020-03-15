@@ -23,7 +23,7 @@
         {
             await this.commentsService.CreateCommentAsync(id, inputModel);
 
-            return this.RedirectToAction("Index");
+            return this.PartialView(inputModel);
         }
     }
 }

@@ -27,6 +27,7 @@
         {
             var products = await this.dbContext
                 .Products.Include(i => i.Images)
+                  .Where(c => c.IsDeleted == false)
                 .Include(c => c.Category)
                 .ThenInclude(p => p.Products)
                 .ToListAsync();
@@ -41,6 +42,7 @@
         {
             var products = await this.dbContext
                 .Products.Include(i => i.Images)
+                  .Where(c => c.IsDeleted == false)
                 .Include(c => c.Category)
                 .Take(8)
                 .ToListAsync();
@@ -54,6 +56,7 @@
         {
             var products = await this.dbContext
                 .Products.Include(i => i.Images)
+                  .Where(c => c.IsDeleted == false)
                 .Include(c => c.Category)
                 .ThenInclude(p => p.Products)
                 .ToListAsync();
@@ -90,6 +93,7 @@
                  .Include(c => c.Category)
                  .ThenInclude(p => p.Products)
                  .Where(p => p.Category.Name == name)
+                   .Where(c => c.IsDeleted == false)
                  .ToListAsync();
 
             var productsViewModel = this.mapper.Map<IEnumerable<ProductsViewModel>>(products);
@@ -104,6 +108,7 @@
                 .Include(c => c.Category)
                 .Include(c => c.Comments)
                 .Where(p => p.Id == id)
+                  .Where(c => c.IsDeleted == false)
                 .FirstOrDefaultAsync();
 
             if (product == null)

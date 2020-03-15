@@ -323,6 +323,9 @@ namespace MyCalisthenicApp.Data.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
+                    b.Property<int?>("Type")
+                        .HasColumnType("int");
+
                     b.Property<string>("VideoUrl")
                         .HasColumnType("nvarchar(max)");
 

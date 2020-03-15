@@ -146,8 +146,7 @@
 
                                                 <h3 class="comment-reply-title">Leave a review</h3>
 
-                                                @Html.ActionLink(Model.Category.Id, "Create", "Comments", new { id = Model.Category.Id })
-
+                                                @*@Html.ActionLink("Create", "Comments", new { id = Model.Category.Id });*@
                                                 @await Html.PartialAsync("~/Views/Shared/Partials/_CommentPartial.cshtml",
                                                new CommentInputViewModel { })
 

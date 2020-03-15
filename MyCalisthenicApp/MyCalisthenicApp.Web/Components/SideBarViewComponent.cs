@@ -1,22 +1,25 @@
 ﻿namespace MyCalisthenicApp.Web.Components
 {
     using Microsoft.AspNetCore.Mvc;
+    using MyCalisthenicApp.Services.Contracts;
 
-    [ViewComponent(Name ="SideBar")]
+    [ViewComponent(Name = "SideBar")]
     public class SideBarViewComponent : ViewComponent
     {
-        public SideBarViewComponent()
+        private readonly IPostsService postsService;
+
+        public SideBarViewComponent(IPostsService postsService)
         {
-            //TODO
-            //Inject service here
+            this.postsService = postsService;
         }
 
-        //TODO Async
         public IViewComponentResult Invoke()
         {
-            //TODO View-list from latest n count of posts
+            var posts = this.postsService.GetFourLatestPosts()
+                .GetAwaiter()
+                .GetResult();
 
-            return View();
+            return this.View(posts);
         }
     }
 }

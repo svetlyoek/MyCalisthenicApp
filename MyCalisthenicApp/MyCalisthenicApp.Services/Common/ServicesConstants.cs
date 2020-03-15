@@ -2,7 +2,7 @@
 {
     public static class ServicesConstants
     {
-        // Shopping cart
+        // Shopping carts
         public const string InvalidShoppingCartForUser = "{0} does not have a shopping cart!";
 
         // Programs
@@ -14,6 +14,9 @@
         public const string ProductsOldestSortEnum = "Oldest";
         public const string ProductsPriceDescendingSortEnum = "PriceDescending";
         public const string ProductsPriceAscendingSortEnum = "PriceAscending";
+
+        // Posts
+        public const string InvalidPost = "Post with {0} id does not exists!";
 
     }
 }

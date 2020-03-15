@@ -5,6 +5,7 @@
     using System.ComponentModel.DataAnnotations;
 
     using MyCalisthenicApp.Data.Common.Models;
+    using MyCalisthenicApp.Models.BlogEntities.Enums;
     using MyCalisthenicApp.Models.ShopEntities;
 
     public class Post : BaseDeletableEntity<string>
@@ -35,6 +36,8 @@
         public string CategoryId { get; set; }
 
         public virtual BlogCategory Category { get; set; }
+
+        public CategoryType? Type { get; set; }
 
         public string VideoUrl { get; set; }
 
