@@ -16,5 +16,7 @@
         Task<IEnumerable<ProductsViewModel>> GetProductsAndSortAsync(string sort);
 
         Task<ProductDetailsViewModel> GetProductsByIdAsync(string id);
+
+        Task AddRatingAsync(string productId);
     }
 }

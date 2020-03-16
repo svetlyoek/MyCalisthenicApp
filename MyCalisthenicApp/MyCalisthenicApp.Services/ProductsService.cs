@@ -27,7 +27,7 @@
         {
             var products = await this.dbContext
                 .Products.Include(i => i.Images)
-                  .Where(c => c.IsDeleted == false)
+                 .Where(p => p.IsDeleted == false)
                 .Include(c => c.Category)
                 .ThenInclude(p => p.Products)
                 .ToListAsync();
@@ -42,7 +42,7 @@
         {
             var products = await this.dbContext
                 .Products.Include(i => i.Images)
-                  .Where(c => c.IsDeleted == false)
+                  .Where(p => p.IsDeleted == false)
                 .Include(c => c.Category)
                 .Take(8)
                 .ToListAsync();
@@ -56,7 +56,7 @@
         {
             var products = await this.dbContext
                 .Products.Include(i => i.Images)
-                  .Where(c => c.IsDeleted == false)
+                  .Where(p => p.IsDeleted == false)
                 .Include(c => c.Category)
                 .ThenInclude(p => p.Products)
                 .ToListAsync();
@@ -93,7 +93,7 @@
                  .Include(c => c.Category)
                  .ThenInclude(p => p.Products)
                  .Where(p => p.Category.Name == name)
-                   .Where(c => c.IsDeleted == false)
+                   .Where(p => p.IsDeleted == false)
                  .ToListAsync();
 
             var productsViewModel = this.mapper.Map<IEnumerable<ProductsViewModel>>(products);
@@ -108,7 +108,7 @@
                 .Include(c => c.Category)
                 .Include(c => c.Comments)
                 .Where(p => p.Id == id)
-                  .Where(c => c.IsDeleted == false)
+                  .Where(p => p.IsDeleted == false)
                 .FirstOrDefaultAsync();
 
             if (product == null)
@@ -119,6 +119,18 @@
             var productViewModel = this.mapper.Map<ProductDetailsViewModel>(product);
 
             return productViewModel;
+        }
+
+        public async Task AddRatingAsync(string productId)
+        {
+            var product = await this.dbContext.Products.
+                FirstOrDefaultAsync(p => p.Id == productId);
+
+            product.Rating += 1;
+
+            this.dbContext.Update(product);
+
+            await this.dbContext.SaveChangesAsync();
         }
     }
 }

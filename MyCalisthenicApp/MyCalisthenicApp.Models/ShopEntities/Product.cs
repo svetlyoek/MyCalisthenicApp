@@ -36,7 +36,7 @@
 
         public ProductCategoryType? Type { get; set; }
 
-        public int? LikesCount { get; set; }
+        public int? Rating { get; set; }
 
         [Required]
         [MaxLength(DataValidations.ProductDescriptionMaxLength)]

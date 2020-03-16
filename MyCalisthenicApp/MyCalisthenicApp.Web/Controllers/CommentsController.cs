@@ -18,12 +18,38 @@
         }
 
         [HttpPost]
-        [Route("/Comments/Create")]
         public async Task<IActionResult> Create(string id, CommentInputViewModel inputModel)
         {
-            await this.commentsService.CreateCommentAsync(id, inputModel);
+            if (!this.ModelState.IsValid)
+            {
+                return this.View("Error404");
+            }
 
-            return this.PartialView(inputModel);
+            var comment = await this.commentsService.CreateCommentAsync(id, inputModel);
+
+            if (comment.ProductId != null)
+            {
+                return this.LocalRedirect($"/Products/Details?id={id}");
+            }
+
+            if (comment.PostId != null)
+            {
+                return this.LocalRedirect($"/Posts/Details?id={id}");
+            }
+
+            if (comment.ProgramId != null)
+            {
+                return this.LocalRedirect($"/Programs/Details?id={id}");
+            }
+
+            return this.LocalRedirect("/Home/Index");
+        }
+
+        public async Task<IActionResult> Rate(string postId, string commentId)
+        {
+            await this.commentsService.AddRatingAsync(commentId);
+
+            return this.LocalRedirect($"/Posts/Details?id={postId}");
         }
     }
 }

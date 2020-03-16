@@ -23,6 +23,18 @@
             this.mapper = mapper;
         }
 
+        public async Task AddRatingAsync(string postId)
+        {
+            var post = await this.dbContext.Post.
+                FirstOrDefaultAsync(p => p.Id == postId);
+
+            post.Rating += 1;
+
+            this.dbContext.Update(post);
+
+            await this.dbContext.SaveChangesAsync();
+        }
+
         public async Task<IEnumerable<PostDetailsViewModel>> GetAllPostsAsync()
         {
             var posts = await this.dbContext.Post
@@ -43,7 +55,7 @@
             var posts = await this.dbContext.Post
                  .Include(i => i.Images)
                  .Where(p => p.IsPublic == true)
-                 .Where(c => c.IsDeleted == false)
+                 .Where(p => p.IsDeleted == false)
                  .OrderByDescending(p => p.CreatedOn)
                  .Take(4)
                  .ToListAsync();
@@ -62,7 +74,7 @@
                 .Include(i => i.Images)
                 .Include(cm => cm.Comments)
                 .Where(p => p.IsPublic == true)
-                 .Where(c => c.IsDeleted == false)
+                 .Where(p => p.IsDeleted == false)
                 .Take(8).ToListAsync();
 
             var postsViewModel = this.mapper.Map<IEnumerable<PopularPostsHomeViewModel>>(posts);

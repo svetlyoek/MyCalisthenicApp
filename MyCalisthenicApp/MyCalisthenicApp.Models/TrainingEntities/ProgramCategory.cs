@@ -14,7 +14,6 @@
             this.Id = Guid.NewGuid().ToString();
             this.IsDeleted = false;
             this.CreatedOn = DateTime.UtcNow;
-            this.Comments = new HashSet<Comment>();
             this.Exercises = new HashSet<Exercise>();
             this.Programs = new HashSet<Program>();
         }
@@ -30,8 +29,6 @@
         public int? LikeCount { get; set; }
 
         public virtual ICollection<Program> Programs { get; set; }
-
-        public virtual ICollection<Comment> Comments { get; set; }
 
         public virtual ICollection<Exercise> Exercises { get; set; }
     }

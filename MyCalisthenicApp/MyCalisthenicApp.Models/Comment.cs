@@ -35,8 +35,8 @@
 
         public virtual Product Product { get; set; }
 
-        public string CategoryId { get; set; }
+        public string ProgramId { get; set; }
 
-        public virtual ProgramCategory Category { get; set; }
+        public virtual Program Program { get; set; }
     }
 }

@@ -19,6 +19,12 @@
                 .WithMany(c => c.Programs)
                 .HasForeignKey(p => p.CategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            program
+                .HasMany(p => p.Comments)
+                .WithOne(c => c.Program)
+                .HasForeignKey(c => c.ProgramId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

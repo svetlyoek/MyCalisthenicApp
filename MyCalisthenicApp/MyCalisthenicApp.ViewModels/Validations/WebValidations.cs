@@ -16,5 +16,6 @@
         // Comment validations
         public const int CommentMessageMaxLength = 200;
         public const int CommentMessageMinLength = 10;
+        public const string InvalidCommentTextLength = "Text must be between {2} and {1} symbols.";
     }
 }

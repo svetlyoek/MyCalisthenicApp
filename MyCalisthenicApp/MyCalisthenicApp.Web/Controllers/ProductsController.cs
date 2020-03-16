@@ -56,5 +56,12 @@
 
             return this.View("Index", products);
         }
+
+        public async Task<IActionResult> Rate(string productId)
+        {
+            await this.productsService.AddRatingAsync(productId);
+
+            return this.RedirectToAction(nameof(this.Details), new { id = productId });
+        }
     }
 }

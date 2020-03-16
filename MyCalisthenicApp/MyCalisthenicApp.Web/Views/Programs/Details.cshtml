@@ -120,7 +120,7 @@
                                         <p style="font-size:18px;"><i style="color:dodgerblue;font-size:22px;" class="fa fa-thumbs-up"></i>@(Model.Category.LikeCount == null ? 0 : Model.Category.LikeCount)</p>
                                         <div id="comments" class="comments-area comments-area-wrapper">
                                             <h4 class="comments-title">Reviews</h4>
-                                            @foreach (var comment in Model.Category.Comments)
+                                            @foreach (var comment in Model.Comments.OrderByDescending(c => c.CreatedOn))
                                             {
                                                 <ul class="comment-list">
                                                     <li class="comment">
@@ -136,6 +136,7 @@
                                                                         <p>@comment.Text</p>
                                                                     </div>
                                                                     <p><i style="color:dodgerblue;" class="fa fa-thumbs-up"></i>@(comment.Rating == null ? 0 : comment.Rating)</p>
+                                                                    <span class="text-dark">@comment.CreatedOn.ToString("dd/MM/yyyy")</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -146,9 +147,8 @@
 
                                                 <h3 class="comment-reply-title">Leave a review</h3>
 
-                                                @*@Html.ActionLink("Create", "Comments", new { id = Model.Category.Id });*@
                                                 @await Html.PartialAsync("~/Views/Shared/Partials/_CommentPartial.cshtml",
-                                               new CommentInputViewModel { })
+                                               new CommentInputViewModel { Id = Model.Id })
 
                                             </div>
                                         </div>

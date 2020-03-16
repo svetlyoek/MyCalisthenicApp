@@ -47,8 +47,8 @@
             var exercises = await this.exercisesService.GetExercisesByCategoryIdAsync(category.Id);
             category.Exercises = exercises;
 
-            var comments = await this.commentsService.GetCommentsByCategoryIdAsync(category.Id);
-            category.Comments = comments;
+            var comments = await this.commentsService.GetCommentsByProgramIdAsync(id);
+            programDetails.Comments = comments;
 
             return this.View(programDetails);
         }

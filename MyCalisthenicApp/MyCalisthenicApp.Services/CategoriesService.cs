@@ -24,7 +24,6 @@
         {
             var category = await this.dbContext
                 .ProgramCategories
-                .Include(cm => cm.Comments)
                 .Include(ex => ex.Exercises)
                 .Where(c => c.Programs.Any(p => p.Id == id))
                 .Where(c => c.IsDeleted == false)

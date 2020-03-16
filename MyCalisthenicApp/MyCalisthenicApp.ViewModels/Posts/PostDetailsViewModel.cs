@@ -21,6 +21,8 @@
 
         public string Description { get; set; }
 
+        public int? Rating { get; set; }
+
         public IEnumerable<CommentViewModel> Comments { get; set; }
     }
 }

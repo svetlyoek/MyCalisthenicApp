@@ -77,9 +77,14 @@
                             </div>
                         </article>
 
+                      @*//Likes*@
+
+                        <button class="btn-primary" type="button" onClick="clickMe()">Like</button>
+                        <p class="text-dark"><i style="color:dodgerblue;font-size:22px;" class="fa fa-thumbs-up"></i><a class="text-dark" id="likes">@(Model.Rating == null ? 0 : Model.Rating)</a></p>
+
                         <div id="comments" class="comments-area comments-area-wrapper">
                             <h4 class="comments-title">Comments</h4>
-                            @foreach (var comment in Model.Comments)
+                            @foreach (var comment in Model.Comments.OrderByDescending(c => c.CreatedOn))
                             {
                                 <ul class="comment-list">
                                     <li class="comment">
@@ -94,7 +99,18 @@
                                                     <div class="comment-content">
                                                         <p>@comment.Text</p>
                                                     </div>
-                                                    <p><i style="color:dodgerblue;" class="fa fa-thumbs-up"></i>@(comment.Rating == null ? 0 : comment.Rating)</p>
+                                                    @*<script type="text/javascript">
+                                                          var likes = @comment.Rating;
+                                                              function onClick() {
+                                                              likes += 1;
+                                                              document.getElementById("likes").innerHTML = likes;
+                                                              location.href = '@Url.Action("Rate","Comments",new { commentId=comment.Id,postId=Model.Id})';
+                                                              };
+                                                        </script>
+                                                        <button class="btn-primary" type="button" onClick="onClick()">Like</button>
+                                                        <p class="text-dark"><i style="color:dodgerblue;font-size:22px;" class="fa fa-thumbs-up"></i><a class="text-dark" id="likes">@(comment.Rating == null ? 0 : comment.Rating)</a></p>*@
+
+                                                    <span class="text-dark">@comment.CreatedOn.ToString("dd/MM/yyyy")</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -106,7 +122,7 @@
                                 <h3 class="comment-reply-title">Leave A Reply</h3>
 
                                 @await Html.PartialAsync("~/Views/Shared/Partials/_CommentPartial.cshtml",
-                                         new CommentInputViewModel { })
+                                         new CommentInputViewModel { Id = Model.Id })
 
                             </div>
 
@@ -118,7 +134,14 @@
             </div>
         </main>
     </div>
-
+    <script type="text/javascript">
+                            var likes = @Model.Rating;
+                            function clickMe() {
+                                //likes += 1;
+                                //document.getElementById("likes").innerHTML = likes;
+                            location.href = '@Url.Action("Rate","Posts",new { postId=Model.Id})';
+        };
+          </script>
     <!-- back to top area end -->
     <!-- jquery -->
     <script src="/assets/js/jquery-2.2.4.min.js"></script>

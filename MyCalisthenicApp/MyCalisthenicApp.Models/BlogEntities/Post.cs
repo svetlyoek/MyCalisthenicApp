@@ -37,6 +37,8 @@
 
         public virtual BlogCategory Category { get; set; }
 
+        public int? Rating { get; set; }
+
         public CategoryType? Type { get; set; }
 
         public string VideoUrl { get; set; }

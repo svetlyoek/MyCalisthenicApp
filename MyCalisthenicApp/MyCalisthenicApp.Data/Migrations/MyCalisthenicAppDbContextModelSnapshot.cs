@@ -15,7 +15,7 @@ namespace MyCalisthenicApp.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.1")
+                .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -318,6 +318,9 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("Rating")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
@@ -347,9 +350,6 @@ namespace MyCalisthenicApp.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("CategoryId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
@@ -368,6 +368,9 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.Property<string>("ProductId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("ProgramId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int?>("Rating")
                         .HasColumnType("int");
 
@@ -380,11 +383,11 @@ namespace MyCalisthenicApp.Data.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.HasIndex("CategoryId");
-
                     b.HasIndex("PostId");
 
                     b.HasIndex("ProductId");
+
+                    b.HasIndex("ProgramId");
 
                     b.ToTable("Comments");
                 });
@@ -448,6 +451,9 @@ namespace MyCalisthenicApp.Data.Migrations
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("Rating")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -752,9 +758,6 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.Property<bool>("IsSoldOut")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("LikesCount")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
@@ -765,6 +768,9 @@ namespace MyCalisthenicApp.Data.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(5,2)");
+
+                    b.Property<int?>("Rating")
+                        .HasColumnType("int");
 
                     b.Property<int?>("Size")
                         .HasColumnType("int");
@@ -1071,11 +1077,6 @@ namespace MyCalisthenicApp.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("MyCalisthenicApp.Models.ProgramCategory", "Category")
-                        .WithMany("Comments")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("MyCalisthenicApp.Models.BlogEntities.Post", "Post")
                         .WithMany("Comments")
                         .HasForeignKey("PostId")
@@ -1084,6 +1085,11 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.HasOne("MyCalisthenicApp.Models.ShopEntities.Product", "Product")
                         .WithMany("Comments")
                         .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("MyCalisthenicApp.Models.Program", "Program")
+                        .WithMany("Comments")
+                        .HasForeignKey("ProgramId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

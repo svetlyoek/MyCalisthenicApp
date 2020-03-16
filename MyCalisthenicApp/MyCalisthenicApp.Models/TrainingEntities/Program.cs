@@ -17,6 +17,7 @@
             this.IsDeleted = false;
             this.CreatedOn = DateTime.UtcNow;
             this.Images = new HashSet<Image>();
+            this.Comments = new HashSet<Comment>();
         }
 
         [Required]
@@ -32,10 +33,14 @@
         [Required]
         public string CategoryId { get; set; }
 
+        public int? Rating { get; set; }
+
         public MembershipType MembershipType { get; set; }
 
         public virtual ProgramCategory Category { get; set; }
 
         public virtual ICollection<Image> Images { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

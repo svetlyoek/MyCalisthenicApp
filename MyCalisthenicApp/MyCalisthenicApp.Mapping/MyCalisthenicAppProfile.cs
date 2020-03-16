@@ -7,7 +7,6 @@
     using MyCalisthenicApp.Models.BlogEntities;
     using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.Models.TrainingEntities;
-    using MyCalisthenicApp.ViewModels.Categories;
     using MyCalisthenicApp.ViewModels.Comments;
     using MyCalisthenicApp.ViewModels.Exercises;
     using MyCalisthenicApp.ViewModels.Memberships;
@@ -60,6 +59,7 @@
 
             this.CreateMap<Post, PostDetailsSidebarViewModel>()
                 .ForMember(x => x.ImageUrl, y => y.MapFrom(src => src.Images.Select(i => i.Url).FirstOrDefault()));
+
         }
     }
 }

@@ -134,11 +134,14 @@
                             <div style="width:700px;" id="review" class="tab-pane fade">
                                 <div class="tab-content-description">
                                     <div id="comments" class="comments-area comments-area-wrapper">
-                                        <h5>Likes</h5>
-                                        <p style="font-size:18px;"><i style="color:dodgerblue;font-size:22px;" class="fa fa-thumbs-up"></i>@(Model.LikesCount == null ? 0 : Model.LikesCount)</p>
+
+                                        @*Likes*@
+
+                                        <button class="btn-primary" type="button" onClick="clickMe()">Like</button>
+                                        <p class="text-dark"><i style="color:dodgerblue;font-size:22px;" class="fa fa-thumbs-up"></i><a class="text-dark" id="likes">@(Model.Rating == null ? 0 : Model.Rating)</a></p>
                                         <div id="comments" class="comments-area comments-area-wrapper">
                                             <h4 class="comments-title">Reviews</h4>
-                                            @foreach (var comment in Model.Comments)
+                                            @foreach (var comment in Model.Comments.OrderByDescending(c => c.CreatedOn))
                                             {
                                                 <ul class="comment-list">
                                                     <li class="comment">
@@ -154,19 +157,20 @@
                                                                         <p>@comment.Text</p>
                                                                     </div>
                                                                     <p><i style="color:dodgerblue;" class="fa fa-thumbs-up"></i>@(comment.Rating == null ? 0 : comment.Rating)</p>
+                                                                    <span class="text-dark">@comment.CreatedOn.ToString("dd/MM/yyyy")</span>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </li>
                                                 </ul>
                                             }
-                                        <div id="respond" class="comment-respond">
-                                            <h3 class="comment-reply-title">Leave A Comment</h3>
+                                            <div id="respond" class="comment-respond">
+                                                <h3 class="comment-reply-title">Leave A Comment</h3>
 
-                                            @await Html.PartialAsync("~/Views/Shared/Partials/_CommentPartial.cshtml",
-                                         new CommentInputViewModel { })
+                                                @await Html.PartialAsync("~/Views/Shared/Partials/_CommentPartial.cshtml",
+                                                 new CommentInputViewModel { Id = Model.Id })
 
-                                        </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -191,7 +195,14 @@
                 </div>
             </div>
         </div>
-
+        <script type="text/javascript">
+                                             var likes = @Model.Rating;
+                                             function clickMe() {
+                                             likes += 1;
+                                             document.getElementById("likes").innerHTML = likes;
+                                             location.href = '@Url.Action("Rate","Products",new { productId=Model.Id})';
+                                             };
+        </script>
         <!-- jquery -->
         <script src="/assets/js/jquery-2.2.4.min.js"></script>
         <!-- popper -->

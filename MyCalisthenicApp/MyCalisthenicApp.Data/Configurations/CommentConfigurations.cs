@@ -27,9 +27,9 @@
                 .OnDelete(DeleteBehavior.Restrict);
 
             comment
-                .HasOne(c => c.Category)
-                .WithMany(cat => cat.Comments)
-                .HasForeignKey(c => c.CategoryId)
+                .HasOne(c => c.Program)
+                .WithMany(p => p.Comments)
+                .HasForeignKey(c => c.ProgramId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

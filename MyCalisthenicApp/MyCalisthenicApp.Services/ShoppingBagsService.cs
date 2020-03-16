@@ -24,7 +24,7 @@
         {
             var orderProducts = await this.dbContext.Orders
                 .Include(o => o.Products)
-                  .Where(c => c.IsDeleted == false)
+                  .Where(s => s.IsDeleted == false)
                 .ToListAsync();
 
             var orderProductsViewModel = this.mapper.Map<ShoppingBagIndexProductsCountViewModel>(orderProducts);

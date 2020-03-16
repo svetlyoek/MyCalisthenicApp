@@ -45,5 +45,12 @@
 
             return this.View("Index", sortedPosts);
         }
+
+        public async Task<IActionResult> Rate(string postId)
+        {
+            await this.postsService.AddRatingAsync(postId);
+
+            return this.RedirectToAction(nameof(this.Details), new { id = postId });
+        }
     }
 }
