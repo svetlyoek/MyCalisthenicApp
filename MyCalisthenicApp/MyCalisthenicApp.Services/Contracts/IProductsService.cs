@@ -17,6 +17,8 @@
 
         Task<ProductDetailsViewModel> GetProductsByIdAsync(string id);
 
-        Task AddRatingAsync(string productId);
+        Task AddRatingAsync(string id);
+
+        bool GetProductById(string id);
     }
 }

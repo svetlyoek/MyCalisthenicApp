@@ -114,16 +114,42 @@
             return commentsViewModel;
         }
 
-        public async Task AddRatingAsync(string commentId)
+        public async Task<string> AddRatingAsync(string id)
         {
-            var comment = await this.dbContext.Comments.
-                FirstOrDefaultAsync(p => p.Id == commentId);
+            string returnId = string.Empty;
 
-            comment.Rating += 1;
+            var comment = await this.dbContext.Comments.
+                FirstOrDefaultAsync(p => p.Id == id);
+
+            if (comment.Rating == null)
+            {
+                comment.Rating = 1;
+            }
+            else
+            {
+                comment.Rating += 1;
+            }
+
+            if (comment.PostId != null)
+            {
+                returnId = comment.PostId;
+            }
+
+            if (comment.ProductId != null)
+            {
+                returnId = comment.ProductId;
+            }
+
+            if (comment.ProgramId != null)
+            {
+                returnId = comment.ProgramId;
+            }
 
             this.dbContext.Update(comment);
 
             await this.dbContext.SaveChangesAsync();
+
+            return returnId;
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿namespace MyCalisthenicApp.Web.Controllers
 {
     using System.Threading.Tasks;
-
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using MyCalisthenicApp.Services.Contracts;
 
@@ -57,11 +57,12 @@
             return this.View("Index", products);
         }
 
-        public async Task<IActionResult> Rate(string productId)
+        [Authorize]
+        public async Task<IActionResult> Rate(string id)
         {
-            await this.productsService.AddRatingAsync(productId);
+            await this.productsService.AddRatingAsync(id);
 
-            return this.RedirectToAction(nameof(this.Details), new { id = productId });
+            return this.RedirectToAction(nameof(this.Details), new { id = id });
         }
     }
 }

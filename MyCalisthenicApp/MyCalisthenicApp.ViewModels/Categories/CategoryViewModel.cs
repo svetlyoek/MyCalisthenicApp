@@ -10,7 +10,7 @@
 
         public string Name { get; set; }
 
-        public int? LikeCount { get; set; }
+        public int? Rating { get; set; }
 
         public IEnumerable<ExercisesViewModel> Exercises { get; set; }
     }

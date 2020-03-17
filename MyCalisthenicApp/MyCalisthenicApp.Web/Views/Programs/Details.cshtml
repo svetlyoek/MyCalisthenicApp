@@ -116,8 +116,8 @@
                                         </div>
                                     </div>
                                     <div id="menu2" class="tab-pane fade">
-                                        <h5>Likes</h5>
-                                        <p style="font-size:18px;"><i style="color:dodgerblue;font-size:22px;" class="fa fa-thumbs-up"></i>@(Model.Category.LikeCount == null ? 0 : Model.Category.LikeCount)</p>
+                                        <a asp-controller="Programs" asp-action="Rate" asp-route-id="@Model.Id" class="btn-primary p-1 pl-3 pr-3">Like</a>
+                                        <p class="text-dark mt-2"><i style="color:dodgerblue;font-size:22px;" class="fa fa-thumbs-up"></i><a class="text-dark" id="likes">@(Model.Rating == null ? 0 : Model.Rating)</a></p>
                                         <div id="comments" class="comments-area comments-area-wrapper">
                                             <h4 class="comments-title">Reviews</h4>
                                             @foreach (var comment in Model.Comments.OrderByDescending(c => c.CreatedOn))
@@ -135,8 +135,10 @@
                                                                     <div class="comment-content">
                                                                         <p>@comment.Text</p>
                                                                     </div>
-                                                                    <p><i style="color:dodgerblue;" class="fa fa-thumbs-up"></i>@(comment.Rating == null ? 0 : comment.Rating)</p>
-                                                                    <span class="text-dark">@comment.CreatedOn.ToString("dd/MM/yyyy")</span>
+                                                                    <span class="text-dark">@comment.CreatedOn.ToString("dd/MM/yyyy")</span><br /><br />
+                                                                    <a asp-controller="Comments" asp-action="Rate" asp-route-id="@comment.Id" class="btn-primary pt-1 pb-1 pl-2 pr-2" style="font-size:15px;">Like</a>
+                                                                    <p class="text-dark mt-2"><i style="color:dodgerblue;font-size:22px;" class="fa fa-thumbs-up"></i><a class="text-dark" id="likes">@(comment.Rating == null ? 0 : comment.Rating)</a></p>
+
                                                                 </div>
                                                             </div>
                                                         </div>

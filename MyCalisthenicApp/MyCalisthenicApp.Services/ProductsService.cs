@@ -121,16 +121,31 @@
             return productViewModel;
         }
 
-        public async Task AddRatingAsync(string productId)
+        public async Task AddRatingAsync(string id)
         {
             var product = await this.dbContext.Products.
-                FirstOrDefaultAsync(p => p.Id == productId);
+                FirstOrDefaultAsync(p => p.Id == id);
 
-            product.Rating += 1;
+            if (product.Rating == null)
+            {
+                product.Rating = 1;
+            }
+            else
+            {
+                product.Rating += 1;
+            }
 
             this.dbContext.Update(product);
 
             await this.dbContext.SaveChangesAsync();
         }
+
+        public bool GetProductById(string id)
+        {
+            return this.dbContext.Products
+                .Where(p => p.IsDeleted == false)
+                .Any(p => p.Id == id);
+        }
+
     }
 }

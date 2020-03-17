@@ -11,10 +11,19 @@
     public class CommentsController : BaseController
     {
         private readonly ICommentsService commentsService;
+        private readonly IProductsService productsService;
+        private readonly IProgramsService programsService;
 
-        public CommentsController(ICommentsService commentsService)
+        public CommentsController(
+            ICommentsService commentsService,
+            IPostsService postsService,
+            IProductsService productsService,
+            IProgramsService programsService)
         {
             this.commentsService = commentsService;
+            this.postsService = postsService;
+            this.productsService = productsService;
+            this.programsService = programsService;
         }
 
         [HttpPost]
@@ -22,7 +31,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.View("Error404");
+                return this.Redirect("~/Error404");
             }
 
             var comment = await this.commentsService.CreateCommentAsync(id, inputModel);
@@ -45,11 +54,22 @@
             return this.LocalRedirect("/Home/Index");
         }
 
-        public async Task<IActionResult> Rate(string postId, string commentId)
+        public async Task<IActionResult> Rate(string id)
         {
-            await this.commentsService.AddRatingAsync(commentId);
+            var returnId = await this.commentsService.AddRatingAsync(id);
 
-            return this.LocalRedirect($"/Posts/Details?id={postId}");
+            if (this.programsService.GetProgramById(returnId))
+            {
+                return this.LocalRedirect($"/Programs/Details?id={returnId}");
+            }
+            else if (this.productsService.GetProductById(returnId))
+            {
+                return this.LocalRedirect($"/Products/Details?id={returnId}");
+            }
+            else
+            {
+                return this.LocalRedirect($"/Posts/Details?id={returnId}");
+            }
         }
     }
 }

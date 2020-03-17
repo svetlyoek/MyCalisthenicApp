@@ -23,12 +23,19 @@
             this.mapper = mapper;
         }
 
-        public async Task AddRatingAsync(string postId)
+        public async Task AddRatingAsync(string id)
         {
             var post = await this.dbContext.Post.
-                FirstOrDefaultAsync(p => p.Id == postId);
+                FirstOrDefaultAsync(p => p.Id == id);
 
-            post.Rating += 1;
+            if (post.Rating == null)
+            {
+                post.Rating = 1;
+            }
+            else
+            {
+                post.Rating += 1;
+            }
 
             this.dbContext.Update(post);
 
@@ -80,6 +87,12 @@
             var postsViewModel = this.mapper.Map<IEnumerable<PopularPostsHomeViewModel>>(posts);
 
             return postsViewModel;
+        }
+
+        public bool GetPostById(string id)
+        {
+            return this.dbContext.Post.Where(p => p.IsDeleted == false)
+                 .Where(p => p.IsPublic == true).Any(p => p.Id == id);
         }
 
         public async Task<PostDetailsViewModel> GetPostDetailsById(string id)

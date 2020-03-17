@@ -14,5 +14,9 @@
         Task<IEnumerable<ProgramViewModel>> GetAllProgramsAsync();
 
         Task<IEnumerable<ProgramViewModel>> GetProgramsByCategoryAsync(string type);
+
+        Task AddRatingAsync(string id);
+
+        bool GetProgramById(string id);
     }
 }

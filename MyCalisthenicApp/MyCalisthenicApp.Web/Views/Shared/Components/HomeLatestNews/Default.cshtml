@@ -23,7 +23,7 @@
                         </div>
                         <div class="content">
                             <div class="blog-meta">
-                                <h6 class="d-flex justify-content-between"><i class="fa fa-user-o" aria-hidden="true"></i>@post.AuthorName<i class="fa fa-comment-o" aria-hidden="true"></i>@post.CommentsCount</h6>
+                                <h6 class="d-flex justify-content-between"><i class="fa fa-user-o" aria-hidden="true"></i>@post.AuthorName<i class="fa fa-comment-o" aria-hidden="true"></i>@(post.Rating == null ? 0 : post.Rating)</h6>
                             </div>
                             <h3><a asp-controller="Posts" asp-action="Details" asp-route-id="@post.Id">@post.Title</a></h3>
                             <p>@post.Description</p>

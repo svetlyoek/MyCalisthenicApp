@@ -12,7 +12,7 @@
 
         public string AuthorName { get; set; }
 
-        public int? CommentsCount { get; set; }
+        public int? Rating { get; set; }
 
         public string Title { get; set; }
 

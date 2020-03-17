@@ -26,7 +26,7 @@
         [MaxLength(DataValidations.ProgramCategoryDescriptionMaxLength)]
         public string Description { get; set; }
 
-        public int? LikeCount { get; set; }
+        public int? Rating { get; set; }
 
         public virtual ICollection<Program> Programs { get; set; }
 

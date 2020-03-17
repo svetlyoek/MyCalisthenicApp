@@ -16,6 +16,6 @@
 
         Task<Comment> CreateCommentAsync(string id, CommentInputViewModel commentModel);
 
-        Task AddRatingAsync(string commentId);
+        Task<string> AddRatingAsync(string id);
     }
 }

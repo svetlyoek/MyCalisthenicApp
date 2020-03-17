@@ -83,5 +83,31 @@
 
             return programsViewModel;
         }
+
+        public async Task AddRatingAsync(string id)
+        {
+            var program = await this.dbContext.Programs.
+                FirstOrDefaultAsync(p => p.Id == id);
+
+            if (program.Rating == null)
+            {
+                program.Rating = 1;
+            }
+            else
+            {
+                program.Rating += 1;
+            }
+
+            this.dbContext.Update(program);
+
+            await this.dbContext.SaveChangesAsync();
+        }
+
+        public bool GetProgramById(string id)
+        {
+            return this.dbContext.Programs
+                .Where(p => p.IsDeleted == false)
+                .Any(p => p.Id == id);
+        }
     }
 }

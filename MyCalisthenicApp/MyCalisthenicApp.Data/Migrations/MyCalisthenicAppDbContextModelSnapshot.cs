@@ -489,9 +489,6 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("LikeCount")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
@@ -499,6 +496,9 @@ namespace MyCalisthenicApp.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
+
+                    b.Property<int?>("Rating")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

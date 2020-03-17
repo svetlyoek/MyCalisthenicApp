@@ -50,8 +50,7 @@
 
             this.CreateMap<Post, PopularPostsHomeViewModel>()
                 .ForMember(x => x.ImageUrl, y => y.MapFrom(src => src.Images.Select(i => i.Url).FirstOrDefault()))
-                .ForMember(x => x.AuthorName, y => y.MapFrom(src => src.Author.FirstName + " " + src.Author.LastName))
-                .ForMember(x => x.CommentsCount, y => y.MapFrom(src => src.Comments.Count));
+                .ForMember(x => x.AuthorName, y => y.MapFrom(src => src.Author.FirstName + " " + src.Author.LastName));
 
             this.CreateMap<Post, PostDetailsViewModel>()
                 .ForMember(x => x.ImageUrl, y => y.MapFrom(src => src.Images.Select(i => i.Url).FirstOrDefault()))

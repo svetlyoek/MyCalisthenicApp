@@ -17,7 +17,8 @@
 
         Task<IEnumerable<PostDetailsViewModel>> SortPostsByCategoryAsync(string sort);
 
-        Task AddRatingAsync(string postId);
+        Task AddRatingAsync(string id);
 
+        bool GetPostById(string id);
     }
 }
