@@ -86,7 +86,7 @@
                         <p class="price">Price: $@Model.Price <span>$@spanPrice.ToString("0.00")</span> </p>
                         <p class="text-dark">@Model.Description</p>
                         <div class="btn-wrapper">
-                            <a asp-controller="ShoppingBags" asp-action="Index" class="btn btn-element btn-medium-size btn-main-color btn-rounded">Add To Cart</a>
+                            <a asp-controller="Orders" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-element btn-medium-size btn-main-color btn-rounded">Add To Cart</a>
                         </div>
                     </div>
                 </div>
@@ -193,39 +193,39 @@
                 </div>
             </div>
         </div>
-
-        <!-- jquery -->
-        <script src="/assets/js/jquery-2.2.4.min.js"></script>
-        <!-- popper -->
-        <script src="/assets/js/popper.min.js"></script>
-        <!-- bootstrap -->
-        <script src="/assets/js/bootstrap.min.js"></script>
-        <!-- magnific popup -->
-        <script src="/assets/js/jquery.magnific-popup.js"></script>
-        <!-- wow -->
-        <script src="/assets/js/wow.min.js"></script>
-        <!-- nice select -->
-        <script src="/assets/js/nice-select.js"></script>
-        <!-- counter up -->
-        <script src="/assets/js/counter-up.js"></script>
-        <!-- owl carousel -->
-        <script src="/assets/js/owl.carousel.min.js"></script>
-        <!-- Slick -->
-        <script src="/assets/js/slick.min.js"></script>
-        <!-- Slick Animation -->
-        <script src="/assets/js/slick-animation.js"></script>
-        <!-- waypoint -->
-        <script src="/assets/js/waypoints.min.js"></script>
-        <!-- counterup -->
-        <script src="/assets/js/jquery.counterup.min.js"></script>
-        <!-- imageloaded -->
-        <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
-        <!-- isotope -->
-        <script src="/assets/js/isotope.pkgd.min.js"></script>
-        <!-- rProgressbar -->
-        <script src="/assets/js/jQuery.rProgressbar.min.js"></script>
-        <!-- main js -->
-        <script src="/assets/js/main.js"></script>
-        <script src="/assets/js/script.js"></script>
+    </div>
+    <!-- jquery -->
+    <script src="/assets/js/jquery-2.2.4.min.js"></script>
+    <!-- popper -->
+    <script src="/assets/js/popper.min.js"></script>
+    <!-- bootstrap -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <!-- magnific popup -->
+    <script src="/assets/js/jquery.magnific-popup.js"></script>
+    <!-- wow -->
+    <script src="/assets/js/wow.min.js"></script>
+    <!-- nice select -->
+    <script src="/assets/js/nice-select.js"></script>
+    <!-- counter up -->
+    <script src="/assets/js/counter-up.js"></script>
+    <!-- owl carousel -->
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <!-- Slick -->
+    <script src="/assets/js/slick.min.js"></script>
+    <!-- Slick Animation -->
+    <script src="/assets/js/slick-animation.js"></script>
+    <!-- waypoint -->
+    <script src="/assets/js/waypoints.min.js"></script>
+    <!-- counterup -->
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <!-- imageloaded -->
+    <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+    <!-- isotope -->
+    <script src="/assets/js/isotope.pkgd.min.js"></script>
+    <!-- rProgressbar -->
+    <script src="/assets/js/jQuery.rProgressbar.min.js"></script>
+    <!-- main js -->
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/script.js"></script>
 </body>
 </html>

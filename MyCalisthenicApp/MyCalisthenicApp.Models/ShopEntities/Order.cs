@@ -17,11 +17,9 @@
             this.Products = new HashSet<OrderProduct>();
         }
 
-        public OrderStatus Status { get; set; }
+        public OrderStatus? Status { get; set; }
 
         public PaymentStatus PaymentStatus { get; set; }
-
-        public DateTime? OrderDate { get; set; }
 
         public DateTime? EstimatedDeliveryDate { get; set; }
 
@@ -37,7 +35,7 @@
 
         [RegularExpression(@"^\d+\.\d{0,2}$")]
         [Range(DataValidations.OrderTotalPriceMinValue, double.MaxValue)]
-        public decimal DeliveryPrice { get; set; }
+        public decimal? DeliveryPrice { get; set; }
 
         public string Recipient { get; set; }
 
@@ -47,14 +45,13 @@
 
         public string EasyPayNumber { get; set; }
 
-        public PaymentType PaymentType { get; set; }
+        public PaymentType? PaymentType { get; set; }
 
         [Required]
         public string UserId { get; set; }
 
         public ApplicationUser User { get; set; }
 
-        [Required]
         public string DeliveryAddressId { get; set; }
 
         public virtual Address DeliveryAddress { get; set; }

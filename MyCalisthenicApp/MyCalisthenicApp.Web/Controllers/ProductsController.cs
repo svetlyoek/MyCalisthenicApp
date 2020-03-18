@@ -1,6 +1,7 @@
 ﻿namespace MyCalisthenicApp.Web.Controllers
 {
     using System.Threading.Tasks;
+
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using MyCalisthenicApp.Services.Contracts;
@@ -64,5 +65,6 @@
 
             return this.RedirectToAction(nameof(this.Details), new { id = id });
         }
+
     }
 }

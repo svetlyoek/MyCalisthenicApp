@@ -13,6 +13,8 @@
         private readonly ICommentsService commentsService;
         private readonly IProductsService productsService;
         private readonly IProgramsService programsService;
+        private readonly IPostsService postsService;
+
 
         public CommentsController(
             ICommentsService commentsService,
@@ -62,7 +64,7 @@
             {
                 return this.LocalRedirect($"/Programs/Details?id={returnId}");
             }
-            else if (this.productsService.GetProductById(returnId))
+            else if (this.productsService.ProductsExistsById(returnId))
             {
                 return this.LocalRedirect($"/Products/Details?id={returnId}");
             }

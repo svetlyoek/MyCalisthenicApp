@@ -1,4 +1,5 @@
-﻿@{ 
+﻿@model IList<ProductsShoppingBagViewModel>
+@{
     ViewData["Title"] = "Shopping Bag";
 }
 <!DOCTYPE html>
@@ -50,14 +51,13 @@
     <!-- breadcrumb area end -->
     <!-- cart content start -->
 
-    @*Implement products here and hide deleted items also*@
 
     <section class="cart-content-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="cart-title">
-                        <h2>Product List</h2>
+                        <h2>@(Model.Count() == 0 ? "" : "Product List")</h2>
                     </div>
                 </div>
             </div>
@@ -66,78 +66,28 @@
                     <div class="single-cart-list">
                         <table class="table table-borderless">
                             <tbody>
-                                <tr>
-                                    <td><a href="#">X</a></td>
-                                    <td><img src="/assets/img/product-details/single-cart.png" alt=""></td>
-                                    <td><p class="font-semibold">Dumbbell variations machine</p></td>
-                                    <td><p>$120.00</p></td>
-                                    <td><p>Quantity</p></td>
-                                    <td>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <a class="btn btn-sm" id="minus-btn"><i class="fa fa-minus"></i></a>
+                                @foreach (var product in Model)
+                                {
+                                    <tr>
+                                        <td><a asp-controller="ShoppingBags" asp-action="Delete" asp-route-id="@product.Id">X</a></td>
+                                        <td><img src="@product.ImageUrl" alt=""></td>
+                                        <td><p class="font-semibold">@product.Name</p></td>
+                                        <td><p>$@product.Price</p></td>
+                                        @*<td><p>@product.Quantity</p></td>*@
+                                        <td>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <a class="btn btn-sm" id="minus-btn4"><i class="fa fa-minus"></i></a>
+                                                </div>
+                                                <input type="number" id="qty_input4" class="form-control form-control-sm" value="1" min="1">
+                                                <div class="input-group-prepend">
+                                                    <a class="btn btn-sm" id="plus-btn4"><i class="fa fa-plus"></i></a>
+                                                </div>
                                             </div>
-                                            <input type="number" id="qty_input" class="form-control form-control-sm" value="1" min="1">
-                                            <div class="input-group-prepend">
-                                                <a class="btn btn-sm" id="plus-btn"><i class="fa fa-plus"></i></a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">X</a></td>
-                                    <td><img src="/assets/img/product-details/cart2.png" alt=""></td>
-                                    <td><p class="font-semibold">The chest press machine</p></td>
-                                    <td><p>$820.00</p></td>
-                                    <td><p>Quantity</p></td>
-                                    <td>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <a class="btn btn-sm" id="minus-btn2"><i class="fa fa-minus"></i></a>
-                                            </div>
-                                            <input type="number" id="qty_input2" class="form-control form-control-sm" value="1" min="1">
-                                            <div class="input-group-prepend">
-                                                <a class="btn btn-sm" id="plus-btn2"><i class="fa fa-plus"></i></a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">X</a></td>
-                                    <td><img src="/assets/img/product-details/cart3.png" alt=""></td>
-                                    <td><p class="font-semibold">Shoulder press machine</p></td>
-                                    <td><p>$620.00</p></td>
-                                    <td><p>Quantity</p></td>
-                                    <td>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <a class="btn btn-sm" id="minus-btn3"><i class="fa fa-minus"></i></a>
-                                            </div>
-                                            <input type="number" id="qty_input3" class="form-control form-control-sm" value="1" min="1">
-                                            <div class="input-group-prepend">
-                                                <a class="btn btn-sm" id="plus-btn3"><i class="fa fa-plus"></i></a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">X</a></td>
-                                    <td><img src="/assets/img/product-details/cart4.png" alt=""></td>
-                                    <td><p class="font-semibold">The leg extension machine</p></td>
-                                    <td><p>$570.00</p></td>
-                                    <td><p>Quantity</p></td>
-                                    <td>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <a class="btn btn-sm" id="minus-btn4"><i class="fa fa-minus"></i></a>
-                                            </div>
-                                            <input type="number" id="qty_input4" class="form-control form-control-sm" value="1" min="1">
-                                            <div class="input-group-prepend">
-                                                <a class="btn btn-sm" id="plus-btn4"><i class="fa fa-plus"></i></a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
+                                }
+
                             </tbody>
                         </table>
                         <div class="coupon-title">
@@ -159,8 +109,16 @@
                             <h2>Cart totals</h2>
                         </div>
                         <div class="cart-price">
-                            <p>Sub Total <span class="float-right text-right">$250.00</span></p>
-                            <p>Shipping Charge <span class="float-right text-right">$25.00</span></p>
+
+                            @foreach (var product in Model)
+                            {
+
+                                <p>
+                                    Shipping Charge <span class="float-right text-right ">$@product.Price</span>
+                                </p>
+
+                            }
+
                         </div>
                         <div class="cart-price-total">
                             <p>Total Price <span class="float-right text-right">$275.00</span></p>
@@ -171,23 +129,21 @@
         </div>
     </section>
     <!-- cart content end -->
-
     @*Implement delivery here*@
 
     <!-- delivery-area start -->
     <div class="delivery-area padding-top-100">
         <div class="container">
             <div class="row">
-                
-                @await  Component.InvokeAsync("DeliveryOptions")
-                
-                @await  Component.InvokeAsync("InvoiceSummary")
+
+                @await Component.InvokeAsync("DeliveryOptions")
+
+                @await Component.InvokeAsync("InvoiceSummary")
 
             </div>
         </div>
     </div>
     <!-- delivery-area end -->
-
     <!-- jquery -->
     <script src="/assets/js/jquery-2.2.4.min.js"></script>
     <!-- popper -->

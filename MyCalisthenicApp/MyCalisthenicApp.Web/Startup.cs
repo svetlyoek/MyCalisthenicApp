@@ -77,7 +77,6 @@ namespace MyCalisthenicApp.Web
             services.AddTransient<IUserRequestsService, UserRequestService>();
             services.AddTransient<IProgramsService, ProgramsService>();
             services.AddTransient<IShoppingCartsService, ShoppingCartsService>();
-            services.AddTransient<IShoppingBagsService, ShoppingBagsService>();
             services.AddTransient<IExercisesService, ExercisesService>();
             services.AddTransient<ICommentsService, CommentsService>();
             services.AddTransient<ICategoriesService, CategoriesService>();
@@ -85,6 +84,7 @@ namespace MyCalisthenicApp.Web
             services.AddTransient<IProductsService, ProductsService>();
             services.AddTransient<IImagesService, ImagesService>();
             services.AddTransient<IPostsService, PostsService>();
+            services.AddTransient<IOrdersService, OrdersService>();
 
             services.AddTransient<IEmailSender>(
                 serviceProvider => new SendGridEmailSender(this.Configuration["SendGrid:ApiKey"]));

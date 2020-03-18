@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-
+    using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.ViewModels.Products;
 
     public interface IProductsService
@@ -19,6 +19,12 @@
 
         Task AddRatingAsync(string id);
 
-        bool GetProductById(string id);
+        bool ProductsExistsById(string id);
+
+        Task<Product> GetProduct(string id);
+
+        Task<IList<ProductsShoppingBagViewModel>> GetShoppingBagProductsAsync();
+
+        Task RemoveProductFromShoppingBagAsync(string id);
     }
 }

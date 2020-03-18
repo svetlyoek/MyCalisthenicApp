@@ -3,11 +3,14 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Security.Claims;
     using System.Threading.Tasks;
 
     using AutoMapper;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
+    using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Products;
@@ -16,11 +19,13 @@
     {
         private readonly MyCalisthenicAppDbContext dbContext;
         private readonly IMapper mapper;
+        private readonly IHttpContextAccessor httpContextAccessor;
 
-        public ProductsService(MyCalisthenicAppDbContext dbContext, IMapper mapper)
+        public ProductsService(MyCalisthenicAppDbContext dbContext, IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
+            this.httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<IEnumerable<ProductsViewModel>> GetAllProductsAsync()
@@ -140,12 +145,58 @@
             await this.dbContext.SaveChangesAsync();
         }
 
-        public bool GetProductById(string id)
+        public bool ProductsExistsById(string id)
         {
             return this.dbContext.Products
                 .Where(p => p.IsDeleted == false)
                 .Any(p => p.Id == id);
         }
 
+        public async Task<Product> GetProduct(string id)
+        {
+            var product = await this.dbContext.Products
+                .Where(p => p.IsDeleted == false)
+                .FirstOrDefaultAsync(p => p.Id == id);
+
+            if (product == null)
+            {
+                throw new NullReferenceException(string.Format(ServicesConstants.InvalidProduct, id));
+            }
+
+            return product;
+        }
+
+        public async Task<IList<ProductsShoppingBagViewModel>> GetShoppingBagProductsAsync()
+        {
+            var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var products = await this.dbContext.Products
+              .Where(p => p.IsDeleted == false)
+              .Where(p => p.Orders.Any(o => o.ProductId == p.Id))
+              .Include(p => p.Orders)
+              .Include(p => p.Images)
+              .ToListAsync();
+
+            var productsViewModel = this.mapper.Map<IList<ProductsShoppingBagViewModel>>(products);
+
+            return productsViewModel;
+
+        }
+
+        public async Task RemoveProductFromShoppingBagAsync(string id)
+        {
+            var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var order = await this.dbContext.Orders.FirstOrDefaultAsync(o => o.UserId == userId);
+
+            var product = await this.dbContext.OrderProducts
+                 .Where(op => op.ProductId == id)
+                 .FirstOrDefaultAsync();
+
+            order.TotalPrice -= product.Price;
+
+            this.dbContext.OrderProducts.Remove(product);
+
+            await this.dbContext.SaveChangesAsync();
+        }
     }
 }

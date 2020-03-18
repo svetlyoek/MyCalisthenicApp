@@ -647,10 +647,9 @@ namespace MyCalisthenicApp.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeliveryAddressId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<decimal>("DeliveryPrice")
+                    b.Property<decimal?>("DeliveryPrice")
                         .HasColumnType("decimal(5,2)");
 
                     b.Property<decimal?>("Discount")
@@ -674,13 +673,10 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("OrderDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("PaymentStatus")
                         .HasColumnType("int");
 
-                    b.Property<int>("PaymentType")
+                    b.Property<int?>("PaymentType")
                         .HasColumnType("int");
 
                     b.Property<string>("Recipient")
@@ -689,7 +685,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.Property<string>("RecipientPhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Status")
+                    b.Property<int?>("Status")
                         .HasColumnType("int");
 
                     b.Property<decimal>("TotalPrice")
@@ -1144,8 +1140,7 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.HasOne("MyCalisthenicApp.Models.ShopEntities.Address", "DeliveryAddress")
                         .WithMany("Orders")
                         .HasForeignKey("DeliveryAddressId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("MyCalisthenicApp.Models.ApplicationUser", "User")
                         .WithMany("Orders")

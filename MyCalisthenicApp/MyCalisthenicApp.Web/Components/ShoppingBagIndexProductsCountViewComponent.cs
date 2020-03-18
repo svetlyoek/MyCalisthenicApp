@@ -6,21 +6,21 @@
     [ViewComponent(Name = "ShoppingBagIndexProductsCount")]
     public class ShoppingBagIndexProductsCountViewComponent : ViewComponent
     {
-        private readonly IShoppingBagsService shoppingBagService;
+        private readonly IOrdersService orderService;
 
-        public ShoppingBagIndexProductsCountViewComponent(IShoppingBagsService shoppingBagService)
+        public ShoppingBagIndexProductsCountViewComponent(IOrdersService orderService)
         {
-            this.shoppingBagService = shoppingBagService;
+            this.orderService = orderService;
         }
 
         public IViewComponentResult Invoke()
         {
-            var orderProducts = this.shoppingBagService
+            var productsCount = this.orderService
                 .ShoppingBagProducts()
                 .GetAwaiter()
                 .GetResult();
 
-            return this.View(orderProducts);
+            return this.View(productsCount);
         }
     }
 }

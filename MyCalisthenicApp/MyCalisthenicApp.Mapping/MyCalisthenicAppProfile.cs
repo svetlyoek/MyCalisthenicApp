@@ -7,7 +7,6 @@
     using MyCalisthenicApp.Models.BlogEntities;
     using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.Models.TrainingEntities;
-    using MyCalisthenicApp.ViewModels.Comments;
     using MyCalisthenicApp.ViewModels.Exercises;
     using MyCalisthenicApp.ViewModels.Memberships;
     using MyCalisthenicApp.ViewModels.Posts;
@@ -58,6 +57,10 @@
 
             this.CreateMap<Post, PostDetailsSidebarViewModel>()
                 .ForMember(x => x.ImageUrl, y => y.MapFrom(src => src.Images.Select(i => i.Url).FirstOrDefault()));
+
+            this.CreateMap<Product, ProductsShoppingBagViewModel>()
+                .ForMember(x => x.ImageUrl, y => y.MapFrom(src => src.Images.Select(i => i.Url).FirstOrDefault()))
+                .ForMember(x => x.Quantity, y => y.MapFrom(src => src.Orders.Count()));
 
         }
     }
