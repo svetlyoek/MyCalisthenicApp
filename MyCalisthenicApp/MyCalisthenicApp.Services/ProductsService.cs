@@ -11,6 +11,7 @@
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
     using MyCalisthenicApp.Models.ShopEntities;
+    using MyCalisthenicApp.Models.ShopEntities.Enums;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Products;
@@ -154,9 +155,11 @@
 
         public async Task<Product> GetProduct(string id)
         {
+            var userId = this.GetLoggedUserId();
+
             var product = await this.dbContext.Products
-                .Where(p => p.IsDeleted == false)
-                .FirstOrDefaultAsync(p => p.Id == id);
+               .Where(p => p.IsDeleted == false)
+               .FirstOrDefaultAsync(p => p.Id == id);
 
             if (product == null)
             {
@@ -168,35 +171,55 @@
 
         public async Task<IList<ProductsShoppingBagViewModel>> GetShoppingBagProductsAsync()
         {
-            var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userId = this.GetLoggedUserId();
 
-            var products = await this.dbContext.Products
+            var products = new List<ProductsShoppingBagViewModel>();
+
+            var order = await this.dbContext.Orders
+                .Where(o => o.IsDeleted == false)
+                .Where(o => o.UserId == userId)
+                .FirstOrDefaultAsync();
+
+            if (order == null || order.Status == OrderStatus.Sent)
+            {
+                return products;
+            }
+
+            var productsView = await this.dbContext.Products
               .Where(p => p.IsDeleted == false)
-              .Where(p => p.Orders.Any(o => o.ProductId == p.Id))
+              .Where(p => p.Orders.Any(o => o.OrderId == order.Id))
               .Include(p => p.Orders)
               .Include(p => p.Images)
               .ToListAsync();
 
-            var productsViewModel = this.mapper.Map<IList<ProductsShoppingBagViewModel>>(products);
+            var productsViewModel = this.mapper.Map<IList<ProductsShoppingBagViewModel>>(productsView);
 
             return productsViewModel;
-
         }
 
         public async Task RemoveProductFromShoppingBagAsync(string id)
         {
-            var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userId = this.GetLoggedUserId();
             var order = await this.dbContext.Orders.FirstOrDefaultAsync(o => o.UserId == userId);
 
             var product = await this.dbContext.OrderProducts
                  .Where(op => op.ProductId == id)
                  .FirstOrDefaultAsync();
 
-            order.TotalPrice -= product.Price;
-
             this.dbContext.OrderProducts.Remove(product);
+
+            order.TotalPrice -= product.Price;
 
             await this.dbContext.SaveChangesAsync();
         }
+
+
+        private string GetLoggedUserId()
+        {
+            var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return userId;
+        }
+
+
     }
 }

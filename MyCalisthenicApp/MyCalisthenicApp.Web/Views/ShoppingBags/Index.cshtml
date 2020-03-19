@@ -51,7 +51,6 @@
     <!-- breadcrumb area end -->
     <!-- cart content start -->
 
-
     <section class="cart-content-area">
         <div class="container">
             <div class="row">
@@ -73,7 +72,6 @@
                                         <td><img src="@product.ImageUrl" alt=""></td>
                                         <td><p class="font-semibold">@product.Name</p></td>
                                         <td><p>$@product.Price</p></td>
-                                        @*<td><p>@product.Quantity</p></td>*@
                                         <td>
                                             <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
@@ -95,10 +93,10 @@
                         </div>
                         <div class="apply-coupon-form">
                             <div class="input-group margin-top-30">
-                                <input type="text" class="form-control" placeholder="Coupon Code">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default submit-btn" type="button">Apply Coupon</button>
-                                </span>
+
+                                @await Html.PartialAsync("~/Views/Shared/Partials/_CouponPartial.cshtml",
+                                         new CouponViewModel())
+
                             </div>
                         </div>
                     </div>
@@ -108,20 +106,34 @@
                         <div class="total-title">
                             <h2>Cart totals</h2>
                         </div>
-                        <div class="cart-price">
+                        <div style="height:auto;" class="cart-price">
+                            @if (Model.Count == 0)
+                            {
+                                <p>
+                                    Charges
+                                    <span class="float-right text-right">$0</span>
+                                </p>
+                            }
 
                             @foreach (var product in Model)
                             {
-
                                 <p>
-                                    Shipping Charge <span class="float-right text-right ">$@product.Price</span>
+                                    @product.Name
+                                    <span class="float-right text-right">$@product.Price</span>
                                 </p>
 
                             }
 
                         </div>
                         <div class="cart-price-total">
-                            <p>Total Price <span class="float-right text-right">$275.00</span></p>
+                            @{
+                                decimal totalPrice = 0;
+                            }
+                            @foreach (var product in Model)
+                            {
+                                totalPrice += product.Price;
+                            }
+                            <p>Total Price <span class="float-right text-right">$@totalPrice</span></p>
                         </div>
                     </div>
                 </div>
@@ -129,8 +141,6 @@
         </div>
     </section>
     <!-- cart content end -->
-    @*Implement delivery here*@
-
     <!-- delivery-area start -->
     <div class="delivery-area padding-top-100">
         <div class="container">

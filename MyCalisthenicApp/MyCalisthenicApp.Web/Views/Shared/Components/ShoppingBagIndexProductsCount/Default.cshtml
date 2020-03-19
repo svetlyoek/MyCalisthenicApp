@@ -2,13 +2,7 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 <div class="cart-btn">
-    @if (this.User.Identity.IsAuthenticated)
-    {
-        <a><i class="flaticon-cart"></i><span class="badge">@Model</span></a>
-    }
-    else
-    {
-        <a><i class="flaticon-cart"></i><span class="badge">0</span></a>
-    }
+
+    <a><i class="flaticon-cart"></i><span class="badge">@Model</span></a>
 
 </div>

@@ -28,7 +28,7 @@
 
         public async Task<Comment> CreateCommentAsync(string id, CommentInputViewModel commentModel)
         {
-            var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userId = this.GetLoggedUserId();
             var userFromDb = await this.dbContext.Users.FindAsync(userId);
             Comment comment = null;
 
@@ -150,6 +150,12 @@
             await this.dbContext.SaveChangesAsync();
 
             return returnId;
+        }
+
+        private string GetLoggedUserId()
+        {
+            var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return userId;
         }
     }
 }

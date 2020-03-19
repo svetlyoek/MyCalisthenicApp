@@ -18,5 +18,8 @@
         // Posts
         public const string InvalidPost = "Post with {0} id does not exists!";
 
+        // App discount coupon
+        public const string AppDiscountCoupon = "mycalisthenicapp20";
+
     }
 }

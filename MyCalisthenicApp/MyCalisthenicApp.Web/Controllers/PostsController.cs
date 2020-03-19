@@ -1,9 +1,11 @@
 ﻿namespace MyCalisthenicApp.Web.Controllers
 {
     using System.Threading.Tasks;
+
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using MyCalisthenicApp.Services.Contracts;
+    using MyCalisthenicApp.ViewModels.Posts;
 
     public class PostsController : BaseController
     {
@@ -52,6 +54,19 @@
             await this.postsService.AddRatingAsync(id);
 
             return this.RedirectToAction(nameof(this.Details), new { id = id });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Search(PostSearchViewModel inputModel)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.RedirectToAction("Index");
+            }
+
+            var posts = await this.postsService.GetPostsBySearchAsync(inputModel);
+
+            return this.View("Index", posts);
         }
     }
 }

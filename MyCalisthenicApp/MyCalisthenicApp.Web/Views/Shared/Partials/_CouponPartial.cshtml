@@ -1,0 +1,9 @@
+﻿@model CouponViewModel
+
+<form asp-controller="ShoppingBags" asp-action="Coupon" method="post">
+    <input asp-for="Coupon" type="text" class="form-control" placeholder="Coupon Code">
+    <span asp-validation-for="Coupon" class="text-danger"></span>
+    <span class="input-group-btn">
+        <button class="btn btn-default submit-btn" type="submit">Apply Coupon</button>
+    </span>
+</form>

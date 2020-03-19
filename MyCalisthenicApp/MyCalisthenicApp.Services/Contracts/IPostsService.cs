@@ -20,5 +20,7 @@
         Task AddRatingAsync(string id);
 
         bool GetPostById(string id);
+
+        Task<IEnumerable<PostDetailsViewModel>> GetPostsBySearchAsync(PostSearchViewModel inputModel);
     }
 }

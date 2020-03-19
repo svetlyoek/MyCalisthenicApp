@@ -22,6 +22,11 @@
         {
             var product = await this.productsService.GetProduct(id);
 
+            if (product == null)
+            {
+                return this.LocalRedirect($"/Products/Details?id={id}");
+            }
+
             await this.ordersService.CreateOrderAsync(product);
 
             return this.LocalRedirect($"/Products/Details?id={id}");

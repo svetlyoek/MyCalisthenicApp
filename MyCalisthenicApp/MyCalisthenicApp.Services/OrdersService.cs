@@ -4,7 +4,6 @@
     using System.Security.Claims;
     using System.Threading.Tasks;
 
-    using AutoMapper;
     using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
@@ -25,7 +24,7 @@
 
         public async Task CreateOrderAsync(Product product)
         {
-            var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userId = this.GetLoggedUserId();
             var userFromDb = await this.dbContext.Users.FindAsync(userId);
 
             if (this.dbContext.Orders.Any(o => o.UserId == userId))
@@ -34,26 +33,33 @@
 
                 currentOrder.TotalPrice += product.Price;
 
-                currentOrder.Products.Add(new OrderProduct
+                if (!this.dbContext.OrderProducts.Any(o => o.OrderId == currentOrder.Id
+                 && o.ProductId == product.Id))
                 {
-                    OrderId = currentOrder.Id,
-                    ProductId = product.Id,
-                    Quantity = 1,
-                    Price = product.Price,
-                });
+                    var orderProduct = new OrderProduct
+                    {
+                        OrderId = currentOrder.Id,
+                        ProductId = product.Id,
+                        Quantity = 1,
+                        Price = product.Price,
+                    };
 
-                this.dbContext.Update(currentOrder);
-                await this.dbContext.SaveChangesAsync();
+                    await this.dbContext.OrderProducts.AddAsync(orderProduct);
+                    await this.dbContext.SaveChangesAsync();
+                }
             }
             else
             {
                 var order = new Order
                 {
                     PaymentStatus = PaymentStatus.Unpaid,
+                    Status = OrderStatus.Processing,
                     TotalPrice = product.Price,
                     User = userFromDb,
                     UserId = userId,
                 };
+
+                userFromDb.Orders.Add(order);
 
                 order.Products.Add(new OrderProduct
                 {
@@ -68,12 +74,40 @@
             }
         }
 
-        public async Task<int> ShoppingBagProducts()
+        public async Task<int> ShoppingBagProductsCount()
         {
-            var productsCount = await this.dbContext.OrderProducts
-                .CountAsync();
+            var userId = this.GetLoggedUserId();
 
-            return productsCount;
+            if (userId != null)
+            {
+                var order = await this.dbContext.Orders
+                   .Where(o => o.IsDeleted == false)
+                   .FirstOrDefaultAsync(o => o.UserId == userId);
+
+                if (order == null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    var products = await this.dbContext.OrderProducts
+                   .Where(op => op.OrderId == order.Id)
+                   .ToListAsync();
+
+                    var productsCount = products.Count;
+                    return productsCount;
+                }
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        private string GetLoggedUserId()
+        {
+            var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return userId;
         }
     }
 }

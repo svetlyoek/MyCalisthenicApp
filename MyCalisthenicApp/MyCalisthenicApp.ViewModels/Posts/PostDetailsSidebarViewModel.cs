@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace MyCalisthenicApp.ViewModels.Posts
+﻿namespace MyCalisthenicApp.ViewModels.Posts
 {
     public class PostDetailsSidebarViewModel
     {

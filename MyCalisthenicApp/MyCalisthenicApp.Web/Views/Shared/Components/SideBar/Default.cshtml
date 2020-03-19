@@ -3,12 +3,10 @@
 <div class="col-lg-4">
     <div class="blog-right-content widget-area sidebar">
         <div class="widget widget_search">
-            <form method="post" asp-controller="Posts" asp-action="Search" class="search-form">
-                <div class="form-group">
-                    <input  type="text" name="search" class="form-control" placeholder="Search here">
-                </div>
-                <button class="submit-btn" type="submit"><i class="fa fa-search"></i></button>
-            </form>
+
+            @await Html.PartialAsync("~/Views/Shared/Partials/_PostSearchPartial.cshtml",
+           new PostSearchViewModel())
+
         </div>
         <div class="widget latest-post-widget">
             <div class="eidget-title">

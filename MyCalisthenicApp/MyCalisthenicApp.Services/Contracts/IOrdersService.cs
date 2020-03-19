@@ -8,6 +8,6 @@
     {
         Task CreateOrderAsync(Product product);
 
-        Task<int> ShoppingBagProducts();
+        Task<int> ShoppingBagProductsCount();
     }
 }

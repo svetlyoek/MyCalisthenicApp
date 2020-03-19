@@ -26,5 +26,6 @@
         Task<IList<ProductsShoppingBagViewModel>> GetShoppingBagProductsAsync();
 
         Task RemoveProductFromShoppingBagAsync(string id);
+
     }
 }
