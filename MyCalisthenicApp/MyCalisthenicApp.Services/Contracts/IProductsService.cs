@@ -2,7 +2,9 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
+
     using MyCalisthenicApp.Models.ShopEntities;
+    using MyCalisthenicApp.ViewModels.Coupons;
     using MyCalisthenicApp.ViewModels.Products;
 
     public interface IProductsService
@@ -26,6 +28,5 @@
         Task<IList<ProductsShoppingBagViewModel>> GetShoppingBagProductsAsync();
 
         Task RemoveProductFromShoppingBagAsync(string id);
-
     }
 }

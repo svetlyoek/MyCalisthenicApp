@@ -188,9 +188,23 @@
             var productsView = await this.dbContext.Products
               .Where(p => p.IsDeleted == false)
               .Where(p => p.Orders.Any(o => o.OrderId == order.Id))
-              .Include(p => p.Orders)
-              .Include(p => p.Images)
+               .Include(p => p.Images)
+               .Include(p => p.Orders)
               .ToListAsync();
+
+            foreach (var product in productsView)
+            {
+                foreach (var orderProduct in product.Orders)
+                {
+                    if (orderProduct.OrderId != order.Id)
+                    {
+                        product.Orders.Remove(orderProduct);
+
+                        break;
+                    }
+                }
+
+            }
 
             var productsViewModel = this.mapper.Map<IList<ProductsShoppingBagViewModel>>(productsView);
 
@@ -203,7 +217,7 @@
             var order = await this.dbContext.Orders.FirstOrDefaultAsync(o => o.UserId == userId);
 
             var product = await this.dbContext.OrderProducts
-                 .Where(op => op.ProductId == id)
+                 .Where(op => op.ProductId == id && op.OrderId == order.Id)
                  .FirstOrDefaultAsync();
 
             this.dbContext.OrderProducts.Remove(product);
@@ -213,13 +227,10 @@
             await this.dbContext.SaveChangesAsync();
         }
 
-
         private string GetLoggedUserId()
         {
             var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             return userId;
         }
-
-
     }
 }

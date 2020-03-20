@@ -75,11 +75,11 @@
                                         <td>
                                             <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
-                                                    <a class="btn btn-sm" id="minus-btn4"><i class="fa fa-minus"></i></a>
+                                                    <a asp-controller="Orders" asp-action="Quantity" asp-route-id="@product.Id" asp-route-quantity="@(product.Quantity-1)" class="btn btn-sm" id="minus-btn4"><i class="fa fa-minus"></i></a>
                                                 </div>
-                                                <input type="number" id="qty_input4" class="form-control form-control-sm" value="1" min="1">
+                                                <input type="number" id="qty_input4" class="form-control form-control-sm" value="@product.Quantity" min="1">
                                                 <div class="input-group-prepend">
-                                                    <a class="btn btn-sm" id="plus-btn4"><i class="fa fa-plus"></i></a>
+                                                    <a asp-controller="Orders" asp-action="Quantity" asp-route-id="@product.Id" asp-route-quantity="@(product.Quantity+1)" class="btn btn-sm" id="plus-btn4"><i class="fa fa-plus"></i></a>
                                                 </div>
                                             </div>
                                         </td>
@@ -90,6 +90,7 @@
                         </table>
                         <div class="coupon-title">
                             <h2>Have a coupon?</h2>
+                            <p class="text-danger">Write your code and take 10% discount!</p>
                         </div>
                         <div class="apply-coupon-form">
                             <div class="input-group margin-top-30">

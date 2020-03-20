@@ -60,7 +60,8 @@
 
             this.CreateMap<Product, ProductsShoppingBagViewModel>()
                 .ForMember(x => x.ImageUrl, y => y.MapFrom(src => src.Images.Select(i => i.Url).FirstOrDefault()))
-                .ForMember(x => x.Quantity, y => y.MapFrom(src => src.Orders.Count()));
+                .ForMember(x => x.Price, y => y.MapFrom(src => src.Orders.Where(p => p.ProductId == src.Id).Select(p => p.Price).FirstOrDefault()))
+                .ForMember(x => x.Quantity, y => y.MapFrom(src => src.Orders.Where(p => p.ProductId == src.Id).Select(p => p.Quantity).FirstOrDefault()));
 
         }
     }

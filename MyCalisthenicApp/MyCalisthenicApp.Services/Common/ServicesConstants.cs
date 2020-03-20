@@ -18,6 +18,9 @@
         // Posts
         public const string InvalidPost = "Post with {0} id does not exists!";
 
+        // Shopping bag
+        public const int DefaultShoppingBagAddedQuantity = 1;
+
         // App discount coupon
         public const string AppDiscountCoupon = "mycalisthenicapp20";
 

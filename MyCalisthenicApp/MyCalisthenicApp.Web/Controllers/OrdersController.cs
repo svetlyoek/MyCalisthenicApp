@@ -31,5 +31,12 @@
 
             return this.LocalRedirect($"/Products/Details?id={id}");
         }
+
+        public async Task<IActionResult> Quantity(string id, int quantity)
+        {
+            await this.ordersService.ChangeQuantity(id, quantity);
+
+            return this.LocalRedirect("/ShoppingBags/Index");
+        }
     }
 }

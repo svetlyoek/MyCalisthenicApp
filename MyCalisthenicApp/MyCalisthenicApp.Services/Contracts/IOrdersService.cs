@@ -9,5 +9,7 @@
         Task CreateOrderAsync(Product product);
 
         Task<int> ShoppingBagProductsCount();
+
+        Task ChangeQuantity(string id, int quantity);
     }
 }
