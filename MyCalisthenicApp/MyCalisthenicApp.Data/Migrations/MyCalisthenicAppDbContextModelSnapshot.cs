@@ -195,6 +195,9 @@ namespace MyCalisthenicApp.Data.Migrations
                         .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
+                    b.Property<bool>("HasMembership")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -208,6 +211,9 @@ namespace MyCalisthenicApp.Data.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<DateTime?>("MembershipExpirationDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
@@ -669,6 +675,9 @@ namespace MyCalisthenicApp.Data.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<decimal?>("MembershipPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");

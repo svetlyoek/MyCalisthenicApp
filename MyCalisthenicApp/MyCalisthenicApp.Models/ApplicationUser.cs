@@ -19,6 +19,7 @@
 
             this.Id = Guid.NewGuid().ToString();
             this.IsDeleted = false;
+            this.HasMembership = false;
             this.CreatedOn = DateTime.UtcNow;
             this.Posts = new HashSet<Post>();
             this.Addresses = new HashSet<Address>();
@@ -35,6 +36,10 @@
         public string LastName { get; set; }
 
         public bool IsDeleted { get; set; }
+
+        public bool HasMembership { get; set; }
+
+        public DateTime? MembershipExpirationDate { get; set; }
 
         public DateTime? DeletedOn { get; set; }
 

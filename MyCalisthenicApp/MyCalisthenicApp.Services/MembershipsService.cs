@@ -1,5 +1,6 @@
 ﻿namespace MyCalisthenicApp.Services
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -7,6 +8,8 @@
     using AutoMapper;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
+    using MyCalisthenicApp.Models;
+    using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Memberships;
 
@@ -32,6 +35,24 @@
             var membershipsViewModel = this.mapper.Map<IEnumerable<MembershipPlanViewModel>>(memberships);
 
             return membershipsViewModel;
+        }
+
+        public async Task<decimal?> GetMembershipPriceByIdAsync(string id)
+        {
+            var membershipPrice = await this.dbContext.Memberships
+                .Where(m => m.IsDeleted == false)
+                .Where(m => m.Id == id)
+                .Select(m => m.YearlyPrice)
+                .FirstOrDefaultAsync();
+
+            if (membershipPrice != null)
+            {
+                return membershipPrice;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

@@ -30,12 +30,12 @@
         [MaxLength(DataValidations.ProgramDescriptionMaxLength)]
         public string Description { get; set; }
 
-        [Required]
-        public string CategoryId { get; set; }
-
         public int? Rating { get; set; }
 
         public MembershipType MembershipType { get; set; }
+
+        [Required]
+        public string CategoryId { get; set; }
 
         public virtual ProgramCategory Category { get; set; }
 

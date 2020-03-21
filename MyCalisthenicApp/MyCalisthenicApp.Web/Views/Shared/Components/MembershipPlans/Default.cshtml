@@ -23,19 +23,47 @@
                             <h3>@membershipPlan.Name</h3>
                         </div>
                         <ul>
-                            <li><span>$@(membershipPlan.MonthlyPrice == null ? 0 : membershipPlan.MonthlyPrice)</span></li>
-                            <li>/per month</li>
-                            <li> &nbsp;</li>
                             <li><span>$@(membershipPlan.YearlyPrice == null ? 0 : membershipPlan.YearlyPrice)</span></li>
                             <li>/per year</li>
-                            <li>24 Hours Support</li>
-                            <li> All Over the World</li>
-                            <li>Customer Managment</li>
-                            <li>Business & Financ Analysing</li>
-                            <li>Unlimited Tires</li>
+                            @if (membershipPlan.Name == "Beginner")
+                            {
+                                <li>Free programs</li>
+                                <li>24 Hours Support</li>
+                                <li> All Over the World</li>
+                                <li class="text-danger">Limited exercises</li>
+                                <li class="text-danger">No coaches guidance</li>
+                                <li class="text-danger">No personalized plans</li>
+                            }
+                            else if (membershipPlan.Name == "Advanced")
+                            {
+                                <li class="text-danger">Online chat and 24 Hours Support</li>
+                                <li>Premium programs</li>
+                                <li> All Over the World</li>
+                                <li>Customer Managment</li>
+                                <li>Personalized training plans</li>
+                                <li>Coaches guidance</li>
+                            }
+                            else
+                            {
+                                <li>Premium programs</li>
+                                <li>24 Hours Support</li>
+                                <li> All Over the World</li>
+                                <li>Customer Managment</li>
+                                <li>Personalized training plans</li>
+                                <li>Coaches guidance</li>
+                            }
+
                         </ul>
                         <div class="btn-wrapper desktop-center">
-                            <a asp-controller="ShoppingCarts" asp-action="Index" class="btn btn-element btn-normal-size btn-transparent-color btn-rounded">Select Plan</a>
+                            @if (membershipPlan.Name == "Beginner")
+                            {
+                                <button disabled class="btn btn-element btn-normal-size btn-transparent-color btn-rounded">Free</button>
+                            }
+                            else
+                            {
+                                <a asp-controller="Memberships" asp-action="Buy" asp-route-id="@membershipPlan.Id" class="btn btn-element btn-normal-size btn-transparent-color btn-rounded">Select Plan</a>
+                            }
+
                         </div>
                     </div>
                 </div>

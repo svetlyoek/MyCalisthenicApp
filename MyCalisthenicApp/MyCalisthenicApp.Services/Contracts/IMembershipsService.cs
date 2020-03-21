@@ -8,5 +8,7 @@
     public interface IMembershipsService
     {
         Task<IEnumerable<MembershipPlanViewModel>> GetAllMembershipPlans();
+
+        Task<decimal?> GetMembershipPriceByIdAsync(string id);
     }
 }

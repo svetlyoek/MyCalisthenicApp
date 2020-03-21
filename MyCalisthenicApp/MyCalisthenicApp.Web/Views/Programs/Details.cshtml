@@ -101,18 +101,27 @@
                                     <div id="menu1" class="tab-pane fade">
                                         <div class="tab-content-description">
                                             <h2 class="margin-top-10 margin-bottom-30">Workouts</h2>
-                                            @foreach (var exercise in Model.Category.Exercises)
+
+                                            @if (Model.Category.Exercises.Count() == 0)
                                             {
-                                                <div class="d-flex justify-content-between align-items-center text-center margin-bottom-15">
-                                                    <h4 class="course-overview"><img src="@exercise.ImageUrl" alt="exercise-image" height="120" width="200">&nbsp; @exercise.Name</h4>
-                                                    <p style="color:red;">@Model.Type.ToString()</p>
-                                                    <div class="curiculam-right d-flex align-items-center">
-                                                        <div class="btn-wrapper">
-                                                            <a href="@exercise.VideoUrl" class="btn btn-element btn-normal-size btn-black-color">Preview</a>
+                                                <p class="text-danger">You have no membership.</p>
+                                            }
+                                            else
+                                            {
+                                                @foreach (var exercise in Model.Category.Exercises)
+                                                {
+                                                    <div class="d-flex justify-content-between align-items-center text-center margin-bottom-15">
+                                                        <h4 class="course-overview"><img src="@exercise.ImageUrl" alt="exercise-image" height="120" width="200">&nbsp; @exercise.Name</h4>
+                                                        <p style="color:red;">@Model.Type.ToString()</p>
+                                                        <div class="curiculam-right d-flex align-items-center">
+                                                            <div class="btn-wrapper">
+                                                                <a href="@exercise.VideoUrl" class="btn btn-element btn-normal-size btn-black-color">Preview</a>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                }
                                             }
+
                                         </div>
                                     </div>
                                     <div id="menu2" class="tab-pane fade">

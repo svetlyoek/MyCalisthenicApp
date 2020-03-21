@@ -12,6 +12,7 @@
         public Product()
         {
             this.Id = Guid.NewGuid().ToString();
+            this.IsSoldOut = false;
             this.IsDeleted = false;
             this.CreatedOn = DateTime.UtcNow;
             this.Images = new HashSet<Image>();

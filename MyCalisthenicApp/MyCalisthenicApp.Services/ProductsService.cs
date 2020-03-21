@@ -187,6 +187,7 @@
 
             var productsView = await this.dbContext.Products
               .Where(p => p.IsDeleted == false)
+              .Where(p => p.IsSoldOut == false)
               .Where(p => p.Orders.Any(o => o.OrderId == order.Id))
                .Include(p => p.Images)
                .Include(p => p.Orders)

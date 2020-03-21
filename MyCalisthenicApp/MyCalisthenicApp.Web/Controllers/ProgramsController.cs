@@ -31,6 +31,7 @@
             return this.View(programs);
         }
 
+        [Authorize]
         public async Task<IActionResult> Details(string id)
         {
             if (!this.ModelState.IsValid)

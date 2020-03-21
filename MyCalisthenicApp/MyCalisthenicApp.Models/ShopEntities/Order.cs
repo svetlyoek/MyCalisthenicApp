@@ -29,6 +29,8 @@
         [Range(DataValidations.OrderTotalPriceMinValue, double.MaxValue)]
         public decimal TotalPrice { get; set; }
 
+        public decimal? MembershipPrice { get; set; }
+
         [RegularExpression(@"^\d+\.\d{0,2}$")]
         [Range(DataValidations.OrderTotalPriceMinValue, double.MaxValue)]
         public decimal? Discount { get; set; }

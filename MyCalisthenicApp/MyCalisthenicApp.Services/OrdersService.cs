@@ -66,8 +66,57 @@
             await this.dbContext.SaveChangesAsync();
         }
 
+        public async Task CreateMembershipToOrder(decimal? price)
+        {
+            var userId = this.GetLoggedUserId();
+            var userFromDb = await this.dbContext.Users.FindAsync(userId);
+
+            if (userFromDb.HasMembership)
+            {
+                return;
+            }
+
+            var orderFromDb = await this.dbContext.Orders
+                .Where(o => o.UserId == userId)
+                .Where(o => o.IsDeleted == false)
+                .FirstOrDefaultAsync();
+
+            if (orderFromDb == null)
+            {
+                var order = new Order
+                {
+                    PaymentStatus = PaymentStatus.Unpaid,
+                    Status = OrderStatus.Processing,
+                    TotalPrice = 0M,
+                    User = userFromDb,
+                    UserId = userId,
+                    MembershipPrice = price,
+                };
+
+                await this.dbContext.Orders.AddAsync(order);
+
+                await this.dbContext.SaveChangesAsync();
+            }
+            else
+            {
+                if (orderFromDb.MembershipPrice == null)
+                {
+                    orderFromDb.MembershipPrice = price;
+
+                    this.dbContext.Update(orderFromDb);
+
+                    await this.dbContext.SaveChangesAsync();
+                }
+            }
+        }
+
         public async Task CreateOrderAsync(Product product)
         {
+            if (product.IsSoldOut)
+            {
+                return;
+            }
+
             var userId = this.GetLoggedUserId();
             var userFromDb = await this.dbContext.Users.FindAsync(userId);
 
