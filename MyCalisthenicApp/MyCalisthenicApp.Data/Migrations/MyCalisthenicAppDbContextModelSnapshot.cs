@@ -195,6 +195,9 @@ namespace MyCalisthenicApp.Data.Migrations
                         .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
+                    b.Property<bool>("HasCoupon")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("HasMembership")
                         .HasColumnType("bit");
 
@@ -670,9 +673,6 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.Property<DateTime?>("EstimatedDeliveryDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("InvoiceNumber")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -687,12 +687,6 @@ namespace MyCalisthenicApp.Data.Migrations
 
                     b.Property<int?>("PaymentType")
                         .HasColumnType("int");
-
-                    b.Property<string>("Recipient")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RecipientPhoneNumber")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Status")
                         .HasColumnType("int");

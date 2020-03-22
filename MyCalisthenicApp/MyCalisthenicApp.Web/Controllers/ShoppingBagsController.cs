@@ -4,7 +4,6 @@
 
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Coupons;
 
@@ -12,11 +11,12 @@
     public class ShoppingBagsController : BaseController
     {
         private readonly IProductsService productsService;
+        private readonly IUsersService usersService;
 
-
-        public ShoppingBagsController(IProductsService productsService)
+        public ShoppingBagsController(IProductsService productsService, IUsersService usersService)
         {
             this.productsService = productsService;
+            this.usersService = usersService;
         }
 
         public async Task<IActionResult> Index()
@@ -38,9 +38,10 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.View("Index");
+                return this.RedirectToAction("Index");
             }
 
+            await this.usersService.AddDiscountToUser(inputModel);
 
             return this.RedirectToAction("Index");
         }

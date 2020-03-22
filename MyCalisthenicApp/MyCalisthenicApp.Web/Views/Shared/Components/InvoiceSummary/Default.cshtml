@@ -1,54 +1,59 @@
-﻿
-<div class="col-lg-5">
-    <div id="invoice" class="invoice">
-        <div class="invoice-top">
-            @{
-                Random random = new Random();
-                int invoiceNumber = random.Next(1000, 10000);
-            }
-            <h2>Invoice # @invoiceNumber Summary</h2>
-            <h6>Estimated Delivery : @(DateTime.UtcNow.AddDays(2).ToString("dd/MM/yyyy"))</h6>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
+<html>
+<body>
+    <div id="div1" class="col-lg-5">
+        <div id="invoice" class="invoice">
+            <div class="invoice-top">
+                <h2>Invoice # @user.Id Summary</h2>
+                <h6>Estimated Delivery : @(DateTime.UtcNow.AddDays(2).ToString("dd/MM/yyyy"))</h6>
+                <p>@(user.FirstName + " " + user.LastName)</p>
+                <p>@user.Email</p>
+            </div>
+            <div class="invoice-bottom">
+                <ul class="single-item">
+                    @foreach (var product in Model)
+                    {
+                        <li class="single-cart-item">
+                            <div class="thumb">
+                                <img id="image" src="@product.ImageUrl" alt="">
+                            </div>
+                            <div class="content">
+                                <h3>@product.Name<br> <span>@product.Description</span></h3>
+                                <span>$@product.Price.ToString("0.00")</span>
+                            </div>
+                        </li>
+                    }
+
+                </ul>
+                <div class="total">
+                    <h3>Total</h3>
+                    @{
+                        decimal totalPrice = 0;
+                    }
+                    @foreach (var product in Model)
+                    {
+                        totalPrice += product.Price;
+                    }
+                    <p class="text-right">$@totalPrice.ToString("0.00")</p>
+                </div>
+                <div id="cancelBtn" class="btn-wrapper desktop-center">
+                    <button onclick="javascript: hideDiv(); showBtn()" class="btn btn-danger">Cancel <i class="fa fa-long-arrow-right"></i></button>
+                </div>
+                <div id="printBtn" class="btn-wrapper desktop-center mt-3">
+                    <b hidden>Div 1:</b> <a class="bg-primary pl-3 pr-3 pt-1 pb-1" href="javascript:printDiv('div1')">Print</a>
+                </div>
+            </div>
         </div>
-        <div class="invoice-bottom">
-            <ul class="single-item">
-                @foreach (var product in Model)
-                {
-                    <li class="single-cart-item">
-                        <div class="thumb">
-                            <img src="@product.ImageUrl" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>@product.Name<br> <span>@product.Description</span></h3>
-                            <span>@product.Price</span>
-                        </div>
-                    </li>
-                }
-
-            </ul>
-            <div class="total">
-                <h3>Total</h3>
-                @{
-                    decimal totalPrice = 0;
-                }
-                @foreach (var product in Model)
-                {
-                    totalPrice += product.Price;
-                }
-                <p class="text-right">$@totalPrice</p>
-            </div>
-            <div class="btn-wrapper desktop-center">
-                <a asp-controller="ShoppingCarts" asp-action="Index" class="btn btn-element btn-lg-size btn-main-color btn-rounded btn-continue">Continue To Payment</a>
-            </div>
-
-            <div class="btn-wrapper desktop-center">
-                <button onclick="javascript: hideDiv(); showBtn()" class="btn btn-invoice">Cancel Invoice <i class="fa fa-long-arrow-right"></i></button>
-
-            </div>
-
-        </div>
+        <button id="get" onclick="javascript: showDiv();hideBtn()" class="btn btn-success">Get Invoice <i class="fa fa-long-arrow-right"></i></button>
     </div>
-    <button id="get" onclick="javascript: showDiv();hideBtn()" class="btn btn-invoice">Get Invoice <i class="fa fa-long-arrow-right"></i></button>
-</div>
+    <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+</body>
+</html>
 
 <script language=javascript type='text/javascript'>
     function hideDiv() {
@@ -74,4 +79,25 @@
     window.onload = function () {
         document.getElementById('get').style.visibility = 'hidden';
     };
+    window.onload = function () {
+        document.getElementById('invoice').style.visibility = 'hidden';
+    };
+</script>
+<script>
+    printDivCSS = new String('<link href="myprintstyle.css" rel="stylesheet" type="text/css">')
+    function printDiv(divId) {
+
+        var cancelButton = document.getElementById("cancelBtn");
+        var printButton = document.getElementById("printBtn");
+
+        printButton.style.visibility = 'hidden';
+        cancelButton.style.visibility = 'hidden';
+
+        window.frames["print_frame"].document.body.innerHTML = printDivCSS + document.getElementById(divId).innerHTML;
+        window.frames["print_frame"].window.focus();
+        window.frames["print_frame"].window.print();
+
+        printButton.style.visibility = 'visible';
+        cancelButton.style.visibility = 'visible';
+    }
 </script>

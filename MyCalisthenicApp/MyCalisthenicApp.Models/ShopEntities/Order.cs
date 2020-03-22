@@ -39,12 +39,6 @@
         [Range(DataValidations.OrderTotalPriceMinValue, double.MaxValue)]
         public decimal? DeliveryPrice { get; set; }
 
-        public string Recipient { get; set; }
-
-        public string RecipientPhoneNumber { get; set; }
-
-        public string InvoiceNumber { get; set; }
-
         public string EasyPayNumber { get; set; }
 
         public PaymentType? PaymentType { get; set; }

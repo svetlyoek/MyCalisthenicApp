@@ -1,5 +1,4 @@
-﻿@*Implement delivery options here*@
-
+﻿
 <div class="col-lg-7">
     <div class="delivery-content">
         <div class="title">
@@ -7,87 +6,63 @@
         </div>
         <div class="delivery-tab">
             <ul class="nav nav-pills">
-                <li class="active"><a data-toggle="pill" href="#home" class="active"><i class="flaticon-delivery"></i> <span>Home Delivery</span></a></li>
-                <li><a data-toggle="pill" href="#menu1"><i class="flaticon-placeholder-1"></i> <span>Pick Up Point</span> </a></li>
+                <li class="active"><a data-toggle="pill" href="#home" class="active"><i class="flaticon-placeholder-1"></i> <span>Pick Up Point</span></a></li>
+                <li class="mb-4"><a data-toggle="pill" href="#menu1"><i class="fa fa-truck" aria-hidden="true"></i> <span>Our couriers</span> </a></li>
             </ul>
 
             <div class="tab-content">
                 <div id="home" class="tab-pane fade in active show">
                     <h2>Enter delivery address</h2>
-                    <div  class="form-group">
-                        <form  method="post" class="form">
+                    <div class="form-group">
+                        <form method="post" asp-controller="ShoppingCarts" asp-action="Index" class="form">
                             <div class="form-field margin-top-30 margin-bottom-30">
                                 <label for="name">Full Name</label>
-                                <input id="name" type="text" placeholder="Mr willium smith" class="input-form" />
+                                <input id="name" type="text" placeholder="Svetoslav Kazakov" class="input-form" />
                             </div>
                             <div class="form-field margin-top-30 margin-bottom-30">
                                 <label for="phn">Phone Number</label>
-                                <input id="phn" type="number" placeholder="+8374823 356345" class="input-form" />
+                                <input id="phn" type="number" placeholder="0888414232" class="input-form" />
                             </div>
                             <div class="form-field margin-top-30 margin-bottom-30">
-                                <label for="phn1">Alternative phone number (Optional)</label>
-                                <input id="phn1" type="number" placeholder="+8374823 356345" class="input-form" />
+                                <label for="country">Country</label>
+                                <input id="country" type="text" placeholder="Bulgaria" class="input-form" />
                             </div>
-                            <div class="form-field margin-top-30">
-                                <label>City</label>
-                                <select class="select-form country_select">
-                                    <option value="Chandpur" selected>Chandpur</option>
-                                    <option value="Dhaka">Dhaka</option>
-                                    <option value="Comilla">Comilla</option>
-                                    <option value="Rajshahi">Rajshahi</option>
-                                </select>
+                            <div class="form-field margin-top-30 margin-bottom-30">
+                                <label for="city">City</label>
+                                <input id="city" type="text" placeholder="Dryanovo" class="input-form" />
+                            </div>
+                            <div class="form-field margin-top-30 margin-bottom-30">
+                                <label for="phn1">Post Code</label>
+                                <input id="phn1" type="number" placeholder="5370" class="input-form" />
                             </div>
                             <div class="form-field margin-top-30 margin-bottom-30">
                                 <label for="address">Address</label>
-                                <textarea id="address" cols="30" rows="5" placeholder="Iris Watson P.O. Box 283 8562 Fusce Rd. Frederick Nebraska 20620 (372) 587-2335"></textarea>
+                                <textarea id="address" cols="30" rows="5" placeholder="Shipka street, 186"></textarea>
+                            </div>
+                            <div class="form-field margin-top-30 margin-bottom-30">
+                                <label for="buildingNumber">Building Number</label>
+                                <input id="buildingNumber" type="text" placeholder="13A" class="input-form" />
                             </div>
                             <div class="form-field margin-top-30 margin-bottom-30">
                                 <label for="instruction">Delivery Instructions (Optional)</label>
                                 <textarea id="instruction" cols="30" rows="5" placeholder="x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x"></textarea>
                             </div>
                             <div class="btn-wrapper">
-                                <a asp-controller="ShoppingCarts" asp-action="Index" class="btn btn-element btn-lg-size btn-main-color btn-rounded">Go To Payment</a>
+                                <button type="submit" class="btn btn-element btn-lg-size btn-main-color btn-rounded">Go To Payment</button>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div id="menu1" class="tab-pane fade">
-                    <h2>Pick up point</h2>
-                    <div  class="form-group">
-                        <form  method="post" class="form">
-                            <div class="form-field margin-top-30 margin-bottom-30">
-                                <label for="name1">Full Name</label>
-                                <input id="name1" type="text" placeholder="Mr willium smith" class="input-form" />
-                            </div>
-                            <div class="form-field margin-top-30 margin-bottom-30">
-                                <label for="phn2">Phone Number</label>
-                                <input id="phn2" type="number" placeholder="+8374823 356345" class="input-form" />
-                            </div>
-                            <div class="form-field margin-top-30 margin-bottom-30">
-                                <label for="phn3">Alternative phone number (Optional)</label>
-                                <input id="phn3" type="number" placeholder="+8374823 356345" class="input-form" />
-                            </div>
-                            <div class="form-field margin-top-30">
-                                <label>City</label>
-                                <select class="select-form country_select">
-                                    <option value="Chandpur" selected>Chandpur</option>
-                                    <option value="Dhaka">Dhaka</option>
-                                    <option value="Comilla">Comilla</option>
-                                    <option value="Rajshahi">Rajshahi</option>
-                                </select>
-                            </div>
-                            <div class="form-field margin-top-30 margin-bottom-30">
-                                <label for="address2">Address</label>
-                                <textarea id="address2" cols="30" rows="5" placeholder="Iris Watson P.O. Box 283 8562 Fusce Rd. Frederick Nebraska 20620 (372) 587-2335"></textarea>
-                            </div>
-                            <div class="form-field margin-top-30 margin-bottom-30">
-                                <label for="instruction2">Delivery Instructions (Optional)</label>
-                                <textarea id="instruction2" cols="30" rows="5" placeholder="x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x"></textarea>
-                            </div>
-                            <div class="btn-wrapper">
-                                <a asp-controller="ShoppingCarts" asp-action="Index" class="btn btn-element btn-lg-size btn-main-color btn-rounded">Go To Payment</a>
-                            </div>
-                        </form>
+                    <h2>Couriers we use</h2>
+                    <div class="form-group">
+                        <img style="height:200px;width:400px;" src="https://www.leron.bg/images/Econt_Express_square_400x400.png" alt="ekont-logo" />
+                    </div>
+                    <div>
+                        <h4>Price to address:&nbsp;<span class="text-danger">$6</span> </h4>
+                    </div>
+                    <div>
+                        <h4>Price to office:&nbsp;<span class="text-danger">$5</span></h4>
                     </div>
                 </div>
             </div>

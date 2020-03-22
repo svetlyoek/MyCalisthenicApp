@@ -173,6 +173,10 @@
         {
             var userId = this.GetLoggedUserId();
 
+            var user = await this.dbContext.Users
+                .Where(u => u.IsDeleted == false)
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
             var products = new List<ProductsShoppingBagViewModel>();
 
             var order = await this.dbContext.Orders
@@ -204,7 +208,15 @@
                         break;
                     }
                 }
+            }
 
+            if (user.HasCoupon)
+            {
+                var discountedProductsViewModel = this.mapper.Map<IList<ProductsShoppingBagViewModel>>(productsView);
+
+                var discountedProducts = this.AddDiscountToProducts(discountedProductsViewModel);
+
+                return discountedProducts;
             }
 
             var productsViewModel = this.mapper.Map<IList<ProductsShoppingBagViewModel>>(productsView);
@@ -232,6 +244,16 @@
         {
             var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             return userId;
+        }
+
+        private IList<ProductsShoppingBagViewModel> AddDiscountToProducts(IList<ProductsShoppingBagViewModel> products)
+        {
+            foreach (var product in products)
+            {
+                product.Price -= product.Price * ServicesConstants.ProductsDiscountPercentage;
+            }
+
+            return products;
         }
     }
 }

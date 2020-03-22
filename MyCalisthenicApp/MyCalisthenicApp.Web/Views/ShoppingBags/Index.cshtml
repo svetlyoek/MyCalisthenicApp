@@ -2,6 +2,12 @@
 @{
     ViewData["Title"] = "Shopping Bag";
 }
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,7 +77,7 @@
                                         <td><a asp-controller="ShoppingBags" asp-action="Delete" asp-route-id="@product.Id">X</a></td>
                                         <td><img src="@product.ImageUrl" alt=""></td>
                                         <td><p class="font-semibold">@product.Name</p></td>
-                                        <td><p>$@product.Price</p></td>
+                                        <td><p>$@product.Price.ToString("0.00")</p></td>
                                         <td>
                                             <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
@@ -88,18 +94,26 @@
 
                             </tbody>
                         </table>
-                        <div class="coupon-title">
-                            <h2>Have a coupon?</h2>
-                            <p class="text-danger">Write your code and take 10% discount!</p>
-                        </div>
-                        <div class="apply-coupon-form">
-                            <div class="input-group margin-top-30">
-
-                                @await Html.PartialAsync("~/Views/Shared/Partials/_CouponPartial.cshtml",
-                                         new CouponViewModel())
-
+                        @if (user.HasCoupon)
+                        {
+                            <p class="text-danger">You have 10% discount.&nbsp;Enjoy!</p>
+                        }
+                        else
+                        {
+                            <div class="coupon-title">
+                                <h2>Have a coupon?</h2>
+                                <p class="text-danger">Write your code and take 10% discount!</p>
                             </div>
-                        </div>
+                            <div class="apply-coupon-form">
+                                <div class="input-group margin-top-30">
+
+                                    @await Html.PartialAsync("~/Views/Shared/Partials/_CouponPartial.cshtml",
+                                             new CouponViewModel())
+
+                                </div>
+                            </div>
+                        }
+
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -120,7 +134,7 @@
                             {
                                 <p>
                                     @product.Name
-                                    <span class="float-right text-right">$@product.Price</span>
+                                    <span class="float-right text-right">$@product.Price.ToString("0.00")</span>
                                 </p>
 
                             }
@@ -134,7 +148,7 @@
                             {
                                 totalPrice += product.Price;
                             }
-                            <p>Total Price <span class="float-right text-right">$@totalPrice</span></p>
+                            <p>Total Price <span class="float-right text-right">$@totalPrice.ToString("0.00")</span></p>
                         </div>
                     </div>
                 </div>

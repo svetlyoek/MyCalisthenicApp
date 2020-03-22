@@ -14,6 +14,7 @@
         public const string ProductsOldestSortEnum = "Oldest";
         public const string ProductsPriceDescendingSortEnum = "PriceDescending";
         public const string ProductsPriceAscendingSortEnum = "PriceAscending";
+        public const decimal ProductsDiscountPercentage = 0.10M;
 
         // Posts
         public const string InvalidPost = "Post with {0} id does not exists!";
