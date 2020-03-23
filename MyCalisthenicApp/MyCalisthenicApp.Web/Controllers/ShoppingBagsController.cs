@@ -4,19 +4,23 @@
 
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Coupons;
+    using MyCalisthenicApp.ViewModels.Orders;
 
     [Authorize]
     public class ShoppingBagsController : BaseController
     {
         private readonly IProductsService productsService;
         private readonly IUsersService usersService;
+        private readonly IOrdersService ordersService;
 
-        public ShoppingBagsController(IProductsService productsService, IUsersService usersService)
+        public ShoppingBagsController(IProductsService productsService, IUsersService usersService, IOrdersService ordersService)
         {
             this.productsService = productsService;
             this.usersService = usersService;
+            this.ordersService = ordersService;
         }
 
         public async Task<IActionResult> Index()
@@ -44,6 +48,19 @@
             await this.usersService.AddDiscountToUser(inputModel);
 
             return this.RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateAddress(AddressInputViewModel inputModel)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.RedirectToAction("Index");
+            }
+
+            await this.ordersService.CreateAddressToOrder(inputModel);
+
+            return this.LocalRedirect("/ShoppingCarts/Index");
         }
     }
 }

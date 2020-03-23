@@ -1,6 +1,5 @@
 ﻿namespace MyCalisthenicApp.Services
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Security.Claims;
@@ -10,6 +9,7 @@
     using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
+    using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Models.Enums;
     using MyCalisthenicApp.Models.TrainingEntities.Enums;
     using MyCalisthenicApp.Services.Contracts;
@@ -32,10 +32,7 @@
         {
             var userId = this.GetLoggedUserId();
 
-            var userFromDb = await this.dbContext.Users
-                .Where(u => u.IsDeleted == false)
-                .Where(u => u.Id == userId)
-                .FirstOrDefaultAsync();
+            var userFromDb = await this.GetLoggedUserById(userId);
 
             var exercises = await this.dbContext.Exercises
                  .Include(i => i.Images)
@@ -73,6 +70,15 @@
         {
             var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             return userId;
+        }
+
+        private async Task<ApplicationUser> GetLoggedUserById(string userId)
+        {
+            var userFromDb = await this.dbContext.Users.
+                Where(u => u.IsDeleted == false)
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            return userFromDb;
         }
     }
 }

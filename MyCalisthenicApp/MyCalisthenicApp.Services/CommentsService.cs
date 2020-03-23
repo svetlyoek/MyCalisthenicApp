@@ -29,7 +29,9 @@
         public async Task<Comment> CreateCommentAsync(string id, CommentInputViewModel commentModel)
         {
             var userId = this.GetLoggedUserId();
-            var userFromDb = await this.dbContext.Users.FindAsync(userId);
+
+            var userFromDb = await this.GetLoggedUserById(userId);
+
             Comment comment = null;
 
             if (this.dbContext.Products.Any(p => p.Id == id))
@@ -156,6 +158,15 @@
         {
             var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             return userId;
+        }
+
+        private async Task<ApplicationUser> GetLoggedUserById(string userId)
+        {
+            var userFromDb = await this.dbContext.Users.
+                Where(u => u.IsDeleted == false)
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            return userFromDb;
         }
     }
 }

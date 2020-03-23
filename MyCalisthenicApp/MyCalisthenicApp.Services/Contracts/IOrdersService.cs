@@ -3,6 +3,7 @@
     using System.Threading.Tasks;
 
     using MyCalisthenicApp.Models.ShopEntities;
+    using MyCalisthenicApp.ViewModels.Orders;
 
     public interface IOrdersService
     {
@@ -13,5 +14,7 @@
         Task<int> ShoppingBagProductsCount();
 
         Task ChangeQuantity(string id, int quantity);
+
+        Task CreateAddressToOrder(AddressInputViewModel inputModel);
     }
 }

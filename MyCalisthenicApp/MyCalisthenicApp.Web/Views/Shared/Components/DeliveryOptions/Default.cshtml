@@ -1,4 +1,5 @@
-﻿
+﻿@model AddressInputViewModel
+
 <div class="col-lg-7">
     <div class="delivery-content">
         <div class="title">
@@ -14,38 +15,44 @@
                 <div id="home" class="tab-pane fade in active show">
                     <h2>Enter delivery address</h2>
                     <div class="form-group">
-                        <form method="post" asp-controller="ShoppingCarts" asp-action="Index" class="form">
+                        <form method="post" asp-controller="ShoppingBags" asp-action="CreateAddress" class="form">
                             <div class="form-field margin-top-30 margin-bottom-30">
                                 <label for="name">Full Name</label>
-                                <input id="name" type="text" placeholder="Svetoslav Kazakov" class="input-form" />
+                                <input asp-for="FullName" id="name" type="text" placeholder="Svetoslav Kazakov" class="input-form" />
+                                <span asp-validation-for="FullName" class="text-danger"></span>
                             </div>
                             <div class="form-field margin-top-30 margin-bottom-30">
                                 <label for="phn">Phone Number</label>
-                                <input id="phn" type="number" placeholder="0888414232" class="input-form" />
+                                <input asp-for="PhoneNumber" id="phn" type="text" placeholder="0888414232" class="input-form" />
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                             </div>
                             <div class="form-field margin-top-30 margin-bottom-30">
                                 <label for="country">Country</label>
-                                <input id="country" type="text" placeholder="Bulgaria" class="input-form" />
+                                <input asp-for="Country" id="country" type="text" placeholder="Bulgaria" class="input-form" />
+                                <span asp-validation-for="Country" class="text-danger"></span>
                             </div>
                             <div class="form-field margin-top-30 margin-bottom-30">
                                 <label for="city">City</label>
-                                <input id="city" type="text" placeholder="Dryanovo" class="input-form" />
+                                <input asp-for="City" id="city" type="text" placeholder="Dryanovo" class="input-form" />
+                                <span asp-validation-for="City" class="text-danger"></span>
                             </div>
                             <div class="form-field margin-top-30 margin-bottom-30">
                                 <label for="phn1">Post Code</label>
-                                <input id="phn1" type="number" placeholder="5370" class="input-form" />
+                                <input asp-for="PostCode" id="phn1" type="text" placeholder="5370" class="input-form" />
+                                <span asp-validation-for="PostCode" class="text-danger"></span>
                             </div>
                             <div class="form-field margin-top-30 margin-bottom-30">
                                 <label for="address">Address</label>
-                                <textarea id="address" cols="30" rows="5" placeholder="Shipka street, 186"></textarea>
+                                <textarea asp-for="Address" id="address" cols="30" rows="5" placeholder="Shipka street, 186"></textarea>
+                                <span asp-validation-for="Address" class="text-danger"></span>
                             </div>
                             <div class="form-field margin-top-30 margin-bottom-30">
                                 <label for="buildingNumber">Building Number</label>
-                                <input id="buildingNumber" type="text" placeholder="13A" class="input-form" />
+                                <input asp-for="BuildingNumber" id="buildingNumber" type="text" placeholder="13A" class="input-form" />
                             </div>
                             <div class="form-field margin-top-30 margin-bottom-30">
                                 <label for="instruction">Delivery Instructions (Optional)</label>
-                                <textarea id="instruction" cols="30" rows="5" placeholder="x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x"></textarea>
+                                <textarea asp-for="DeliveryInstructions" id="instruction" cols="30" rows="5" placeholder="x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x x x x x x x x x x x xx x x x xx x x x x x x x x"></textarea>
                             </div>
                             <div class="btn-wrapper">
                                 <button type="submit" class="btn btn-element btn-lg-size btn-main-color btn-rounded">Go To Payment</button>

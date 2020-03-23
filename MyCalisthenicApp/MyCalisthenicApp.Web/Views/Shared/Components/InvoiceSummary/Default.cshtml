@@ -1,4 +1,5 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@model IList<ProductsShoppingBagViewModel>
+@using Microsoft.AspNetCore.Identity
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 @{
@@ -15,7 +16,19 @@
                 <p>@user.Email</p>
             </div>
             <div class="invoice-bottom">
+                @{
+                    decimal? membershipPrice = user.Orders.Where(o => o.MembershipPrice != null).Select(o => o.MembershipPrice).FirstOrDefault();
+                }
+                @if (membershipPrice != null && user.HasMembership == false)
+                {
+                    <p class="text-danger">
+                        Membership
+                        <span class="float-right text-right text-danger">$@membershipPrice</span>
+                    </p>
+                    <br />
+                }
                 <ul class="single-item">
+
                     @foreach (var product in Model)
                     {
                         <li class="single-cart-item">
@@ -26,6 +39,7 @@
                                 <h3>@product.Name<br> <span>@product.Description</span></h3>
                                 <span>$@product.Price.ToString("0.00")</span>
                             </div>
+
                         </li>
                     }
 
@@ -39,7 +53,19 @@
                     {
                         totalPrice += product.Price;
                     }
-                    <p class="text-right">$@totalPrice.ToString("0.00")</p>
+                    @{
+                        decimal? absolutePrice = 0;
+                    }
+
+                    @if (user.HasMembership == false && membershipPrice != null)
+                    {
+                        absolutePrice = membershipPrice + totalPrice;
+                    }
+                    else
+                    {
+                        absolutePrice = totalPrice;
+                    }
+                    <p class="text-right">$@absolutePrice</p>
                 </div>
                 <div id="cancelBtn" class="btn-wrapper desktop-center">
                     <button onclick="javascript: hideDiv(); showBtn()" class="btn btn-danger">Cancel <i class="fa fa-long-arrow-right"></i></button>

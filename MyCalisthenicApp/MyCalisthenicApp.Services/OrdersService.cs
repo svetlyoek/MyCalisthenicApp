@@ -7,10 +7,12 @@
     using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
+    using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.Models.ShopEntities.Enums;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
+    using MyCalisthenicApp.ViewModels.Orders;
 
     public class OrdersService : IOrdersService
     {
@@ -69,7 +71,8 @@
         public async Task CreateMembershipToOrder(decimal? price)
         {
             var userId = this.GetLoggedUserId();
-            var userFromDb = await this.dbContext.Users.FindAsync(userId);
+
+            var userFromDb = await this.GetLoggedUserById(userId);
 
             if (userFromDb.HasMembership)
             {
@@ -118,7 +121,8 @@
             }
 
             var userId = this.GetLoggedUserId();
-            var userFromDb = await this.dbContext.Users.FindAsync(userId);
+
+            var userFromDb = await this.GetLoggedUserById(userId);
 
             if (this.dbContext.Orders.Any(o => o.UserId == userId))
             {
@@ -199,10 +203,135 @@
             }
         }
 
+        public async Task CreateAddressToOrder(AddressInputViewModel inputModel)
+        {
+            var userId = this.GetLoggedUserId();
+
+            var userFromDb = await this.GetLoggedUserById(userId);
+
+            var order = await this.dbContext.Orders
+                .Where(o => o.IsDeleted == false)
+                .FirstOrDefaultAsync(o => o.UserId == userId);
+
+            if (order == null)
+            {
+                var newOrder = new Order
+                {
+                    UserId = userId,
+                    PaymentStatus = PaymentStatus.Unpaid,
+                };
+
+                await this.dbContext.Orders.AddAsync(newOrder);
+
+                await this.dbContext.SaveChangesAsync();
+
+                order = newOrder;
+            }
+
+            var currentAddress = await this.GetAddress(inputModel, userId);
+
+            if (order.DeliveryAddressId == null || currentAddress == null)
+            {
+                var city = new City();
+
+                if (!this.dbContext.Cities.Any(c => c.PostCode == inputModel.PostCode
+                 && c.Name == inputModel.City))
+                {
+                    city = new City
+                    {
+                        Name = inputModel.City,
+                        PostCode = inputModel.PostCode,
+                    };
+
+                    await this.dbContext.Cities.AddAsync(city);
+
+                    await this.dbContext.SaveChangesAsync();
+                }
+                else
+                {
+                    city = await this.dbContext.Cities
+                        .FirstOrDefaultAsync(c => c.Name == inputModel.City
+                        && c.PostCode == inputModel.PostCode);
+                }
+
+                var address = new Address
+                {
+                    Country = inputModel.Country,
+                    Description = inputModel.DeliveryInstructions,
+                    Street = inputModel.Address,
+                    BuildingNumber = inputModel.BuildingNumber,
+                    CityId = city.Id,
+                    UserId = userId,
+                };
+
+                await this.dbContext.Addresses.AddAsync(address);
+
+                await this.dbContext.SaveChangesAsync();
+
+                userFromDb.Addresses.Add(address);
+
+                address.Orders.Add(order);
+
+                order.DeliveryAddressId = address.Id;
+
+                this.dbContext.Update(order);
+
+                city.Addresses.Add(address);
+
+                this.dbContext.Update(address);
+
+                this.dbContext.Update(city);
+
+                this.dbContext.Update(userFromDb);
+
+                await this.dbContext.SaveChangesAsync();
+
+                return;
+            }
+            else if (currentAddress != null && inputModel.DeliveryInstructions != null)
+            {
+                currentAddress.Description = inputModel.DeliveryInstructions;
+
+                this.dbContext.Update(currentAddress);
+
+                await this.dbContext.SaveChangesAsync();
+
+                return;
+            }
+            else if (currentAddress != null)
+            {
+                return;
+            }
+        }
+
         private string GetLoggedUserId()
         {
             var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             return userId;
+        }
+
+        private async Task<ApplicationUser> GetLoggedUserById(string userId)
+        {
+            var userFromDb = await this.dbContext.Users.
+                Where(u => u.IsDeleted == false)
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            return userFromDb;
+        }
+
+        private async Task<Address> GetAddress(AddressInputViewModel inputModel, string userId)
+        {
+            var address = await this.dbContext.Addresses
+                    .Where(a => a.IsDeleted == false)
+                    .Where(a => a.UserId == userId)
+                    .Where(a => a.Country == inputModel.Country)
+                    .Where(a => a.City.Name == inputModel.City)
+                    .Where(a => a.BuildingNumber == inputModel.BuildingNumber)
+                    .Where(a => a.City.PostCode == inputModel.PostCode)
+                    .Where(a => a.Street == inputModel.Address)
+                    .FirstOrDefaultAsync();
+
+            return address;
         }
     }
 }

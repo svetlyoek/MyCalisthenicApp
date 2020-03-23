@@ -1,22 +1,18 @@
 ﻿namespace MyCalisthenicApp.Web.Components
 {
     using Microsoft.AspNetCore.Mvc;
+    using MyCalisthenicApp.ViewModels.Orders;
 
-    [ViewComponent(Name ="DeliveryOptions")]
+    [ViewComponent(Name = "DeliveryOptions")]
     public class DeliveryOptionsViewComponent : ViewComponent
     {
         public DeliveryOptionsViewComponent()
         {
-            //TODO
-            //Inject service here
         }
 
-        //TODO Async
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(AddressInputViewModel inputModel)
         {
-            //TODO View-list from latest n count of posts
-
-            return View();
+            return this.View(inputModel);
         }
     }
 }

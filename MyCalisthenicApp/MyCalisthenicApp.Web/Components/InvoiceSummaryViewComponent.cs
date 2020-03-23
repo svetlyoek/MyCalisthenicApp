@@ -1,22 +1,25 @@
 ﻿namespace MyCalisthenicApp.Web.Components
 {
     using Microsoft.AspNetCore.Mvc;
+    using MyCalisthenicApp.Services.Contracts;
 
-    [ViewComponent(Name ="InvoiceSummary")]
+    [ViewComponent(Name = "InvoiceSummary")]
     public class InvoiceSummaryViewComponent : ViewComponent
     {
-        public InvoiceSummaryViewComponent()
+        private readonly IProductsService productsService;
+
+        public InvoiceSummaryViewComponent(IProductsService productsService)
         {
-            //TODO
-            //Inject service here
+            this.productsService = productsService;
         }
 
-        //TODO Async
         public IViewComponentResult Invoke()
         {
-            //TODO View-list from latest n count of posts
+            var products = this.productsService.GetShoppingBagProductsAsync()
+                .GetAwaiter()
+                .GetResult();
 
-            return View();
+            return this.View(products);
         }
     }
 }

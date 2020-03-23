@@ -10,6 +10,7 @@
     using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
+    using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.Models.ShopEntities.Enums;
     using MyCalisthenicApp.Services.Common;
@@ -173,9 +174,7 @@
         {
             var userId = this.GetLoggedUserId();
 
-            var user = await this.dbContext.Users
-                .Where(u => u.IsDeleted == false)
-                .FirstOrDefaultAsync(u => u.Id == userId);
+            var userFromDb = await this.GetLoggedUserById(userId);
 
             var products = new List<ProductsShoppingBagViewModel>();
 
@@ -210,7 +209,7 @@
                 }
             }
 
-            if (user.HasCoupon)
+            if (userFromDb.HasCoupon)
             {
                 var discountedProductsViewModel = this.mapper.Map<IList<ProductsShoppingBagViewModel>>(productsView);
 
@@ -227,6 +226,7 @@
         public async Task RemoveProductFromShoppingBagAsync(string id)
         {
             var userId = this.GetLoggedUserId();
+
             var order = await this.dbContext.Orders.FirstOrDefaultAsync(o => o.UserId == userId);
 
             var product = await this.dbContext.OrderProducts
@@ -254,6 +254,15 @@
             }
 
             return products;
+        }
+
+        private async Task<ApplicationUser> GetLoggedUserById(string userId)
+        {
+            var userFromDb = await this.dbContext.Users.
+                Where(u => u.IsDeleted == false)
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            return userFromDb;
         }
     }
 }

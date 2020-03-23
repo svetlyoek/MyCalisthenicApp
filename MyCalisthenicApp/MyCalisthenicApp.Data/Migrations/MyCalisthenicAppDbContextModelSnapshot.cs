@@ -520,7 +520,6 @@ namespace MyCalisthenicApp.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("BuildingNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(10)")
                         .HasMaxLength(10);
 

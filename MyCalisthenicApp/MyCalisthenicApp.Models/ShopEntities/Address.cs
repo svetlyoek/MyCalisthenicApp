@@ -27,7 +27,6 @@
         [MaxLength(DataValidations.AddressStreetMaxLength)]
         public string Street { get; set; }
 
-        [Required]
         [MaxLength(DataValidations.AddressBuildingNumberMaxLength)]
         public string BuildingNumber { get; set; }
 

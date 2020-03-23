@@ -3,9 +3,11 @@
     using System.Linq;
     using System.Security.Claims;
     using System.Threading.Tasks;
+
     using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
+    using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Coupons;
@@ -25,15 +27,13 @@
         {
             var userId = this.GetLoggedUserId();
 
-            var user = await this.dbContext.Users
-                .Where(u => u.IsDeleted == false)
-                .FirstOrDefaultAsync(u => u.Id == userId);
+            var userFromDb = await this.GetLoggedUserById(userId);
 
-            if (inputModel.Coupon == ServicesConstants.AppDiscountCoupon && user.HasCoupon == false)
+            if (inputModel.Coupon == ServicesConstants.AppDiscountCoupon && userFromDb.HasCoupon == false)
             {
-                user.HasCoupon = true;
+                userFromDb.HasCoupon = true;
 
-                this.dbContext.Update(user);
+                this.dbContext.Update(userFromDb);
 
                 await this.dbContext.SaveChangesAsync();
             }
@@ -43,6 +43,15 @@
         {
             var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             return userId;
+        }
+
+        private async Task<ApplicationUser> GetLoggedUserById(string userId)
+        {
+            var userFromDb = await this.dbContext.Users.
+                Where(u => u.IsDeleted == false)
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            return userFromDb;
         }
     }
 }
