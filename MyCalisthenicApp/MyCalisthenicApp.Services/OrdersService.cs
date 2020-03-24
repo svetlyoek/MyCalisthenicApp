@@ -304,6 +304,21 @@
             }
         }
 
+        public async Task SetDeliveryPriceToOrderAsync(decimal deliveryPrice)
+        {
+            var userId = this.GetLoggedUserId();
+
+            var order = await this.dbContext.Orders
+                  .Where(o => o.IsDeleted == false)
+                  .FirstOrDefaultAsync(o => o.UserId == userId);
+
+            order.DeliveryPrice = deliveryPrice;
+
+            this.dbContext.Update(order);
+
+            await this.dbContext.SaveChangesAsync();
+        }
+
         private string GetLoggedUserId()
         {
             var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -333,5 +348,6 @@
 
             return address;
         }
+
     }
 }

@@ -1,8 +1,10 @@
 ﻿namespace MyCalisthenicApp.Web.Controllers
 {
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using MyCalisthenicApp.Services.Contracts;
 
@@ -35,6 +37,14 @@
         public async Task<IActionResult> Quantity(string id, int quantity)
         {
             await this.ordersService.ChangeQuantity(id, quantity);
+
+            return this.LocalRedirect("/ShoppingBags/Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delivery(decimal deliveryPrice)
+        {
+            await this.ordersService.SetDeliveryPriceToOrderAsync(deliveryPrice);
 
             return this.LocalRedirect("/ShoppingBags/Index");
         }

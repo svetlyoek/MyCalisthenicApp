@@ -157,6 +157,7 @@
                         <div class="cart-price-total">
                             @{
                                 decimal? totalPrice = 0;
+                                decimal? deliveryPrice = user.Orders.Where(o => o.DeliveryPrice != null).Select(o => o.DeliveryPrice).FirstOrDefault();
                             }
                             @foreach (var product in Model)
                             {
@@ -165,15 +166,37 @@
                             @{
                                 decimal? absolutePrice = 0;
                             }
-                            @if (user.HasMembership == false && membershipPrice != null)
+                            @if (user.HasMembership == false && membershipPrice != null && deliveryPrice != null)
+                            {
+                                absolutePrice = membershipPrice + totalPrice + deliveryPrice;
+
+                            }
+
+                            @if (deliveryPrice == null && user.HasMembership == false && membershipPrice != null)
                             {
                                 absolutePrice = membershipPrice + totalPrice;
+
                             }
-                            else
+                            @if (deliveryPrice != null && (user.HasMembership == true || membershipPrice == null))
+                            {
+                                absolutePrice = totalPrice + deliveryPrice;
+
+                            }
+                            @if (deliveryPrice == null && (user.HasMembership == true || membershipPrice == null))
                             {
                                 absolutePrice = totalPrice;
+
                             }
-                            <p>Total Price <span class="float-right text-right">$@absolutePrice</span></p>
+                            <br />
+                            @if (deliveryPrice != null)
+                            {
+                                <p class="text-dark">
+                                    Delivery Price
+                                    <span class="float-right text-right text-dark">$@deliveryPrice</span>
+                                </p>
+                            }
+
+                            <p>Total Price <span class="float-right text-right">$@string.Format("{0:N}", absolutePrice)</span></p>
                         </div>
                     </div>
                 </div>

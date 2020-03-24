@@ -16,5 +16,7 @@
         Task ChangeQuantity(string id, int quantity);
 
         Task CreateAddressToOrder(AddressInputViewModel inputModel);
+
+        Task SetDeliveryPriceToOrderAsync(decimal deliveryPrice);
     }
 }

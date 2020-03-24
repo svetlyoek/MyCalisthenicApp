@@ -65,14 +65,28 @@
                     <div class="form-group">
                         <img style="height:200px;width:400px;" src="https://www.leron.bg/images/Econt_Express_square_400x400.png" alt="ekont-logo" />
                     </div>
-                    <div>
-                        <h4>Price to address:&nbsp;<span class="text-danger">$6</span> </h4>
-                    </div>
+
                     <div>
                         <h4>Price to office:&nbsp;<span class="text-danger">$5</span></h4>
                     </div>
+
+                    @using (Html.BeginForm("Delivery", "Orders", new { deliveryPrice = 5 }))
+                    {
+                        <input class="btn-success" id="officeDelivery" type="submit" value="To Office" />
+                    }
+
+                    <div class="mt-4">
+                        <h4>Price to address:&nbsp;<span class="text-danger">$6</span> </h4>
+                    </div>
+
+                    @using (Html.BeginForm("Delivery", "Orders", new { deliveryPrice = 6 }))
+                    {
+                        <input class="btn-success" id="addressDelivery" type="submit" value="To Address" />
+                    }
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+

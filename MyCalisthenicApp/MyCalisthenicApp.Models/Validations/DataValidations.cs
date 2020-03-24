@@ -47,6 +47,7 @@
 
         // Order validations
         public const double OrderTotalPriceMinValue = 0.01;
+        public const double OrderMembershipTotalPriceMinValue = 0.01;
 
         // Order-Product mapping validations
         public const double OrderProductPriceMinValue = 0.01;
@@ -66,5 +67,6 @@
         // ShoppingCart-Product mapping table validations
         public const int ShoppingCartProductQuantityMinValue = 0;
         public const int ShoppingCartProductQuantityMaxValue = 100;
+
     }
 }
