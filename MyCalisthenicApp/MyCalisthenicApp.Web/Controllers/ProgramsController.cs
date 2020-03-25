@@ -8,6 +8,9 @@
 
     public class ProgramsController : BaseController
     {
+        private const string BeginnerCategoryName = "Beginner";
+        private const string IntermediateCategoryName = "Intermediate";
+
         private readonly IProgramsService programsService;
         private readonly ICategoriesService categoriesService;
         private readonly IExercisesService exercisesService;
@@ -62,7 +65,7 @@
                 return this.View("Error404");
             }
 
-            var programs = await this.programsService.GetProgramsByCategoryAsync("Beginner");
+            var programs = await this.programsService.GetProgramsByCategoryAsync(BeginnerCategoryName);
 
             return this.View("Index", programs);
         }
@@ -74,7 +77,7 @@
                 return this.View("Error404");
             }
 
-            var programs = await this.programsService.GetProgramsByCategoryAsync("Intermediate");
+            var programs = await this.programsService.GetProgramsByCategoryAsync(IntermediateCategoryName);
 
             return this.View("Index", programs);
         }

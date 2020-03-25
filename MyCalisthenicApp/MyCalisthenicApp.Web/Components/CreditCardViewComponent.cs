@@ -16,7 +16,7 @@
         {
             //TODO View-list from latest n count of posts
 
-            return View();
+            return this.View();
         }
     }
 }

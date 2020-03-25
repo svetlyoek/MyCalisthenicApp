@@ -32,7 +32,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.Redirect("~/Error404");
+                return this.Redirect("Error404");
             }
 
             var comment = await this.commentsService.CreateCommentAsync(id, inputModel);

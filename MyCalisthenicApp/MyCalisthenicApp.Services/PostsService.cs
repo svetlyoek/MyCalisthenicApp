@@ -119,22 +119,27 @@
 
         public async Task<IEnumerable<PostDetailsViewModel>> GetPostsBySearchAsync(PostSearchViewModel inputModel)
         {
-            var posts = await this.dbContext.Post
-                 .Include(i => i.Images)
-                 .Include(au => au.Author)
-                 .Include(cm => cm.Comments)
-                 .Where(p => p.IsPublic == true)
-                  .Where(c => c.IsDeleted == false)
-                  .Where(p => p.Title.ToLower().Contains(inputModel.Text.ToLower()) ||
-                   p.Category.Name.ToLower().Contains(inputModel.Text.ToLower()) ||
-                   p.Description.ToLower().Contains(inputModel.Text.ToLower()) ||
-                   p.Author.FirstName.ToLower().Contains(inputModel.Text.ToLower()) ||
-                   p.Author.LastName.ToLower().Contains(inputModel.Text.ToLower()))
-                  .ToListAsync();
+            if (inputModel.Text.Length >= 4)
+            {
+                var posts = await this.dbContext.Post
+               .Include(i => i.Images)
+               .Include(au => au.Author)
+               .Include(cm => cm.Comments)
+               .Where(p => p.IsPublic == true)
+                .Where(c => c.IsDeleted == false)
+                .Where(p => p.Title.ToLower().Contains(inputModel.Text.ToLower()) ||
+                 p.Category.Name.ToLower().Contains(inputModel.Text.ToLower()) ||
+                 p.Description.ToLower().Contains(inputModel.Text.ToLower()) ||
+                 p.Author.FirstName.ToLower().Contains(inputModel.Text.ToLower()) ||
+                 p.Author.LastName.ToLower().Contains(inputModel.Text.ToLower()))
+                .ToListAsync();
 
-            var allPosts = this.mapper.Map<IEnumerable<PostDetailsViewModel>>(posts);
+                var allPosts = this.mapper.Map<IEnumerable<PostDetailsViewModel>>(posts);
 
-            return allPosts;
+                return allPosts;
+            }
+
+            return Enumerable.Empty<PostDetailsViewModel>();
         }
 
         public async Task<IEnumerable<PostDetailsViewModel>> SortPostsByCategoryAsync(string sort)

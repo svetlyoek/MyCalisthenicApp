@@ -39,13 +39,13 @@
             }
         }
 
-        private string GetLoggedUserId()
+        public string GetLoggedUserId()
         {
             var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             return userId;
         }
 
-        private async Task<ApplicationUser> GetLoggedUserById(string userId)
+        public async Task<ApplicationUser> GetLoggedUserById(string userId)
         {
             var userFromDb = await this.dbContext.Users.
                 Where(u => u.IsDeleted == false)

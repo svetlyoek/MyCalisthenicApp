@@ -11,12 +11,10 @@
 <!-- search Popup -->
 <div class="body-overlay" id="body-overlay"></div>
 <div class="search-popup" id="search-popup">
-    <form action="index.html" class="search-form">
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search.....">
-        </div>
-        <button type="submit" class="submit-btn"><i class="fa fa-search"></i></button>
-    </form>
+
+    @await Html.PartialAsync("~/Views/Shared/Partials/_NavbarSearchPartial.cshtml",
+                                            new NavbarSearchViewModel())
+
 </div>
 <!-- //. search Popup -->
 <!-- navbar start -->
@@ -61,7 +59,7 @@
                         <ul class="sub-menu">
                             <li><a asp-controller="Products" asp-action="Index">Shop</a></li>
                             <li><a asp-controller="ShoppingBags" asp-action="Index">Shopping Bag</a></li>
-                            <li><a asp-controller="ShoppingCarts" asp-action="Index">Checkout</a></li>
+                            <li><a asp-controller="Payments" asp-action="Index">Checkout</a></li>
                         </ul>
                     </li>
                     <li>
@@ -83,8 +81,6 @@
                     <li><a asp-controller="Contacts" asp-action="Index">Contact</a></li>
                 </ul>
             </div>
-
-            @*TODO Implement Search bar*@
 
             <div class="nav-right-part">
                 <ul>

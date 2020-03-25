@@ -2,10 +2,15 @@
 {
     using System.Threading.Tasks;
 
+    using MyCalisthenicApp.Models;
     using MyCalisthenicApp.ViewModels.Coupons;
 
     public interface IUsersService
     {
         Task AddDiscountToUser(CouponViewModel inputModel);
+
+        Task<ApplicationUser> GetLoggedUserById(string userId);
+
+        string GetLoggedUserId();
     }
 }

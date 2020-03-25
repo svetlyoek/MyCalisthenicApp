@@ -5,7 +5,6 @@
     using System.ComponentModel.DataAnnotations;
 
     using MyCalisthenicApp.Data.Common.Models;
-    using MyCalisthenicApp.Models.ShopEntities.Enums;
 
     public class ProductCategory : BaseDeletableEntity<string>
     {

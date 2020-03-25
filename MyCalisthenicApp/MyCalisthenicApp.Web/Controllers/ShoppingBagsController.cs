@@ -60,7 +60,7 @@
 
             await this.ordersService.CreateAddressToOrder(inputModel);
 
-            return this.LocalRedirect("/ShoppingCarts/Index");
+            return this.LocalRedirect("/Payments/Index");
         }
     }
 }

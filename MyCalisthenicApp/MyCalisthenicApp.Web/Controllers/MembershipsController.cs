@@ -10,11 +10,13 @@
     {
         private readonly IOrdersService ordersService;
         private readonly IMembershipsService membershipsService;
+        private readonly IUsersService usersService;
 
-        public MembershipsController(IOrdersService ordersService, IMembershipsService membershipsService)
+        public MembershipsController(IOrdersService ordersService, IMembershipsService membershipsService, IUsersService usersService)
         {
             this.ordersService = ordersService;
             this.membershipsService = membershipsService;
+            this.usersService = usersService;
         }
 
         public IActionResult Index()
@@ -34,8 +36,16 @@
 
             await this.ordersService.CreateMembershipToOrder(membershipPrice);
 
-            return this.LocalRedirect("/ShoppingCarts/Index");
+            var userId = this.usersService.GetLoggedUserId();
 
+            var user = await this.usersService.GetLoggedUserById(userId);
+
+            if (user.HasMembership)
+            {
+                return this.LocalRedirect("/Memberships/Index");
+            }
+
+            return this.LocalRedirect("/Payments/Index");
         }
     }
 }

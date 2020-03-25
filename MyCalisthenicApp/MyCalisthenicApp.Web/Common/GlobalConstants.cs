@@ -1,4 +1,6 @@
-﻿namespace MyCalisthenicApp.Web.Common
+﻿using System;
+
+namespace MyCalisthenicApp.Web.Common
 {
     public static class GlobalConstants
     {
@@ -25,6 +27,12 @@
         public const string AdministratorCardNumber = "2786908946573821";
 
         public const string AdministratorCardCVV = "478";
+
+        public const int AdministratorCardExpirationYear = 2025;
+
+        public const int AdministratorCardExpirationMonth = 07;
+
+        public const int AdministratorCardExpirationDay = 16;
 
         public const int MaxFailedAccessAttempts = 10;
     }

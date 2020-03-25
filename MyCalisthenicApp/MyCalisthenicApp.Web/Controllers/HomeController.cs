@@ -6,8 +6,13 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
+    using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.Services.MessageSender;
     using MyCalisthenicApp.ViewModels;
+    using MyCalisthenicApp.ViewModels.Home;
+    using MyCalisthenicApp.ViewModels.Posts;
+    using MyCalisthenicApp.ViewModels.Products;
+    using MyCalisthenicApp.ViewModels.Programs;
     using MyCalisthenicApp.ViewModels.Subscribes;
     using MyCalisthenicApp.Web.Common;
 
@@ -15,11 +20,13 @@
     {
         private readonly ILogger<HomeController> logger;
         private readonly IEmailSender emailSender;
+        private readonly ISearchesService searchesService;
 
-        public HomeController(ILogger<HomeController> logger, IEmailSender emailSender)
+        public HomeController(ILogger<HomeController> logger, IEmailSender emailSender, ISearchesService searchesService)
         {
             this.logger = logger;
             this.emailSender = emailSender;
+            this.searchesService = searchesService;
         }
 
         public IActionResult Index()
@@ -67,6 +74,37 @@
             await this.SendEmail(inputModel);
 
             return this.RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Search(NavbarSearchViewModel inputModel)
+        {
+            var elements = await this.searchesService.GetElementsBySearchText(inputModel);
+
+            if (!this.ModelState.IsValid || elements == null)
+            {
+                return this.View("Error404");
+            }
+
+            foreach (var element in elements)
+            {
+                if (element is PostDetailsViewModel)
+                {
+                    return this.RedirectToAction("Index", "Posts");
+                }
+
+                if (element is ProductsViewModel)
+                {
+                    return this.RedirectToAction("Index", "Products");
+                }
+
+                if (element is ProgramViewModel)
+                {
+                    return this.RedirectToAction("Index", "Programs");
+                }
+            }
+
+            return this.View("Index");
         }
 
         public IActionResult ComingSoon()

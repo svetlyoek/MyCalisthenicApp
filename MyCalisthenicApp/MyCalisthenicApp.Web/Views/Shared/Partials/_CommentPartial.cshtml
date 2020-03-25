@@ -3,6 +3,7 @@
 <form asp-controller="Comments" asp-action="Create" asp-route-id="@Model.Id" method="post" id="comment_form" class="commentform">
     <div class="form-group margin-bottom-30 text-danger">
         <textarea id="txt" onkeyup="manage(this)" asp-for="Text" class="form-control w-100" cols="30" rows="9"></textarea>
+        <span asp-validation-for="Text" class="text-danger"></span>
     </div>
     <div class="row">
         <div class="col-sm-4">
@@ -13,7 +14,6 @@
     </div>
 
 </form>
-
 <script>
     function manage(txt) {
         var btn = document.getElementById('btnSubmit');

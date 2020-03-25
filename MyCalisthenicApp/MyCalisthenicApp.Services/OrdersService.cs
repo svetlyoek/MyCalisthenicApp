@@ -102,14 +102,11 @@
             }
             else
             {
-                if (orderFromDb.MembershipPrice == null)
-                {
-                    orderFromDb.MembershipPrice = price;
+                orderFromDb.MembershipPrice = price;
 
-                    this.dbContext.Update(orderFromDb);
+                this.dbContext.Update(orderFromDb);
 
-                    await this.dbContext.SaveChangesAsync();
-                }
+                await this.dbContext.SaveChangesAsync();
             }
         }
 

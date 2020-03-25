@@ -186,7 +186,7 @@
     <Content Update="Views\ShoppingBags\Index.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="Views\ShoppingCarts\Index.cshtml">
+    <Content Update="Views\Payments\Index.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="Views\Trainers\Index.cshtml">

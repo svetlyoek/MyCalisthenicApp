@@ -47,6 +47,10 @@
                     {
                         CardNumber = GlobalConstants.AdministratorCardNumber,
                         CVV = GlobalConstants.AdministratorCardCVV,
+                        ExpirationDate = new DateTime(
+                        GlobalConstants.AdministratorCardExpirationYear,
+                        GlobalConstants.AdministratorCardExpirationMonth,
+                        GlobalConstants.AdministratorCardExpirationDay),
                     },
 
                 };
