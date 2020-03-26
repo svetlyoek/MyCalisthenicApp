@@ -19,6 +19,7 @@
             this.Comments = new HashSet<Comment>();
             this.ShoppingCarts = new HashSet<ShoppingCartProduct>();
             this.Orders = new HashSet<OrderProduct>();
+            this.LikesUsersNames = new List<string>();
         }
 
         [Required]
@@ -49,6 +50,8 @@
         public string CategoryId { get; set; }
 
         public ProductCategory Category { get; set; }
+
+        public List<string> LikesUsersNames { get; set; }
 
         public virtual ICollection<ShoppingCartProduct> ShoppingCarts { get; set; }
 

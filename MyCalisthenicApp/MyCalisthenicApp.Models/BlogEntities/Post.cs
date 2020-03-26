@@ -18,6 +18,7 @@
             this.IsDeleted = false;
             this.Comments = new HashSet<Comment>();
             this.Images = new HashSet<Image>();
+            this.LikesUsersNames = new List<string>();
         }
 
         [Required]
@@ -44,6 +45,8 @@
         public string VideoUrl { get; set; }
 
         public bool IsPublic { get; set; }
+
+        public List<string> LikesUsersNames { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
 

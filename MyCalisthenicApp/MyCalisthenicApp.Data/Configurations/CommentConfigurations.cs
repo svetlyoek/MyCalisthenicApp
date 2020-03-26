@@ -1,8 +1,11 @@
 ﻿namespace MyCalisthenicApp.Data.Configurations
 {
+    using System.Collections.Generic;
+
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using MyCalisthenicApp.Models;
+    using Newtonsoft.Json;
 
     public class CommentConfigurations : IEntityTypeConfiguration<Comment>
     {
@@ -31,6 +34,12 @@
                 .WithMany(p => p.Comments)
                 .HasForeignKey(c => c.ProgramId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            comment
+            .Property(e => e.LikesUsersNames)
+            .HasConversion(
+            v => JsonConvert.SerializeObject(v),
+            v => JsonConvert.DeserializeObject<List<string>>(v));
         }
     }
 }

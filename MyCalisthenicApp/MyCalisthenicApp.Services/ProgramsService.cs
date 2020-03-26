@@ -3,11 +3,14 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Security.Claims;
     using System.Threading.Tasks;
 
     using AutoMapper;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
+    using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Models.Enums;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
@@ -17,11 +20,13 @@
     {
         private readonly MyCalisthenicAppDbContext dbContext;
         private readonly IMapper mapper;
+        private readonly IHttpContextAccessor httpContextAccessor;
 
-        public ProgramsService(MyCalisthenicAppDbContext dbContext, IMapper mapper)
+        public ProgramsService(MyCalisthenicAppDbContext dbContext, IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
+            this.httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<IEnumerable<ProgramViewModel>> GetAllProgramsAsync()
@@ -86,16 +91,34 @@
 
         public async Task AddRatingAsync(string id)
         {
-            var program = await this.dbContext.Programs.
-                FirstOrDefaultAsync(p => p.Id == id);
+            var program = await this.dbContext.Programs
+                .FirstOrDefaultAsync(p => p.Id == id);
 
-            if (program.Rating == null)
+            var userId = this.GetLoggedUserId();
+
+            var userFromDb = await this.GetLoggedUserById(userId);
+
+            var userCredentials = userFromDb.FirstName + " " + userFromDb.LastName + ":" + userId;
+
+            if (program.LikesUsersNames == null)
             {
-                program.Rating = 1;
+                var likesUsersNames = new List<string>();
+
+                program.LikesUsersNames = likesUsersNames;
             }
-            else
+
+            if (!program.LikesUsersNames.Contains(userCredentials))
             {
-                program.Rating += 1;
+                if (program.Rating == null)
+                {
+                    program.Rating = 1;
+                }
+                else
+                {
+                    program.Rating += 1;
+                }
+
+                program.LikesUsersNames.Add(userCredentials);
             }
 
             this.dbContext.Update(program);
@@ -108,6 +131,21 @@
             return this.dbContext.Programs
                 .Where(p => p.IsDeleted == false)
                 .Any(p => p.Id == id);
+        }
+
+        private string GetLoggedUserId()
+        {
+            var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return userId;
+        }
+
+        private async Task<ApplicationUser> GetLoggedUserById(string userId)
+        {
+            var userFromDb = await this.dbContext.Users.
+                Where(u => u.IsDeleted == false)
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            return userFromDb;
         }
     }
 }

@@ -130,16 +130,34 @@
 
         public async Task AddRatingAsync(string id)
         {
-            var product = await this.dbContext.Products.
-                FirstOrDefaultAsync(p => p.Id == id);
+            var product = await this.dbContext.Products
+                .FirstOrDefaultAsync(p => p.Id == id);
 
-            if (product.Rating == null)
+            var userId = this.GetLoggedUserId();
+
+            var userFromDb = await this.GetLoggedUserById(userId);
+
+            var userCredentials = userFromDb.FirstName + " " + userFromDb.LastName + ":" + userId;
+
+            if (product.LikesUsersNames == null)
             {
-                product.Rating = 1;
+                var likesUsersNames = new List<string>();
+
+                product.LikesUsersNames = likesUsersNames;
             }
-            else
+
+            if (!product.LikesUsersNames.Contains(userCredentials))
             {
-                product.Rating += 1;
+                if (product.Rating == null)
+                {
+                    product.Rating = 1;
+                }
+                else
+                {
+                    product.Rating += 1;
+                }
+
+                product.LikesUsersNames.Add(userCredentials);
             }
 
             this.dbContext.Update(product);

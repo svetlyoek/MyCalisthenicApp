@@ -12,7 +12,7 @@
             this.Id = Guid.NewGuid().ToString();
             this.CreatedOn = DateTime.UtcNow;
             this.IsDeleted = false;
-            this.IsDefault = true;
+            this.IsDefault = false;
         }
 
         [Required]
@@ -28,5 +28,7 @@
         public decimal PriceToOffice { get; set; }
 
         public bool IsDefault { get; set; }
+
+        public string LogoUrl { get; set; }
     }
 }

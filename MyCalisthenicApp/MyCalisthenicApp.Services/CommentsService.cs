@@ -123,14 +123,36 @@
             var comment = await this.dbContext.Comments.
                 FirstOrDefaultAsync(p => p.Id == id);
 
-            if (comment.Rating == null)
+            var userId = this.GetLoggedUserId();
+
+            var userFromDb = await this.GetLoggedUserById(userId);
+
+            var userCredentials = userFromDb.FirstName + " " + userFromDb.LastName + ":" + userId;
+
+            if (comment.LikesUsersNames == null)
             {
-                comment.Rating = 1;
+                var likesUsersNames = new List<string>();
+
+                comment.LikesUsersNames = likesUsersNames;
             }
-            else
+
+            if (!comment.LikesUsersNames.Contains(userCredentials))
             {
-                comment.Rating += 1;
+                if (comment.Rating == null)
+                {
+                    comment.Rating = 1;
+                }
+                else
+                {
+                    comment.Rating += 1;
+                }
+
+                comment.LikesUsersNames.Add(userCredentials);
             }
+
+            this.dbContext.Update(comment);
+
+            await this.dbContext.SaveChangesAsync();
 
             if (comment.PostId != null)
             {

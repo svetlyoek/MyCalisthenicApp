@@ -1,8 +1,11 @@
 ﻿namespace MyCalisthenicApp.Data.Configurations
 {
+    using System.Collections.Generic;
+
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using MyCalisthenicApp.Models.ShopEntities;
+    using Newtonsoft.Json;
 
     public class ProductConfigurations : IEntityTypeConfiguration<Product>
     {
@@ -41,6 +44,12 @@
                 .WithOne(op => op.Product)
                 .HasForeignKey(op => op.ProductId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            product
+            .Property(e => e.LikesUsersNames)
+            .HasConversion(
+             v => JsonConvert.SerializeObject(v),
+             v => JsonConvert.DeserializeObject<List<string>>(v));
         }
     }
 }

@@ -1,8 +1,11 @@
 ﻿namespace MyCalisthenicApp.Data.Configurations
 {
+    using System.Collections.Generic;
+
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using MyCalisthenicApp.Models.BlogEntities;
+    using Newtonsoft.Json;
 
     public class PostConfigurations : IEntityTypeConfiguration<Post>
     {
@@ -31,6 +34,12 @@
                 .WithOne(c => c.Post)
                 .HasForeignKey(c => c.PostId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            post
+            .Property(e => e.LikesUsersNames)
+            .HasConversion(
+             v => JsonConvert.SerializeObject(v),
+             v => JsonConvert.DeserializeObject<List<string>>(v));
         }
     }
 }

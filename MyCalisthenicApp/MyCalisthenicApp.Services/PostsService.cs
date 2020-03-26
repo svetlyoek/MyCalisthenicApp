@@ -3,11 +3,14 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Security.Claims;
     using System.Threading.Tasks;
 
     using AutoMapper;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
+    using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Posts;
@@ -16,25 +19,45 @@
     {
         private readonly MyCalisthenicAppDbContext dbContext;
         private readonly IMapper mapper;
+        private readonly IHttpContextAccessor httpContextAccessor;
 
-        public PostsService(MyCalisthenicAppDbContext dbContext, IMapper mapper)
+        public PostsService(MyCalisthenicAppDbContext dbContext, IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
+            this.httpContextAccessor = httpContextAccessor;
         }
 
         public async Task AddRatingAsync(string id)
         {
-            var post = await this.dbContext.Post.
-                FirstOrDefaultAsync(p => p.Id == id);
+            var post = await this.dbContext.Post
+                .FirstOrDefaultAsync(p => p.Id == id);
 
-            if (post.Rating == null)
+            var userId = this.GetLoggedUserId();
+
+            var userFromDb = await this.GetLoggedUserById(userId);
+
+            var userCredentials = userFromDb.FirstName + " " + userFromDb.LastName + ":" + userId;
+
+            if (post.LikesUsersNames == null)
             {
-                post.Rating = 1;
+                var likesUsersNames = new List<string>();
+
+                post.LikesUsersNames = likesUsersNames;
             }
-            else
+
+            if (!post.LikesUsersNames.Contains(userCredentials))
             {
-                post.Rating += 1;
+                if (post.Rating == null)
+                {
+                    post.Rating = 1;
+                }
+                else
+                {
+                    post.Rating += 1;
+                }
+
+                post.LikesUsersNames.Add(userCredentials);
             }
 
             this.dbContext.Update(post);
@@ -157,6 +180,21 @@
             var sortedPostsViewModel = this.mapper.Map<IEnumerable<PostDetailsViewModel>>(sortedPosts);
 
             return sortedPostsViewModel;
+        }
+
+        private string GetLoggedUserId()
+        {
+            var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return userId;
+        }
+
+        private async Task<ApplicationUser> GetLoggedUserById(string userId)
+        {
+            var userFromDb = await this.dbContext.Users.
+                Where(u => u.IsDeleted == false)
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            return userFromDb;
         }
     }
 }

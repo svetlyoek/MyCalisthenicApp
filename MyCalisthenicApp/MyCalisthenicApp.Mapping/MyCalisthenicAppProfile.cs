@@ -12,6 +12,7 @@
     using MyCalisthenicApp.ViewModels.Posts;
     using MyCalisthenicApp.ViewModels.Products;
     using MyCalisthenicApp.ViewModels.Programs;
+    using MyCalisthenicApp.ViewModels.Suppliers;
 
     public class MyCalisthenicAppProfile : Profile
     {
@@ -63,6 +64,7 @@
                 .ForMember(x => x.Price, y => y.MapFrom(src => src.Orders.Where(p => p.ProductId == src.Id).Select(p => p.Price).FirstOrDefault()))
                 .ForMember(x => x.Quantity, y => y.MapFrom(src => src.Orders.Where(p => p.ProductId == src.Id).Select(p => p.Quantity).FirstOrDefault()));
 
+            this.CreateMap<Supplier, SupplierViewModel>();
         }
     }
 }

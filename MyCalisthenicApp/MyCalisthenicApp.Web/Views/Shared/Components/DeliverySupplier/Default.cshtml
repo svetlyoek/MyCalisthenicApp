@@ -1,0 +1,30 @@
+﻿@model IEnumerable<SupplierViewModel>
+
+<div id="menu1" class="tab-pane fade">
+    <h2>Couriers we use</h2>
+    @foreach (var supplier in Model)
+    {
+        <div class="form-group">
+            <img style="height:200px;width:400px;" src="@supplier.LogoUrl" alt="courier-logo" />
+        </div>
+
+        <div>
+            <h4>Price to office:&nbsp;<span class="text-danger">$@supplier.PriceToOffice</span></h4>
+        </div>
+
+        @using (Html.BeginForm("Delivery", "Orders", new { deliveryPrice = supplier.PriceToOffice }))
+        {
+            <input class="btn-success" id="officeDelivery" type="submit" value="To Office" />
+        }
+
+        <div class="mt-4">
+            <h4>Price to address:&nbsp;<span class="text-danger">$@supplier.PriceToHome</span> </h4>
+        </div>
+
+        @using (Html.BeginForm("Delivery", "Orders", new { deliveryPrice = supplier.PriceToHome }))
+        {
+            <input class="btn-success" id="addressDelivery" type="submit" value="To Address" />
+        }
+        <hr />
+    }
+</div>

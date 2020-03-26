@@ -1,6 +1,7 @@
 ﻿namespace MyCalisthenicApp.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using MyCalisthenicApp.Data.Common.Models;
@@ -14,6 +15,7 @@
             this.Id = Guid.NewGuid().ToString();
             this.IsDeleted = false;
             this.CreatedOn = DateTime.UtcNow;
+            this.LikesUsersNames = new List<string>();
         }
 
         [Required]
@@ -38,5 +40,7 @@
         public string ProgramId { get; set; }
 
         public virtual Program Program { get; set; }
+
+        public List<string> LikesUsersNames { get; set; }
     }
 }

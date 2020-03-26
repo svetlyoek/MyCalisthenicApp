@@ -1,9 +1,10 @@
 ﻿namespace MyCalisthenicApp.Services
 {
+    using System.Collections.Generic;
     using System.Linq;
     using System.Security.Claims;
     using System.Threading.Tasks;
-
+    using AutoMapper;
     using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
@@ -13,16 +14,19 @@
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Orders;
+    using MyCalisthenicApp.ViewModels.Suppliers;
 
     public class OrdersService : IOrdersService
     {
         private readonly MyCalisthenicAppDbContext dbContext;
         private readonly IHttpContextAccessor httpContextAccessor;
+        private readonly IMapper mapper;
 
-        public OrdersService(MyCalisthenicAppDbContext dbContext, IHttpContextAccessor httpContextAccessor)
+        public OrdersService(MyCalisthenicAppDbContext dbContext, IHttpContextAccessor httpContextAccessor, IMapper mapper)
         {
             this.dbContext = dbContext;
             this.httpContextAccessor = httpContextAccessor;
+            this.mapper = mapper;
         }
 
         public async Task ChangeQuantity(string id, int quantity)
@@ -316,6 +320,17 @@
             await this.dbContext.SaveChangesAsync();
         }
 
+        public async Task<IEnumerable<SupplierViewModel>> GetAllSuppliersAsync()
+        {
+            var suppliers = await this.dbContext.Suppliers
+                 .Where(s => s.IsDeleted == false)
+                 .ToListAsync();
+
+            var suppliersViewModel = this.mapper.Map<IEnumerable<SupplierViewModel>>(suppliers);
+
+            return suppliersViewModel;
+        }
+
         private string GetLoggedUserId()
         {
             var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -345,6 +360,7 @@
 
             return address;
         }
+
 
     }
 }

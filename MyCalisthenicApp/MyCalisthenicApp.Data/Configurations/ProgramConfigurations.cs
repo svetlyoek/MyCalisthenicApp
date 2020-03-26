@@ -1,8 +1,11 @@
 ﻿namespace MyCalisthenicApp.Data.Configurations
 {
+    using System.Collections.Generic;
+
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using MyCalisthenicApp.Models;
+    using Newtonsoft.Json;
 
     public class ProgramConfigurations : IEntityTypeConfiguration<Program>
     {
@@ -25,6 +28,12 @@
                 .WithOne(c => c.Program)
                 .HasForeignKey(c => c.ProgramId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            program
+            .Property(e => e.LikesUsersNames)
+           .HasConversion(
+            v => JsonConvert.SerializeObject(v),
+            v => JsonConvert.DeserializeObject<List<string>>(v));
         }
     }
 }

@@ -90,17 +90,17 @@
             {
                 if (element is PostDetailsViewModel)
                 {
-                    return this.RedirectToAction("Index", "Posts");
+                    return this.View("~/Views/Posts/Index.cshtml", elements);
                 }
 
                 if (element is ProductsViewModel)
                 {
-                    return this.RedirectToAction("Index", "Products");
+                    return this.View("~/Views/Products/Index.cshtml", elements);
                 }
 
                 if (element is ProgramViewModel)
                 {
-                    return this.RedirectToAction("Index", "Programs");
+                    return this.View("~/Views/Programs/Index.cshtml", elements);
                 }
             }
 

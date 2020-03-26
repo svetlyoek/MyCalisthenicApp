@@ -324,6 +324,9 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.Property<bool>("IsPublic")
                         .HasColumnType("bit");
 
+                    b.Property<string>("LikesUsersNames")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
@@ -367,6 +370,9 @@ namespace MyCalisthenicApp.Data.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<string>("LikesUsersNames")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
@@ -454,6 +460,9 @@ namespace MyCalisthenicApp.Data.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<string>("LikesUsersNames")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("MembershipType")
                         .HasColumnType("int");
@@ -756,6 +765,9 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.Property<bool>("IsSoldOut")
                         .HasColumnType("bit");
 
+                    b.Property<string>("LikesUsersNames")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
@@ -882,6 +894,9 @@ namespace MyCalisthenicApp.Data.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<string>("LogoUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");

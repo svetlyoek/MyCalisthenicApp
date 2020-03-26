@@ -18,6 +18,7 @@
             this.CreatedOn = DateTime.UtcNow;
             this.Images = new HashSet<Image>();
             this.Comments = new HashSet<Comment>();
+            this.LikesUsersNames = new List<string>();
         }
 
         [Required]
@@ -38,6 +39,8 @@
         public string CategoryId { get; set; }
 
         public virtual ProgramCategory Category { get; set; }
+
+        public List<string> LikesUsersNames { get; set; }
 
         public virtual ICollection<Image> Images { get; set; }
 
