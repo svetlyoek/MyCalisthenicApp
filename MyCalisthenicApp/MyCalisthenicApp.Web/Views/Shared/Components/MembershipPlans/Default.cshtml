@@ -37,11 +37,12 @@
                         {
                             <h2 class="off-style-1 text-danger">PAID</h2>
                         }
-                        @if (membershipPrice == 98.99M && membershipPlan.Name == "Advanced" && user.HasMembership)
+                        else if (membershipPrice == 98.99M && membershipPlan.Name == "Advanced" && user.HasMembership)
                         {
                             <h2 class="off-style-1 text-danger">PAID</h2>
+
                         }
-                        @if (user.HasMembership == false)
+                        else if (user.HasMembership == false)
                         {
                             <h2 class="off-style-1">@(membershipPlan.Name == "Beginner" ? "Free" : "10% Off")</h2>
                         }

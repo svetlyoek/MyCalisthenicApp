@@ -100,6 +100,10 @@
                     MembershipPrice = price,
                 };
 
+                userFromDb.Orders.Add(order);
+
+                this.dbContext.Update(userFromDb);
+
                 await this.dbContext.Orders.AddAsync(order);
 
                 await this.dbContext.SaveChangesAsync();

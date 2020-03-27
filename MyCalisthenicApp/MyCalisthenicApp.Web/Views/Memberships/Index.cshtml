@@ -1,5 +1,10 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
     ViewData["Title"] = "Membership";
+    var user = new ApplicationUser();
+    user = await UserManager.GetUserAsync(User);
 }
 
 <!DOCTYPE html>
@@ -56,6 +61,11 @@
         </div>
     </div>
     <!-- breadcrumb area end -->
+    <br />
+    @if (user.HasMembership)
+    {
+        <p class="text-danger">You have already membership!</p>
+    }
 
     @await Component.InvokeAsync("MembershipPlans");
 
@@ -102,10 +112,6 @@
         </div>
     </div>
 
-    <!-- back to top area start -->
-    <div class="back-to-top">
-        <span class="back-top"><i class="fa fa-angle-up"></i></span>
-    </div>
     <!-- back to top area end -->
     <!-- jquery -->
     <script src="assets/js/jquery-2.2.4.min.js"></script>
