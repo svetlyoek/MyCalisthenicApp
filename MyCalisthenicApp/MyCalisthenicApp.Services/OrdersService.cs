@@ -1,5 +1,6 @@
 ﻿namespace MyCalisthenicApp.Services
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Security.Claims;
@@ -86,6 +87,7 @@
             var orderFromDb = await this.dbContext.Orders
                 .Where(o => o.UserId == userId)
                 .Where(o => o.IsDeleted == false)
+                .Where(o => o.Status != OrderStatus.Sent)
                 .FirstOrDefaultAsync();
 
             if (orderFromDb == null)
@@ -118,20 +120,23 @@
             }
         }
 
-        public async Task CreateOrderAsync(Product product)
+        public async Task<bool> CreateOrderAsync(Product product)
         {
             if (product.IsSoldOut)
             {
-                return;
+                return false;
             }
 
             var userId = this.GetLoggedUserId();
 
             var userFromDb = await this.GetLoggedUserById(userId);
 
-            if (this.dbContext.Orders.Any(o => o.UserId == userId))
+            if (this.dbContext.Orders.Any(o => o.UserId == userId && o.Status != OrderStatus.Sent))
             {
-                var currentOrder = await this.dbContext.Orders.FirstOrDefaultAsync(o => o.UserId == userId);
+                var currentOrder = await this.dbContext.Orders
+                    .Where(o => o.Status != OrderStatus.Sent)
+                    .Where(o => o.UserId == userId)
+                    .FirstOrDefaultAsync();
 
                 currentOrder.TotalPrice += product.Price;
 
@@ -150,6 +155,12 @@
 
                     await this.dbContext.OrderProducts.AddAsync(orderProduct);
                     await this.dbContext.SaveChangesAsync();
+
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
             else
@@ -175,6 +186,8 @@
 
                 await this.dbContext.Orders.AddAsync(order);
                 await this.dbContext.SaveChangesAsync();
+
+                return true;
             }
         }
 
@@ -186,9 +199,10 @@
             {
                 var order = await this.dbContext.Orders
                    .Where(o => o.IsDeleted == false)
+                   .Where(o => o.Status != OrderStatus.Sent)
                    .FirstOrDefaultAsync(o => o.UserId == userId);
 
-                if (order == null)
+                if (order == null || order.Status == OrderStatus.Sent)
                 {
                     return 0;
                 }
@@ -216,6 +230,7 @@
 
             var order = await this.dbContext.Orders
                 .Where(o => o.IsDeleted == false)
+                .Where(o => o.Status != OrderStatus.Sent)
                 .FirstOrDefaultAsync(o => o.UserId == userId);
 
             if (order == null)
@@ -315,6 +330,7 @@
 
             var order = await this.dbContext.Orders
                   .Where(o => o.IsDeleted == false)
+                  .Where(o => o.Status != OrderStatus.Sent)
                   .FirstOrDefaultAsync(o => o.UserId == userId);
 
             order.DeliveryPrice = deliveryPrice;
@@ -333,6 +349,84 @@
             var suppliersViewModel = this.mapper.Map<IEnumerable<SupplierViewModel>>(suppliers);
 
             return suppliersViewModel;
+        }
+
+        public async Task<OrderCheckoutViewModel> GetOrderToSendAsync()
+        {
+            var userId = this.GetLoggedUserId();
+
+            var order = await this.dbContext.Orders
+                .Where(o => o.IsDeleted == false)
+                .Where(o => o.UserId == userId)
+                .Where(o => o.Status != OrderStatus.Sent)
+                .FirstOrDefaultAsync();
+
+            if (order == null)
+            {
+                var orderModel = new OrderCheckoutViewModel();
+
+                return orderModel;
+            }
+
+            var orderViewModel = this.mapper.Map<OrderCheckoutViewModel>(order);
+
+            return orderViewModel;
+        }
+
+        public async Task<bool> SendOrder(string id)
+        {
+            var userId = this.GetLoggedUserId();
+
+            var userFromDb = await this.GetLoggedUserById(userId);
+
+            var order = await this.dbContext.Orders
+                .Where(o => o.IsDeleted == false)
+                .Where(o => o.Status != OrderStatus.Sent)
+                .Where(o => o.UserId == userId)
+                .FirstOrDefaultAsync();
+
+            if (order == null)
+            {
+                return false;
+            }
+
+            if (order.MembershipPrice != null && order != null)
+            {
+                userFromDb.HasMembership = true;
+
+                userFromDb.MembershipExpirationDate = DateTime.UtcNow.AddYears(1);
+
+                this.dbContext.Update(userFromDb);
+
+                await this.dbContext.SaveChangesAsync();
+            }
+
+            if (order.TotalPrice > 0)
+            {
+                order.DisptachDate = DateTime.UtcNow.AddDays(1);
+
+                order.PaymentStatus = PaymentStatus.Unpaid;
+
+                order.PaymentType = PaymentType.CashOnDelivery;
+
+                order.Status = OrderStatus.Sent;
+
+                this.dbContext.Update(order);
+
+                await this.dbContext.SaveChangesAsync();
+
+                return true;
+            }
+            else
+            {
+                order.PaymentStatus = PaymentStatus.Denied;
+
+                this.dbContext.Update(order);
+
+                await this.dbContext.SaveChangesAsync();
+
+                return false;
+            }
         }
 
         private string GetLoggedUserId()
@@ -364,7 +458,5 @@
 
             return address;
         }
-
-
     }
 }

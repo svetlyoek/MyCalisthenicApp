@@ -9,6 +9,7 @@
     using MyCalisthenicApp.Models.TrainingEntities;
     using MyCalisthenicApp.ViewModels.Exercises;
     using MyCalisthenicApp.ViewModels.Memberships;
+    using MyCalisthenicApp.ViewModels.Orders;
     using MyCalisthenicApp.ViewModels.Posts;
     using MyCalisthenicApp.ViewModels.Products;
     using MyCalisthenicApp.ViewModels.Programs;
@@ -65,6 +66,8 @@
                 .ForMember(x => x.Quantity, y => y.MapFrom(src => src.Orders.Where(p => p.ProductId == src.Id).Select(p => p.Quantity).FirstOrDefault()));
 
             this.CreateMap<Supplier, SupplierViewModel>();
+
+            this.CreateMap<Order, OrderCheckoutViewModel>();
         }
     }
 }

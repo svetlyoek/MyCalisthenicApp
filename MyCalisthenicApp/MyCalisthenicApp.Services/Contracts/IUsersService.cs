@@ -11,6 +11,8 @@
 
         Task<ApplicationUser> GetLoggedUserById(string userId);
 
+        Task<bool> CheckUserMembershipAsync();
+
         string GetLoggedUserId();
     }
 }

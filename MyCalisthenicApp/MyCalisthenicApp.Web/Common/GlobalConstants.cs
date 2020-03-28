@@ -16,6 +16,8 @@ namespace MyCalisthenicApp.Web.Common
 
         public const string SubscribeEmailSubject = "MyCalisthenicApp subscribe";
 
+        public const string SuccessfullSendOrderSubject = "Your order {0} was send successfully. We will keep in touch via email or phone. Thank you!";
+
         public const string SubscribeEmailContent = "Thank you for your subscribe! You will be notified very soon...";
 
         public const string AdministratorSubscribeEmailSubject = "New subscribe";

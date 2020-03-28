@@ -1,5 +1,6 @@
 ﻿namespace MyCalisthenicApp.Services
 {
+    using System;
     using System.Linq;
     using System.Security.Claims;
     using System.Threading.Tasks;
@@ -52,6 +53,33 @@
                 .FirstOrDefaultAsync(u => u.Id == userId);
 
             return userFromDb;
+        }
+
+        public async Task<bool> CheckUserMembershipAsync()
+        {
+            var currentDate = DateTime.UtcNow;
+
+            var userId = this.GetLoggedUserId();
+
+            var user = await this.GetLoggedUserById(userId);
+
+            if (user != null && user.MembershipExpirationDate != null)
+            {
+                if (currentDate >= user.MembershipExpirationDate)
+                {
+                    user.HasMembership = false;
+
+                    user.MembershipExpirationDate = null;
+
+                    this.dbContext.Update(user);
+
+                    await this.dbContext.SaveChangesAsync();
+
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

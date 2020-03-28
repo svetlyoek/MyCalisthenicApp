@@ -27,7 +27,16 @@
                 return this.LocalRedirect($"/Products/Details?id={id}");
             }
 
-            await this.ordersService.CreateOrderAsync(product);
+            var result = await this.ordersService.CreateOrderAsync(product);
+
+            if (result)
+            {
+                this.TempData["InfoMessage"] = "Product successfully added";
+            }
+            else
+            {
+                this.TempData["InfoMessage"] = "Product already added";
+            }
 
             return this.LocalRedirect($"/Products/Details?id={id}");
         }

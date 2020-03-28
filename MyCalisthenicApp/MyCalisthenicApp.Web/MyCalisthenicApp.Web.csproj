@@ -23,6 +23,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+    <PackageReference Include="PayPal" Version="1.9.1" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -35,6 +36,7 @@
     <ProjectReference Include="..\MyCalisthenicApp.Mapping\MyCalisthenicApp.Mapping.csproj" />
     <ProjectReference Include="..\MyCalisthenicApp.Services\MyCalisthenicApp.Services.csproj" />
     <ProjectReference Include="..\MyCalisthenicApp.ViewModels\MyCalisthenicApp.ViewModels.csproj" />
+    <ProjectReference Include="..\MyCalisthenicApp.Web.Infrastructure\MyCalisthenicApp.Web.Infrastructure.csproj" />
   </ItemGroup>
 
 

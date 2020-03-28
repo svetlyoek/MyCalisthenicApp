@@ -1,11 +1,14 @@
 ﻿namespace MyCalisthenicApp.Web.Controllers
 {
+    using System;
     using System.Diagnostics;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
+    using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.Services.MessageSender;
     using MyCalisthenicApp.ViewModels;
@@ -18,19 +21,26 @@
 
     public class HomeController : BaseController
     {
-        private readonly ILogger<HomeController> logger;
         private readonly IEmailSender emailSender;
         private readonly ISearchesService searchesService;
+        private readonly IUsersService usersService;
 
-        public HomeController(ILogger<HomeController> logger, IEmailSender emailSender, ISearchesService searchesService)
+        public HomeController(IEmailSender emailSender, ISearchesService searchesService, IUsersService usersService)
         {
-            this.logger = logger;
             this.emailSender = emailSender;
             this.searchesService = searchesService;
+            this.usersService = usersService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var result = await this.usersService.CheckUserMembershipAsync();
+
+            if (result)
+            {
+                this.TempData["MembershipMessage"] = "Your membership expired!";
+            }
+
             return this.View();
         }
 
@@ -141,5 +151,6 @@
                 GlobalConstants.AdministratorSubscribeEmailSubject,
                 string.Format(GlobalConstants.AdministratorSubscribeEmailContent, inputModel.Email));
         }
+
     }
 }

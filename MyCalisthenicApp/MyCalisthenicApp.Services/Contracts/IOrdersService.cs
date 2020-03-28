@@ -10,7 +10,7 @@
 
     public interface IOrdersService
     {
-        Task CreateOrderAsync(Product product);
+        Task<bool> CreateOrderAsync(Product product);
 
         Task CreateMembershipToOrder(decimal? price);
 
@@ -23,5 +23,9 @@
         Task SetDeliveryPriceToOrderAsync(decimal deliveryPrice);
 
         Task<IEnumerable<SupplierViewModel>> GetAllSuppliersAsync();
+
+        Task<bool> SendOrder(string id);
+
+        Task<OrderCheckoutViewModel> GetOrderToSendAsync();
     }
 }

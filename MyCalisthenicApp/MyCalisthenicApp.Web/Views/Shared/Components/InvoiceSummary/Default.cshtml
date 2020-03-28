@@ -46,9 +46,10 @@
                 </ul>
                 @{
                     decimal? deliveryPrice = user.Orders.Where(o => o.DeliveryPrice != null).Select(o => o.DeliveryPrice).FirstOrDefault();
+                    var order = user.Orders.Where(o => o.UserId == user.Id).FirstOrDefault();
                 }
                 <br />
-                @if (deliveryPrice != null)
+                @if (deliveryPrice != null && order.Status != OrderStatus.Sent)
                 {
                     <p class="text-dark">
                         Delivery Price
@@ -69,7 +70,7 @@
                         decimal? absolutePrice = 0;
                     }
 
-                    @if (user.HasMembership == false && membershipPrice != null && deliveryPrice != null)
+                    @if (user.HasMembership == false && membershipPrice != null && deliveryPrice != null && order.Status != OrderStatus.Sent)
                     {
                         absolutePrice = membershipPrice + totalPrice + deliveryPrice;
 
@@ -80,7 +81,7 @@
                         absolutePrice = membershipPrice + totalPrice;
 
                     }
-                    @if (deliveryPrice != null && (user.HasMembership == true || membershipPrice == null))
+                    @if (deliveryPrice != null && order.Status != OrderStatus.Sent && (user.HasMembership == true || membershipPrice == null))
                     {
                         absolutePrice = totalPrice + deliveryPrice;
 

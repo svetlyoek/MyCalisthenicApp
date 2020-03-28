@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Product-Details";
 }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,6 +50,12 @@
         </div>
     </div>
     <!-- breadcrumb area end -->
+    @if (this.TempData["InfoMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @this.TempData["InfoMessage"]
+        </div>
+    }
     <!-- product-details-tab start -->
     <div class="product-details-tab padding-top-100 padding-bottom-97">
         <div class="container">
