@@ -24,7 +24,7 @@
             this.mapper = mapper;
         }
 
-        public async Task<IEnumerable<object>> GetElementsBySearchText(NavbarSearchViewModel inputModel)
+        public async Task<IEnumerable<object>> GetElementsBySearchTextAsync(NavbarSearchViewModel inputModel)
         {
             if (inputModel.Text == null || inputModel.Text.Length < 4)
             {

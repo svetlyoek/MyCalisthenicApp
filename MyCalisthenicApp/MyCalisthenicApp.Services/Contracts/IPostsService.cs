@@ -9,9 +9,9 @@
     {
         Task<IEnumerable<PopularPostsHomeViewModel>> GetPopularPostsAsync();
 
-        Task<PostDetailsViewModel> GetPostDetailsById(string id);
+        Task<PostDetailsViewModel> GetPostDetailsByIdAsync(string id);
 
-        Task<IEnumerable<PostDetailsSidebarViewModel>> GetFourLatestPosts();
+        Task<IEnumerable<PostDetailsSidebarViewModel>> GetFourLatestPostsAsync();
 
         Task<IEnumerable<PostDetailsViewModel>> GetAllPostsAsync();
 

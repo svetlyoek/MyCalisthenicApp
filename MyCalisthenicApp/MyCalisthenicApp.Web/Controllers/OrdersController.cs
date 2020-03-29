@@ -20,7 +20,7 @@
         [Authorize]
         public async Task<IActionResult> Create(string id)
         {
-            var product = await this.productsService.GetProduct(id);
+            var product = await this.productsService.GetProductAsync(id);
 
             if (product == null)
             {
@@ -43,7 +43,7 @@
 
         public async Task<IActionResult> Quantity(string id, int quantity)
         {
-            await this.ordersService.ChangeQuantity(id, quantity);
+            await this.ordersService.ChangeQuantityAsync(id, quantity);
 
             return this.LocalRedirect("/ShoppingBags/Index");
         }

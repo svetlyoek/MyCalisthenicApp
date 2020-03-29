@@ -7,9 +7,9 @@
 
     public interface IUsersService
     {
-        Task AddDiscountToUser(CouponViewModel inputModel);
+        Task AddDiscountToUserAsync(CouponViewModel inputModel);
 
-        Task<ApplicationUser> GetLoggedUserById(string userId);
+        Task<ApplicationUser> GetLoggedUserByIdAsync(string userId);
 
         Task<bool> CheckUserMembershipAsync();
 

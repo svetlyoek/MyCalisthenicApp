@@ -45,7 +45,7 @@
                 return this.RedirectToAction("Index");
             }
 
-            await this.usersService.AddDiscountToUser(inputModel);
+            await this.usersService.AddDiscountToUserAsync(inputModel);
 
             return this.RedirectToAction("Index");
         }
@@ -58,7 +58,7 @@
                 return this.RedirectToAction("Index");
             }
 
-            await this.ordersService.CreateAddressToOrder(inputModel);
+            await this.ordersService.CreateAddressToOrderAsync(inputModel);
 
             return this.LocalRedirect("/Payments/Index");
         }

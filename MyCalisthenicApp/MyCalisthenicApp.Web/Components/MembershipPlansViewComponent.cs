@@ -16,7 +16,7 @@
         public IViewComponentResult Invoke()
         {
             var memberships = this.membershipsService
-                .GetAllMembershipPlans()
+                .GetAllMembershipPlansAsync()
                 .GetAwaiter()
                 .GetResult();
 

@@ -135,7 +135,7 @@
 
             var userId = this.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserById(userId);
+            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
 
             var userCredentials = userFromDb.FirstName + " " + userFromDb.LastName + ":" + userId;
 
@@ -172,7 +172,7 @@
                 .Any(p => p.Id == id);
         }
 
-        public async Task<Product> GetProduct(string id)
+        public async Task<Product> GetProductAsync(string id)
         {
             var userId = this.GetLoggedUserId();
 
@@ -192,13 +192,14 @@
         {
             var userId = this.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserById(userId);
+            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
 
             var products = new List<ProductsShoppingBagViewModel>();
 
             var order = await this.dbContext.Orders
                 .Where(o => o.IsDeleted == false)
                 .Where(o => o.UserId == userId)
+                .Where(o => o.Status != OrderStatus.Sent)
                 .FirstOrDefaultAsync();
 
             if (order == null || order.Status == OrderStatus.Sent)
@@ -227,15 +228,6 @@
                 }
             }
 
-            if (userFromDb.HasCoupon)
-            {
-                var discountedProductsViewModel = this.mapper.Map<IList<ProductsShoppingBagViewModel>>(productsView);
-
-                var discountedProducts = this.AddDiscountToProducts(discountedProductsViewModel);
-
-                return discountedProducts;
-            }
-
             var productsViewModel = this.mapper.Map<IList<ProductsShoppingBagViewModel>>(productsView);
 
             return productsViewModel;
@@ -245,7 +237,9 @@
         {
             var userId = this.GetLoggedUserId();
 
-            var order = await this.dbContext.Orders.FirstOrDefaultAsync(o => o.UserId == userId);
+            var order = await this.dbContext.Orders
+                .Where(o => o.Status != OrderStatus.Sent)
+                .FirstOrDefaultAsync(o => o.UserId == userId);
 
             var product = await this.dbContext.OrderProducts
                  .Where(op => op.ProductId == id && op.OrderId == order.Id)
@@ -264,17 +258,7 @@
             return userId;
         }
 
-        private IList<ProductsShoppingBagViewModel> AddDiscountToProducts(IList<ProductsShoppingBagViewModel> products)
-        {
-            foreach (var product in products)
-            {
-                product.Price -= product.Price * ServicesConstants.ProductsDiscountPercentage;
-            }
-
-            return products;
-        }
-
-        private async Task<ApplicationUser> GetLoggedUserById(string userId)
+        private async Task<ApplicationUser> GetLoggedUserByIdAsync(string userId)
         {
             var userFromDb = await this.dbContext.Users.
                 Where(u => u.IsDeleted == false)

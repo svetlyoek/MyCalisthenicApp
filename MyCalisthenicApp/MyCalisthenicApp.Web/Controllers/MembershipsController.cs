@@ -34,11 +34,11 @@
 
             var membershipPrice = await this.membershipsService.GetMembershipPriceByIdAsync(id);
 
-            await this.ordersService.CreateMembershipToOrder(membershipPrice);
+            await this.ordersService.CreateMembershipToOrderAsync(membershipPrice);
 
             var userId = this.usersService.GetLoggedUserId();
 
-            var user = await this.usersService.GetLoggedUserById(userId);
+            var user = await this.usersService.GetLoggedUserByIdAsync(userId);
 
             if (user.HasMembership)
             {

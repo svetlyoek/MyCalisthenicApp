@@ -89,7 +89,7 @@
         [HttpPost]
         public async Task<IActionResult> Search(NavbarSearchViewModel inputModel)
         {
-            var elements = await this.searchesService.GetElementsBySearchText(inputModel);
+            var elements = await this.searchesService.GetElementsBySearchTextAsync(inputModel);
 
             if (!this.ModelState.IsValid || elements == null)
             {

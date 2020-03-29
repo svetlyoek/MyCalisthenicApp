@@ -76,7 +76,6 @@ namespace MyCalisthenicApp.Web
             // Application services
             services.AddTransient<IUserRequestsService, UserRequestService>();
             services.AddTransient<IProgramsService, ProgramsService>();
-            services.AddTransient<IShoppingCartsService, ShoppingCartsService>();
             services.AddTransient<IExercisesService, ExercisesService>();
             services.AddTransient<ICommentsService, CommentsService>();
             services.AddTransient<ICategoriesService, CategoriesService>();

@@ -7,6 +7,6 @@
 
     public interface ISearchesService
     {
-        Task<IEnumerable<object>> GetElementsBySearchText(NavbarSearchViewModel inputModel);
+        Task<IEnumerable<object>> GetElementsBySearchTextAsync(NavbarSearchViewModel inputModel);
     }
 }

@@ -30,7 +30,7 @@
         {
             var userId = this.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserById(userId);
+            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
 
             Comment comment = null;
 
@@ -125,7 +125,7 @@
 
             var userId = this.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserById(userId);
+            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
 
             var userCredentials = userFromDb.FirstName + " " + userFromDb.LastName + ":" + userId;
 
@@ -182,7 +182,7 @@
             return userId;
         }
 
-        private async Task<ApplicationUser> GetLoggedUserById(string userId)
+        private async Task<ApplicationUser> GetLoggedUserByIdAsync(string userId)
         {
             var userFromDb = await this.dbContext.Users.
                 Where(u => u.IsDeleted == false)

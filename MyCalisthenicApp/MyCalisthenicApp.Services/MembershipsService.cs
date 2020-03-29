@@ -21,7 +21,7 @@
             this.mapper = mapper;
         }
 
-        public async Task<IEnumerable<MembershipPlanViewModel>> GetAllMembershipPlans()
+        public async Task<IEnumerable<MembershipPlanViewModel>> GetAllMembershipPlansAsync()
         {
             var memberships = await this.dbContext
                 .Memberships

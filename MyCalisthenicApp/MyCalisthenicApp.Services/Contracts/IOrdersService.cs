@@ -12,19 +12,19 @@
     {
         Task<bool> CreateOrderAsync(Product product);
 
-        Task CreateMembershipToOrder(decimal? price);
+        Task CreateMembershipToOrderAsync(decimal? price);
 
-        Task<int> ShoppingBagProductsCount();
+        Task<int> ShoppingBagProductsCountAsync();
 
-        Task ChangeQuantity(string id, int quantity);
+        Task ChangeQuantityAsync(string id, int quantity);
 
-        Task CreateAddressToOrder(AddressInputViewModel inputModel);
+        Task CreateAddressToOrderAsync(AddressInputViewModel inputModel);
 
         Task SetDeliveryPriceToOrderAsync(decimal deliveryPrice);
 
         Task<IEnumerable<SupplierViewModel>> GetAllSuppliersAsync();
 
-        Task<bool> SendOrder(string id);
+        Task<bool> SendOrderAsync(string id);
 
         Task<OrderCheckoutViewModel> GetOrderToSendAsync();
     }

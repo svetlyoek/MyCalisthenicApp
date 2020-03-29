@@ -16,7 +16,7 @@
         public IViewComponentResult Invoke()
         {
             var productsCount = this.orderService
-                .ShoppingBagProductsCount()
+                .ShoppingBagProductsCountAsync()
                 .GetAwaiter()
                 .GetResult();
 

@@ -15,7 +15,7 @@
 
         public IViewComponentResult Invoke()
         {
-            var posts = this.postsService.GetFourLatestPosts()
+            var posts = this.postsService.GetFourLatestPostsAsync()
                 .GetAwaiter()
                 .GetResult();
 

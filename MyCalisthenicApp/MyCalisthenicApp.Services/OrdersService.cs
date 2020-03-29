@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Security.Claims;
     using System.Threading.Tasks;
+
     using AutoMapper;
     using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
@@ -30,7 +31,7 @@
             this.mapper = mapper;
         }
 
-        public async Task ChangeQuantity(string id, int quantity)
+        public async Task ChangeQuantityAsync(string id, int quantity)
         {
             var userId = this.GetLoggedUserId();
 
@@ -38,6 +39,7 @@
                 .Include(p => p.Products)
                 .Where(o => o.UserId == userId)
                 .Where(o => o.IsDeleted == false)
+                .Where(o => o.Status != OrderStatus.Sent)
                 .FirstOrDefaultAsync();
 
             var orderProduct = await this.dbContext.OrderProducts
@@ -73,11 +75,11 @@
             await this.dbContext.SaveChangesAsync();
         }
 
-        public async Task CreateMembershipToOrder(decimal? price)
+        public async Task CreateMembershipToOrderAsync(decimal? price)
         {
             var userId = this.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserById(userId);
+            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
 
             if (userFromDb.HasMembership)
             {
@@ -122,6 +124,10 @@
 
         public async Task<bool> CreateOrderAsync(Product product)
         {
+            decimal discount = ServicesConstants.ProductsDiscountPercentage;
+
+            var price = product.Price - (product.Price * discount);
+
             if (product.IsSoldOut)
             {
                 return false;
@@ -129,7 +135,7 @@
 
             var userId = this.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserById(userId);
+            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
 
             if (this.dbContext.Orders.Any(o => o.UserId == userId && o.Status != OrderStatus.Sent))
             {
@@ -138,7 +144,14 @@
                     .Where(o => o.UserId == userId)
                     .FirstOrDefaultAsync();
 
-                currentOrder.TotalPrice += product.Price;
+                if (userFromDb.HasCoupon)
+                {
+                    currentOrder.TotalPrice += price;
+                }
+                else
+                {
+                    currentOrder.TotalPrice += product.Price;
+                }
 
                 if (!this.dbContext.OrderProducts.Any(o => o.OrderId == currentOrder.Id
                  && o.ProductId == product.Id))
@@ -148,7 +161,7 @@
                         OrderId = currentOrder.Id,
                         ProductId = product.Id,
                         Quantity = ServicesConstants.DefaultShoppingBagAddedQuantity,
-                        Price = product.Price,
+                        Price = userFromDb.HasCoupon == true ? price : product.Price,
                     };
 
                     currentOrder.Products.Add(orderProduct);
@@ -169,7 +182,7 @@
                 {
                     PaymentStatus = PaymentStatus.Unpaid,
                     Status = OrderStatus.Processing,
-                    TotalPrice = product.Price,
+                    TotalPrice = userFromDb.HasCoupon == true ? price : product.Price,
                     User = userFromDb,
                     UserId = userId,
                 };
@@ -179,7 +192,7 @@
                     OrderId = order.Id,
                     ProductId = product.Id,
                     Quantity = ServicesConstants.DefaultShoppingBagAddedQuantity,
-                    Price = product.Price,
+                    Price = userFromDb.HasCoupon == true ? price : product.Price,
                 };
 
                 order.Products.Add(orderProduct);
@@ -191,7 +204,7 @@
             }
         }
 
-        public async Task<int> ShoppingBagProductsCount()
+        public async Task<int> ShoppingBagProductsCountAsync()
         {
             var userId = this.GetLoggedUserId();
 
@@ -222,11 +235,11 @@
             }
         }
 
-        public async Task CreateAddressToOrder(AddressInputViewModel inputModel)
+        public async Task CreateAddressToOrderAsync(AddressInputViewModel inputModel)
         {
             var userId = this.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserById(userId);
+            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
 
             var order = await this.dbContext.Orders
                 .Where(o => o.IsDeleted == false)
@@ -333,6 +346,11 @@
                   .Where(o => o.Status != OrderStatus.Sent)
                   .FirstOrDefaultAsync(o => o.UserId == userId);
 
+            if (order == null)
+            {
+                return;
+            }
+
             order.DeliveryPrice = deliveryPrice;
 
             this.dbContext.Update(order);
@@ -373,11 +391,11 @@
             return orderViewModel;
         }
 
-        public async Task<bool> SendOrder(string id)
+        public async Task<bool> SendOrderAsync(string id)
         {
             var userId = this.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserById(userId);
+            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
 
             var order = await this.dbContext.Orders
                 .Where(o => o.IsDeleted == false)
@@ -401,7 +419,7 @@
                 await this.dbContext.SaveChangesAsync();
             }
 
-            if (order.TotalPrice > 0)
+            if (order.TotalPrice > 0 && order.DeliveryAddressId != null && order.DeliveryPrice != null)
             {
                 order.DisptachDate = DateTime.UtcNow.AddDays(1);
 
@@ -435,7 +453,7 @@
             return userId;
         }
 
-        private async Task<ApplicationUser> GetLoggedUserById(string userId)
+        private async Task<ApplicationUser> GetLoggedUserByIdAsync(string userId)
         {
             var userFromDb = await this.dbContext.Users.
                 Where(u => u.IsDeleted == false)

@@ -24,11 +24,11 @@
             this.dbContext = dbContext;
         }
 
-        public async Task AddDiscountToUser(CouponViewModel inputModel)
+        public async Task AddDiscountToUserAsync(CouponViewModel inputModel)
         {
             var userId = this.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserById(userId);
+            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
 
             if (inputModel.Coupon == ServicesConstants.AppDiscountCoupon && userFromDb.HasCoupon == false)
             {
@@ -46,7 +46,7 @@
             return userId;
         }
 
-        public async Task<ApplicationUser> GetLoggedUserById(string userId)
+        public async Task<ApplicationUser> GetLoggedUserByIdAsync(string userId)
         {
             var userFromDb = await this.dbContext.Users.
                 Where(u => u.IsDeleted == false)
@@ -61,7 +61,7 @@
 
             var userId = this.GetLoggedUserId();
 
-            var user = await this.GetLoggedUserById(userId);
+            var user = await this.GetLoggedUserByIdAsync(userId);
 
             if (user != null && user.MembershipExpirationDate != null)
             {

@@ -23,7 +23,7 @@
 
         bool ProductsExistsById(string id);
 
-        Task<Product> GetProduct(string id);
+        Task<Product> GetProductAsync(string id);
 
         Task<IList<ProductsShoppingBagViewModel>> GetShoppingBagProductsAsync();
 

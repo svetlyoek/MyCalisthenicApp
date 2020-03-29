@@ -35,7 +35,7 @@
 
             var userId = this.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserById(userId);
+            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
 
             var userCredentials = userFromDb.FirstName + " " + userFromDb.LastName + ":" + userId;
 
@@ -80,7 +80,7 @@
             return allPosts;
         }
 
-        public async Task<IEnumerable<PostDetailsSidebarViewModel>> GetFourLatestPosts()
+        public async Task<IEnumerable<PostDetailsSidebarViewModel>> GetFourLatestPostsAsync()
         {
             var posts = await this.dbContext.Post
                  .Include(i => i.Images)
@@ -118,7 +118,7 @@
                  .Where(p => p.IsPublic == true).Any(p => p.Id == id);
         }
 
-        public async Task<PostDetailsViewModel> GetPostDetailsById(string id)
+        public async Task<PostDetailsViewModel> GetPostDetailsByIdAsync(string id)
         {
             var post = await this.dbContext.Post
                 .Where(p => p.Id == id)
@@ -188,7 +188,7 @@
             return userId;
         }
 
-        private async Task<ApplicationUser> GetLoggedUserById(string userId)
+        private async Task<ApplicationUser> GetLoggedUserByIdAsync(string userId)
         {
             var userFromDb = await this.dbContext.Users.
                 Where(u => u.IsDeleted == false)

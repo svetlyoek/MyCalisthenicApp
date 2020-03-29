@@ -32,7 +32,7 @@
                 return this.View("Error404");
             }
 
-            var post = await this.postsService.GetPostDetailsById(id);
+            var post = await this.postsService.GetPostDetailsByIdAsync(id);
 
             var comments = await this.commentsService.GetCommentsByPostIdAsync(post.Id);
 
