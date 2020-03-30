@@ -59,6 +59,15 @@
 
                 post.LikesUsersNames.Add(userCredentials);
             }
+            else if (post.LikesUsersNames.Contains(userCredentials))
+            {
+                if (post.Rating >= 1)
+                {
+                    post.Rating -= 1;
+                }
+
+                post.LikesUsersNames.Remove(userCredentials);
+            }
 
             this.dbContext.Update(post);
 

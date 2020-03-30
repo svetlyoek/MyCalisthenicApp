@@ -17,7 +17,10 @@
         private readonly IEmailSender emailSender;
         private readonly IUsersService usersService;
 
-        public PaymentsController(IOrdersService ordersService, IEmailSender emailSender, IUsersService usersService)
+        public PaymentsController(
+            IOrdersService ordersService,
+            IEmailSender emailSender,
+            IUsersService usersService)
         {
             this.ordersService = ordersService;
             this.emailSender = emailSender;

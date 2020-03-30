@@ -149,6 +149,15 @@
 
                 comment.LikesUsersNames.Add(userCredentials);
             }
+            else if (comment.LikesUsersNames.Contains(userCredentials))
+            {
+                if (comment.Rating >= 1)
+                {
+                    comment.Rating -= 1;
+                }
+
+                comment.LikesUsersNames.Remove(userCredentials);
+            }
 
             this.dbContext.Update(comment);
 

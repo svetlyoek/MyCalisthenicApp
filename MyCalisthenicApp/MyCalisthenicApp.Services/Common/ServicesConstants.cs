@@ -9,6 +9,8 @@
         public const string InvalidProgram = "Program with {0} id does not exists!";
 
         // Products
+        public const int ProductsDefaultPage = 1;
+        public const int ProductsCountPerPage = 8;
         public const string InvalidProduct = "Product with {0} id does not exists!";
         public const string ProductsNewestSortEnum = "Newest";
         public const string ProductsOldestSortEnum = "Oldest";

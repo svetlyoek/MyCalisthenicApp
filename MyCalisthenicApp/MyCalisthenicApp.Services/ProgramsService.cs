@@ -120,6 +120,15 @@
 
                 program.LikesUsersNames.Add(userCredentials);
             }
+            else if (program.LikesUsersNames.Contains(userCredentials))
+            {
+                if (program.Rating >= 1)
+                {
+                    program.Rating -= 1;
+                }
+
+                program.LikesUsersNames.Remove(userCredentials);
+            }
 
             this.dbContext.Update(program);
 

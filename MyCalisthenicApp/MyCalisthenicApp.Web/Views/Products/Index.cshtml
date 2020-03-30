@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProductsViewModel>
+﻿@model ProductsPageViewModel
 @{
     ViewData["Title"] = "Shop";
 }
@@ -111,7 +111,7 @@
         <!-- search banner end -->
 
         <div class="row shopping-slider-item text-center">
-            @foreach (var product in Model)
+            @foreach (var product in Model.PaginatedProducts())
             {
                 <div class="col-md-3">
                     <div class="shop-single-item margin-bottom-50">
@@ -139,6 +139,17 @@
                     </div>
                 </div>
             }
+        </div>
+        <div class="d-flex justify-content-around">
+            <ul class="pagination">
+                @for (int i = 1; i <= Model.PageCount(); i++)
+                {
+                    <li class="@(i == Model.CurrentPage ? "page-item active" : "page-item")">
+                        <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
+                    </li>
+
+                }
+            </ul>
         </div>
     </section>
     <!-- home shopping end -->

@@ -4,7 +4,9 @@
 
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
+    using MyCalisthenicApp.ViewModels.Products;
 
     public class ProductsController : BaseController
     {
@@ -19,11 +21,18 @@
             this.imagesService = imagesService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page)
         {
             var products = await this.productsService.GetAllProductsAsync();
 
-            return this.View(products);
+            var productsViewModel = new ProductsPageViewModel
+            {
+                ProductPerPage = ServicesConstants.ProductsCountPerPage,
+                CurrentPage = page,
+                Products = products,
+            };
+
+            return this.View(productsViewModel);
         }
 
         public async Task<IActionResult> Details(string id)
@@ -48,14 +57,28 @@
         {
             var products = await this.productsService.GetProductsByCategoryAsync(name);
 
-            return this.View("Index", products);
+            var productsViewModel = new ProductsPageViewModel
+            {
+                ProductPerPage = ServicesConstants.ProductsCountPerPage,
+                CurrentPage = ServicesConstants.ProductsDefaultPage,
+                Products = products,
+            };
+
+            return this.View("Index", productsViewModel);
         }
 
         public async Task<IActionResult> Sort(string sort)
         {
             var products = await this.productsService.GetProductsAndSortAsync(sort);
 
-            return this.View("Index", products);
+            var productsViewModel = new ProductsPageViewModel
+            {
+                ProductPerPage = ServicesConstants.ProductsCountPerPage,
+                CurrentPage = ServicesConstants.ProductsDefaultPage,
+                Products = products,
+            };
+
+            return this.View("Index", productsViewModel);
         }
 
         [Authorize]

@@ -159,6 +159,15 @@
 
                 product.LikesUsersNames.Add(userCredentials);
             }
+            else if (product.LikesUsersNames.Contains(userCredentials))
+            {
+                if (product.Rating >= 1)
+                {
+                    product.Rating -= 1;
+                }
+
+                product.LikesUsersNames.Remove(userCredentials);
+            }
 
             this.dbContext.Update(product);
 
