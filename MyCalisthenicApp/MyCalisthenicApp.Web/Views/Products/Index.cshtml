@@ -72,17 +72,17 @@
 
                                             if (counter == 1 || counter == 2)
                                             {
-                                                <li>@Html.ActionLink(sort.ToString(), "Sort", "Products", new { sort = sort.ToString() })</li>
+                                                <li>@Html.ActionLink(sort.ToString(), "Index", "Products", new { sort = sort.ToString() })</li>
                                             }
                                             if (counter == 3)
                                             {
                                                 customSort = "Price Ascending";
-                                                <li>@Html.ActionLink(customSort, "Sort", "Products", new { sort = sort.ToString() })</li>
+                                                <li>@Html.ActionLink(customSort, "Index", "Products", new { sort = sort.ToString() })</li>
                                             }
                                             else if (counter == 4)
                                             {
                                                 customSort = "Price Descending";
-                                                <li>@Html.ActionLink(customSort, "Sort", "Products", new { sort = sort.ToString() })</li>
+                                                <li>@Html.ActionLink(customSort, "Index", "Products", new { sort = sort.ToString() })</li>
                                             }
 
                                         }
@@ -98,7 +98,7 @@
 
                                     @foreach (var name in Enum.GetValues(typeof(ProductCategoryType)))
                                     {
-                                        <li>@Html.ActionLink(name.ToString(), "Filter", "Products", new { name = name.ToString() })</li>
+                                        <li>@Html.ActionLink(name.ToString(), "Index", "Products", new { name = name.ToString() })</li>
                                     }
 
                                 </ul>
@@ -151,6 +151,7 @@
                 }
             </ul>
         </div>
+       
     </section>
     <!-- home shopping end -->
     <!-- jquery -->

@@ -21,18 +21,48 @@
             this.imagesService = imagesService;
         }
 
-        public async Task<IActionResult> Index(int page)
+        public async Task<IActionResult> Index(string sort, string name, int page)
         {
-            var products = await this.productsService.GetAllProductsAsync();
-
-            var productsViewModel = new ProductsPageViewModel
+            if (sort != null)
             {
-                ProductPerPage = ServicesConstants.ProductsCountPerPage,
-                CurrentPage = page,
-                Products = products,
-            };
+                var sortedProducts = await this.productsService.GetProductsAndSortAsync(sort);
 
-            return this.View(productsViewModel);
+                var sortedProductsViewModel = new ProductsPageViewModel
+                {
+                    ProductPerPage = ServicesConstants.ProductsCountPerPage,
+                    CurrentPage = page,
+                    Products = sortedProducts,
+                };
+
+                return this.View(sortedProductsViewModel);
+            }
+
+            if (name != null)
+            {
+                var filteredProducts = await this.productsService.GetProductsByCategoryAsync(name);
+
+                var filteredProductsViewModel = new ProductsPageViewModel
+                {
+                    ProductPerPage = ServicesConstants.ProductsCountPerPage,
+                    CurrentPage = page,
+                    Products = filteredProducts,
+                };
+
+                return this.View(filteredProductsViewModel);
+            }
+            else
+            {
+                var products = await this.productsService.GetAllProductsAsync();
+
+                var productsViewModel = new ProductsPageViewModel
+                {
+                    ProductPerPage = ServicesConstants.ProductsCountPerPage,
+                    CurrentPage = page,
+                    Products = products,
+                };
+
+                return this.View(productsViewModel);
+            }
         }
 
         public async Task<IActionResult> Details(string id)
@@ -51,34 +81,6 @@
             product.Images = images;
 
             return this.View(product);
-        }
-
-        public async Task<IActionResult> Filter(string name)
-        {
-            var products = await this.productsService.GetProductsByCategoryAsync(name);
-
-            var productsViewModel = new ProductsPageViewModel
-            {
-                ProductPerPage = ServicesConstants.ProductsCountPerPage,
-                CurrentPage = ServicesConstants.ProductsDefaultPage,
-                Products = products,
-            };
-
-            return this.View("Index", productsViewModel);
-        }
-
-        public async Task<IActionResult> Sort(string sort)
-        {
-            var products = await this.productsService.GetProductsAndSortAsync(sort);
-
-            var productsViewModel = new ProductsPageViewModel
-            {
-                ProductPerPage = ServicesConstants.ProductsCountPerPage,
-                CurrentPage = ServicesConstants.ProductsDefaultPage,
-                Products = products,
-            };
-
-            return this.View("Index", productsViewModel);
         }
 
         [Authorize]

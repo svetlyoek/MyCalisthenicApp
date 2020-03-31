@@ -1,18 +1,18 @@
-﻿@model IEnumerable<PostDetailsSidebarViewModel>
+﻿@model PostPageViewModel
 
 <div class="col-lg-4">
     <div class="blog-right-content widget-area sidebar">
         <div class="widget widget_search">
 
             @await Html.PartialAsync("~/Views/Shared/Partials/_PostSearchPartial.cshtml",
-           new PostSearchViewModel())
+           new PostPageViewModel())
 
         </div>
         <div class="widget latest-post-widget">
             <div class="eidget-title">
                 <h1>Latest posts</h1>
             </div>
-            @foreach (var post in Model)
+            @foreach (var post in Model.PaginatedSidebarPosts())
             {
                 <div class="share-img-item">
                     <div class="img-part">
@@ -46,31 +46,31 @@
                     if (counter == 1)
                     {
                         customSort = "How To";
-                        <li>@Html.ActionLink(customSort, "Sort", "Posts", new { sort = customSort })</li>
+                        <li>@Html.ActionLink(customSort, "Index", "Posts", new { sort = customSort })</li>
                     }
                     if (counter == 2)
                     {
                         customSort = "Beginner Calisthenic";
-                        <li>@Html.ActionLink(customSort, "Sort", "Posts", new { sort = customSort })</li>
+                        <li>@Html.ActionLink(customSort, "Index", "Posts", new { sort = customSort })</li>
                     }
                     else if (counter == 3)
                     {
                         customSort = "Advanced Calisthenic";
-                        <li>@Html.ActionLink(customSort, "Sort", "Posts", new { sort = customSort })</li>
+                        <li>@Html.ActionLink(customSort, "Index", "Posts", new { sort = customSort })</li>
                     }
                     else if (counter == 4)
                     {
-                        <li>@Html.ActionLink(sort.ToString(), "Sort", "Posts", new { sort = sort.ToString() })</li>
+                        <li>@Html.ActionLink(sort.ToString(), "Index", "Posts", new { sort = sort.ToString() })</li>
                     }
                     else if (counter == 5)
                     {
                         customSort = "Workout/Training";
-                        <li>@Html.ActionLink(customSort, "Sort", "Posts", new { sort = customSort })</li>
+                        <li>@Html.ActionLink(customSort, "Index", "Posts", new { sort = customSort })</li>
                     }
                     else if (counter == 6)
                     {
                         customSort = "Skills/Techniques";
-                        <li>@Html.ActionLink(customSort, "Sort", "Posts", new { sort = customSort })</li>
+                        <li>@Html.ActionLink(customSort, "Index", "Posts", new { sort = customSort })</li>
                     }
 
                 }

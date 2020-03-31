@@ -1,6 +1,7 @@
 ﻿namespace MyCalisthenicApp.Services
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Security.Claims;
     using System.Threading.Tasks;
@@ -80,6 +81,63 @@
             }
 
             return false;
+        }
+
+        public async Task<IList<ApplicationUser>> GetAllUsersAsync()
+        {
+            var allUsers = await this.dbContext.Users
+                .Where(u => u.IsDeleted == false)
+                .OrderByDescending(u => u.CreatedOn)
+                .ToListAsync();
+
+            return allUsers;
+        }
+
+        public async Task<IList<ApplicationUser>> GetBannedUsersAsync()
+        {
+            var bannedUsers = await this.dbContext.Users
+                .Where(u => u.IsDeleted == true)
+                 .ToListAsync();
+
+            return bannedUsers;
+        }
+
+        public async Task<ApplicationUser> GetBannedUserAsync(string email)
+        {
+            var bannedUser = await this.dbContext.Users
+                .Where(u => u.IsDeleted == true)
+                .Where(u => u.Email == email)
+                .FirstOrDefaultAsync();
+
+            return bannedUser;
+        }
+
+        public async Task GetBannedUserToUnblockAsync(string id)
+        {
+            var bannedUser = await this.dbContext.Users
+                .Where(u => u.Id == id)
+                .Where(u => u.IsDeleted == true)
+                .FirstOrDefaultAsync();
+
+            bannedUser.IsDeleted = false;
+
+            this.dbContext.Update(bannedUser);
+
+            await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task GetUserToBlockAsync(string id)
+        {
+            var userToBlock = await this.dbContext.Users
+                .Where(u => u.Id == id)
+                .Where(u => u.IsDeleted == false)
+                .FirstOrDefaultAsync();
+
+            userToBlock.IsDeleted = true;
+
+            this.dbContext.Update(userToBlock);
+
+            await this.dbContext.SaveChangesAsync();
         }
     }
 }

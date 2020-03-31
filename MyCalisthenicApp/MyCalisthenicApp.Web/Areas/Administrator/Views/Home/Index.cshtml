@@ -1,8 +1,35 @@
-﻿@{
-    ViewData["Title"] = "Admin";
-    Layout = "~/Views/Shared/Layouts/_LayoutAdmin.cshtml";
-}
+﻿<!-- navbar start -->
+<div class="calisthenic-navbar">
+    <nav class="navbar navbar-area navbar-expand-lg nav-style-01 bg-dark">
+        <div class="container nav-container">
+            <div class="logo">
+                <a asp-area="" asp-controller="Home" asp-action="Index"> <img src="/assets/img/logo.png" alt="logo"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="billatrail_main_menu">
+                <ul class="navbar-nav menu-open">
+                    <li class="mr-5">
+                        <a class="text-danger" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
 
-
-<h1>This is administration area!!!</h1>
-
+                    <li class="menu-item-has-children mr-5">
+                        <a class="text-danger" href="#">List users</a>
+                        <ul class="sub-menu">
+                            <li><a class="text-danger" asp-controller="Users" asp-action="All">All users</a></li>
+                            <li><a class="text-danger" asp-controller="Users" asp-action="Banned">Banned users</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children mr-5">
+                        <a class="text-danger" href="#">List items</a>
+                        <ul class="sub-menu">
+                            <li><a class="text-danger" asp-controller="Trainers" asp-action="Index">User comments</a></li>
+                            <li><a class="text-danger" asp-controller="Trainers" asp-action="Index">User likes</a></li>
+                            <li><a class="text-danger" asp-controller="Trainers" asp-action="Index">User requests</a></li>
+                        </ul>
+                    </li>
+                    <li class="mr-5"><a class="text-danger" asp-area="Identity" asp-page="/Account/Logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- navbar end -->

@@ -4,6 +4,7 @@
 
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Posts;
 
@@ -18,11 +19,34 @@
             this.commentsService = commentsService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sort, int page)
         {
-            var allPosts = await this.postsService.GetAllPostsAsync();
+            if (sort != null)
+            {
+                var sortedPosts = await this.postsService.SortPostsByCategoryAsync(sort);
 
-            return this.View(allPosts);
+                var sortedPostsViewModel = new PostPageViewModel
+                {
+                    PostsPerPage = ServicesConstants.PostsCountPerPage,
+                    CurrentPage = page,
+                    Posts = sortedPosts,
+                };
+
+                return this.View(sortedPostsViewModel);
+            }
+            else
+            {
+                var allPosts = await this.postsService.GetAllPostsAsync();
+
+                var allPostsViewModel = new PostPageViewModel
+                {
+                    PostsPerPage = ServicesConstants.PostsCountPerPage,
+                    CurrentPage = page,
+                    Posts = allPosts,
+                };
+
+                return this.View(allPostsViewModel);
+            }
         }
 
         public async Task<IActionResult> Details(string id)
@@ -39,13 +63,6 @@
             post.Comments = comments;
 
             return this.View(post);
-        }
-
-        public async Task<IActionResult> Sort(string sort)
-        {
-            var sortedPosts = await this.postsService.SortPostsByCategoryAsync(sort);
-
-            return this.View("Index", sortedPosts);
         }
 
         [Authorize]
@@ -66,7 +83,14 @@
 
             var posts = await this.postsService.GetPostsBySearchAsync(inputModel);
 
-            return this.View("Index", posts);
+            var searchPostsViewModel = new PostPageViewModel
+            {
+                PostsPerPage = ServicesConstants.PostsCountPerPage,
+                CurrentPage = ServicesConstants.PostsDefaultPage,
+                Posts = posts,
+            };
+
+            return this.View("Index", searchPostsViewModel);
         }
     }
 }

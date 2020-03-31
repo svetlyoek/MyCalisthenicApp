@@ -1,14 +1,10 @@
 ﻿namespace MyCalisthenicApp.Web.Controllers
 {
-    using System;
     using System.Diagnostics;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Authorization;
-    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
-    using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.Services.MessageSender;
     using MyCalisthenicApp.ViewModels;

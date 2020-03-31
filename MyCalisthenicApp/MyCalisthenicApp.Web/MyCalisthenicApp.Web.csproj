@@ -235,7 +235,7 @@
     <Content Update="Views\Shared\Components\SideBar\Default.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="Views\Shared\_ValidationScriptsPartial.cshtml">
+    <Content Update="Areas\Administrator\Views\Shared\_ValidationScriptsPartial.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="Views\_ViewImports.cshtml">
@@ -1269,7 +1269,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Administrator\ViewModels\" />
-    <Folder Include="Areas\Administrator\Views\Shared\" />
   </ItemGroup>
 
 </Project>

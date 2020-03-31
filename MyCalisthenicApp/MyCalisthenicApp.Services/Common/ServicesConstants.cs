@@ -19,6 +19,8 @@
         public const decimal ProductsDiscountPercentage = 0.10M;
 
         // Posts
+        public const int PostsDefaultPage = 1;
+        public const int PostsCountPerPage = 9;
         public const string InvalidPost = "Post with {0} id does not exists!";
 
         // Shopping bag

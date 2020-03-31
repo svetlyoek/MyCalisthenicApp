@@ -12,19 +12,27 @@
     using Microsoft.AspNetCore.Mvc.RazorPages;
     using Microsoft.Extensions.Logging;
     using MyCalisthenicApp.Models;
+    using MyCalisthenicApp.Services.Contracts;
 
     [AllowAnonymous]
     public class LoginModel : PageModel
     {
+        private const string BannedUserMessage = "You are temporarly banned from MyCalisthenicApp " +
+            "because you may have violated our terms of service! You will be able to use MyCalisthenicApp after 7 days..." +
+            " If you have any questions, please be free to contact us.";
+
         private readonly SignInManager<ApplicationUser> signInManager;
         private readonly ILogger<LoginModel> logger;
+        private readonly IUsersService usersService;
 
         public LoginModel(
             SignInManager<ApplicationUser> signInManager,
-            ILogger<LoginModel> logger)
+            ILogger<LoginModel> logger,
+            IUsersService usersService)
         {
             this.signInManager = signInManager;
             this.logger = logger;
+            this.usersService = usersService;
         }
 
         [BindProperty]
@@ -83,7 +91,17 @@
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+                var user = await this.usersService.GetBannedUserAsync(this.Input.Email);
+
+                if (user != null)
+                {
+                    this.ErrorMessage = BannedUserMessage;
+
+                    return this.RedirectToPage("~/Views/Shared/Error404.cshtml");
+                }
+
                 var result = await this.signInManager.PasswordSignInAsync(this.Input.Email, this.Input.Password, this.Input.RememberMe, lockoutOnFailure: true);
+
                 if (result.Succeeded)
                 {
                     this.logger.LogInformation("User logged in.");
