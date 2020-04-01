@@ -44,6 +44,10 @@ namespace MyCalisthenicApp.Web
                 options.UseSqlServer(
                     this.Configuration.GetConnectionString("DefaultConnection")));
 
+            var offset = DateTimeOffset.Now.Offset;
+
+            var lockoutDate = offset.Add(TimeSpan.FromHours(1));
+
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.Password.RequireDigit = true;
@@ -53,6 +57,8 @@ namespace MyCalisthenicApp.Web
                 options.Password.RequireUppercase = false;
 
                 options.Lockout.MaxFailedAccessAttempts = GlobalConstants.MaxFailedAccessAttempts;
+                options.Lockout.AllowedForNewUsers = true;
+                options.Lockout.DefaultLockoutTimeSpan = lockoutDate;
 
                 options.User.RequireUniqueEmail = true;
 
@@ -86,6 +92,7 @@ namespace MyCalisthenicApp.Web
             services.AddTransient<IOrdersService, OrdersService>();
             services.AddTransient<IUsersService, UsersService>();
             services.AddTransient<ISearchesService, SearchesService>();
+            services.AddTransient<IAddressesService, AddressesService>();
 
             services.AddTransient<IEmailSender>(
                 serviceProvider => new SendGridEmailSender(this.Configuration["SendGrid:ApiKey"]));

@@ -1,5 +1,6 @@
 ﻿namespace MyCalisthenicApp.Web.Controllers
 {
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -69,7 +70,7 @@
               order.MembershipPrice != null ? order.TotalPrice + order.DeliveryPrice + order.MembershipPrice : order.TotalPrice + order.DeliveryPrice,
               order.Status.ToString(),
               order.PaymentStatus.ToString(),
-              order.DisptachDate.ToString()));
+              order.DisptachDate.Value.Date.ToShortDateString()));
             }
             else
             {

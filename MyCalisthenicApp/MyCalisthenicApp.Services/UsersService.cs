@@ -10,6 +10,7 @@
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
     using MyCalisthenicApp.Models;
+    using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Coupons;
@@ -112,18 +113,26 @@
             return bannedUser;
         }
 
-        public async Task GetBannedUserToUnblockAsync(string id)
+        public async Task<ApplicationUser> BlockUnblockUserByIdAsync(string id)
         {
-            var bannedUser = await this.dbContext.Users
+            var user = await this.dbContext.Users
                 .Where(u => u.Id == id)
-                .Where(u => u.IsDeleted == true)
                 .FirstOrDefaultAsync();
 
-            bannedUser.IsDeleted = false;
+            if (user.IsDeleted == false)
+            {
+                user.IsDeleted = true;
+            }
+            else
+            {
+                user.IsDeleted = false;
+            }
 
-            this.dbContext.Update(bannedUser);
+            this.dbContext.Update(user);
 
             await this.dbContext.SaveChangesAsync();
+
+            return user;
         }
 
         public async Task GetUserToBlockAsync(string id)
@@ -138,6 +147,53 @@
             this.dbContext.Update(userToBlock);
 
             await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task<ApplicationUser> GetUserByEmailAsync(string email)
+        {
+            var user = await this.dbContext.Users
+                 .Where(u => u.Email == email)
+                  .FirstOrDefaultAsync();
+
+            return user;
+        }
+
+        public async Task<IList<Comment>> GetAllCommentsByUserIdAsync(string id)
+        {
+            var comments = await this.dbContext.Comments
+                .Where(c => c.AuthorId == id)
+                .ToListAsync();
+
+            return comments;
+        }
+
+        public async Task<IList<Order>> GetAllOrdersByUserIdAsync(string id)
+        {
+            var orders = await this.dbContext.Orders
+                .Include(o => o.Products)
+                 .Where(c => c.UserId == id)
+                 .ToListAsync();
+
+            return orders;
+        }
+
+        public async Task<IList<Address>> GetAllAddressesByUserIdAsync(string id)
+        {
+            var addresses = await this.dbContext.Addresses
+                .Include(a => a.City)
+                .Where(c => c.UserId == id)
+                .ToListAsync();
+
+            return addresses;
+        }
+
+        public async Task<IList<OrderProduct>> GetAllProductsByOrderIdAsync(string id)
+        {
+            var products = await this.dbContext
+                .OrderProducts.Where(o => o.OrderId == id)
+                .ToListAsync();
+
+            return products;
         }
     }
 }

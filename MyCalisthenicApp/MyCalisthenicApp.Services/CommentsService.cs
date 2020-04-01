@@ -185,6 +185,22 @@
             return returnId;
         }
 
+        public async Task<IList<string>> GetAllLikesByCommentIdAsync(string id)
+        {
+            var comment = await this.dbContext.Comments
+                 .Where(c => c.Id == id)
+                 .FirstOrDefaultAsync();
+
+            if (comment.LikesUsersNames == null)
+            {
+                comment.LikesUsersNames = new List<string>();
+            }
+
+            var likes = comment.LikesUsersNames;
+
+            return likes;
+        }
+
         private string GetLoggedUserId()
         {
             var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);

@@ -91,9 +91,11 @@
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var user = await this.usersService.GetBannedUserAsync(this.Input.Email);
+                var bannedUser = await this.usersService.GetBannedUserAsync(this.Input.Email);
 
-                if (user != null)
+                var user = await this.usersService.GetUserByEmailAsync(this.Input.Email);
+
+                if (bannedUser != null)
                 {
                     this.ErrorMessage = BannedUserMessage;
 
@@ -104,7 +106,10 @@
 
                 if (result.Succeeded)
                 {
+                    user.AccessFailedCount = 0;
+
                     this.logger.LogInformation("User logged in.");
+
                     return this.LocalRedirect(returnUrl);
                 }
 
@@ -116,11 +121,22 @@
                 if (result.IsLockedOut)
                 {
                     this.logger.LogWarning("User account locked out.");
+
                     return this.RedirectToPage("./Lockout");
                 }
                 else
                 {
+                    if (user.AccessFailedCount == 0)
+                    {
+                        user.AccessFailedCount = 1;
+                    }
+                    else
+                    {
+                        user.AccessFailedCount++;
+                    }
+
                     this.ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+
                     return this.Page();
                 }
             }

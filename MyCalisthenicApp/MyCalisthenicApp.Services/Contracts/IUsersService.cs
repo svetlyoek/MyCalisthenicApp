@@ -4,6 +4,7 @@
     using System.Threading.Tasks;
 
     using MyCalisthenicApp.Models;
+    using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.ViewModels.Coupons;
 
     public interface IUsersService
@@ -14,9 +15,17 @@
 
         Task<ApplicationUser> GetBannedUserAsync(string email);
 
-        Task GetBannedUserToUnblockAsync(string id);
+        Task<ApplicationUser> GetUserByEmailAsync(string email);
 
-        Task GetUserToBlockAsync(string id);
+        Task<ApplicationUser> BlockUnblockUserByIdAsync(string id);
+
+        Task<IList<OrderProduct>> GetAllProductsByOrderIdAsync(string id);
+
+        Task<IList<Comment>> GetAllCommentsByUserIdAsync(string id);
+
+        Task<IList<Order>> GetAllOrdersByUserIdAsync(string id);
+
+        Task<IList<Address>> GetAllAddressesByUserIdAsync(string id);
 
         Task<bool> CheckUserMembershipAsync();
 

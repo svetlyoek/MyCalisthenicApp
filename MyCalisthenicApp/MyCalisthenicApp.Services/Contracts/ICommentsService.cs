@@ -16,6 +16,8 @@
 
         Task<Comment> CreateCommentAsync(string id, CommentInputViewModel commentModel);
 
+        Task<IList<string>> GetAllLikesByCommentIdAsync(string id);
+
         Task<string> AddRatingAsync(string id);
     }
 }
