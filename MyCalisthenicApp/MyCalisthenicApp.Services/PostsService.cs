@@ -191,6 +191,35 @@
             return sortedPostsViewModel;
         }
 
+        public async Task<IList<PostsAdminViewModel>> GetAllPostsForAdminAsync()
+        {
+            var posts = await this.dbContext.Post
+                 .Include(p => p.Author)
+                 .Include(p => p.Category)
+                 .Include(p => p.Images)
+                 .ToListAsync();
+
+            var postsViewModel = this.mapper.Map<IList<PostsAdminViewModel>>(posts);
+
+            return postsViewModel;
+        }
+
+        public async Task<IList<string>> GetAllLikesByPostIdAsync(string id)
+        {
+            var post = await this.dbContext.Post
+                 .Where(c => c.Id == id)
+                 .FirstOrDefaultAsync();
+
+            if (post.LikesUsersNames == null)
+            {
+                post.LikesUsersNames = new List<string>();
+            }
+
+            var likes = post.LikesUsersNames;
+
+            return likes;
+        }
+
         private string GetLoggedUserId()
         {
             var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -205,5 +234,7 @@
 
             return userFromDb;
         }
+
+
     }
 }

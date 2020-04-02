@@ -1,10 +1,10 @@
 ﻿namespace MyCalisthenicApp.Services.Contracts
 {
-    using System.Collections;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
     using MyCalisthenicApp.Models.ShopEntities;
+    using MyCalisthenicApp.ViewModels.Addresses;
     using MyCalisthenicApp.ViewModels.Orders;
     using MyCalisthenicApp.ViewModels.Suppliers;
 

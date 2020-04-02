@@ -4,8 +4,12 @@
     using System.Threading.Tasks;
 
     using MyCalisthenicApp.Models;
-    using MyCalisthenicApp.Models.ShopEntities;
+    using MyCalisthenicApp.ViewModels.Addresses;
+    using MyCalisthenicApp.ViewModels.Comments;
     using MyCalisthenicApp.ViewModels.Coupons;
+    using MyCalisthenicApp.ViewModels.OrderProducts;
+    using MyCalisthenicApp.ViewModels.Orders;
+    using MyCalisthenicApp.ViewModels.Users;
 
     public interface IUsersService
     {
@@ -19,19 +23,19 @@
 
         Task<ApplicationUser> BlockUnblockUserByIdAsync(string id);
 
-        Task<IList<OrderProduct>> GetAllProductsByOrderIdAsync(string id);
+        Task<IList<OrderProductsAdminViewModel>> GetAllProductsByOrderIdAsync(string id);
 
-        Task<IList<Comment>> GetAllCommentsByUserIdAsync(string id);
+        Task<IList<CommentAdminViewModel>> GetAllCommentsByUserIdAsync(string id);
 
-        Task<IList<Order>> GetAllOrdersByUserIdAsync(string id);
+        Task<IList<OrdersAdminViewModel>> GetAllOrdersByUserIdAsync(string id);
 
-        Task<IList<Address>> GetAllAddressesByUserIdAsync(string id);
+        Task<IList<AddressesAdminViewModel>> GetAllAddressesByUserIdAsync(string id);
 
         Task<bool> CheckUserMembershipAsync();
 
-        Task<IList<ApplicationUser>> GetAllUsersAsync();
+        Task<IList<UsersViewModel>> GetAllUsersAsync();
 
-        Task<IList<ApplicationUser>> GetBannedUsersAsync();
+        Task<IList<UsersViewModel>> GetBannedUsersAsync();
 
         string GetLoggedUserId();
     }

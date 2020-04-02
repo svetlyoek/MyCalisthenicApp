@@ -261,6 +261,35 @@
             await this.dbContext.SaveChangesAsync();
         }
 
+        public async Task<IList<string>> GetAllLikesByProductIdAsync(string id)
+        {
+            var product = await this.dbContext.Products
+                 .Where(c => c.Id == id)
+                 .FirstOrDefaultAsync();
+
+            if (product.LikesUsersNames == null)
+            {
+                product.LikesUsersNames = new List<string>();
+            }
+
+            var likes = product.LikesUsersNames;
+
+            return likes;
+        }
+
+        public async Task<IList<ProductsAdminViewModel>> GetProductsForAdminAsync()
+        {
+            var products = await this.dbContext.Products
+                .Include(p => p.Category)
+                .Include(p => p.Images)
+                .ToListAsync();
+
+            var productsViewModel = this.mapper.Map<IList<ProductsAdminViewModel>>(products);
+
+            return productsViewModel;
+
+        }
+
         private string GetLoggedUserId()
         {
             var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -275,5 +304,7 @@
 
             return userFromDb;
         }
+
+
     }
 }

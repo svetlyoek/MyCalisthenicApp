@@ -15,6 +15,10 @@
 
         Task<IEnumerable<PostDetailsViewModel>> GetAllPostsAsync();
 
+        Task<IList<PostsAdminViewModel>> GetAllPostsForAdminAsync();
+
+        Task<IList<string>> GetAllLikesByPostIdAsync(string id);
+
         Task<IEnumerable<PostDetailsViewModel>> SortPostsByCategoryAsync(string sort);
 
         Task AddRatingAsync(string id);

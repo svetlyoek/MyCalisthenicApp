@@ -1,7 +1,7 @@
 ﻿namespace MyCalisthenicApp.Web.Components
 {
     using Microsoft.AspNetCore.Mvc;
-    using MyCalisthenicApp.ViewModels.Orders;
+    using MyCalisthenicApp.ViewModels.Addresses;
 
     [ViewComponent(Name = "DeliveryOptions")]
     public class DeliveryOptionsViewComponent : ViewComponent

@@ -13,11 +13,15 @@
 
         Task<IEnumerable<ProductsViewModel>> GetAllProductsAsync();
 
+        Task<IList<ProductsAdminViewModel>> GetProductsForAdminAsync();
+
         Task<IEnumerable<ProductsViewModel>> GetProductsByCategoryAsync(string name);
 
         Task<IEnumerable<ProductsViewModel>> GetProductsAndSortAsync(string sort);
 
         Task<ProductDetailsViewModel> GetProductsByIdAsync(string id);
+
+        Task<IList<string>> GetAllLikesByProductIdAsync(string id);
 
         Task AddRatingAsync(string id);
 

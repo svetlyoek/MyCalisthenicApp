@@ -1266,9 +1266,4 @@
     </Content>
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Folder Include="Areas\Administrator\ViewModels\" />
-  </ItemGroup>
-
 </Project>

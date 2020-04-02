@@ -142,6 +142,34 @@
                 .Any(p => p.Id == id);
         }
 
+        public async Task<IList<ProgramsAdminViewModel>> GetAllProgramsForAdminAsync()
+        {
+            var programs = await this.dbContext.Programs
+                 .Include(p => p.Images)
+                 .Include(p => p.Category)
+                 .ToListAsync();
+
+            var programsViewModel = this.mapper.Map<IList<ProgramsAdminViewModel>>(programs);
+
+            return programsViewModel;
+        }
+
+        public async Task<IList<string>> GetAllLikesByProgramIdAsync(string id)
+        {
+            var program = await this.dbContext.Programs
+                 .Where(c => c.Id == id)
+                 .FirstOrDefaultAsync();
+
+            if (program.LikesUsersNames == null)
+            {
+                program.LikesUsersNames = new List<string>();
+            }
+
+            var likes = program.LikesUsersNames;
+
+            return likes;
+        }
+
         private string GetLoggedUserId()
         {
             var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -156,5 +184,7 @@
 
             return userFromDb;
         }
+
+
     }
 }

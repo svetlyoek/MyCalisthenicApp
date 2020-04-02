@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MyCalisthenicApp.Models\MyCalisthenicApp.Models.csproj" />
     <ProjectReference Include="..\MyCalisthenicApp.Web.Infrastructure\MyCalisthenicApp.Web.Infrastructure.csproj" />
   </ItemGroup>
 

@@ -13,6 +13,10 @@
 
         Task<IEnumerable<ProgramViewModel>> GetAllProgramsAsync();
 
+        Task<IList<ProgramsAdminViewModel>> GetAllProgramsForAdminAsync();
+
+        Task<IList<string>> GetAllLikesByProgramIdAsync(string id);
+
         Task<IEnumerable<ProgramViewModel>> GetProgramsByCategoryAsync(string type);
 
         Task AddRatingAsync(string id);

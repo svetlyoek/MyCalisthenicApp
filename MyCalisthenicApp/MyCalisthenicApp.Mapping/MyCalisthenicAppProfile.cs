@@ -7,13 +7,19 @@
     using MyCalisthenicApp.Models.BlogEntities;
     using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.Models.TrainingEntities;
+    using MyCalisthenicApp.ViewModels.Addresses;
+    using MyCalisthenicApp.ViewModels.Cities;
+    using MyCalisthenicApp.ViewModels.Comments;
     using MyCalisthenicApp.ViewModels.Exercises;
     using MyCalisthenicApp.ViewModels.Memberships;
+    using MyCalisthenicApp.ViewModels.OrderProducts;
     using MyCalisthenicApp.ViewModels.Orders;
     using MyCalisthenicApp.ViewModels.Posts;
     using MyCalisthenicApp.ViewModels.Products;
     using MyCalisthenicApp.ViewModels.Programs;
+    using MyCalisthenicApp.ViewModels.ShoppingCarts;
     using MyCalisthenicApp.ViewModels.Suppliers;
+    using MyCalisthenicApp.ViewModels.Users;
 
     public class MyCalisthenicAppProfile : Profile
     {
@@ -68,6 +74,53 @@
             this.CreateMap<Supplier, SupplierViewModel>();
 
             this.CreateMap<Order, OrderCheckoutViewModel>();
+
+            this.CreateMap<Address, AddressAdminEditViewModel>();
+
+            this.CreateMap<AddressAdminEditViewModel, Address>();
+
+            this.CreateMap<Address, AddressesAdminViewModel>();
+
+            this.CreateMap<City, CityAdminViewModel>();
+
+            this.CreateMap<CityAdminViewModel, City>();
+
+            this.CreateMap<OrderProduct, OrderProductsAdminViewModel>();
+
+            this.CreateMap<Order, OrdersAdminViewModel>()
+                .ForMember(x => x.Status, y => y.MapFrom(src => src.Status.ToString()))
+                .ForMember(x => x.PaymentStatus, y => y.MapFrom(src => src.PaymentStatus.ToString()))
+                .ForMember(x => x.PaymentType, y => y.MapFrom(src => src.PaymentType.ToString()));
+
+            this.CreateMap<Product, OrderProductViewModel>()
+                .ForMember(x => x.Name, y => y.MapFrom(src => src.Name));
+
+            this.CreateMap<ApplicationUser, UsersViewModel>();
+
+            this.CreateMap<ShoppingCart, ShoppingCartViewModel>();
+
+            this.CreateMap<Comment, CommentAdminViewModel>()
+                .ForMember(x => x.AuthorName, y => y.MapFrom(src => src.Author.FirstName + " " + src.Author.LastName));
+
+            this.CreateMap<Product, ProductsAdminViewModel>()
+              .ForMember(x => x.Size, y => y.MapFrom(src => src.Size.ToString()))
+              .ForMember(x => x.Color, y => y.MapFrom(src => src.Color.ToString()))
+              .ForMember(x => x.Sort, y => y.MapFrom(src => src.Sort.ToString()))
+              .ForMember(x => x.Type, y => y.MapFrom(src => src.Type.ToString()))
+              .ForMember(x => x.ImagesUrl, y => y.MapFrom(src => src.Images.Select(i => i.Url).ToList()));
+
+            this.CreateMap<Post, PostsAdminViewModel>()
+                .ForMember(x => x.AuthorName, y => y.MapFrom(src => src.Author.FirstName + " " + src.Author.LastName))
+                .ForMember(x => x.Type, y => y.MapFrom(src => src.Type.ToString()))
+                .ForMember(x => x.ImagesUrl, y => y.MapFrom(src => src.Images.Select(i => i.Url).ToList()));
+
+            this.CreateMap<Program, ProgramsAdminViewModel>()
+               .ForMember(x => x.MembershipType, y => y.MapFrom(src => src.MembershipType.ToString()))
+               .ForMember(x => x.Type, y => y.MapFrom(src => src.Type.ToString()))
+               .ForMember(x => x.ImagesUrl, y => y.MapFrom(src => src.Images.Select(i => i.Url).ToList()));
+
+            this.CreateMap<Exercise, ExercisesAdminViewModel>()
+                  .ForMember(x => x.ImagesUrl, y => y.MapFrom(src => src.Images.Select(i => i.Url).ToList()));
         }
     }
 }

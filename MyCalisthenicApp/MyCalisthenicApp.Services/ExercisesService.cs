@@ -62,8 +62,19 @@
             else
             {
                 return Enumerable.Empty<ExercisesViewModel>();
-
             }
+        }
+
+        public async Task<IList<ExercisesAdminViewModel>> GetAllExercisesForAdminAsync()
+        {
+            var exercises = await this.dbContext.Exercises
+                .Include(e => e.Images)
+                .Include(e => e.ProgramCategory)
+                .ToListAsync();
+
+            var exercisesViewModel = this.mapper.Map<IList<ExercisesAdminViewModel>>(exercises);
+
+            return exercisesViewModel;
         }
 
         private string GetLoggedUserId()
@@ -80,5 +91,7 @@
 
             return userFromDb;
         }
+
+
     }
 }

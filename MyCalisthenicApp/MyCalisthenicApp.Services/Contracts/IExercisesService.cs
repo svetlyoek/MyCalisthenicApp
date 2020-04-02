@@ -8,5 +8,7 @@
     public interface IExercisesService
     {
         Task<IEnumerable<ExercisesViewModel>> GetExercisesByCategoryIdAsync(string id);
+
+        Task<IList<ExercisesAdminViewModel>> GetAllExercisesForAdminAsync();
     }
 }

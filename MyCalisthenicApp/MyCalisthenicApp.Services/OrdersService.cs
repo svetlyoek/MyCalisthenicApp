@@ -15,6 +15,7 @@
     using MyCalisthenicApp.Models.ShopEntities.Enums;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
+    using MyCalisthenicApp.ViewModels.Addresses;
     using MyCalisthenicApp.ViewModels.Orders;
     using MyCalisthenicApp.ViewModels.Suppliers;
 

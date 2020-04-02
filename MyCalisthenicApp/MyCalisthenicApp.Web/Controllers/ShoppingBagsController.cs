@@ -4,10 +4,9 @@
 
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.Services.Contracts;
+    using MyCalisthenicApp.ViewModels.Addresses;
     using MyCalisthenicApp.ViewModels.Coupons;
-    using MyCalisthenicApp.ViewModels.Orders;
 
     [Authorize]
     public class ShoppingBagsController : BaseController

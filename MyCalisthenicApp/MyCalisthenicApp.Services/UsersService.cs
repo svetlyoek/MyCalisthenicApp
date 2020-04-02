@@ -6,24 +6,31 @@
     using System.Security.Claims;
     using System.Threading.Tasks;
 
+    using AutoMapper;
     using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
     using MyCalisthenicApp.Models;
-    using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
+    using MyCalisthenicApp.ViewModels.Addresses;
+    using MyCalisthenicApp.ViewModels.Comments;
     using MyCalisthenicApp.ViewModels.Coupons;
+    using MyCalisthenicApp.ViewModels.OrderProducts;
+    using MyCalisthenicApp.ViewModels.Orders;
+    using MyCalisthenicApp.ViewModels.Users;
 
     public class UsersService : IUsersService
     {
         private readonly IHttpContextAccessor httpContextAccessor;
         private readonly MyCalisthenicAppDbContext dbContext;
+        private readonly IMapper mapper;
 
-        public UsersService(IHttpContextAccessor httpContextAccessor, MyCalisthenicAppDbContext dbContext)
+        public UsersService(IHttpContextAccessor httpContextAccessor, MyCalisthenicAppDbContext dbContext, IMapper mapper)
         {
             this.httpContextAccessor = httpContextAccessor;
             this.dbContext = dbContext;
+            this.mapper = mapper;
         }
 
         public async Task AddDiscountToUserAsync(CouponViewModel inputModel)
@@ -84,23 +91,29 @@
             return false;
         }
 
-        public async Task<IList<ApplicationUser>> GetAllUsersAsync()
+        public async Task<IList<UsersViewModel>> GetAllUsersAsync()
         {
             var allUsers = await this.dbContext.Users
+                .Include(u => u.ShoppingCart)
                 .Where(u => u.IsDeleted == false)
                 .OrderByDescending(u => u.CreatedOn)
                 .ToListAsync();
 
-            return allUsers;
+            var allUsersViewModel = this.mapper.Map<IList<UsersViewModel>>(allUsers);
+
+            return allUsersViewModel;
         }
 
-        public async Task<IList<ApplicationUser>> GetBannedUsersAsync()
+        public async Task<IList<UsersViewModel>> GetBannedUsersAsync()
         {
             var bannedUsers = await this.dbContext.Users
+                .Include(u => u.ShoppingCart)
                 .Where(u => u.IsDeleted == true)
                  .ToListAsync();
 
-            return bannedUsers;
+            var bannedUsersViewModel = this.mapper.Map<IList<UsersViewModel>>(bannedUsers);
+
+            return bannedUsersViewModel;
         }
 
         public async Task<ApplicationUser> GetBannedUserAsync(string email)
@@ -158,42 +171,55 @@
             return user;
         }
 
-        public async Task<IList<Comment>> GetAllCommentsByUserIdAsync(string id)
+        public async Task<IList<CommentAdminViewModel>> GetAllCommentsByUserIdAsync(string id)
         {
             var comments = await this.dbContext.Comments
+                .Include(c => c.Post)
+                .Include(c => c.Product)
+                .Include(c => c.Program)
+                .Include(c => c.Author)
                 .Where(c => c.AuthorId == id)
                 .ToListAsync();
 
-            return comments;
+            var commentsViewModel = this.mapper.Map<IList<CommentAdminViewModel>>(comments);
+
+            return commentsViewModel;
         }
 
-        public async Task<IList<Order>> GetAllOrdersByUserIdAsync(string id)
+        public async Task<IList<OrdersAdminViewModel>> GetAllOrdersByUserIdAsync(string id)
         {
             var orders = await this.dbContext.Orders
                 .Include(o => o.Products)
                  .Where(c => c.UserId == id)
                  .ToListAsync();
 
-            return orders;
+            var ordersViewModel = this.mapper.Map<IList<OrdersAdminViewModel>>(orders);
+
+            return ordersViewModel;
         }
 
-        public async Task<IList<Address>> GetAllAddressesByUserIdAsync(string id)
+        public async Task<IList<AddressesAdminViewModel>> GetAllAddressesByUserIdAsync(string id)
         {
             var addresses = await this.dbContext.Addresses
                 .Include(a => a.City)
                 .Where(c => c.UserId == id)
                 .ToListAsync();
 
-            return addresses;
+            var addressesViewModel = this.mapper.Map<IList<AddressesAdminViewModel>>(addresses);
+
+            return addressesViewModel;
         }
 
-        public async Task<IList<OrderProduct>> GetAllProductsByOrderIdAsync(string id)
+        public async Task<IList<OrderProductsAdminViewModel>> GetAllProductsByOrderIdAsync(string id)
         {
             var products = await this.dbContext
-                .OrderProducts.Where(o => o.OrderId == id)
+                .OrderProducts.Include(op => op.Product)
+                .Where(o => o.OrderId == id)
                 .ToListAsync();
 
-            return products;
+            var productsViewModel = this.mapper.Map<IList<OrderProductsAdminViewModel>>(products);
+
+            return productsViewModel;
         }
     }
 }
