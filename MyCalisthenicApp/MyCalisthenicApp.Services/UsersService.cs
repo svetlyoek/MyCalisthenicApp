@@ -18,6 +18,7 @@
     using MyCalisthenicApp.ViewModels.Coupons;
     using MyCalisthenicApp.ViewModels.OrderProducts;
     using MyCalisthenicApp.ViewModels.Orders;
+    using MyCalisthenicApp.ViewModels.Requests;
     using MyCalisthenicApp.ViewModels.Users;
 
     public class UsersService : IUsersService
@@ -91,7 +92,7 @@
             return false;
         }
 
-        public async Task<IList<UsersViewModel>> GetAllUsersAsync()
+        public async Task<IList<UsersAdminViewModel>> GetAllUsersAsync()
         {
             var allUsers = await this.dbContext.Users
                 .Include(u => u.ShoppingCart)
@@ -99,19 +100,19 @@
                 .OrderByDescending(u => u.CreatedOn)
                 .ToListAsync();
 
-            var allUsersViewModel = this.mapper.Map<IList<UsersViewModel>>(allUsers);
+            var allUsersViewModel = this.mapper.Map<IList<UsersAdminViewModel>>(allUsers);
 
             return allUsersViewModel;
         }
 
-        public async Task<IList<UsersViewModel>> GetBannedUsersAsync()
+        public async Task<IList<UsersAdminViewModel>> GetBannedUsersAsync()
         {
             var bannedUsers = await this.dbContext.Users
                 .Include(u => u.ShoppingCart)
                 .Where(u => u.IsDeleted == true)
                  .ToListAsync();
 
-            var bannedUsersViewModel = this.mapper.Map<IList<UsersViewModel>>(bannedUsers);
+            var bannedUsersViewModel = this.mapper.Map<IList<UsersAdminViewModel>>(bannedUsers);
 
             return bannedUsersViewModel;
         }
@@ -220,6 +221,53 @@
             var productsViewModel = this.mapper.Map<IList<OrderProductsAdminViewModel>>(products);
 
             return productsViewModel;
+        }
+
+        public async Task UserSubscribeAsync(ApplicationUser user)
+        {
+            user.HasSubscribe = true;
+
+            this.dbContext.Update(user);
+
+            await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task<IList<RequestsAdminViewModel>> GetAllRequestsAsync()
+        {
+            var requests = await this.dbContext.UserRequests
+                 .ToListAsync();
+
+            var requestsViewModel = this.mapper.Map<IList<RequestsAdminViewModel>>(requests);
+
+            return requestsViewModel;
+        }
+
+        public async Task<UserAdminEditViewModel> GetUserToEditAsync(string id)
+        {
+            var user = await this.dbContext.Users
+                 .FirstOrDefaultAsync(u => u.Id == id);
+
+            var userViewModel = this.mapper.Map<UserAdminEditViewModel>(user);
+
+            return userViewModel;
+        }
+
+        public async Task EditUserAsync(UserAdminEditViewModel inputModel)
+        {
+            var user = await this.dbContext.Users
+                 .FirstOrDefaultAsync(u => u.Id == inputModel.Id);
+
+            user.HasCoupon = inputModel.HasCoupon;
+
+            user.HasMembership = inputModel.HasMembership;
+
+            user.MembershipExpirationDate = inputModel.MembershipExpirationDate;
+
+            user.HasSubscribe = inputModel.HasSubscribe;
+
+            this.dbContext.Update(user);
+
+            await this.dbContext.SaveChangesAsync();
         }
     }
 }

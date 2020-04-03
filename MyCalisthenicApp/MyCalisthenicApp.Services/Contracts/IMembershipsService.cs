@@ -9,6 +9,8 @@
     {
         Task<IEnumerable<MembershipPlanViewModel>> GetAllMembershipPlansAsync();
 
+        Task<IList<MembershipsAdminViewModel>> GetAllMembershipsAsync();
+
         Task<decimal?> GetMembershipPriceByIdAsync(string id);
     }
 }

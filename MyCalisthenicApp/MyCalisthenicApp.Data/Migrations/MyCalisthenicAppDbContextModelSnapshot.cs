@@ -201,6 +201,9 @@ namespace MyCalisthenicApp.Data.Migrations
                     b.Property<bool>("HasMembership")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("HasSubscribe")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 

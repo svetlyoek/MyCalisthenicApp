@@ -34,6 +34,10 @@ namespace MyCalisthenicApp.Web.Common
 
         public const string AdministratorSubscribeEmailContent = "You have one new subscribe from {0}";
 
+        public const string UserSubscribeDenied = "You are already subscribed!";
+
+        public const string UserSubscribeSuccess = "Successfully subscribed.";
+
         public const string AdministratorPassword = "svetlyoek87";
 
         public const string AdministratorCardNumber = "2786908946573821";

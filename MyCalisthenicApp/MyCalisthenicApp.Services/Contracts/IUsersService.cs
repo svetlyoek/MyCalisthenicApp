@@ -9,6 +9,7 @@
     using MyCalisthenicApp.ViewModels.Coupons;
     using MyCalisthenicApp.ViewModels.OrderProducts;
     using MyCalisthenicApp.ViewModels.Orders;
+    using MyCalisthenicApp.ViewModels.Requests;
     using MyCalisthenicApp.ViewModels.Users;
 
     public interface IUsersService
@@ -23,6 +24,10 @@
 
         Task<ApplicationUser> BlockUnblockUserByIdAsync(string id);
 
+        Task<UserAdminEditViewModel> GetUserToEditAsync(string id);
+
+        Task EditUserAsync(UserAdminEditViewModel inputModel);
+
         Task<IList<OrderProductsAdminViewModel>> GetAllProductsByOrderIdAsync(string id);
 
         Task<IList<CommentAdminViewModel>> GetAllCommentsByUserIdAsync(string id);
@@ -31,11 +36,15 @@
 
         Task<IList<AddressesAdminViewModel>> GetAllAddressesByUserIdAsync(string id);
 
+        Task<IList<RequestsAdminViewModel>> GetAllRequestsAsync();
+
         Task<bool> CheckUserMembershipAsync();
 
-        Task<IList<UsersViewModel>> GetAllUsersAsync();
+        Task<IList<UsersAdminViewModel>> GetAllUsersAsync();
 
-        Task<IList<UsersViewModel>> GetBannedUsersAsync();
+        Task<IList<UsersAdminViewModel>> GetBannedUsersAsync();
+
+        Task UserSubscribeAsync(ApplicationUser user);
 
         string GetLoggedUserId();
     }

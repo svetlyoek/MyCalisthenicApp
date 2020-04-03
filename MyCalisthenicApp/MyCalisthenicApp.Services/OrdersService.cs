@@ -448,6 +448,67 @@
             }
         }
 
+        public async Task<OrderAdminEditViewModel> GetOrderByIdAsync(string id)
+        {
+            var order = await this.dbContext.Orders
+                 .FirstOrDefaultAsync(o => o.Id == id);
+
+            var orderViewModel = this.mapper.Map<OrderAdminEditViewModel>(order);
+
+            return orderViewModel;
+        }
+
+        public async Task EditOrderAsync(OrderAdminEditViewModel inputModel)
+        {
+            var order = await this.dbContext.Orders
+                .Where(c => c.Id == inputModel.Id)
+                .FirstOrDefaultAsync();
+
+            Enum.TryParse(inputModel.PaymentStatus, true, out PaymentStatus paymentStatus);
+
+            Enum.TryParse(inputModel.Status, true, out OrderStatus orderStatus);
+
+            Enum.TryParse(inputModel.PaymentType, true, out PaymentType paymentType);
+
+            order.IsDeleted = inputModel.IsDeleted;
+
+            order.DeletedOn = inputModel.DeletedOn;
+
+            order.ModifiedOn = inputModel.ModifiedOn;
+
+            order.CreatedOn = inputModel.CreatedOn;
+
+            order.MembershipPrice = inputModel.MembershipPrice;
+
+            order.PaymentStatus = paymentStatus;
+
+            order.Status = orderStatus;
+
+            order.PaymentType = paymentType;
+
+            order.EstimatedDeliveryDate = inputModel.EstimatedDeliveryDate;
+
+            order.DisptachDate = inputModel.DisptachDate;
+
+            order.TotalPrice = inputModel.TotalPrice;
+
+            order.Discount = inputModel.Discount;
+
+            order.DeliveryPrice = inputModel.DeliveryPrice;
+
+            order.EasyPayNumber = inputModel.EasyPayNumber;
+
+            order.EasyPayNumber = inputModel.EasyPayNumber;
+
+            order.UserId = inputModel.UserId;
+
+            order.DeliveryAddressId = inputModel.DeliveryAddressId;
+
+            this.dbContext.Update(order);
+
+            await this.dbContext.SaveChangesAsync();
+        }
+
         private string GetLoggedUserId()
         {
             var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -477,5 +538,7 @@
 
             return address;
         }
+
+
     }
 }

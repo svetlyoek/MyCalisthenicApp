@@ -4,7 +4,7 @@
     using System.Threading.Tasks;
 
     using MyCalisthenicApp.Models.ShopEntities;
-    using MyCalisthenicApp.ViewModels.Coupons;
+    using MyCalisthenicApp.ViewModels.OrderProducts;
     using MyCalisthenicApp.ViewModels.Products;
 
     public interface IProductsService
@@ -20,6 +20,10 @@
         Task<IEnumerable<ProductsViewModel>> GetProductsAndSortAsync(string sort);
 
         Task<ProductDetailsViewModel> GetProductsByIdAsync(string id);
+
+        Task<OrderProductAdminEditViewModel> GetOrderProductByIdAsync(string id);
+
+        Task EditOrderProductAsync(OrderProductAdminEditViewModel inputModel);
 
         Task<IList<string>> GetAllLikesByProductIdAsync(string id);
 

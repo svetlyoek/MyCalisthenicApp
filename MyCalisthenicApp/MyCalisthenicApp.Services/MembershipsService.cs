@@ -34,6 +34,16 @@
             return membershipsViewModel;
         }
 
+        public async Task<IList<MembershipsAdminViewModel>> GetAllMembershipsAsync()
+        {
+            var memberships = await this.dbContext.Memberships
+                 .ToListAsync();
+
+            var membershipsViewModel = this.mapper.Map<IList<MembershipsAdminViewModel>>(memberships);
+
+            return membershipsViewModel;
+        }
+
         public async Task<decimal?> GetMembershipPriceByIdAsync(string id)
         {
             var membershipPrice = await this.dbContext.Memberships

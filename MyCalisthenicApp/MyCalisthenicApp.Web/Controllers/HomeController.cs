@@ -68,21 +68,6 @@
         }
 
         [HttpPost]
-        [Authorize]
-        [Route("/Home/Subscribe")]
-        public async Task<IActionResult> Subscribe(SubscribeInputViewModel inputModel)
-        {
-            if (!this.ModelState.IsValid)
-            {
-                return this.View("Error404");
-            }
-
-            await this.SendEmail(inputModel);
-
-            return this.RedirectToAction("Index");
-        }
-
-        [HttpPost]
         public async Task<IActionResult> Search(NavbarSearchViewModel inputModel)
         {
             var elements = await this.searchesService.GetElementsBySearchTextAsync(inputModel);
@@ -119,16 +104,35 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> ComingSoon(SubscribeInputViewModel inputModel)
+        [Authorize]
+        [Route("/")]
+        public async Task<IActionResult> Subscribe(SubscribeInputViewModel inputModel)
         {
+            var userId = this.usersService.GetLoggedUserId();
+
+            var user = await this.usersService.GetLoggedUserByIdAsync(userId);
+
             if (!this.ModelState.IsValid)
             {
                 return this.View(inputModel);
             }
 
-            await this.SendEmail(inputModel);
+            if (user.HasSubscribe)
+            {
+                this.TempData["SubscribeMessage"] = GlobalConstants.UserSubscribeDenied;
 
-            return this.RedirectToAction("Index");
+                return this.RedirectToAction("Index");
+            }
+            else
+            {
+                this.TempData["SubscribeMessage"] = GlobalConstants.UserSubscribeSuccess;
+
+                await this.usersService.UserSubscribeAsync(user);
+
+                await this.SendEmail(inputModel);
+
+                return this.RedirectToAction("Index");
+            }
         }
 
         private async Task SendEmail(SubscribeInputViewModel inputModel)

@@ -42,6 +42,8 @@
 
         public bool HasCoupon { get; set; }
 
+        public bool HasSubscribe { get; set; }
+
         public DateTime? MembershipExpirationDate { get; set; }
 
         public DateTime? DeletedOn { get; set; }

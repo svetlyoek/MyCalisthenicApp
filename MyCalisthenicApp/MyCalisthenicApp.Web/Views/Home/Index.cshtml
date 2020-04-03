@@ -187,6 +187,12 @@
             @this.TempData["MembershipMessage"]
         </div>
     }
+    @if (this.TempData["SubscribeMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @this.TempData["SubscribeMessage"]
+        </div>
+    }
     <!-- home-about start -->
     <div class="home-about">
         <div class="floating-icon" id="service_info_item">

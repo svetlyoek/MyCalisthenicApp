@@ -15,6 +15,7 @@
     using MyCalisthenicApp.Models.ShopEntities.Enums;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
+    using MyCalisthenicApp.ViewModels.OrderProducts;
     using MyCalisthenicApp.ViewModels.Products;
 
     public class ProductsService : IProductsService
@@ -287,7 +288,37 @@
             var productsViewModel = this.mapper.Map<IList<ProductsAdminViewModel>>(products);
 
             return productsViewModel;
+        }
 
+        public async Task<OrderProductAdminEditViewModel> GetOrderProductByIdAsync(string id)
+        {
+            var orderProduct = await this.dbContext.OrderProducts
+                 .FirstOrDefaultAsync(o => o.ProductId == id);
+
+            var orderViewModel = this.mapper.Map<OrderProductAdminEditViewModel>(orderProduct);
+
+            return orderViewModel;
+        }
+
+        public async Task EditOrderProductAsync(OrderProductAdminEditViewModel inputModel)
+        {
+            var orderProduct = await this.dbContext.OrderProducts
+                .Where(c => c.ProductId == inputModel.ProductId)
+                .FirstOrDefaultAsync();
+
+            //var orderProductToEdit = this.mapper.Map<OrderProduct>(inputModel);
+
+            orderProduct.OrderId = inputModel.OrderId;
+
+            orderProduct.ProductId = inputModel.ProductId;
+
+            orderProduct.Price = inputModel.Price;
+
+            orderProduct.Quantity = inputModel.Quantity;
+
+            this.dbContext.Update(orderProduct);
+
+            await this.dbContext.SaveChangesAsync();
         }
 
         private string GetLoggedUserId()

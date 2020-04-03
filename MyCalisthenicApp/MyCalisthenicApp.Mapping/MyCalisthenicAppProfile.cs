@@ -17,7 +17,7 @@
     using MyCalisthenicApp.ViewModels.Posts;
     using MyCalisthenicApp.ViewModels.Products;
     using MyCalisthenicApp.ViewModels.Programs;
-    using MyCalisthenicApp.ViewModels.ShoppingCarts;
+    using MyCalisthenicApp.ViewModels.Requests;
     using MyCalisthenicApp.ViewModels.Suppliers;
     using MyCalisthenicApp.ViewModels.Users;
 
@@ -77,8 +77,6 @@
 
             this.CreateMap<Address, AddressAdminEditViewModel>();
 
-            this.CreateMap<AddressAdminEditViewModel, Address>();
-
             this.CreateMap<Address, AddressesAdminViewModel>();
 
             this.CreateMap<City, CityAdminViewModel>();
@@ -92,12 +90,15 @@
                 .ForMember(x => x.PaymentStatus, y => y.MapFrom(src => src.PaymentStatus.ToString()))
                 .ForMember(x => x.PaymentType, y => y.MapFrom(src => src.PaymentType.ToString()));
 
+            this.CreateMap<Order, OrderAdminEditViewModel>()
+                .ForMember(x => x.Status, y => y.MapFrom(src => src.Status.ToString()))
+                .ForMember(x => x.PaymentStatus, y => y.MapFrom(src => src.PaymentStatus.ToString()))
+                .ForMember(x => x.PaymentType, y => y.MapFrom(src => src.PaymentType.ToString()));
+
             this.CreateMap<Product, OrderProductViewModel>()
                 .ForMember(x => x.Name, y => y.MapFrom(src => src.Name));
 
-            this.CreateMap<ApplicationUser, UsersViewModel>();
-
-            this.CreateMap<ShoppingCart, ShoppingCartViewModel>();
+            this.CreateMap<ApplicationUser, UsersAdminViewModel>();
 
             this.CreateMap<Comment, CommentAdminViewModel>()
                 .ForMember(x => x.AuthorName, y => y.MapFrom(src => src.Author.FirstName + " " + src.Author.LastName));
@@ -121,6 +122,19 @@
 
             this.CreateMap<Exercise, ExercisesAdminViewModel>()
                   .ForMember(x => x.ImagesUrl, y => y.MapFrom(src => src.Images.Select(i => i.Url).ToList()));
+
+            this.CreateMap<UserRequest, RequestsAdminViewModel>();
+
+            this.CreateMap<Membership, MembershipsAdminViewModel>();
+
+            this.CreateMap<ApplicationUser, UserAdminEditViewModel>();
+
+            this.CreateMap<OrderProductAdminEditViewModel, OrderProduct>();
+
+            this.CreateMap<OrderProduct, OrderProductAdminEditViewModel>();
+
+            this.CreateMap<Comment, CommentAdminEditViewModel>();
+
         }
     }
 }

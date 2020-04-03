@@ -201,6 +201,46 @@
             return likes;
         }
 
+        public async Task<CommentAdminEditViewModel> GetCommentByIdAsync(string id)
+        {
+            var comment = await this.dbContext.Comments
+                 .FirstOrDefaultAsync(c => c.Id == id);
+
+            var commentViewModel = this.mapper.Map<CommentAdminEditViewModel>(comment);
+
+            return commentViewModel;
+        }
+
+        public async Task EditCommentAsync(CommentAdminEditViewModel inputModel)
+        {
+            var comment = await this.dbContext.Comments
+                .FirstOrDefaultAsync(c => c.Id == inputModel.Id);
+
+            comment.IsDeleted = inputModel.IsDeleted;
+
+            comment.DeletedOn = inputModel.DeletedOn;
+
+            comment.ModifiedOn = inputModel.ModifiedOn;
+
+            comment.CreatedOn = inputModel.CreatedOn;
+
+            comment.Text = inputModel.Text;
+
+            comment.AuthorId = inputModel.AuthorId;
+
+            comment.Rating = inputModel.Rating;
+
+            comment.PostId = inputModel.PostId;
+
+            comment.ProductId = inputModel.ProductId;
+
+            comment.ProgramId = inputModel.ProgramId;
+
+            this.dbContext.Update(comment);
+
+            await this.dbContext.SaveChangesAsync();
+        }
+
         private string GetLoggedUserId()
         {
             var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -215,5 +255,7 @@
 
             return userFromDb;
         }
+
+
     }
 }

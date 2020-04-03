@@ -27,5 +27,9 @@
         Task<bool> SendOrderAsync(string id);
 
         Task<OrderCheckoutViewModel> GetOrderToSendAsync();
+
+        Task<OrderAdminEditViewModel> GetOrderByIdAsync(string id);
+
+        Task EditOrderAsync(OrderAdminEditViewModel inputModel);
     }
 }
