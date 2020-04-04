@@ -90,7 +90,35 @@
                                 @for (int i = 1; i <= Model.PageCount(); i++)
                                 {
                                     <li class="@(i == Model.CurrentPage ? "page-item active" : "page-item")">
-                                        <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
+                                        @{
+                                            var sort = string.Empty;
+
+                                            if (Model.Posts.All(p => p.CategoryName == "How To"))
+                                            {
+                                                sort = "How To";
+                                            }
+                                            else if (Model.Posts.All(p => p.CategoryName == "Beginner Calisthenic"))
+                                            {
+                                                sort = "Beginner Calisthenic";
+                                            }
+                                            else if (Model.Posts.All(p => p.CategoryName == "Advanced Calisthenic"))
+                                            {
+                                                sort = "Advanced Calisthenic";
+                                            }
+                                            else if (Model.Posts.All(p => p.CategoryName == "Motivation"))
+                                            {
+                                                sort = "Motivation";
+                                            }
+                                            else if (Model.Posts.All(p => p.CategoryName == "Workout/Training"))
+                                            {
+                                                sort = "Workout/Training";
+                                            }
+                                            else if (Model.Posts.All(p => p.CategoryName == "Skills/Techniques"))
+                                            {
+                                                sort = "Skills/Techniques";
+                                            }
+                                        }
+                                        <a class="page-link" href="@Url.Action("Index", new { page = i,sort=sort })">@i</a>
                                     </li>
                                 }
                             </ul>

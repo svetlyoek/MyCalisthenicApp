@@ -3,14 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Security.Claims;
     using System.Threading.Tasks;
 
     using AutoMapper;
-    using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
-    using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Posts;
@@ -19,13 +16,13 @@
     {
         private readonly MyCalisthenicAppDbContext dbContext;
         private readonly IMapper mapper;
-        private readonly IHttpContextAccessor httpContextAccessor;
+        private readonly IUsersService usersService;
 
-        public PostsService(MyCalisthenicAppDbContext dbContext, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+        public PostsService(MyCalisthenicAppDbContext dbContext, IMapper mapper, IUsersService usersService)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
-            this.httpContextAccessor = httpContextAccessor;
+            this.usersService = usersService;
         }
 
         public async Task AddRatingAsync(string id)
@@ -33,9 +30,9 @@
             var post = await this.dbContext.Post
                 .FirstOrDefaultAsync(p => p.Id == id);
 
-            var userId = this.GetLoggedUserId();
+            var userId = this.usersService.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
+            var userFromDb = await this.usersService.GetLoggedUserByIdAsync(userId);
 
             var userCredentials = userFromDb.FirstName + " " + userFromDb.LastName + ":" + userId;
 
@@ -81,7 +78,7 @@
                 .Include(au => au.Author)
                 .Include(cm => cm.Comments)
                 .Where(p => p.IsPublic == true)
-                 .Where(c => c.IsDeleted == false)
+                 .Where(c => c.IsDeleted == false && c.Category.IsDeleted == false)
                 .ToListAsync();
 
             var allPosts = this.mapper.Map<IEnumerable<PostDetailsViewModel>>(posts);
@@ -94,7 +91,7 @@
             var posts = await this.dbContext.Post
                  .Include(i => i.Images)
                  .Where(p => p.IsPublic == true)
-                 .Where(p => p.IsDeleted == false)
+                 .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
                  .OrderByDescending(p => p.CreatedOn)
                  .Take(4)
                  .ToListAsync();
@@ -104,7 +101,6 @@
             return postsViewModel;
         }
 
-        // TODO Take only most rated posts
         public async Task<IEnumerable<PopularPostsHomeViewModel>> GetPopularPostsAsync()
         {
             var posts = await this.dbContext
@@ -113,7 +109,7 @@
                 .Include(i => i.Images)
                 .Include(cm => cm.Comments)
                 .Where(p => p.IsPublic == true)
-                 .Where(p => p.IsDeleted == false)
+                 .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
                 .Take(8).ToListAsync();
 
             var postsViewModel = this.mapper.Map<IEnumerable<PopularPostsHomeViewModel>>(posts);
@@ -123,7 +119,7 @@
 
         public bool GetPostById(string id)
         {
-            return this.dbContext.Post.Where(p => p.IsDeleted == false)
+            return this.dbContext.Post.Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
                  .Where(p => p.IsPublic == true).Any(p => p.Id == id);
         }
 
@@ -132,7 +128,7 @@
             var post = await this.dbContext.Post
                 .Where(p => p.Id == id)
                  .Where(c => c.IsDeleted == false)
-                 .Where(c => c.IsPublic == true)
+                 .Where(c => c.IsPublic == true && c.Category.IsDeleted == false)
                 .Include(i => i.Images)
                 .Include(au => au.Author)
                 .Include(cm => cm.Comments)
@@ -158,7 +154,7 @@
                .Include(au => au.Author)
                .Include(cm => cm.Comments)
                .Where(p => p.IsPublic == true)
-                .Where(c => c.IsDeleted == false)
+                .Where(c => c.IsDeleted == false && c.Category.IsDeleted == false)
                 .Where(p => p.Title.ToLower().Contains(inputModel.Text.ToLower()) ||
                  p.Category.Name.ToLower().Contains(inputModel.Text.ToLower()) ||
                  p.Description.ToLower().Contains(inputModel.Text.ToLower()) ||
@@ -182,7 +178,7 @@
                  .Include(cm => cm.Comments)
                  .Include(c => c.Category)
                  .Where(p => p.IsDeleted == false)
-                 .Where(p => p.IsPublic == true)
+                 .Where(p => p.IsPublic == true && p.Category.IsDeleted == false)
                  .Where(p => p.Category.Name == sort)
                  .ToListAsync();
 
@@ -219,22 +215,5 @@
 
             return likes;
         }
-
-        private string GetLoggedUserId()
-        {
-            var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            return userId;
-        }
-
-        private async Task<ApplicationUser> GetLoggedUserByIdAsync(string userId)
-        {
-            var userFromDb = await this.dbContext.Users.
-                Where(u => u.IsDeleted == false)
-                .FirstOrDefaultAsync(u => u.Id == userId);
-
-            return userFromDb;
-        }
-
-
     }
 }

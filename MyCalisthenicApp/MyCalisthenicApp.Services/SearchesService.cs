@@ -33,13 +33,13 @@
             else if (inputModel.Text.Length >= 4)
             {
                 var programs = await this.dbContext.Programs
-               .Where(p => p.IsDeleted == false)
-             .Include(i => i.Images)
-             .Where(p => p.Category.Name.ToLower().Contains(inputModel.Text.ToLower()) ||
-             p.Description.ToLower().Contains(inputModel.Text.ToLower()) ||
-             p.Title.ToLower().Contains(inputModel.Text.ToLower()) ||
-             p.Category.Description.ToLower().Contains(inputModel.Text.ToLower()))
-             .ToListAsync();
+                 .Where(p => p.IsDeleted == false)
+                 .Include(i => i.Images)
+                 .Where(p => p.Category.Name.ToLower().Contains(inputModel.Text.ToLower()) ||
+                 p.Description.ToLower().Contains(inputModel.Text.ToLower()) ||
+                 p.Title.ToLower().Contains(inputModel.Text.ToLower()) ||
+                 p.Category.Description.ToLower().Contains(inputModel.Text.ToLower()))
+                 .ToListAsync();
 
                 if (programs.Any())
                 {

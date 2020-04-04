@@ -13,6 +13,8 @@
 
         public string VideoUrl { get; set; }
 
+        public string CategoryName { get; set; }
+
         public DateTime CreatedOn { get; set; }
 
         public string Author { get; set; }

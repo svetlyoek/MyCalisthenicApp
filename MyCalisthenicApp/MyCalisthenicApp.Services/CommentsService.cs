@@ -2,11 +2,9 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using System.Security.Claims;
     using System.Threading.Tasks;
 
     using AutoMapper;
-    using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
     using MyCalisthenicApp.Models;
@@ -17,20 +15,20 @@
     {
         private readonly MyCalisthenicAppDbContext dbContext;
         private readonly IMapper mapper;
-        private readonly IHttpContextAccessor httpContextAccessor;
+        private readonly IUsersService usersService;
 
-        public CommentsService(MyCalisthenicAppDbContext dbContext, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+        public CommentsService(MyCalisthenicAppDbContext dbContext, IMapper mapper, IUsersService usersService)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
-            this.httpContextAccessor = httpContextAccessor;
+            this.usersService = usersService;
         }
 
         public async Task<Comment> CreateCommentAsync(string id, CommentInputViewModel commentModel)
         {
-            var userId = this.GetLoggedUserId();
+            var userId = this.usersService.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
+            var userFromDb = await this.usersService.GetLoggedUserByIdAsync(userId);
 
             Comment comment = null;
 
@@ -123,9 +121,9 @@
             var comment = await this.dbContext.Comments.
                 FirstOrDefaultAsync(p => p.Id == id);
 
-            var userId = this.GetLoggedUserId();
+            var userId = this.usersService.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
+            var userFromDb = await this.usersService.GetLoggedUserByIdAsync(userId);
 
             var userCredentials = userFromDb.FirstName + " " + userFromDb.LastName + ":" + userId;
 
@@ -240,22 +238,5 @@
 
             await this.dbContext.SaveChangesAsync();
         }
-
-        private string GetLoggedUserId()
-        {
-            var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            return userId;
-        }
-
-        private async Task<ApplicationUser> GetLoggedUserByIdAsync(string userId)
-        {
-            var userFromDb = await this.dbContext.Users.
-                Where(u => u.IsDeleted == false)
-                .FirstOrDefaultAsync(u => u.Id == userId);
-
-            return userFromDb;
-        }
-
-
     }
 }

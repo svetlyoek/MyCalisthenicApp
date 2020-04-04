@@ -145,13 +145,54 @@
                 @for (int i = 1; i <= Model.PageCount(); i++)
                 {
                     <li class="@(i == Model.CurrentPage ? "page-item active" : "page-item")">
-                        <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
+                        @{
+                            var maxPrice = Model.Products.Max(p => p.Price);
+                            var minPrice = Model.Products.Min(p => p.Price);
+                            var descDate = Model.Products.Max(p => p.CreatedOn);
+                            var ascDate = Model.Products.Min(p => p.CreatedOn);
+
+                            var firstProduct = Model.Products.FirstOrDefault();
+                            var lastProduct = Model.Products.LastOrDefault();
+
+                            var sort = string.Empty;
+                            var name = string.Empty;
+
+                            if (firstProduct.Price == maxPrice && lastProduct.Price == minPrice)
+                            {
+                                sort = "PriceDescending";
+                            }
+                            else if (firstProduct.Price == minPrice && lastProduct.Price == maxPrice)
+                            {
+                                sort = "PriceAscending";
+                            }
+                            else if (firstProduct.CreatedOn == descDate && lastProduct.CreatedOn == ascDate)
+                            {
+                                sort = "Newest";
+                            }
+                            else if (firstProduct.CreatedOn == ascDate && lastProduct.CreatedOn == descDate)
+                            {
+                                sort = "Oldest";
+                            }
+                            else if (Model.Products.All(p => p.Category == "Apparels"))
+                            {
+                                name = "Apparels";
+                            }
+                            else if (Model.Products.All(p => p.Category == "Equipment"))
+                            {
+                                name = "Equipment";
+                            }
+                            else if (Model.Products.All(p => p.Category == "Accessories"))
+                            {
+                                name = "Accessories";
+                            }
+                        }
+                        <a class="page-link" href="@Url.Action("Index", new { page = i,sort=sort,name=name })">@i</a>
                     </li>
 
                 }
             </ul>
         </div>
-       
+
     </section>
     <!-- home shopping end -->
     <!-- jquery -->

@@ -77,11 +77,12 @@
                             </div>
                         </article>
 
-                        <a  asp-controller="Posts" asp-action="Rate" asp-route-id="@Model.Id" class="btn-primary p-1 pl-3 pr-3">Like</a>
+                        <a asp-controller="Posts" asp-action="Rate" asp-route-id="@Model.Id" class="btn-primary p-1 pl-3 pr-3">Like</a>
                         <p class="text-dark mt-2"><i style="color:dodgerblue;font-size:22px;" class="fa fa-thumbs-up"></i><a class="text-dark" id="likes">@(Model.Rating == null ? 0 : Model.Rating)</a></p>
 
                         <div id="comments" class="comments-area comments-area-wrapper">
                             <h4 class="comments-title">Comments</h4>
+
                             @foreach (var comment in Model.Comments.OrderByDescending(c => c.CreatedOn))
                             {
                                 <ul class="comment-list">
@@ -91,6 +92,7 @@
                                                 <div class="desc">
                                                     <div class="d-flex justify-content-between comment_title">
                                                         <div class="d-flex align-items-center">
+
                                                             <h5>@comment.Author.FirstName&nbsp;@comment.Author.LastName</h5>
                                                         </div>
                                                     </div>
@@ -123,7 +125,7 @@
             </div>
         </main>
     </div>
-   
+
     <!-- back to top area end -->
     <!-- jquery -->
     <script src="/assets/js/jquery-2.2.4.min.js"></script>

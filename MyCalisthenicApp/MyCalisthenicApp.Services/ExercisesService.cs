@@ -2,14 +2,11 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using System.Security.Claims;
     using System.Threading.Tasks;
 
     using AutoMapper;
-    using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
-    using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Models.Enums;
     using MyCalisthenicApp.Models.TrainingEntities.Enums;
     using MyCalisthenicApp.Services.Contracts;
@@ -19,20 +16,20 @@
     {
         private readonly MyCalisthenicAppDbContext dbContext;
         private readonly IMapper mapper;
-        private readonly IHttpContextAccessor httpContextAccessor;
+        private readonly IUsersService usersService;
 
-        public ExercisesService(MyCalisthenicAppDbContext dbContext, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+        public ExercisesService(MyCalisthenicAppDbContext dbContext, IMapper mapper, IUsersService usersService)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
-            this.httpContextAccessor = httpContextAccessor;
+            this.usersService = usersService;
         }
 
         public async Task<IEnumerable<ExercisesViewModel>> GetExercisesByCategoryIdAsync(string id)
         {
-            var userId = this.GetLoggedUserId();
+            var userId = this.usersService.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
+            var userFromDb = await this.usersService.GetLoggedUserByIdAsync(userId);
 
             var exercises = await this.dbContext.Exercises
                  .Include(i => i.Images)
@@ -76,22 +73,5 @@
 
             return exercisesViewModel;
         }
-
-        private string GetLoggedUserId()
-        {
-            var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            return userId;
-        }
-
-        private async Task<ApplicationUser> GetLoggedUserByIdAsync(string userId)
-        {
-            var userFromDb = await this.dbContext.Users.
-                Where(u => u.IsDeleted == false)
-                .FirstOrDefaultAsync(u => u.Id == userId);
-
-            return userFromDb;
-        }
-
-
     }
 }

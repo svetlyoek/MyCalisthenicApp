@@ -21,6 +21,10 @@
 
         Task<ProductDetailsViewModel> GetProductsByIdAsync(string id);
 
+        Task<ProductAdminEditViewModel> GetProductByIdAsync(string id);
+
+        Task EditProductAsync(ProductAdminEditViewModel inputModel);
+
         Task<OrderProductAdminEditViewModel> GetOrderProductByIdAsync(string id);
 
         Task EditOrderProductAsync(OrderProductAdminEditViewModel inputModel);

@@ -3,14 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Security.Claims;
     using System.Threading.Tasks;
 
     using AutoMapper;
-    using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
-    using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.Models.ShopEntities.Enums;
     using MyCalisthenicApp.Services.Common;
@@ -22,19 +19,19 @@
     public class OrdersService : IOrdersService
     {
         private readonly MyCalisthenicAppDbContext dbContext;
-        private readonly IHttpContextAccessor httpContextAccessor;
         private readonly IMapper mapper;
+        private readonly IUsersService usersService;
 
-        public OrdersService(MyCalisthenicAppDbContext dbContext, IHttpContextAccessor httpContextAccessor, IMapper mapper)
+        public OrdersService(MyCalisthenicAppDbContext dbContext, IMapper mapper, IUsersService usersService)
         {
             this.dbContext = dbContext;
-            this.httpContextAccessor = httpContextAccessor;
             this.mapper = mapper;
+            this.usersService = usersService;
         }
 
         public async Task ChangeQuantityAsync(string id, int quantity)
         {
-            var userId = this.GetLoggedUserId();
+            var userId = this.usersService.GetLoggedUserId();
 
             var order = await this.dbContext.Orders
                 .Include(p => p.Products)
@@ -78,9 +75,9 @@
 
         public async Task CreateMembershipToOrderAsync(decimal? price)
         {
-            var userId = this.GetLoggedUserId();
+            var userId = this.usersService.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
+            var userFromDb = await this.usersService.GetLoggedUserByIdAsync(userId);
 
             if (userFromDb.HasMembership)
             {
@@ -134,9 +131,9 @@
                 return false;
             }
 
-            var userId = this.GetLoggedUserId();
+            var userId = this.usersService.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
+            var userFromDb = await this.usersService.GetLoggedUserByIdAsync(userId);
 
             if (this.dbContext.Orders.Any(o => o.UserId == userId && o.Status != OrderStatus.Sent))
             {
@@ -207,7 +204,7 @@
 
         public async Task<int> ShoppingBagProductsCountAsync()
         {
-            var userId = this.GetLoggedUserId();
+            var userId = this.usersService.GetLoggedUserId();
 
             if (userId != null)
             {
@@ -238,9 +235,9 @@
 
         public async Task CreateAddressToOrderAsync(AddressInputViewModel inputModel)
         {
-            var userId = this.GetLoggedUserId();
+            var userId = this.usersService.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
+            var userFromDb = await this.usersService.GetLoggedUserByIdAsync(userId);
 
             var order = await this.dbContext.Orders
                 .Where(o => o.IsDeleted == false)
@@ -340,7 +337,7 @@
 
         public async Task SetDeliveryPriceToOrderAsync(decimal deliveryPrice)
         {
-            var userId = this.GetLoggedUserId();
+            var userId = this.usersService.GetLoggedUserId();
 
             var order = await this.dbContext.Orders
                   .Where(o => o.IsDeleted == false)
@@ -372,7 +369,7 @@
 
         public async Task<OrderCheckoutViewModel> GetOrderToSendAsync()
         {
-            var userId = this.GetLoggedUserId();
+            var userId = this.usersService.GetLoggedUserId();
 
             var order = await this.dbContext.Orders
                 .Where(o => o.IsDeleted == false)
@@ -394,9 +391,9 @@
 
         public async Task<bool> SendOrderAsync(string id)
         {
-            var userId = this.GetLoggedUserId();
+            var userId = this.usersService.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
+            var userFromDb = await this.usersService.GetLoggedUserByIdAsync(userId);
 
             var order = await this.dbContext.Orders
                 .Where(o => o.IsDeleted == false)
@@ -509,19 +506,53 @@
             await this.dbContext.SaveChangesAsync();
         }
 
-        private string GetLoggedUserId()
+        public async Task<IList<SupplierAdminViewModel>> GetAllSuppliersForAdminAsync()
         {
-            var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            return userId;
+            var suppliers = await this.dbContext.Suppliers
+                .ToListAsync();
+
+            var suppliersViewModel = this.mapper.Map<IList<SupplierAdminViewModel>>(suppliers);
+
+            return suppliersViewModel;
         }
 
-        private async Task<ApplicationUser> GetLoggedUserByIdAsync(string userId)
+        public async Task EditSupplierAsync(SupplierAdminEditViewModel inputModel)
         {
-            var userFromDb = await this.dbContext.Users.
-                Where(u => u.IsDeleted == false)
-                .FirstOrDefaultAsync(u => u.Id == userId);
+            var supplier = await this.dbContext.Suppliers
+                .FirstOrDefaultAsync(a => a.Id == inputModel.Id);
 
-            return userFromDb;
+            supplier.IsDeleted = inputModel.IsDeleted;
+
+            supplier.DeletedOn = inputModel.DeletedOn;
+
+            supplier.CreatedOn = inputModel.CreatedOn;
+
+            supplier.ModifiedOn = inputModel.ModifiedOn;
+
+            supplier.Name = inputModel.Name;
+
+            supplier.PriceToHome = inputModel.PriceToHome;
+
+            supplier.PriceToOffice = inputModel.PriceToOffice;
+
+            supplier.LogoUrl = inputModel.LogoUrl;
+
+            supplier.IsDefault = inputModel.IsDefault;
+
+            this.dbContext.Update(supplier);
+
+            await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task<SupplierAdminEditViewModel> GetSupplierByIdAsync(string id)
+        {
+            var supplier = await this.dbContext.Suppliers
+                .Where(a => a.Id == id)
+                .FirstOrDefaultAsync();
+
+            var supplierViewModel = this.mapper.Map<SupplierAdminEditViewModel>(supplier);
+
+            return supplierViewModel;
         }
 
         private async Task<Address> GetAddress(AddressInputViewModel inputModel, string userId)

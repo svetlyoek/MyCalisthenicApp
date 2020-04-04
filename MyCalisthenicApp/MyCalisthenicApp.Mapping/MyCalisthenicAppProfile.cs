@@ -11,6 +11,7 @@
     using MyCalisthenicApp.ViewModels.Cities;
     using MyCalisthenicApp.ViewModels.Comments;
     using MyCalisthenicApp.ViewModels.Exercises;
+    using MyCalisthenicApp.ViewModels.Images;
     using MyCalisthenicApp.ViewModels.Memberships;
     using MyCalisthenicApp.ViewModels.OrderProducts;
     using MyCalisthenicApp.ViewModels.Orders;
@@ -134,6 +135,16 @@
             this.CreateMap<OrderProduct, OrderProductAdminEditViewModel>();
 
             this.CreateMap<Comment, CommentAdminEditViewModel>();
+
+            this.CreateMap<Product, ProductAdminEditViewModel>()
+                   .ForMember(x => x.Size, y => y.MapFrom(src => src.Size.ToString()))
+                   .ForMember(x => x.Color, y => y.MapFrom(src => src.Color.ToString()))
+                   .ForMember(x => x.Sort, y => y.MapFrom(src => src.Sort.ToString()))
+                   .ForMember(x => x.Type, y => y.MapFrom(src => src.Type.ToString()));
+
+            this.CreateMap<Supplier, SupplierAdminViewModel>();
+
+            this.CreateMap<Supplier, SupplierAdminEditViewModel>();
 
         }
     }

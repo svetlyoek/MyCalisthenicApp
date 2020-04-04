@@ -3,14 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Security.Claims;
     using System.Threading.Tasks;
 
     using AutoMapper;
-    using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
-    using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Models.Enums;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
@@ -20,20 +17,20 @@
     {
         private readonly MyCalisthenicAppDbContext dbContext;
         private readonly IMapper mapper;
-        private readonly IHttpContextAccessor httpContextAccessor;
+        private readonly IUsersService usersService;
 
-        public ProgramsService(MyCalisthenicAppDbContext dbContext, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+        public ProgramsService(MyCalisthenicAppDbContext dbContext, IMapper mapper, IUsersService usersService)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
-            this.httpContextAccessor = httpContextAccessor;
+            this.usersService = usersService;
         }
 
         public async Task<IEnumerable<ProgramViewModel>> GetAllProgramsAsync()
         {
             var programs = await this.dbContext
                 .Programs
-                  .Where(p => p.IsDeleted == false)
+                  .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
                 .Include(i => i.Images)
                 .ToListAsync();
 
@@ -46,7 +43,7 @@
         {
             var popularPrograms = await this.dbContext.Programs
                 .Include(i => i.Images)
-                  .Where(p => p.IsDeleted == false)
+                  .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
                 .Take(5)
                 .ToListAsync();
 
@@ -59,7 +56,7 @@
         {
             var program = await this.dbContext
                 .Programs.Include(p => p.Images)
-                  .Where(p => p.IsDeleted == false)
+                  .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
                 .Include(c => c.Category)
                 .Include(cm => cm.Comments)
                 .FirstOrDefaultAsync(p => p.Id == id);
@@ -76,12 +73,12 @@
 
         public async Task<IEnumerable<ProgramViewModel>> GetProgramsByCategoryAsync(string type)
         {
-            var myEnum = (ProgramType)Enum.Parse(typeof(ProgramType), type);
+            var programType = (ProgramType)Enum.Parse(typeof(ProgramType), type);
 
             var programs = await this.dbContext
                 .Programs.Include(i => i.Images)
-                .Where(p => p.Type == myEnum)
-                  .Where(p => p.IsDeleted == false)
+                .Where(p => p.Type == programType)
+                  .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
                 .Select(p => p).ToListAsync();
 
             var programsViewModel = this.mapper.Map<IEnumerable<ProgramViewModel>>(programs);
@@ -94,9 +91,9 @@
             var program = await this.dbContext.Programs
                 .FirstOrDefaultAsync(p => p.Id == id);
 
-            var userId = this.GetLoggedUserId();
+            var userId = this.usersService.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
+            var userFromDb = await this.usersService.GetLoggedUserByIdAsync(userId);
 
             var userCredentials = userFromDb.FirstName + " " + userFromDb.LastName + ":" + userId;
 
@@ -138,7 +135,7 @@
         public bool GetProgramById(string id)
         {
             return this.dbContext.Programs
-                .Where(p => p.IsDeleted == false)
+                .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
                 .Any(p => p.Id == id);
         }
 
@@ -169,22 +166,5 @@
 
             return likes;
         }
-
-        private string GetLoggedUserId()
-        {
-            var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            return userId;
-        }
-
-        private async Task<ApplicationUser> GetLoggedUserByIdAsync(string userId)
-        {
-            var userFromDb = await this.dbContext.Users.
-                Where(u => u.IsDeleted == false)
-                .FirstOrDefaultAsync(u => u.Id == userId);
-
-            return userFromDb;
-        }
-
-
     }
 }

@@ -3,14 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Security.Claims;
     using System.Threading.Tasks;
 
     using AutoMapper;
-    using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
-    using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.Models.ShopEntities.Enums;
     using MyCalisthenicApp.Services.Common;
@@ -22,22 +19,23 @@
     {
         private readonly MyCalisthenicAppDbContext dbContext;
         private readonly IMapper mapper;
-        private readonly IHttpContextAccessor httpContextAccessor;
+        private readonly IUsersService usersService;
 
-        public ProductsService(MyCalisthenicAppDbContext dbContext, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+        public ProductsService(MyCalisthenicAppDbContext dbContext, IMapper mapper, IUsersService usersService)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
-            this.httpContextAccessor = httpContextAccessor;
+            this.usersService = usersService;
         }
 
         public async Task<IEnumerable<ProductsViewModel>> GetAllProductsAsync()
         {
             var products = await this.dbContext
                 .Products.Include(i => i.Images)
-                 .Where(p => p.IsDeleted == false)
+                 .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
                 .Include(c => c.Category)
                 .ThenInclude(p => p.Products)
+                .OrderByDescending(p => p.Rating)
                 .ToListAsync();
 
             var productsViewModel = this.mapper.Map<IEnumerable<ProductsViewModel>>(products);
@@ -50,7 +48,7 @@
         {
             var products = await this.dbContext
                 .Products.Include(i => i.Images)
-                  .Where(p => p.IsDeleted == false)
+                  .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
                 .Include(c => c.Category)
                 .Take(8)
                 .ToListAsync();
@@ -64,7 +62,7 @@
         {
             var products = await this.dbContext
                 .Products.Include(i => i.Images)
-                  .Where(p => p.IsDeleted == false)
+                  .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
                 .Include(c => c.Category)
                 .ThenInclude(p => p.Products)
                 .ToListAsync();
@@ -101,7 +99,7 @@
                  .Include(c => c.Category)
                  .ThenInclude(p => p.Products)
                  .Where(p => p.Category.Name == name)
-                   .Where(p => p.IsDeleted == false)
+                   .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
                  .ToListAsync();
 
             var productsViewModel = this.mapper.Map<IEnumerable<ProductsViewModel>>(products);
@@ -116,7 +114,7 @@
                 .Include(c => c.Category)
                 .Include(c => c.Comments)
                 .Where(p => p.Id == id)
-                  .Where(p => p.IsDeleted == false)
+                  .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
                 .FirstOrDefaultAsync();
 
             if (product == null)
@@ -134,9 +132,9 @@
             var product = await this.dbContext.Products
                 .FirstOrDefaultAsync(p => p.Id == id);
 
-            var userId = this.GetLoggedUserId();
+            var userId = this.usersService.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
+            var userFromDb = await this.usersService.GetLoggedUserByIdAsync(userId);
 
             var userCredentials = userFromDb.FirstName + " " + userFromDb.LastName + ":" + userId;
 
@@ -178,16 +176,16 @@
         public bool ProductsExistsById(string id)
         {
             return this.dbContext.Products
-                .Where(p => p.IsDeleted == false)
+                .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
                 .Any(p => p.Id == id);
         }
 
         public async Task<Product> GetProductAsync(string id)
         {
-            var userId = this.GetLoggedUserId();
+            var userId = this.usersService.GetLoggedUserId();
 
             var product = await this.dbContext.Products
-               .Where(p => p.IsDeleted == false)
+               .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
                .FirstOrDefaultAsync(p => p.Id == id);
 
             if (product == null)
@@ -200,9 +198,9 @@
 
         public async Task<IList<ProductsShoppingBagViewModel>> GetShoppingBagProductsAsync()
         {
-            var userId = this.GetLoggedUserId();
+            var userId = this.usersService.GetLoggedUserId();
 
-            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
+            var userFromDb = await this.usersService.GetLoggedUserByIdAsync(userId);
 
             var products = new List<ProductsShoppingBagViewModel>();
 
@@ -218,7 +216,7 @@
             }
 
             var productsView = await this.dbContext.Products
-              .Where(p => p.IsDeleted == false)
+              .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
               .Where(p => p.IsSoldOut == false)
               .Where(p => p.Orders.Any(o => o.OrderId == order.Id))
                .Include(p => p.Images)
@@ -245,7 +243,7 @@
 
         public async Task RemoveProductFromShoppingBagAsync(string id)
         {
-            var userId = this.GetLoggedUserId();
+            var userId = this.usersService.GetLoggedUserId();
 
             var order = await this.dbContext.Orders
                 .Where(o => o.Status != OrderStatus.Sent)
@@ -306,8 +304,6 @@
                 .Where(c => c.ProductId == inputModel.ProductId)
                 .FirstOrDefaultAsync();
 
-            //var orderProductToEdit = this.mapper.Map<OrderProduct>(inputModel);
-
             orderProduct.OrderId = inputModel.OrderId;
 
             orderProduct.ProductId = inputModel.ProductId;
@@ -321,21 +317,68 @@
             await this.dbContext.SaveChangesAsync();
         }
 
-        private string GetLoggedUserId()
+        public async Task<ProductAdminEditViewModel> GetProductByIdAsync(string id)
         {
-            var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            return userId;
+            var product = await this.dbContext.Products
+                .Where(a => a.Id == id)
+                .Include(p => p.Category)
+                .FirstOrDefaultAsync();
+
+            var productViewModel = this.mapper.Map<ProductAdminEditViewModel>(product);
+
+            return productViewModel;
         }
 
-        private async Task<ApplicationUser> GetLoggedUserByIdAsync(string userId)
+        public async Task EditProductAsync(ProductAdminEditViewModel inputModel)
         {
-            var userFromDb = await this.dbContext.Users.
-                Where(u => u.IsDeleted == false)
-                .FirstOrDefaultAsync(u => u.Id == userId);
+            var product = await this.dbContext.Products
+                .Include(p => p.Category)
+                .Include(p => p.Images)
+                .FirstOrDefaultAsync(a => a.Id == inputModel.Id);
 
-            return userFromDb;
+            Enum.TryParse(inputModel.Size, true, out ProductSize productSize);
+
+            Enum.TryParse(inputModel.Color, true, out ProductColor productColor);
+
+            Enum.TryParse(inputModel.Sort, true, out ProductSort productSort);
+
+            Enum.TryParse(inputModel.Type, true, out ProductCategoryType productType);
+
+            product.IsDeleted = inputModel.IsDeleted;
+
+            product.DeletedOn = inputModel.DeletedOn;
+
+            product.CreatedOn = inputModel.CreatedOn;
+
+            product.ModifiedOn = inputModel.ModifiedOn;
+
+            product.Name = inputModel.Name;
+
+            product.Price = inputModel.Price;
+
+            product.Description = inputModel.Description;
+
+            product.Rating = inputModel.Rating;
+
+            product.IsSoldOut = inputModel.IsSoldOut;
+
+            product.CategoryId = inputModel.CategoryId;
+
+            product.Category.Name = inputModel.CategoryName;
+
+            product.Category.IsDeleted = inputModel.CategoryIsDeleted;
+
+            product.Size = productSize;
+
+            product.Color = productColor;
+
+            product.Sort = productSort;
+
+            product.Type = productType;
+
+            this.dbContext.Update(product);
+
+            await this.dbContext.SaveChangesAsync();
         }
-
-
     }
 }

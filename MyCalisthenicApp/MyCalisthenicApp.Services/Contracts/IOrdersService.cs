@@ -24,6 +24,12 @@
 
         Task<IEnumerable<SupplierViewModel>> GetAllSuppliersAsync();
 
+        Task<IList<SupplierAdminViewModel>> GetAllSuppliersForAdminAsync();
+
+        Task<SupplierAdminEditViewModel> GetSupplierByIdAsync(string id);
+
+        Task EditSupplierAsync(SupplierAdminEditViewModel inputModel);
+
         Task<bool> SendOrderAsync(string id);
 
         Task<OrderCheckoutViewModel> GetOrderToSendAsync();
