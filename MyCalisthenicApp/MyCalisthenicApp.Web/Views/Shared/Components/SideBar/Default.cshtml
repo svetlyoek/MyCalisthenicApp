@@ -46,17 +46,17 @@
                     if (counter == 1)
                     {
                         customSort = "How To";
-                        <li>@Html.ActionLink(customSort, "Index", "Posts", new { sort = customSort })</li>
+                        <li>@Html.ActionLink(customSort, "Index", "Posts", new { sort = sort.ToString() })</li>
                     }
                     if (counter == 2)
                     {
                         customSort = "Beginner Calisthenic";
-                        <li>@Html.ActionLink(customSort, "Index", "Posts", new { sort = customSort })</li>
+                        <li>@Html.ActionLink(customSort, "Index", "Posts", new { sort = sort.ToString() })</li>
                     }
                     else if (counter == 3)
                     {
                         customSort = "Advanced Calisthenic";
-                        <li>@Html.ActionLink(customSort, "Index", "Posts", new { sort = customSort })</li>
+                        <li>@Html.ActionLink(customSort, "Index", "Posts", new { sort = sort.ToString() })</li>
                     }
                     else if (counter == 4)
                     {
@@ -65,12 +65,12 @@
                     else if (counter == 5)
                     {
                         customSort = "Workout/Training";
-                        <li>@Html.ActionLink(customSort, "Index", "Posts", new { sort = customSort })</li>
+                        <li>@Html.ActionLink(customSort, "Index", "Posts", new { sort =sort.ToString() })</li>
                     }
                     else if (counter == 6)
                     {
                         customSort = "Skills/Techniques";
-                        <li>@Html.ActionLink(customSort, "Index", "Posts", new { sort = customSort })</li>
+                        <li>@Html.ActionLink(customSort, "Index", "Posts", new { sort = sort.ToString() })</li>
                     }
 
                 }

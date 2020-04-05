@@ -92,8 +92,15 @@
                                                 <div class="desc">
                                                     <div class="d-flex justify-content-between comment_title">
                                                         <div class="d-flex align-items-center">
+                                                            @if (comment.Author.FirstName == "Svetoslav" && comment.Author.LastName == "Kazakov")
+                                                            {
+                                                                <h5 class="text-danger">Admin</h5>
+                                                            }
+                                                            else
+                                                            {
+                                                                <h5>@comment.Author.FirstName&nbsp;@comment.Author.LastName</h5>
+                                                            }
 
-                                                            <h5>@comment.Author.FirstName&nbsp;@comment.Author.LastName</h5>
                                                         </div>
                                                     </div>
                                                     <div class="comment-content">

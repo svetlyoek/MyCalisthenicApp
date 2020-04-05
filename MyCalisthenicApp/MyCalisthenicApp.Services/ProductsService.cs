@@ -30,11 +30,12 @@
 
         public async Task<IEnumerable<ProductsViewModel>> GetAllProductsAsync()
         {
-            var products = await this.dbContext
-                .Products.Include(i => i.Images)
-                 .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
-                .Include(c => c.Category)
+            var products = await this.dbContext.Products
+                .Include(i => i.Images)
+                 .Include(c => c.Category)
                 .ThenInclude(p => p.Products)
+                 .Where(p => p.IsDeleted == false)
+                 .Where(p => p.Category.IsDeleted == false)
                 .OrderByDescending(p => p.Rating)
                 .ToListAsync();
 
@@ -48,7 +49,8 @@
         {
             var products = await this.dbContext
                 .Products.Include(i => i.Images)
-                  .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
+                 .Where(p => p.IsDeleted == false)
+                 .Where(p => p.Category.IsDeleted == false)
                 .Include(c => c.Category)
                 .Take(8)
                 .ToListAsync();
@@ -62,7 +64,8 @@
         {
             var products = await this.dbContext
                 .Products.Include(i => i.Images)
-                  .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
+                 .Where(p => p.IsDeleted == false)
+                 .Where(p => p.Category.IsDeleted == false)
                 .Include(c => c.Category)
                 .ThenInclude(p => p.Products)
                 .ToListAsync();
@@ -94,12 +97,13 @@
 
         public async Task<IEnumerable<ProductsViewModel>> GetProductsByCategoryAsync(string name)
         {
-            var products = await this.dbContext.
-                 Products.Include(i => i.Images)
+            var products = await this.dbContext.Products
+                .Include(i => i.Images)
                  .Include(c => c.Category)
                  .ThenInclude(p => p.Products)
                  .Where(p => p.Category.Name == name)
-                   .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
+                  .Where(p => p.IsDeleted == false)
+                  .Where(p => p.Category.IsDeleted == false)
                  .ToListAsync();
 
             var productsViewModel = this.mapper.Map<IEnumerable<ProductsViewModel>>(products);
@@ -109,12 +113,13 @@
 
         public async Task<ProductDetailsViewModel> GetProductsByIdAsync(string id)
         {
-            var product = await this.dbContext
-                .Products.Include(i => i.Images)
+            var product = await this.dbContext.Products
+                .Include(i => i.Images)
                 .Include(c => c.Category)
                 .Include(c => c.Comments)
                 .Where(p => p.Id == id)
-                  .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
+                .Where(p => p.IsDeleted == false)
+                .Where(p => p.Category.IsDeleted == false)
                 .FirstOrDefaultAsync();
 
             if (product == null)
@@ -176,7 +181,8 @@
         public bool ProductsExistsById(string id)
         {
             return this.dbContext.Products
-                .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
+                .Where(p => p.IsDeleted == false)
+                .Where(p => p.Category.IsDeleted == false)
                 .Any(p => p.Id == id);
         }
 
@@ -185,7 +191,8 @@
             var userId = this.usersService.GetLoggedUserId();
 
             var product = await this.dbContext.Products
-               .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
+               .Where(p => p.IsDeleted == false)
+               .Where(p => p.Category.IsDeleted == false)
                .FirstOrDefaultAsync(p => p.Id == id);
 
             if (product == null)
@@ -216,11 +223,13 @@
             }
 
             var productsView = await this.dbContext.Products
-              .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
-              .Where(p => p.IsSoldOut == false)
-              .Where(p => p.Orders.Any(o => o.OrderId == order.Id))
                .Include(p => p.Images)
                .Include(p => p.Orders)
+              .Where(p => p.IsDeleted == false)
+              .Where(p => p.Category.IsDeleted == false)
+              .Where(p => p.IsSoldOut == false)
+              .Where(p => p.Orders.Any(o => o.OrderId == order.Id))
+
               .ToListAsync();
 
             foreach (var product in productsView)
@@ -250,7 +259,8 @@
                 .FirstOrDefaultAsync(o => o.UserId == userId);
 
             var product = await this.dbContext.OrderProducts
-                 .Where(op => op.ProductId == id && op.OrderId == order.Id)
+                 .Where(op => op.ProductId == id)
+                  .Where(op => op.OrderId == order.Id)
                  .FirstOrDefaultAsync();
 
             this.dbContext.OrderProducts.Remove(product);
@@ -320,11 +330,18 @@
         public async Task<ProductAdminEditViewModel> GetProductByIdAsync(string id)
         {
             var product = await this.dbContext.Products
-                .Where(a => a.Id == id)
                 .Include(p => p.Category)
+                .Where(a => a.Id == id)
                 .FirstOrDefaultAsync();
 
+            var categories = this.dbContext.ProductCategories
+              .ToList()
+              .Select(c => new List<string> { c.Id, c.Name })
+              .SelectMany(c => c);
+
             var productViewModel = this.mapper.Map<ProductAdminEditViewModel>(product);
+
+            productViewModel.Categories = categories;
 
             return productViewModel;
         }

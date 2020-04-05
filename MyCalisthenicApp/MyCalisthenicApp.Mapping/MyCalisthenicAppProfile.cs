@@ -62,6 +62,7 @@
 
             this.CreateMap<Post, PostDetailsViewModel>()
                 .ForMember(x => x.ImageUrl, y => y.MapFrom(src => src.Images.Select(i => i.Url).FirstOrDefault()))
+                .ForMember(x => x.Type, y => y.MapFrom(src => src.Type.ToString()))
                 .ForMember(x => x.Author, y => y.MapFrom(src => src.Author.FirstName + " " + src.Author.LastName));
 
             this.CreateMap<Post, PostDetailsSidebarViewModel>()
@@ -116,6 +117,9 @@
                 .ForMember(x => x.Type, y => y.MapFrom(src => src.Type.ToString()))
                 .ForMember(x => x.ImagesUrl, y => y.MapFrom(src => src.Images.Select(i => i.Url).ToList()));
 
+            this.CreateMap<Post, PostAdminEditViewModel>()
+                .ForMember(x => x.Type, y => y.MapFrom(src => src.Type.ToString()));
+
             this.CreateMap<Program, ProgramsAdminViewModel>()
                .ForMember(x => x.MembershipType, y => y.MapFrom(src => src.MembershipType.ToString()))
                .ForMember(x => x.Type, y => y.MapFrom(src => src.Type.ToString()))
@@ -146,6 +150,13 @@
 
             this.CreateMap<Supplier, SupplierAdminEditViewModel>();
 
+            this.CreateMap<Image, ImagesAdminViewModel>();
+
+            this.CreateMap<Image, ImageAdminEditViewModel>();
+
+            this.CreateMap<Program, ProgramAdminEditViewModel>()
+                .ForMember(x => x.Type, y => y.MapFrom(src => src.Type.ToString()))
+                .ForMember(x => x.MembershipType, y => y.MapFrom(src => src.MembershipType.ToString()));
         }
     }
 }

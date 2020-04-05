@@ -33,8 +33,8 @@
             else if (inputModel.Text.Length >= 4)
             {
                 var programs = await this.dbContext.Programs
-                 .Where(p => p.IsDeleted == false)
                  .Include(i => i.Images)
+                 .Where(p => p.IsDeleted == false)
                  .Where(p => p.Category.Name.ToLower().Contains(inputModel.Text.ToLower()) ||
                  p.Description.ToLower().Contains(inputModel.Text.ToLower()) ||
                  p.Title.ToLower().Contains(inputModel.Text.ToLower()) ||
@@ -49,10 +49,10 @@
                 }
 
                 var products = await this.dbContext.Products
-                   .Where(p => p.IsDeleted == false)
-                    .Include(i => i.Images)
-                    .Include(c => c.Category)
-                    .Include(cm => cm.Comments)
+                     .Include(i => i.Images)
+                     .Include(c => c.Category)
+                     .Include(cm => cm.Comments)
+                     .Where(p => p.IsDeleted == false)
                      .Where(p => p.Category.Name.ToLower().Contains(inputModel.Text.ToLower()) ||
                      p.Description.ToLower().Contains(inputModel.Text.ToLower()) ||
                      p.Name.ToLower().Contains(inputModel.Text.ToLower()))
@@ -66,10 +66,10 @@
                 }
 
                 var posts = await this.dbContext.Post
-               .Include(i => i.Images)
-               .Include(au => au.Author)
-               .Include(cm => cm.Comments)
-               .Where(p => p.IsPublic == true)
+                .Include(i => i.Images)
+                .Include(au => au.Author)
+                .Include(cm => cm.Comments)
+                .Where(p => p.IsPublic == true)
                 .Where(c => c.IsDeleted == false)
                 .Where(p => p.Title.ToLower().Contains(inputModel.Text.ToLower()) ||
                  p.Category.Name.ToLower().Contains(inputModel.Text.ToLower()) ||

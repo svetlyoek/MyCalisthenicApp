@@ -58,8 +58,8 @@
 
         public async Task<ApplicationUser> GetLoggedUserByIdAsync(string userId)
         {
-            var userFromDb = await this.dbContext.Users.
-                Where(u => u.IsDeleted == false)
+            var userFromDb = await this.dbContext.Users
+                .Where(u => u.IsDeleted == false)
                 .FirstOrDefaultAsync(u => u.Id == userId);
 
             return userFromDb;
@@ -166,7 +166,7 @@
         public async Task<ApplicationUser> GetUserByEmailAsync(string email)
         {
             var user = await this.dbContext.Users
-                 .Where(u => u.Email == email)
+                  .Where(u => u.Email == email)
                   .FirstOrDefaultAsync();
 
             return user;
@@ -190,7 +190,7 @@
         public async Task<IList<OrdersAdminViewModel>> GetAllOrdersByUserIdAsync(string id)
         {
             var orders = await this.dbContext.Orders
-                .Include(o => o.Products)
+                 .Include(o => o.Products)
                  .Where(c => c.UserId == id)
                  .ToListAsync();
 
@@ -213,8 +213,8 @@
 
         public async Task<IList<OrderProductsAdminViewModel>> GetAllProductsByOrderIdAsync(string id)
         {
-            var products = await this.dbContext
-                .OrderProducts.Include(op => op.Product)
+            var products = await this.dbContext.OrderProducts
+                .Include(op => op.Product)
                 .Where(o => o.OrderId == id)
                 .ToListAsync();
 

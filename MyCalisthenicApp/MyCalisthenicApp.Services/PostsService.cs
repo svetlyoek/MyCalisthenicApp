@@ -8,6 +8,7 @@
     using AutoMapper;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
+    using MyCalisthenicApp.Models.BlogEntities.Enums;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Posts;
@@ -91,7 +92,8 @@
             var posts = await this.dbContext.Post
                  .Include(i => i.Images)
                  .Where(p => p.IsPublic == true)
-                 .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
+                 .Where(p => p.IsDeleted == false)
+                 .Where(p => p.Category.IsDeleted == false)
                  .OrderByDescending(p => p.CreatedOn)
                  .Take(4)
                  .ToListAsync();
@@ -109,7 +111,8 @@
                 .Include(i => i.Images)
                 .Include(cm => cm.Comments)
                 .Where(p => p.IsPublic == true)
-                 .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
+                 .Where(p => p.IsDeleted == false)
+                  .Where(p => p.Category.IsDeleted == false)
                 .Take(8).ToListAsync();
 
             var postsViewModel = this.mapper.Map<IEnumerable<PopularPostsHomeViewModel>>(posts);
@@ -119,7 +122,9 @@
 
         public bool GetPostById(string id)
         {
-            return this.dbContext.Post.Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
+            return this.dbContext.Post
+                .Where(p => p.IsDeleted == false)
+                 .Where(p => p.Category.IsDeleted == false)
                  .Where(p => p.IsPublic == true).Any(p => p.Id == id);
         }
 
@@ -128,7 +133,8 @@
             var post = await this.dbContext.Post
                 .Where(p => p.Id == id)
                  .Where(c => c.IsDeleted == false)
-                 .Where(c => c.IsPublic == true && c.Category.IsDeleted == false)
+                 .Where(c => c.IsPublic == true)
+                 .Where(p => p.Category.IsDeleted == false)
                 .Include(i => i.Images)
                 .Include(au => au.Author)
                 .Include(cm => cm.Comments)
@@ -154,7 +160,8 @@
                .Include(au => au.Author)
                .Include(cm => cm.Comments)
                .Where(p => p.IsPublic == true)
-                .Where(c => c.IsDeleted == false && c.Category.IsDeleted == false)
+                .Where(c => c.IsDeleted == false)
+                .Where(p => p.Category.IsDeleted == false)
                 .Where(p => p.Title.ToLower().Contains(inputModel.Text.ToLower()) ||
                  p.Category.Name.ToLower().Contains(inputModel.Text.ToLower()) ||
                  p.Description.ToLower().Contains(inputModel.Text.ToLower()) ||
@@ -172,14 +179,17 @@
 
         public async Task<IEnumerable<PostDetailsViewModel>> SortPostsByCategoryAsync(string sort)
         {
-            var sortedPosts = await this.dbContext
-                 .Post.Include(i => i.Images)
+            Enum.TryParse(sort, true, out CategoryType postType);
+
+            var sortedPosts = await this.dbContext.Post
+                 .Include(i => i.Images)
                  .Include(au => au.Author)
                  .Include(cm => cm.Comments)
                  .Include(c => c.Category)
                  .Where(p => p.IsDeleted == false)
-                 .Where(p => p.IsPublic == true && p.Category.IsDeleted == false)
-                 .Where(p => p.Category.Name == sort)
+                 .Where(p => p.IsPublic == true)
+                 .Where(p => p.Category.IsDeleted == false)
+                 .Where(p => p.Type == postType)
                  .ToListAsync();
 
             var sortedPostsViewModel = this.mapper.Map<IEnumerable<PostDetailsViewModel>>(sortedPosts);
@@ -214,6 +224,63 @@
             var likes = post.LikesUsersNames;
 
             return likes;
+        }
+
+        public async Task<PostAdminEditViewModel> GetPostForAdminByIdAsync(string id)
+        {
+            var post = await this.dbContext.Post
+                 .Include(p => p.Category)
+                 .FirstOrDefaultAsync(p => p.Id == id);
+
+            var categories = this.dbContext.BlogCategories
+               .ToList()
+               .Select(c => new List<string> { c.Id, c.Name })
+               .SelectMany(c => c);
+
+            var postViewModel = this.mapper.Map<PostAdminEditViewModel>(post);
+
+            postViewModel.Categories = categories;
+
+            return postViewModel;
+        }
+
+        public async Task EditPostAsync(PostAdminEditViewModel inputModel)
+        {
+            var post = await this.dbContext.Post
+                  .Include(p => p.Category)
+                  .FirstOrDefaultAsync(p => p.Id == inputModel.Id);
+
+            Enum.TryParse(inputModel.Type, true, out CategoryType postType);
+
+            post.IsDeleted = inputModel.IsDeleted;
+
+            post.DeletedOn = inputModel.DeletedOn;
+
+            post.CreatedOn = inputModel.CreatedOn;
+
+            post.ModifiedOn = inputModel.ModifiedOn;
+
+            post.Title = inputModel.Title;
+
+            post.Description = inputModel.Description;
+
+            post.AuthorId = inputModel.AuthorId;
+
+            post.CategoryId = inputModel.CategoryId;
+
+            post.Category.Name = inputModel.CategoryName;
+
+            post.Rating = inputModel.Rating;
+
+            post.Type = postType;
+
+            post.VideoUrl = inputModel.VideoUrl;
+
+            post.IsPublic = inputModel.IsPublic;
+
+            this.dbContext.Update(post);
+
+            await this.dbContext.SaveChangesAsync();
         }
     }
 }

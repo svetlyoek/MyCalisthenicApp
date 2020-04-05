@@ -15,6 +15,10 @@
 
         Task<IList<ProgramsAdminViewModel>> GetAllProgramsForAdminAsync();
 
+        Task<ProgramAdminEditViewModel> GetProgramByIdAsync(string id);
+
+        Task EditProgramAsync(ProgramAdminEditViewModel inputModel);
+
         Task<IList<string>> GetAllLikesByProgramIdAsync(string id);
 
         Task<IEnumerable<ProgramViewModel>> GetProgramsByCategoryAsync(string type);

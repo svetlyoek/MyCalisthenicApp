@@ -17,6 +17,10 @@
 
         Task<IList<PostsAdminViewModel>> GetAllPostsForAdminAsync();
 
+        Task<PostAdminEditViewModel> GetPostForAdminByIdAsync(string id);
+
+        Task EditPostAsync(PostAdminEditViewModel inputModel);
+
         Task<IList<string>> GetAllLikesByPostIdAsync(string id);
 
         Task<IEnumerable<PostDetailsViewModel>> SortPostsByCategoryAsync(string sort);

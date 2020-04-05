@@ -93,27 +93,27 @@
                                         @{
                                             var sort = string.Empty;
 
-                                            if (Model.Posts.All(p => p.CategoryName == "How To"))
+                                            if (Model.Posts.All(p => p.Type == "HowTo"))
                                             {
                                                 sort = "How To";
                                             }
-                                            else if (Model.Posts.All(p => p.CategoryName == "Beginner Calisthenic"))
+                                            else if (Model.Posts.All(p => p.Type == "BeginnerCalisthenic"))
                                             {
                                                 sort = "Beginner Calisthenic";
                                             }
-                                            else if (Model.Posts.All(p => p.CategoryName == "Advanced Calisthenic"))
+                                            else if (Model.Posts.All(p => p.Type == "AdvancedCalisthenic"))
                                             {
                                                 sort = "Advanced Calisthenic";
                                             }
-                                            else if (Model.Posts.All(p => p.CategoryName == "Motivation"))
+                                            else if (Model.Posts.All(p => p.Type == "Motivation"))
                                             {
                                                 sort = "Motivation";
                                             }
-                                            else if (Model.Posts.All(p => p.CategoryName == "Workout/Training"))
+                                            else if (Model.Posts.All(p => p.Type == "Workout/Training"))
                                             {
                                                 sort = "Workout/Training";
                                             }
-                                            else if (Model.Posts.All(p => p.CategoryName == "Skills/Techniques"))
+                                            else if (Model.Posts.All(p => p.Type == "Skills/Techniques"))
                                             {
                                                 sort = "Skills/Techniques";
                                             }

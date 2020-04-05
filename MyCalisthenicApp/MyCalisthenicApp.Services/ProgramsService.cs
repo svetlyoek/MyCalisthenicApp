@@ -9,6 +9,7 @@
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
     using MyCalisthenicApp.Models.Enums;
+    using MyCalisthenicApp.Models.TrainingEntities.Enums;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Programs;
@@ -28,11 +29,11 @@
 
         public async Task<IEnumerable<ProgramViewModel>> GetAllProgramsAsync()
         {
-            var programs = await this.dbContext
-                .Programs
-                  .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
+            var programs = await this.dbContext.Programs
                 .Include(i => i.Images)
-                .ToListAsync();
+                 .Where(p => p.IsDeleted == false)
+                 .Where(p => p.Category.IsDeleted == false)
+                 .ToListAsync();
 
             var programsViewModel = this.mapper.Map<IEnumerable<ProgramViewModel>>(programs);
 
@@ -43,7 +44,8 @@
         {
             var popularPrograms = await this.dbContext.Programs
                 .Include(i => i.Images)
-                  .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
+                .Where(p => p.IsDeleted == false)
+                .Where(p => p.Category.IsDeleted == false)
                 .Take(5)
                 .ToListAsync();
 
@@ -54,11 +56,12 @@
 
         public async Task<ProgramDetailsViewModel> GetProgramDetailsByIdAsync(string id)
         {
-            var program = await this.dbContext
-                .Programs.Include(p => p.Images)
-                  .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
+            var program = await this.dbContext.Programs
+               .Include(p => p.Images)
                 .Include(c => c.Category)
                 .Include(cm => cm.Comments)
+                .Where(p => p.IsDeleted == false)
+                .Where(p => p.Category.IsDeleted == false)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             if (program == null)
@@ -75,10 +78,11 @@
         {
             var programType = (ProgramType)Enum.Parse(typeof(ProgramType), type);
 
-            var programs = await this.dbContext
-                .Programs.Include(i => i.Images)
+            var programs = await this.dbContext.Programs
+                .Include(i => i.Images)
                 .Where(p => p.Type == programType)
-                  .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
+                .Where(p => p.IsDeleted == false)
+                .Where(p => p.Category.IsDeleted == false)
                 .Select(p => p).ToListAsync();
 
             var programsViewModel = this.mapper.Map<IEnumerable<ProgramViewModel>>(programs);
@@ -135,7 +139,8 @@
         public bool GetProgramById(string id)
         {
             return this.dbContext.Programs
-                .Where(p => p.IsDeleted == false && p.Category.IsDeleted == false)
+                .Where(p => p.IsDeleted == false)
+                .Where(p => p.Category.IsDeleted == false)
                 .Any(p => p.Id == id);
         }
 
@@ -165,6 +170,67 @@
             var likes = program.LikesUsersNames;
 
             return likes;
+        }
+
+        public async Task<ProgramAdminEditViewModel> GetProgramByIdAsync(string id)
+        {
+            var program = await this.dbContext.Programs
+                 .Include(p => p.Category)
+                 .FirstOrDefaultAsync(p => p.Id == id);
+
+            var categories = this.dbContext.ProgramCategories
+              .ToList()
+              .Select(c => new List<string> { c.Id, c.Name })
+              .SelectMany(c => c);
+
+            var programViewModel = this.mapper.Map<ProgramAdminEditViewModel>(program);
+
+            programViewModel.Categories = categories;
+
+            return programViewModel;
+        }
+
+        public async Task EditProgramAsync(ProgramAdminEditViewModel inputModel)
+        {
+            var program = await this.dbContext.Programs
+                 .Include(p => p.Category)
+                 .FirstOrDefaultAsync(p => p.Id == inputModel.Id);
+
+            Enum.TryParse(inputModel.Type, true, out ProgramType programType);
+
+            Enum.TryParse(inputModel.MembershipType, true, out MembershipType membershipType);
+
+            program.IsDeleted = inputModel.IsDeleted;
+
+            program.DeletedOn = inputModel.DeletedOn;
+
+            program.CreatedOn = inputModel.CreatedOn;
+
+            program.ModifiedOn = inputModel.ModifiedOn;
+
+            program.Title = inputModel.Title;
+
+            program.Description = inputModel.Description;
+
+            program.MembershipType = membershipType;
+
+            program.CategoryId = inputModel.CategoryId;
+
+            program.Category.Name = inputModel.CategoryName;
+
+            program.Category.Description = inputModel.CategoryDescription;
+
+            program.Category.IsDeleted = inputModel.CategoryIsDeleted;
+
+            program.Category.Rating = inputModel.CategoryRating;
+
+            program.Rating = inputModel.Rating;
+
+            program.Type = programType;
+
+            this.dbContext.Update(program);
+
+            await this.dbContext.SaveChangesAsync();
         }
     }
 }

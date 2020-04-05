@@ -15,6 +15,8 @@
 
         public string CategoryName { get; set; }
 
+        public string Type { get; set; }
+
         public DateTime CreatedOn { get; set; }
 
         public string Author { get; set; }
