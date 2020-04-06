@@ -21,7 +21,10 @@
         private readonly ISearchesService searchesService;
         private readonly IUsersService usersService;
 
-        public HomeController(IEmailSender emailSender, ISearchesService searchesService, IUsersService usersService)
+        public HomeController(
+            IEmailSender emailSender,
+            ISearchesService searchesService,
+            IUsersService usersService)
         {
             this.emailSender = emailSender;
             this.searchesService = searchesService;

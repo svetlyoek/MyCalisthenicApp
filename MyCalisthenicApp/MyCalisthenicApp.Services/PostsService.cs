@@ -19,7 +19,10 @@
         private readonly IMapper mapper;
         private readonly IUsersService usersService;
 
-        public PostsService(MyCalisthenicAppDbContext dbContext, IMapper mapper, IUsersService usersService)
+        public PostsService(
+            MyCalisthenicAppDbContext dbContext,
+            IMapper mapper,
+            IUsersService usersService)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
@@ -31,9 +34,19 @@
             var post = await this.dbContext.Post
                 .FirstOrDefaultAsync(p => p.Id == id);
 
+            if (post == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidPostId, id));
+            }
+
             var userId = this.usersService.GetLoggedUserId();
 
             var userFromDb = await this.usersService.GetLoggedUserByIdAsync(userId);
+
+            if (userFromDb == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, userId));
+            }
 
             var userCredentials = userFromDb.FirstName + " " + userFromDb.LastName + ":" + userId;
 
@@ -79,7 +92,8 @@
                 .Include(au => au.Author)
                 .Include(cm => cm.Comments)
                 .Where(p => p.IsPublic == true)
-                 .Where(c => c.IsDeleted == false && c.Category.IsDeleted == false)
+                 .Where(c => c.IsDeleted == false)
+                 .Where(c => c.Category.IsDeleted == false)
                 .ToListAsync();
 
             var allPosts = this.mapper.Map<IEnumerable<PostDetailsViewModel>>(posts);
@@ -131,19 +145,19 @@
         public async Task<PostDetailsViewModel> GetPostDetailsByIdAsync(string id)
         {
             var post = await this.dbContext.Post
+                 .Include(i => i.Images)
+                .Include(au => au.Author)
+                .Include(cm => cm.Comments)
+                .Include(c => c.Category)
                 .Where(p => p.Id == id)
                  .Where(c => c.IsDeleted == false)
                  .Where(c => c.IsPublic == true)
                  .Where(p => p.Category.IsDeleted == false)
-                .Include(i => i.Images)
-                .Include(au => au.Author)
-                .Include(cm => cm.Comments)
-                .Include(c => c.Category)
                 .FirstOrDefaultAsync();
 
             if (post == null)
             {
-                throw new NullReferenceException(string.Format(ServicesConstants.InvalidPost, id));
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidPostId, id));
             }
 
             var postViewModel = this.mapper.Map<PostDetailsViewModel>(post);
@@ -216,6 +230,11 @@
                  .Where(c => c.Id == id)
                  .FirstOrDefaultAsync();
 
+            if (post == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidPostId, id));
+            }
+
             if (post.LikesUsersNames == null)
             {
                 post.LikesUsersNames = new List<string>();
@@ -231,6 +250,11 @@
             var post = await this.dbContext.Post
                  .Include(p => p.Category)
                  .FirstOrDefaultAsync(p => p.Id == id);
+
+            if (post == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidPostId, id));
+            }
 
             var categories = this.dbContext.BlogCategories
                .ToList()
@@ -249,6 +273,11 @@
             var post = await this.dbContext.Post
                   .Include(p => p.Category)
                   .FirstOrDefaultAsync(p => p.Id == inputModel.Id);
+
+            if (post == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidPostId, inputModel.Id));
+            }
 
             Enum.TryParse(inputModel.Type, true, out CategoryType postType);
 

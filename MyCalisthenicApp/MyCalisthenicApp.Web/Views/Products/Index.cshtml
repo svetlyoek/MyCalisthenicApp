@@ -146,33 +146,33 @@
                 {
                     <li class="@(i == Model.CurrentPage ? "page-item active" : "page-item")">
                         @{
-                            var maxPrice = Model.Products.Max(p => p.Price);
-                            var minPrice = Model.Products.Min(p => p.Price);
-                            var descDate = Model.Products.Max(p => p.CreatedOn);
-                            var ascDate = Model.Products.Min(p => p.CreatedOn);
-
-                            var firstProduct = Model.Products.FirstOrDefault();
-                            var lastProduct = Model.Products.LastOrDefault();
-
                             var sort = string.Empty;
                             var name = string.Empty;
 
-                            if (firstProduct.Price == maxPrice && lastProduct.Price == minPrice)
-                            {
-                                sort = "PriceDescending";
-                            }
-                            else if (firstProduct.Price == minPrice && lastProduct.Price == maxPrice)
-                            {
-                                sort = "PriceAscending";
-                            }
-                            else if (firstProduct.CreatedOn == descDate && lastProduct.CreatedOn == ascDate)
+                            var orderedByDateDesc = Model.Products.OrderByDescending(p => p.CreatedOn);
+                            var orderedByDateAsc = Model.Products.OrderBy(p => p.CreatedOn);
+
+                            var orderedByPriceDesc = Model.Products.OrderByDescending(p => p.Price);
+                            var orderedByPriceAsc = Model.Products.OrderBy(p => p.Price);
+
+                            if (Model.Products.SequenceEqual(orderedByDateDesc))
                             {
                                 sort = "Newest";
                             }
-                            else if (firstProduct.CreatedOn == ascDate && lastProduct.CreatedOn == descDate)
+                            else if (Model.Products.SequenceEqual(orderedByDateAsc))
                             {
                                 sort = "Oldest";
                             }
+
+                            else if (Model.Products.SequenceEqual(orderedByPriceDesc))
+                            {
+                                sort = "PriceDescending";
+                            }
+                            else if (Model.Products.SequenceEqual(orderedByPriceAsc))
+                            {
+                                sort = "PriceAscending";
+                            }
+
                             else if (Model.Products.All(p => p.Category == "Apparels"))
                             {
                                 name = "Apparels";

@@ -21,7 +21,10 @@
         private readonly IMapper mapper;
         private readonly IUsersService usersService;
 
-        public ProductsService(MyCalisthenicAppDbContext dbContext, IMapper mapper, IUsersService usersService)
+        public ProductsService(
+            MyCalisthenicAppDbContext dbContext,
+            IMapper mapper,
+            IUsersService usersService)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
@@ -124,7 +127,7 @@
 
             if (product == null)
             {
-                throw new NullReferenceException(string.Format(ServicesConstants.InvalidProduct, id));
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProductId, id));
             }
 
             var productViewModel = this.mapper.Map<ProductDetailsViewModel>(product);
@@ -137,9 +140,19 @@
             var product = await this.dbContext.Products
                 .FirstOrDefaultAsync(p => p.Id == id);
 
+            if (product == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProductId, id));
+            }
+
             var userId = this.usersService.GetLoggedUserId();
 
             var userFromDb = await this.usersService.GetLoggedUserByIdAsync(userId);
+
+            if (userFromDb == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, userId));
+            }
 
             var userCredentials = userFromDb.FirstName + " " + userFromDb.LastName + ":" + userId;
 
@@ -197,7 +210,7 @@
 
             if (product == null)
             {
-                throw new NullReferenceException(string.Format(ServicesConstants.InvalidProduct, id));
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProductId, id));
             }
 
             return product;
@@ -258,10 +271,20 @@
                 .Where(o => o.Status != OrderStatus.Sent)
                 .FirstOrDefaultAsync(o => o.UserId == userId);
 
+            if (order == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidOrder));
+            }
+
             var product = await this.dbContext.OrderProducts
                  .Where(op => op.ProductId == id)
                   .Where(op => op.OrderId == order.Id)
                  .FirstOrDefaultAsync();
+
+            if (product == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProduct));
+            }
 
             this.dbContext.OrderProducts.Remove(product);
 
@@ -275,6 +298,11 @@
             var product = await this.dbContext.Products
                  .Where(c => c.Id == id)
                  .FirstOrDefaultAsync();
+
+            if (product == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProductId, id));
+            }
 
             if (product.LikesUsersNames == null)
             {
@@ -303,6 +331,11 @@
             var orderProduct = await this.dbContext.OrderProducts
                  .FirstOrDefaultAsync(o => o.ProductId == id);
 
+            if (orderProduct == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidOrderProductId, id));
+            }
+
             var orderViewModel = this.mapper.Map<OrderProductAdminEditViewModel>(orderProduct);
 
             return orderViewModel;
@@ -313,6 +346,12 @@
             var orderProduct = await this.dbContext.OrderProducts
                 .Where(c => c.ProductId == inputModel.ProductId)
                 .FirstOrDefaultAsync();
+
+            if (orderProduct == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidOrderProductId, inputModel.ProductId));
+            }
+
 
             orderProduct.OrderId = inputModel.OrderId;
 
@@ -334,6 +373,11 @@
                 .Where(a => a.Id == id)
                 .FirstOrDefaultAsync();
 
+            if (product == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProductId, id));
+            }
+
             var categories = this.dbContext.ProductCategories
               .ToList()
               .Select(c => new List<string> { c.Id, c.Name })
@@ -352,6 +396,11 @@
                 .Include(p => p.Category)
                 .Include(p => p.Images)
                 .FirstOrDefaultAsync(a => a.Id == inputModel.Id);
+
+            if (product == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProductId, inputModel.Id));
+            }
 
             Enum.TryParse(inputModel.Size, true, out ProductSize productSize);
 

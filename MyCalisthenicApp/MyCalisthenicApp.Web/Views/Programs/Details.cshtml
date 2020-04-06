@@ -2,6 +2,12 @@
 @{
     ViewData["Title"] = "Program-Details";
 }
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,11 +108,11 @@
                                         <div class="tab-content-description">
                                             <h2 class="margin-top-10 margin-bottom-30">Workouts</h2>
 
-                                            @if (Model.Category.Exercises.Count() == 0)
+                                            @if (!user.HasMembership && Model.Type != "Beginner")
                                             {
                                                 <p class="text-danger">You do not have membership.</p>
                                             }
-                                            else
+                                            else if (user.HasMembership || Model.Type == "Beginner")
                                             {
                                                 @foreach (var exercise in Model.Category.Exercises)
                                                 {

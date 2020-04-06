@@ -23,8 +23,8 @@
         // Post validations
         public const int PostTitleMaxLength = 100;
 
-        // Shop validations
-        public const int ShopCategoryNameMaxLength = 20;
+        // Product category validations
+        public const int ProductCategoryNameMaxLength = 20;
 
         // Product validations
         public const int ProductNameMaxLength = 50;

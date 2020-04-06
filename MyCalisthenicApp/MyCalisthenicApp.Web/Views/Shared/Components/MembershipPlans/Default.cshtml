@@ -87,7 +87,7 @@
                         <div class="btn-wrapper desktop-center">
                             @if (membershipPlan.Name == "Beginner")
                             {
-                                <button disabled class="btn btn-element btn-normal-size btn-transparent-color btn-rounded">Free</button>
+                                <a asp-controller="Memberships" asp-action="Buy" asp-route-id="@membershipPlan.Id" class="btn btn-element btn-normal-size btn-transparent-color btn-rounded">Free</a>
                             }
                             else
                             {

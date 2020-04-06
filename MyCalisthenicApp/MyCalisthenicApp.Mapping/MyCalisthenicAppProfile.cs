@@ -8,6 +8,7 @@
     using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.Models.TrainingEntities;
     using MyCalisthenicApp.ViewModels.Addresses;
+    using MyCalisthenicApp.ViewModels.Categories;
     using MyCalisthenicApp.ViewModels.Cities;
     using MyCalisthenicApp.ViewModels.Comments;
     using MyCalisthenicApp.ViewModels.Exercises;
@@ -157,6 +158,10 @@
             this.CreateMap<Program, ProgramAdminEditViewModel>()
                 .ForMember(x => x.Type, y => y.MapFrom(src => src.Type.ToString()))
                 .ForMember(x => x.MembershipType, y => y.MapFrom(src => src.MembershipType.ToString()));
+
+            this.CreateMap<Exercise, ExerciseAdminEditViewModel>();
+
+            this.CreateMap<Membership, MembershipAdminEditViewModel>();
         }
     }
 }

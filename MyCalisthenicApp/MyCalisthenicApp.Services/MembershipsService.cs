@@ -1,5 +1,6 @@
 ﻿namespace MyCalisthenicApp.Services
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -7,6 +8,7 @@
     using AutoMapper;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
+    using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Memberships;
 
@@ -44,6 +46,50 @@
             return membershipsViewModel;
         }
 
+        public async Task<MembershipAdminEditViewModel> GetMembershipByIdAsync(string id)
+        {
+            var membership = await this.dbContext.Memberships
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            if (membership == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidMembershipId, id));
+            }
+
+            var membershipViewModel = this.mapper.Map<MembershipAdminEditViewModel>(membership);
+
+            return membershipViewModel;
+        }
+
+        public async Task EditMembershipAsync(MembershipAdminEditViewModel inputModel)
+        {
+            var membership = await this.dbContext.Memberships
+               .FirstOrDefaultAsync(m => m.Id == inputModel.Id);
+
+            if (membership == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidMembershipId, inputModel.Id));
+            }
+
+            membership.IsDeleted = inputModel.IsDeleted;
+
+            membership.DeletedOn = inputModel.DeletedOn;
+
+            membership.ModifiedOn = inputModel.ModifiedOn;
+
+            membership.CreatedOn = inputModel.CreatedOn;
+
+            membership.Name = inputModel.Name;
+
+            membership.MonthlyPrice = inputModel.MonthlyPrice;
+
+            membership.YearlyPrice = inputModel.YearlyPrice;
+
+            this.dbContext.Update(membership);
+
+            await this.dbContext.SaveChangesAsync();
+        }
+
         public async Task<decimal?> GetMembershipPriceByIdAsync(string id)
         {
             var membershipPrice = await this.dbContext.Memberships
@@ -58,7 +104,7 @@
             }
             else
             {
-                return null;
+                return 0;
             }
         }
     }

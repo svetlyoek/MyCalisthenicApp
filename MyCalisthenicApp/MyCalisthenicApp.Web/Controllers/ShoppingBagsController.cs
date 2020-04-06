@@ -15,7 +15,10 @@
         private readonly IUsersService usersService;
         private readonly IOrdersService ordersService;
 
-        public ShoppingBagsController(IProductsService productsService, IUsersService usersService, IOrdersService ordersService)
+        public ShoppingBagsController(
+            IProductsService productsService,
+            IUsersService usersService,
+            IOrdersService ordersService)
         {
             this.productsService = productsService;
             this.usersService = usersService;

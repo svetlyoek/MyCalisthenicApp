@@ -27,7 +27,10 @@
         private readonly MyCalisthenicAppDbContext dbContext;
         private readonly IMapper mapper;
 
-        public UsersService(IHttpContextAccessor httpContextAccessor, MyCalisthenicAppDbContext dbContext, IMapper mapper)
+        public UsersService(
+            IHttpContextAccessor httpContextAccessor,
+            MyCalisthenicAppDbContext dbContext,
+            IMapper mapper)
         {
             this.httpContextAccessor = httpContextAccessor;
             this.dbContext = dbContext;
@@ -39,6 +42,11 @@
             var userId = this.GetLoggedUserId();
 
             var userFromDb = await this.GetLoggedUserByIdAsync(userId);
+
+            if (userFromDb == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, userId));
+            }
 
             if (inputModel.Coupon == ServicesConstants.AppDiscountCoupon && userFromDb.HasCoupon == false)
             {
@@ -53,6 +61,7 @@
         public string GetLoggedUserId()
         {
             var userId = this.httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             return userId;
         }
 
@@ -71,17 +80,17 @@
 
             var userId = this.GetLoggedUserId();
 
-            var user = await this.GetLoggedUserByIdAsync(userId);
+            var userFromDb = await this.GetLoggedUserByIdAsync(userId);
 
-            if (user != null && user.MembershipExpirationDate != null)
+            if (userFromDb != null && userFromDb.MembershipExpirationDate != null)
             {
-                if (currentDate >= user.MembershipExpirationDate)
+                if (currentDate >= userFromDb.MembershipExpirationDate)
                 {
-                    user.HasMembership = false;
+                    userFromDb.HasMembership = false;
 
-                    user.MembershipExpirationDate = null;
+                    userFromDb.MembershipExpirationDate = null;
 
-                    this.dbContext.Update(user);
+                    this.dbContext.Update(userFromDb);
 
                     await this.dbContext.SaveChangesAsync();
 
@@ -129,24 +138,29 @@
 
         public async Task<ApplicationUser> BlockUnblockUserByIdAsync(string id)
         {
-            var user = await this.dbContext.Users
+            var userFromDb = await this.dbContext.Users
                 .Where(u => u.Id == id)
                 .FirstOrDefaultAsync();
 
-            if (user.IsDeleted == false)
+            if (userFromDb == null)
             {
-                user.IsDeleted = true;
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, id));
+            }
+
+            if (userFromDb.IsDeleted == false)
+            {
+                userFromDb.IsDeleted = true;
             }
             else
             {
-                user.IsDeleted = false;
+                userFromDb.IsDeleted = false;
             }
 
-            this.dbContext.Update(user);
+            this.dbContext.Update(userFromDb);
 
             await this.dbContext.SaveChangesAsync();
 
-            return user;
+            return userFromDb;
         }
 
         public async Task GetUserToBlockAsync(string id)
@@ -155,6 +169,11 @@
                 .Where(u => u.Id == id)
                 .Where(u => u.IsDeleted == false)
                 .FirstOrDefaultAsync();
+
+            if (userToBlock == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, id));
+            }
 
             userToBlock.IsDeleted = true;
 
@@ -182,6 +201,11 @@
                 .Where(c => c.AuthorId == id)
                 .ToListAsync();
 
+            if (comments == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, id));
+            }
+
             var commentsViewModel = this.mapper.Map<IList<CommentAdminViewModel>>(comments);
 
             return commentsViewModel;
@@ -193,6 +217,11 @@
                  .Include(o => o.Products)
                  .Where(c => c.UserId == id)
                  .ToListAsync();
+
+            if (orders == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, id));
+            }
 
             var ordersViewModel = this.mapper.Map<IList<OrdersAdminViewModel>>(orders);
 
@@ -206,6 +235,11 @@
                 .Where(c => c.UserId == id)
                 .ToListAsync();
 
+            if (addresses == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, id));
+            }
+
             var addressesViewModel = this.mapper.Map<IList<AddressesAdminViewModel>>(addresses);
 
             return addressesViewModel;
@@ -217,6 +251,11 @@
                 .Include(op => op.Product)
                 .Where(o => o.OrderId == id)
                 .ToListAsync();
+
+            if (products == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, id));
+            }
 
             var productsViewModel = this.mapper.Map<IList<OrderProductsAdminViewModel>>(products);
 
@@ -244,28 +283,38 @@
 
         public async Task<UserAdminEditViewModel> GetUserToEditAsync(string id)
         {
-            var user = await this.dbContext.Users
+            var userFromDb = await this.dbContext.Users
                  .FirstOrDefaultAsync(u => u.Id == id);
 
-            var userViewModel = this.mapper.Map<UserAdminEditViewModel>(user);
+            if (userFromDb == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, id));
+            }
+
+            var userViewModel = this.mapper.Map<UserAdminEditViewModel>(userFromDb);
 
             return userViewModel;
         }
 
         public async Task EditUserAsync(UserAdminEditViewModel inputModel)
         {
-            var user = await this.dbContext.Users
+            var userFromDb = await this.dbContext.Users
                  .FirstOrDefaultAsync(u => u.Id == inputModel.Id);
 
-            user.HasCoupon = inputModel.HasCoupon;
+            if (userFromDb == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, inputModel.Id));
+            }
 
-            user.HasMembership = inputModel.HasMembership;
+            userFromDb.HasCoupon = inputModel.HasCoupon;
 
-            user.MembershipExpirationDate = inputModel.MembershipExpirationDate;
+            userFromDb.HasMembership = inputModel.HasMembership;
 
-            user.HasSubscribe = inputModel.HasSubscribe;
+            userFromDb.MembershipExpirationDate = inputModel.MembershipExpirationDate;
 
-            this.dbContext.Update(user);
+            userFromDb.HasSubscribe = inputModel.HasSubscribe;
+
+            this.dbContext.Update(userFromDb);
 
             await this.dbContext.SaveChangesAsync();
         }

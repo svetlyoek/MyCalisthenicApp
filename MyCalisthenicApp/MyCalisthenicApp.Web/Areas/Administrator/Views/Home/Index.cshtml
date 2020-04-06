@@ -31,6 +31,15 @@
                             <li><a class="text-danger" asp-controller="Images" asp-action="All">Images</a></li>
                         </ul>
                     </li>
+
+                    <li class="menu-item-has-children mr-5">
+                        <a class="text-danger" href="#">Create items</a>
+                        <ul class="sub-menu">
+                            <li><a class="text-danger" asp-controller="Categories" asp-action="CreateBlogCategory">Blog category</a></li>
+                            <li><a class="text-danger" asp-controller="Categories" asp-action="CreateProgramCategory">Program category</a></li>
+                            <li><a class="text-danger" asp-controller="Categories" asp-action="CreateProductCategory">Product category</a></li>
+                        </ul>
+                    </li>
                     <li class="mr-5"><a class="text-danger" asp-area="Identity" asp-page="/Account/Logout">Logout</a></li>
                 </ul>
             </div>

@@ -17,7 +17,7 @@
         }
 
         [Required]
-        [MaxLength(DataValidations.ShopCategoryNameMaxLength)]
+        [MaxLength(DataValidations.ProductCategoryNameMaxLength)]
         public string Name { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }

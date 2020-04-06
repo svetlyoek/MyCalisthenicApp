@@ -4,13 +4,11 @@
 
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
 
     public class ProgramsController : BaseController
     {
-        private const string BeginnerCategoryName = "Beginner";
-        private const string IntermediateCategoryName = "Intermediate";
-
         private readonly IProgramsService programsService;
         private readonly ICategoriesService categoriesService;
         private readonly IExercisesService exercisesService;
@@ -65,7 +63,7 @@
                 return this.View("Error404");
             }
 
-            var programs = await this.programsService.GetProgramsByCategoryAsync(BeginnerCategoryName);
+            var programs = await this.programsService.GetProgramsByCategoryAsync(ServicesConstants.BeginnerCategoryName);
 
             return this.View("Index", programs);
         }
@@ -77,7 +75,7 @@
                 return this.View("Error404");
             }
 
-            var programs = await this.programsService.GetProgramsByCategoryAsync(IntermediateCategoryName);
+            var programs = await this.programsService.GetProgramsByCategoryAsync(ServicesConstants.IntermediateCategoryName);
 
             return this.View("Index", programs);
         }

@@ -1,5 +1,6 @@
 ﻿namespace MyCalisthenicApp.Services
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -8,6 +9,7 @@
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
     using MyCalisthenicApp.Models;
+    using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Comments;
 
@@ -17,7 +19,10 @@
         private readonly IMapper mapper;
         private readonly IUsersService usersService;
 
-        public CommentsService(MyCalisthenicAppDbContext dbContext, IMapper mapper, IUsersService usersService)
+        public CommentsService(
+            MyCalisthenicAppDbContext dbContext,
+            IMapper mapper,
+            IUsersService usersService)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
@@ -29,6 +34,11 @@
             var userId = this.usersService.GetLoggedUserId();
 
             var userFromDb = await this.usersService.GetLoggedUserByIdAsync(userId);
+
+            if (userFromDb == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, userId));
+            }
 
             Comment comment = null;
 
@@ -81,6 +91,11 @@
                  .Where(c => c.IsDeleted == false)
                  .ToListAsync();
 
+            if (comments == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProgram, id));
+            }
+
             var commentsViewModel = this.mapper.Map<IEnumerable<CommentViewModel>>(comments);
 
             return commentsViewModel;
@@ -94,6 +109,11 @@
                 .Where(c => c.PostId == id)
                 .Where(c => c.IsDeleted == false)
                 .ToListAsync();
+
+            if (comments == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidPost, id));
+            }
 
             var commentsViewModel = this.mapper.Map<IEnumerable<CommentViewModel>>(comments);
 
@@ -109,6 +129,11 @@
                   .Where(c => c.IsDeleted == false)
                  .ToListAsync();
 
+            if (comments == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProduct, id));
+            }
+
             var commentsViewModel = this.mapper.Map<IEnumerable<CommentViewModel>>(comments);
 
             return commentsViewModel;
@@ -121,9 +146,19 @@
             var comment = await this.dbContext.Comments.
                 FirstOrDefaultAsync(p => p.Id == id);
 
+            if (comment == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidComment));
+            }
+
             var userId = this.usersService.GetLoggedUserId();
 
             var userFromDb = await this.usersService.GetLoggedUserByIdAsync(userId);
+
+            if (userFromDb == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUser, id));
+            }
 
             var userCredentials = userFromDb.FirstName + " " + userFromDb.LastName + ":" + userId;
 
@@ -189,6 +224,11 @@
                  .Where(c => c.Id == id)
                  .FirstOrDefaultAsync();
 
+            if (comment == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidCommentId, id));
+            }
+
             if (comment.LikesUsersNames == null)
             {
                 comment.LikesUsersNames = new List<string>();
@@ -204,6 +244,11 @@
             var comment = await this.dbContext.Comments
                  .FirstOrDefaultAsync(c => c.Id == id);
 
+            if (comment == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidCommentId, id));
+            }
+
             var commentViewModel = this.mapper.Map<CommentAdminEditViewModel>(comment);
 
             return commentViewModel;
@@ -213,6 +258,11 @@
         {
             var comment = await this.dbContext.Comments
                 .FirstOrDefaultAsync(c => c.Id == inputModel.Id);
+
+            if (comment == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidComment));
+            }
 
             comment.IsDeleted = inputModel.IsDeleted;
 

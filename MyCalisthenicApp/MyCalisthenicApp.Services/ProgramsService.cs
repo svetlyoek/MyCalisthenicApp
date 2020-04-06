@@ -20,7 +20,10 @@
         private readonly IMapper mapper;
         private readonly IUsersService usersService;
 
-        public ProgramsService(MyCalisthenicAppDbContext dbContext, IMapper mapper, IUsersService usersService)
+        public ProgramsService(
+            MyCalisthenicAppDbContext dbContext,
+            IMapper mapper,
+            IUsersService usersService)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
@@ -66,7 +69,7 @@
 
             if (program == null)
             {
-                throw new NullReferenceException(string.Format(ServicesConstants.InvalidProgram, id));
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProgram, id));
             }
 
             var programViewModel = this.mapper.Map<ProgramDetailsViewModel>(program);
@@ -95,9 +98,19 @@
             var program = await this.dbContext.Programs
                 .FirstOrDefaultAsync(p => p.Id == id);
 
+            if (program == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProgramId, id));
+            }
+
             var userId = this.usersService.GetLoggedUserId();
 
             var userFromDb = await this.usersService.GetLoggedUserByIdAsync(userId);
+
+            if (userFromDb == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, userId));
+            }
 
             var userCredentials = userFromDb.FirstName + " " + userFromDb.LastName + ":" + userId;
 
@@ -162,6 +175,11 @@
                  .Where(c => c.Id == id)
                  .FirstOrDefaultAsync();
 
+            if (program == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProgramId, id));
+            }
+
             if (program.LikesUsersNames == null)
             {
                 program.LikesUsersNames = new List<string>();
@@ -177,6 +195,11 @@
             var program = await this.dbContext.Programs
                  .Include(p => p.Category)
                  .FirstOrDefaultAsync(p => p.Id == id);
+
+            if (program == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProgramId, id));
+            }
 
             var categories = this.dbContext.ProgramCategories
               .ToList()
@@ -195,6 +218,11 @@
             var program = await this.dbContext.Programs
                  .Include(p => p.Category)
                  .FirstOrDefaultAsync(p => p.Id == inputModel.Id);
+
+            if (program == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProgramId, inputModel.Id));
+            }
 
             Enum.TryParse(inputModel.Type, true, out ProgramType programType);
 

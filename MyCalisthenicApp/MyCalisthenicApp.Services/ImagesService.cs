@@ -1,5 +1,6 @@
 ﻿namespace MyCalisthenicApp.Services
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -7,6 +8,7 @@
     using AutoMapper;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
+    using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Images;
 
@@ -39,6 +41,11 @@
         {
             var image = await this.dbContext.Images
                  .FirstOrDefaultAsync(i => i.Id == id);
+
+            if (image == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidImageId, id));
+            }
 
             var posts = await this.postsService.GetAllPostsForAdminAsync();
 
@@ -73,6 +80,11 @@
         {
             var image = await this.dbContext.Images
                   .FirstOrDefaultAsync(i => i.Id == inputModel.Id);
+
+            if (image == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidImage));
+            }
 
             image.IsDeleted = inputModel.IsDeleted;
 
@@ -114,6 +126,11 @@
                 .Where(i => i.IsDeleted == false)
                 .Select(i => i.Url)
                 .ToListAsync();
+
+            if (images == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProductId, id));
+            }
 
             return images;
         }

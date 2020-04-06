@@ -12,13 +12,17 @@
         private readonly IMembershipsService membershipsService;
         private readonly IUsersService usersService;
 
-        public MembershipsController(IOrdersService ordersService, IMembershipsService membershipsService, IUsersService usersService)
+        public MembershipsController(
+            IOrdersService ordersService,
+            IMembershipsService membershipsService,
+            IUsersService usersService)
         {
             this.ordersService = ordersService;
             this.membershipsService = membershipsService;
             this.usersService = usersService;
         }
 
+        [Authorize]
         public IActionResult Index()
         {
             return this.View();
@@ -45,7 +49,7 @@
                 return this.LocalRedirect("/Memberships/Index");
             }
 
-            return this.LocalRedirect("/Payments/Index");
+            return this.LocalRedirect("/ShoppingBags/Index");
         }
     }
 }

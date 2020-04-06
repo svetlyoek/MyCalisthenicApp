@@ -22,7 +22,10 @@
         private readonly IMapper mapper;
         private readonly IUsersService usersService;
 
-        public OrdersService(MyCalisthenicAppDbContext dbContext, IMapper mapper, IUsersService usersService)
+        public OrdersService(
+            MyCalisthenicAppDbContext dbContext,
+            IMapper mapper,
+            IUsersService usersService)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
@@ -40,14 +43,29 @@
                 .Where(o => o.Status != OrderStatus.Sent)
                 .FirstOrDefaultAsync();
 
+            if (order == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidOrder));
+            }
+
             var orderProduct = await this.dbContext.OrderProducts
                 .Where(o => o.OrderId == order.Id)
                 .Where(p => p.ProductId == id)
                 .FirstOrDefaultAsync();
 
+            if (orderProduct == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidOrderProduct));
+            }
+
             var productToCompare = await this.dbContext
                 .Products.Where(p => p.IsDeleted == false)
                 .FirstOrDefaultAsync(p => p.Id == id);
+
+            if (productToCompare == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProduct));
+            }
 
             if (quantity > orderProduct.Quantity)
             {
@@ -78,6 +96,11 @@
             var userId = this.usersService.GetLoggedUserId();
 
             var userFromDb = await this.usersService.GetLoggedUserByIdAsync(userId);
+
+            if (userFromDb == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, userId));
+            }
 
             if (userFromDb.HasMembership)
             {
@@ -134,6 +157,11 @@
             var userId = this.usersService.GetLoggedUserId();
 
             var userFromDb = await this.usersService.GetLoggedUserByIdAsync(userId);
+
+            if (userFromDb == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, userId));
+            }
 
             if (this.dbContext.Orders.Any(o => o.UserId == userId && o.Status != OrderStatus.Sent))
             {
@@ -395,6 +423,11 @@
 
             var userFromDb = await this.usersService.GetLoggedUserByIdAsync(userId);
 
+            if (userFromDb == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, userId));
+            }
+
             var order = await this.dbContext.Orders
                 .Where(o => o.IsDeleted == false)
                 .Where(o => o.Status != OrderStatus.Sent)
@@ -406,7 +439,34 @@
                 return false;
             }
 
-            if (order.MembershipPrice != null && order != null)
+            if (order.TotalPrice > 0 && order.DeliveryAddressId != null && order.DeliveryPrice != null)
+            {
+                if (order.MembershipPrice != 0)
+                {
+                    userFromDb.HasMembership = true;
+
+                    userFromDb.MembershipExpirationDate = DateTime.UtcNow.AddYears(1);
+
+                    this.dbContext.Update(userFromDb);
+
+                    await this.dbContext.SaveChangesAsync();
+                }
+
+                order.DisptachDate = DateTime.UtcNow.AddDays(1);
+
+                order.PaymentStatus = PaymentStatus.Unpaid;
+
+                order.PaymentType = PaymentType.CashOnDelivery;
+
+                order.Status = OrderStatus.Sent;
+
+                this.dbContext.Update(order);
+
+                await this.dbContext.SaveChangesAsync();
+
+                return true;
+            }
+            else if (order.MembershipPrice != 0 && order.DeliveryAddressId != null && order.DeliveryPrice != null)
             {
                 userFromDb.HasMembership = true;
 
@@ -415,10 +475,7 @@
                 this.dbContext.Update(userFromDb);
 
                 await this.dbContext.SaveChangesAsync();
-            }
 
-            if (order.TotalPrice > 0 && order.DeliveryAddressId != null && order.DeliveryPrice != null)
-            {
                 order.DisptachDate = DateTime.UtcNow.AddDays(1);
 
                 order.PaymentStatus = PaymentStatus.Unpaid;
@@ -450,6 +507,11 @@
             var order = await this.dbContext.Orders
                  .FirstOrDefaultAsync(o => o.Id == id);
 
+            if (order == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidOrder));
+            }
+
             var orderViewModel = this.mapper.Map<OrderAdminEditViewModel>(order);
 
             return orderViewModel;
@@ -460,6 +522,11 @@
             var order = await this.dbContext.Orders
                 .Where(c => c.Id == inputModel.Id)
                 .FirstOrDefaultAsync();
+
+            if (order == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidOrderId, inputModel.Id));
+            }
 
             Enum.TryParse(inputModel.PaymentStatus, true, out PaymentStatus paymentStatus);
 
@@ -521,6 +588,11 @@
             var supplier = await this.dbContext.Suppliers
                 .FirstOrDefaultAsync(a => a.Id == inputModel.Id);
 
+            if (supplier == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidSupplierId, inputModel.Id));
+            }
+
             supplier.IsDeleted = inputModel.IsDeleted;
 
             supplier.DeletedOn = inputModel.DeletedOn;
@@ -549,6 +621,11 @@
             var supplier = await this.dbContext.Suppliers
                 .Where(a => a.Id == id)
                 .FirstOrDefaultAsync();
+
+            if (supplier == null)
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidSupplierId, id));
+            }
 
             var supplierViewModel = this.mapper.Map<SupplierAdminEditViewModel>(supplier);
 

@@ -14,7 +14,10 @@
         private readonly ICommentsService commentsService;
         private readonly IImagesService imagesService;
 
-        public ProductsController(IProductsService productsService, ICommentsService commentsService, IImagesService imagesService)
+        public ProductsController(
+            IProductsService productsService,
+            ICommentsService commentsService,
+            IImagesService imagesService)
         {
             this.productsService = productsService;
             this.commentsService = commentsService;

@@ -10,5 +10,9 @@
         Task<IEnumerable<ExercisesViewModel>> GetExercisesByCategoryIdAsync(string id);
 
         Task<IList<ExercisesAdminViewModel>> GetAllExercisesForAdminAsync();
+
+        Task<ExerciseAdminEditViewModel> GetExerciseByIdAsync(string id);
+
+        Task EditExerciseAsync(ExerciseAdminEditViewModel inputModel);
     }
 }

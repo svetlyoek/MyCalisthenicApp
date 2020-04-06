@@ -7,5 +7,11 @@
     public interface ICategoriesService
     {
         Task<CategoryViewModel> GetCategoryByProgramIdAsync(string id);
+
+        Task CreateBlogCategoryAsync(BlogCategoryAdminCreateViewModel inputModel);
+
+        Task CreateProgramCategoryAsync(ProgramCategoryAdminCreateViewModel inputModel);
+
+        Task CreateProductCategoryAsync(ProductCategoryAdminCreateViewModel inputModel);
     }
 }
