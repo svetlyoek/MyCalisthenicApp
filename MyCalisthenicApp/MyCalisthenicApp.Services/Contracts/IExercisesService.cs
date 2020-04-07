@@ -14,5 +14,7 @@
         Task<ExerciseAdminEditViewModel> GetExerciseByIdAsync(string id);
 
         Task EditExerciseAsync(ExerciseAdminEditViewModel inputModel);
+
+        Task CreateExerciseAsync(ExerciseAdminCreateViewModel inputModel);
     }
 }

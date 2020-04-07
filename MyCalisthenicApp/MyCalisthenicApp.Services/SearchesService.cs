@@ -9,7 +9,6 @@
     using MyCalisthenicApp.Data;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Home;
-    using MyCalisthenicApp.ViewModels.Posts;
     using MyCalisthenicApp.ViewModels.Products;
     using MyCalisthenicApp.ViewModels.Programs;
 
@@ -24,7 +23,7 @@
             this.mapper = mapper;
         }
 
-        public async Task<IEnumerable<object>> GetElementsBySearchTextAsync(NavbarSearchViewModel inputModel)
+        public async Task<IEnumerable<ProgramViewModel>> GetProgramsBySearchTextAsync(SearchViewModel inputModel)
         {
             if (inputModel.Text == null || inputModel.Text.Length < 4)
             {
@@ -47,7 +46,19 @@
 
                     return programsViewModel;
                 }
+            }
 
+            return null;
+        }
+
+        public async Task<IEnumerable<ProductsViewModel>> GetProductsBySearchTextAsync(SearchViewModel inputModel)
+        {
+            if (inputModel.Text == null || inputModel.Text.Length < 4)
+            {
+                return null;
+            }
+            else if (inputModel.Text.Length >= 4)
+            {
                 var products = await this.dbContext.Products
                      .Include(i => i.Images)
                      .Include(c => c.Category)
@@ -63,26 +74,6 @@
                     var productsViewModel = this.mapper.Map<IEnumerable<ProductsViewModel>>(products);
 
                     return productsViewModel;
-                }
-
-                var posts = await this.dbContext.Post
-                .Include(i => i.Images)
-                .Include(au => au.Author)
-                .Include(cm => cm.Comments)
-                .Where(p => p.IsPublic == true)
-                .Where(c => c.IsDeleted == false)
-                .Where(p => p.Title.ToLower().Contains(inputModel.Text.ToLower()) ||
-                 p.Category.Name.ToLower().Contains(inputModel.Text.ToLower()) ||
-                 p.Description.ToLower().Contains(inputModel.Text.ToLower()) ||
-                 p.Author.FirstName.ToLower().Contains(inputModel.Text.ToLower()) ||
-                 p.Author.LastName.ToLower().Contains(inputModel.Text.ToLower()))
-                .ToListAsync();
-
-                if (posts.Any())
-                {
-                    var allPosts = this.mapper.Map<IEnumerable<PostDetailsViewModel>>(posts);
-
-                    return allPosts;
                 }
             }
 

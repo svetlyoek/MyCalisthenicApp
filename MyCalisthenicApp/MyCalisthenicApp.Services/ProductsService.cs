@@ -20,15 +20,18 @@
         private readonly MyCalisthenicAppDbContext dbContext;
         private readonly IMapper mapper;
         private readonly IUsersService usersService;
+        private readonly ICategoriesService categoriesService;
 
         public ProductsService(
             MyCalisthenicAppDbContext dbContext,
             IMapper mapper,
-            IUsersService usersService)
+            IUsersService usersService,
+            ICategoriesService categoriesService)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
             this.usersService = usersService;
+            this.categoriesService = categoriesService;
         }
 
         public async Task<IEnumerable<ProductsViewModel>> GetAllProductsAsync()
@@ -352,7 +355,6 @@
                 throw new ArgumentNullException(string.Format(ServicesConstants.InvalidOrderProductId, inputModel.ProductId));
             }
 
-
             orderProduct.OrderId = inputModel.OrderId;
 
             orderProduct.ProductId = inputModel.ProductId;
@@ -378,10 +380,7 @@
                 throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProductId, id));
             }
 
-            var categories = this.dbContext.ProductCategories
-              .ToList()
-              .Select(c => new List<string> { c.Id, c.Name })
-              .SelectMany(c => c);
+            var categories = this.categoriesService.GetAllProductCategories();
 
             var productViewModel = this.mapper.Map<ProductAdminEditViewModel>(product);
 

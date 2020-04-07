@@ -11,6 +11,7 @@
     using MyCalisthenicApp.Models.BlogEntities.Enums;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
+    using MyCalisthenicApp.ViewModels.Home;
     using MyCalisthenicApp.ViewModels.Posts;
 
     public class PostsService : IPostsService
@@ -18,15 +19,18 @@
         private readonly MyCalisthenicAppDbContext dbContext;
         private readonly IMapper mapper;
         private readonly IUsersService usersService;
+        private readonly ICategoriesService categoriesService;
 
         public PostsService(
             MyCalisthenicAppDbContext dbContext,
             IMapper mapper,
-            IUsersService usersService)
+            IUsersService usersService,
+            ICategoriesService categoriesService)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
             this.usersService = usersService;
+            this.categoriesService = categoriesService;
         }
 
         public async Task AddRatingAsync(string id)
@@ -165,9 +169,13 @@
             return postViewModel;
         }
 
-        public async Task<IEnumerable<PostDetailsViewModel>> GetPostsBySearchAsync(PostSearchViewModel inputModel)
+        public async Task<IEnumerable<PostDetailsViewModel>> GetPostsBySearchAsync(SearchViewModel inputModel)
         {
-            if (inputModel.Text.Length >= 4)
+            if (inputModel.Text == null || inputModel.Text.Length < 4)
+            {
+                return null;
+            }
+            else if (inputModel.Text.Length >= 4)
             {
                 var posts = await this.dbContext.Post
                .Include(i => i.Images)
@@ -256,10 +264,7 @@
                 throw new ArgumentNullException(string.Format(ServicesConstants.InvalidPostId, id));
             }
 
-            var categories = this.dbContext.BlogCategories
-               .ToList()
-               .Select(c => new List<string> { c.Id, c.Name })
-               .SelectMany(c => c);
+            var categories = this.categoriesService.GetAllPostCategories();
 
             var postViewModel = this.mapper.Map<PostAdminEditViewModel>(post);
 

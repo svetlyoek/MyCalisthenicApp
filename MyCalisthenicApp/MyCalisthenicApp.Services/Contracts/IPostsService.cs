@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-
+    using MyCalisthenicApp.ViewModels.Home;
     using MyCalisthenicApp.ViewModels.Posts;
 
     public interface IPostsService
@@ -29,6 +29,6 @@
 
         bool GetPostById(string id);
 
-        Task<IEnumerable<PostDetailsViewModel>> GetPostsBySearchAsync(PostSearchViewModel inputModel);
+        Task<IEnumerable<PostDetailsViewModel>> GetPostsBySearchAsync(SearchViewModel inputModel);
     }
 }

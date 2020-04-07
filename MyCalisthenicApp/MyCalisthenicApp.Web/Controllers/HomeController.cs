@@ -5,13 +5,13 @@
 
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.Services.MessageSender;
     using MyCalisthenicApp.ViewModels;
     using MyCalisthenicApp.ViewModels.Home;
     using MyCalisthenicApp.ViewModels.Posts;
     using MyCalisthenicApp.ViewModels.Products;
-    using MyCalisthenicApp.ViewModels.Programs;
     using MyCalisthenicApp.ViewModels.Subscribes;
     using MyCalisthenicApp.Web.Common;
 
@@ -20,15 +20,18 @@
         private readonly IEmailSender emailSender;
         private readonly ISearchesService searchesService;
         private readonly IUsersService usersService;
+        private readonly IPostsService postsService;
 
         public HomeController(
             IEmailSender emailSender,
             ISearchesService searchesService,
-            IUsersService usersService)
+            IUsersService usersService,
+            IPostsService postsService)
         {
             this.emailSender = emailSender;
             this.searchesService = searchesService;
             this.usersService = usersService;
+            this.postsService = postsService;
         }
 
         public async Task<IActionResult> Index()
@@ -71,34 +74,47 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> Search(NavbarSearchViewModel inputModel)
+        public async Task<IActionResult> Search(SearchViewModel inputModel)
         {
-            var elements = await this.searchesService.GetElementsBySearchTextAsync(inputModel);
-
-            if (!this.ModelState.IsValid || elements == null)
+            if (!this.ModelState.IsValid)
             {
                 return this.View("Error404");
             }
 
-            foreach (var element in elements)
+            var programs = await this.searchesService.GetProgramsBySearchTextAsync(inputModel);
+
+            if (programs != null)
             {
-                if (element is PostDetailsViewModel)
-                {
-                    return this.View("~/Views/Posts/Index.cshtml", elements);
-                }
-
-                if (element is ProductsViewModel)
-                {
-                    return this.View("~/Views/Products/Index.cshtml", elements);
-                }
-
-                if (element is ProgramViewModel)
-                {
-                    return this.View("~/Views/Programs/Index.cshtml", elements);
-                }
+                return this.View("~/Views/Programs/Index.cshtml", programs);
             }
 
-            return this.View("Index");
+            var products = await this.searchesService.GetProductsBySearchTextAsync(inputModel);
+
+            if (products != null)
+            {
+                var productsPageViewModel = new ProductsPageViewModel
+                {
+                    ProductPerPage = ServicesConstants.PostsCountPerPage,
+                    Products = products,
+                };
+
+                return this.View("~/Views/Products/Index.cshtml", productsPageViewModel);
+            }
+
+            var posts = await this.postsService.GetPostsBySearchAsync(inputModel);
+
+            if (posts != null)
+            {
+                var postPageViewModel = new PostPageViewModel
+                {
+                    PostsPerPage = ServicesConstants.PostsCountPerPage,
+                    Posts = posts,
+                };
+
+                return this.View("~/Views/Posts/Index.cshtml", postPageViewModel);
+            }
+
+            return this.View("Error404");
         }
 
         public IActionResult ComingSoon()

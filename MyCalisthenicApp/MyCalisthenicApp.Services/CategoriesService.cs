@@ -1,6 +1,7 @@
 ﻿namespace MyCalisthenicApp.Services
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -60,6 +61,36 @@
             await this.dbContext.ProgramCategories.AddAsync(programCategory);
 
             await this.dbContext.SaveChangesAsync();
+        }
+
+        public IEnumerable<string> GetAllPostCategories()
+        {
+            var categories = this.dbContext.BlogCategories
+              .ToList()
+              .Select(c => new List<string> { c.Id, c.Name })
+              .SelectMany(c => c);
+
+            return categories;
+        }
+
+        public IEnumerable<string> GetAllProductCategories()
+        {
+            var categories = this.dbContext.ProductCategories
+              .ToList()
+              .Select(c => new List<string> { c.Id, c.Name })
+              .SelectMany(c => c);
+
+            return categories;
+        }
+
+        public IEnumerable<string> GetAllProgramCategories()
+        {
+            var categories = this.dbContext.ProgramCategories
+               .ToList()
+               .Select(c => new List<string> { c.Id, c.Name })
+               .SelectMany(c => c);
+
+            return categories;
         }
 
         public async Task<CategoryViewModel> GetCategoryByProgramIdAsync(string id)

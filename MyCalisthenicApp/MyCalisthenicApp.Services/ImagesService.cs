@@ -8,6 +8,7 @@
     using AutoMapper;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
+    using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Images;
@@ -133,6 +134,22 @@
             }
 
             return images;
+        }
+
+        public async Task CreateImageAsync(ImageAdminCreateViewModel inputModel)
+        {
+            var image = new Image
+            {
+                Url = inputModel.Url,
+                ProductId = inputModel.ProductId,
+                PostId = inputModel.PostId,
+                ExerciseId = inputModel.ExerciseId,
+                ProgramId = inputModel.ProgramId,
+            };
+
+            await this.dbContext.Images.AddAsync(image);
+
+            await this.dbContext.SaveChangesAsync();
         }
     }
 }

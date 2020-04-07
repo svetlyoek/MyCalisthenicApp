@@ -1,5 +1,6 @@
 ﻿namespace MyCalisthenicApp.Services.Contracts
 {
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     using MyCalisthenicApp.ViewModels.Categories;
@@ -13,5 +14,11 @@
         Task CreateProgramCategoryAsync(ProgramCategoryAdminCreateViewModel inputModel);
 
         Task CreateProductCategoryAsync(ProductCategoryAdminCreateViewModel inputModel);
+
+        IEnumerable<string> GetAllProgramCategories();
+
+        IEnumerable<string> GetAllProductCategories();
+
+        IEnumerable<string> GetAllPostCategories();
     }
 }

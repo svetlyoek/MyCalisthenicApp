@@ -19,15 +19,18 @@
         private readonly MyCalisthenicAppDbContext dbContext;
         private readonly IMapper mapper;
         private readonly IUsersService usersService;
+        private readonly ICategoriesService categoriesService;
 
         public ProgramsService(
             MyCalisthenicAppDbContext dbContext,
             IMapper mapper,
-            IUsersService usersService)
+            IUsersService usersService,
+            ICategoriesService categoriesService)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
             this.usersService = usersService;
+            this.categoriesService = categoriesService;
         }
 
         public async Task<IEnumerable<ProgramViewModel>> GetAllProgramsAsync()
@@ -201,10 +204,7 @@
                 throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProgramId, id));
             }
 
-            var categories = this.dbContext.ProgramCategories
-              .ToList()
-              .Select(c => new List<string> { c.Id, c.Name })
-              .SelectMany(c => c);
+            var categories = this.categoriesService.GetAllProgramCategories();
 
             var programViewModel = this.mapper.Map<ProgramAdminEditViewModel>(program);
 

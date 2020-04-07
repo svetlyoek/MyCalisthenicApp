@@ -6,6 +6,7 @@
     using Microsoft.AspNetCore.Mvc;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
+    using MyCalisthenicApp.ViewModels.Home;
     using MyCalisthenicApp.ViewModels.Posts;
 
     public class PostsController : BaseController
@@ -74,7 +75,7 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> Search(PostSearchViewModel inputModel)
+        public async Task<IActionResult> Search(SearchViewModel inputModel)
         {
             if (!this.ModelState.IsValid)
             {

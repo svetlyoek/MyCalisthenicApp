@@ -9,6 +9,7 @@
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
     using MyCalisthenicApp.Models.Enums;
+    using MyCalisthenicApp.Models.TrainingEntities;
     using MyCalisthenicApp.Models.TrainingEntities.Enums;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
@@ -19,15 +20,18 @@
         private readonly MyCalisthenicAppDbContext dbContext;
         private readonly IMapper mapper;
         private readonly IUsersService usersService;
+        private readonly ICategoriesService categoriesService;
 
         public ExercisesService(
             MyCalisthenicAppDbContext dbContext,
             IMapper mapper,
-            IUsersService usersService)
+            IUsersService usersService,
+            ICategoriesService categoriesService)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
             this.usersService = usersService;
+            this.categoriesService = categoriesService;
         }
 
         public async Task<IEnumerable<ExercisesViewModel>> GetExercisesByCategoryIdAsync(string id)
@@ -105,10 +109,7 @@
                 throw new ArgumentNullException(string.Format(ServicesConstants.InvalidExerciseId, id));
             }
 
-            var categories = this.dbContext.ProgramCategories
-             .ToList()
-             .Select(c => new List<string> { c.Id, c.Name })
-             .SelectMany(c => c);
+            var categories = this.categoriesService.GetAllProgramCategories();
 
             var exerciseViewModel = this.mapper.Map<ExerciseAdminEditViewModel>(exercise);
 
@@ -153,6 +154,21 @@
             exercise.ProgramCategory.Rating = inputModel.ProgramCategoryRating;
 
             this.dbContext.Update(exercise);
+
+            await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task CreateExerciseAsync(ExerciseAdminCreateViewModel inputModel)
+        {
+            var exercise = new Exercise
+            {
+                Name = inputModel.Name,
+                Description = inputModel.Description,
+                VideoUrl = inputModel.VideoUrl,
+                ProgramCategoryId = inputModel.ProgramCategoryId,
+            };
+
+            await this.dbContext.Exercises.AddAsync(exercise);
 
             await this.dbContext.SaveChangesAsync();
         }

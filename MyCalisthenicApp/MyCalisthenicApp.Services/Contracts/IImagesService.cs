@@ -14,5 +14,7 @@
         Task<ImageAdminEditViewModel> GetImageByIdAsync(string id);
 
         Task EditImageAsync(ImageAdminEditViewModel inputModel);
+
+        Task CreateImageAsync(ImageAdminCreateViewModel inputModel);
     }
 }
