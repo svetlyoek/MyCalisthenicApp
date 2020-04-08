@@ -21,6 +21,8 @@
 
         Task EditPostAsync(PostAdminEditViewModel inputModel);
 
+        Task CreatePostAsync(PostAdminCreateViewModel inputModel);
+
         Task<IList<string>> GetAllLikesByPostIdAsync(string id);
 
         Task<IEnumerable<PostDetailsViewModel>> SortPostsByCategoryAsync(string sort);

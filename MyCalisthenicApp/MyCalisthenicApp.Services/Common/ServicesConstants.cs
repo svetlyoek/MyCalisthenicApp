@@ -74,5 +74,9 @@
         // App discount coupon
         public const string AppDiscountCoupon = "mycalisthenicapp20";
 
+        // Users
+        public const string AdministratorFirstName = "Svetoslav";
+        public const string AdministratorLastName = "Kazakov";
+        public const string AdministratorEmail = "svetoslav.kazakov@outlook.com";
     }
 }

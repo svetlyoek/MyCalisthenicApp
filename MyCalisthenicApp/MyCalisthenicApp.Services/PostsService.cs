@@ -8,6 +8,7 @@
     using AutoMapper;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
+    using MyCalisthenicApp.Models.BlogEntities;
     using MyCalisthenicApp.Models.BlogEntities.Enums;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
@@ -313,6 +314,24 @@
             post.IsPublic = inputModel.IsPublic;
 
             this.dbContext.Update(post);
+
+            await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task CreatePostAsync(PostAdminCreateViewModel inputModel)
+        {
+            var post = new Post
+            {
+                Title = inputModel.Title,
+                Description = inputModel.Description,
+                AuthorId = inputModel.AuthorId,
+                CategoryId = inputModel.CategoryId,
+                Rating = inputModel.Rating,
+                Type = inputModel.Type,
+                VideoUrl = inputModel.VideoUrl,
+            };
+
+            await this.dbContext.Post.AddAsync(post);
 
             await this.dbContext.SaveChangesAsync();
         }

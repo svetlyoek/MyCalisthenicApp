@@ -431,7 +431,9 @@ namespace MyCalisthenicApp.Data.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(30)")
+                        .HasMaxLength(30);
 
                     b.Property<decimal?>("YearlyPrice")
                         .HasColumnType("decimal(18,2)");

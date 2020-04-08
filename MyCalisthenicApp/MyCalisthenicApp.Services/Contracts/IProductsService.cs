@@ -29,6 +29,8 @@
 
         Task EditOrderProductAsync(OrderProductAdminEditViewModel inputModel);
 
+        Task CreateProductAsync(ProductAdminCreateViewModel inputModel);
+
         Task<IList<string>> GetAllLikesByProductIdAsync(string id);
 
         Task AddRatingAsync(string id);

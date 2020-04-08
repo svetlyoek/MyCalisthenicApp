@@ -8,6 +8,7 @@
     using AutoMapper;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
+    using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Memberships;
@@ -106,6 +107,20 @@
             {
                 return 0;
             }
+        }
+
+        public async Task CreateMembershipAsync(MembershipAdminCreateViewModel inputModel)
+        {
+            var membership = new Membership
+            {
+                Name = inputModel.Name,
+                MonthlyPrice = inputModel.MonthlyPrice,
+                YearlyPrice = inputModel.YearlyPrice,
+            };
+
+            await this.dbContext.Memberships.AddAsync(membership);
+
+            await this.dbContext.SaveChangesAsync();
         }
     }
 }

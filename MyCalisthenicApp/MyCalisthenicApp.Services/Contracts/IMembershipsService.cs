@@ -15,6 +15,8 @@
 
         Task EditMembershipAsync(MembershipAdminEditViewModel inputModel);
 
+        Task CreateMembershipAsync(MembershipAdminCreateViewModel inputModel);
+
         Task<decimal?> GetMembershipPriceByIdAsync(string id);
     }
 }

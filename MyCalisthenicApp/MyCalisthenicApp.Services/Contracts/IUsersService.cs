@@ -38,6 +38,8 @@
 
         Task<IList<RequestsAdminViewModel>> GetAllRequestsAsync();
 
+        Task<string> GetAdminIdAsync();
+
         Task<bool> CheckUserMembershipAsync();
 
         Task<IList<UsersAdminViewModel>> GetAllUsersAsync();

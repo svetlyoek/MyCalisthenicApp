@@ -14,7 +14,6 @@
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Addresses;
     using MyCalisthenicApp.ViewModels.Orders;
-    using MyCalisthenicApp.ViewModels.Suppliers;
 
     public class OrdersService : IOrdersService
     {
@@ -384,17 +383,6 @@
             await this.dbContext.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<SupplierViewModel>> GetAllSuppliersAsync()
-        {
-            var suppliers = await this.dbContext.Suppliers
-                 .Where(s => s.IsDeleted == false)
-                 .ToListAsync();
-
-            var suppliersViewModel = this.mapper.Map<IEnumerable<SupplierViewModel>>(suppliers);
-
-            return suppliersViewModel;
-        }
-
         public async Task<OrderCheckoutViewModel> GetOrderToSendAsync()
         {
             var userId = this.usersService.GetLoggedUserId();
@@ -571,65 +559,6 @@
             this.dbContext.Update(order);
 
             await this.dbContext.SaveChangesAsync();
-        }
-
-        public async Task<IList<SupplierAdminViewModel>> GetAllSuppliersForAdminAsync()
-        {
-            var suppliers = await this.dbContext.Suppliers
-                .ToListAsync();
-
-            var suppliersViewModel = this.mapper.Map<IList<SupplierAdminViewModel>>(suppliers);
-
-            return suppliersViewModel;
-        }
-
-        public async Task EditSupplierAsync(SupplierAdminEditViewModel inputModel)
-        {
-            var supplier = await this.dbContext.Suppliers
-                .FirstOrDefaultAsync(a => a.Id == inputModel.Id);
-
-            if (supplier == null)
-            {
-                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidSupplierId, inputModel.Id));
-            }
-
-            supplier.IsDeleted = inputModel.IsDeleted;
-
-            supplier.DeletedOn = inputModel.DeletedOn;
-
-            supplier.CreatedOn = inputModel.CreatedOn;
-
-            supplier.ModifiedOn = inputModel.ModifiedOn;
-
-            supplier.Name = inputModel.Name;
-
-            supplier.PriceToHome = inputModel.PriceToHome;
-
-            supplier.PriceToOffice = inputModel.PriceToOffice;
-
-            supplier.LogoUrl = inputModel.LogoUrl;
-
-            supplier.IsDefault = inputModel.IsDefault;
-
-            this.dbContext.Update(supplier);
-
-            await this.dbContext.SaveChangesAsync();
-        }
-
-        public async Task<SupplierAdminEditViewModel> GetSupplierByIdAsync(string id)
-        {
-            var supplier = await this.dbContext.Suppliers
-                .Where(a => a.Id == id)
-                .FirstOrDefaultAsync();
-
-            if (supplier == null)
-            {
-                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidSupplierId, id));
-            }
-
-            var supplierViewModel = this.mapper.Map<SupplierAdminEditViewModel>(supplier);
-
-            return supplierViewModel;
         }
 
         private async Task<Address> GetAddress(AddressInputViewModel inputModel, string userId)

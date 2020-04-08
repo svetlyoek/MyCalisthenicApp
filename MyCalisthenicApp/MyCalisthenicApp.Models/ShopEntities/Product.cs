@@ -15,6 +15,7 @@
             this.IsSoldOut = false;
             this.IsDeleted = false;
             this.CreatedOn = DateTime.UtcNow;
+            this.Sort = ProductSort.None;
             this.Images = new HashSet<Image>();
             this.Comments = new HashSet<Comment>();
             this.ShoppingCarts = new HashSet<ShoppingCartProduct>();

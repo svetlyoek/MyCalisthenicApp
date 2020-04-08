@@ -7,6 +7,10 @@
     <CodeAnalysisRuleSet>..\Rules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Migrations\20200408081334_ChangeProductEnums.cs" />
+    <Compile Remove="Migrations\20200408081334_ChangeProductEnums.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <AdditionalFiles Include="stylecop.json" />
   </ItemGroup>
 

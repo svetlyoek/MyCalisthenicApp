@@ -50,7 +50,6 @@
             return productsViewModel;
         }
 
-        // TODO Get only rated products
         public async Task<IEnumerable<ProductsHomePopularViewModel>> GetPopularProductsAsync()
         {
             var products = await this.dbContext
@@ -442,6 +441,25 @@
             product.Type = productType;
 
             this.dbContext.Update(product);
+
+            await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task CreateProductAsync(ProductAdminCreateViewModel inputModel)
+        {
+            var product = new Product
+            {
+                Name = inputModel.Name,
+                Price = inputModel.Price,
+                Size = inputModel.Size,
+                Color = inputModel.Color,
+                Type = inputModel.Type,
+                Rating = inputModel.Rating,
+                Description = inputModel.Description,
+                CategoryId = inputModel.CategoryId,
+            };
+
+            await this.dbContext.Products.AddAsync(product);
 
             await this.dbContext.SaveChangesAsync();
         }

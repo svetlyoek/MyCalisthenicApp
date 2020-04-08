@@ -19,6 +19,8 @@
 
         Task EditProgramAsync(ProgramAdminEditViewModel inputModel);
 
+        Task CreateProgramAsync(ProgramAdminCreateViewModel inputModel);
+
         Task<IList<string>> GetAllLikesByProgramIdAsync(string id);
 
         Task<IEnumerable<ProgramViewModel>> GetProgramsByCategoryAsync(string type);

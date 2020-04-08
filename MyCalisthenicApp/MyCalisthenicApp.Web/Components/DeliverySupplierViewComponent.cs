@@ -6,16 +6,16 @@
     [ViewComponent(Name = "DeliverySupplier")]
     public class DeliverySupplierViewComponent : ViewComponent
     {
-        private readonly IOrdersService ordersService;
+        private readonly ISuppliersService suppliersService;
 
-        public DeliverySupplierViewComponent(IOrdersService ordersService)
+        public DeliverySupplierViewComponent(ISuppliersService suppliersService)
         {
-            this.ordersService = ordersService;
+            this.suppliersService = suppliersService;
         }
 
         public IViewComponentResult Invoke()
         {
-            var suppliers = this.ordersService.GetAllSuppliersAsync()
+            var suppliers = this.suppliersService.GetAllSuppliersAsync()
                 .GetAwaiter()
                 .GetResult();
 

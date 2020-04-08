@@ -8,6 +8,7 @@
     using AutoMapper;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
+    using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Models.Enums;
     using MyCalisthenicApp.Models.TrainingEntities.Enums;
     using MyCalisthenicApp.Services.Common;
@@ -257,6 +258,23 @@
             program.Type = programType;
 
             this.dbContext.Update(program);
+
+            await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task CreateProgramAsync(ProgramAdminCreateViewModel inputModel)
+        {
+            var program = new Program
+            {
+                Title = inputModel.Title,
+                Type = inputModel.Type,
+                Description = inputModel.Description,
+                Rating = inputModel.Rating,
+                MembershipType = inputModel.MembershipType,
+                CategoryId = inputModel.CategoryId,
+            };
+
+            await this.dbContext.Programs.AddAsync(program);
 
             await this.dbContext.SaveChangesAsync();
         }

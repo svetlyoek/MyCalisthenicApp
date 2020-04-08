@@ -318,5 +318,17 @@
 
             await this.dbContext.SaveChangesAsync();
         }
+
+        public async Task<string> GetAdminIdAsync()
+        {
+            var adminId = await this.dbContext.Users
+                 .Where(u => u.FirstName == ServicesConstants.AdministratorFirstName)
+                 .Where(u => u.LastName == ServicesConstants.AdministratorLastName)
+                 .Where(u => u.Email == ServicesConstants.AdministratorEmail)
+                 .Select(u => u.Id)
+                 .FirstOrDefaultAsync();
+
+            return adminId;
+        }
     }
 }

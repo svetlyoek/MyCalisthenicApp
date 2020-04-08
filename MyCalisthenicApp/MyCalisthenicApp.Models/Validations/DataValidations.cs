@@ -68,5 +68,8 @@
         public const int ShoppingCartProductQuantityMinValue = 0;
         public const int ShoppingCartProductQuantityMaxValue = 100;
 
+        // Memberships
+        public const int MembershipNameMaxLength = 30;
+        public const double MembershipPriceMinValue = 0.01;
     }
 }
