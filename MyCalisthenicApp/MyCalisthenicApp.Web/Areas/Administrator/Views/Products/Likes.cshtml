@@ -1,0 +1,31 @@
+﻿@model IList<string>
+
+    <div style="height:400px;overflow-x:scroll">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">User name / id</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var counter = 0;
+                }
+                @foreach (var likes in Model)
+                {
+                    counter++;
+
+                <tr>
+                    <th scope="row">@counter</th>
+                    <td>@likes</td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <br />
+    <div>
+        <a class="bg-success ml-2" asp-area="Administrator" asp-controller="Home" asp-action="Index">Back to admin home</a>
+    </div>

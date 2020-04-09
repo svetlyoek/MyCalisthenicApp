@@ -1,0 +1,90 @@
+﻿@model IList<UsersAdminViewModel>
+
+<div style="height:500px;overflow-x:scroll">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Action</th>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Email confirmed</th>
+                <th scope="col">Password hash</th>
+                <th scope="col">Security stamp</th>
+                <th scope="col">Concurency stamp</th>
+                <th scope="col">Phone number</th>
+                <th scope="col">Phone number confirmed</th>
+                <th scope="col">Two-factor enabled</th>
+                <th scope="col">Shopping cart id</th>
+                <th scope="col">Lockout end</th>
+                <th scope="col">Lockout enabled</th>
+                <th scope="col">Access failed count</th>
+                <th scope="col">Is deleted</th>
+                <th scope="col">Deleted on</th>
+                <th scope="col">Created on</th>
+                <th scope="col">Modified on</th>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Has membership</th>
+                <th scope="col">Membership expiration date</th>
+                <th scope="col">Has coupon</th>
+                <th scope="col">Has subscribe</th>
+                <th scope="col">Info</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var counter = 0;
+            }
+            @foreach (var user in Model)
+            {
+                counter++;
+
+            <tr>
+                <td class="btn btn-danger  mb-2 mt-1 ml-2">@Html.ActionLink("Block", "BlockUnblock", "Users", new { id = user.Id })</td>
+                <td class="btn btn-danger  mb-2 mt-1 ml-2">@Html.ActionLink("Edit", "Edit", "Users", new { id = user.Id })</td>
+                <th scope="row">@counter</th>
+                <td>@user.Id</td>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>@user.EmailConfirmed</td>
+                <td>@user.PasswordHash</td>
+                <td>@user.SecurityStamp</td>
+                <td>@user.ConcurrencyStamp</td>
+                <td>@user.PhoneNumber</td>
+                <td>@user.PhoneNumberConfirmed</td>
+                <td>@user.TwoFactorEnabled</td>
+                <td>@user.ShoppingCartId</td>
+                <td>@user.LockoutEnd</td>
+                <td>@user.LockoutEnabled</td>
+                <td>@user.AccessFailedCount</td>
+                <td>@user.IsDeleted</td>
+                <td>@user.DeletedOn</td>
+                <td>@user.CreatedOn</td>
+                <td>@user.ModifiedOn</td>
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
+                <td>@user.HasMembership</td>
+                <td>@user.MembershipExpirationDate</td>
+                <td>@user.HasCoupon</td>
+                <td>@user.HasSubscribe</td>
+                <td class="btn btn-danger  mb-2 mt-1 mb-1">
+                    @Html.ActionLink("Addresses", "Addresses", "Users", new { id = user.Id })
+                </td>
+                <td class="btn btn-danger  mb-2 mt-1 mb-1">
+                    @Html.ActionLink("Orders", "Orders", "Users", new { id = user.Id })
+                </td>
+                <td class="btn btn-danger  mb-2 mt-1 mb-1">
+                    @Html.ActionLink("Comments", "Comments", "Users", new { id = user.Id })
+                </td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+<br />
+<div>
+    <a class="bg-success ml-2" asp-area="Administrator" asp-controller="Home" asp-action="Index">Back to admin home</a>
+</div>

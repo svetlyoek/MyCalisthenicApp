@@ -1,0 +1,41 @@
+﻿@model IList<OrderProductsAdminViewModel>
+
+<div style="height:500px;overflow-x:scroll">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Action</th>
+                <th scope="col">#</th>
+                <th scope="col">Order id</th>
+                <th scope="col">Product id</th>
+                <th scope="col">Product</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var counter = 0;
+            }
+            @foreach (var product in Model)
+            {
+                counter++;
+
+                <tr>
+                    <td class="btn btn-danger mb-2 mt-1 mr-2 ml-2">@Html.ActionLink("Edit", "Edit", "OrderProducts", new { id = product.ProductId })</td>
+                    <td>@counter</td>
+                    <td>@product.OrderId</td>
+                    <td>@product.ProductId</td>
+                    <td>@product.Product.Name</td>
+                    <td>@product.Quantity</td>
+                    <td>@product.Price</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+<br />
+<div>
+    <a class="bg-success ml-2" asp-area="Administrator" asp-controller="Home" asp-action="Index">Back to admin home</a>
+</div>

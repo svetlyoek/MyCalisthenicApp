@@ -1,0 +1,76 @@
+﻿@model ProductAdminCreateViewModel
+
+<h3 class="ml-2">Create Product</h3>
+
+<form asp-controller="Products" asp-action="Create" method="post" class="ml-2" style="width:600px;">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label class="text-dark" asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="text-dark" asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="form-group ml-0">
+        @Html.LabelFor(model => model.Size, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <select class="form-control col-md-12" asp-for="Size" asp-items="@(Html.GetEnumSelectList<ProductSize>())">
+                <option selected="">@Model.Size</option>
+            </select>
+            @Html.ValidationMessageFor(model => model.Size, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <select class="form-control col-md-12" asp-for="Color" asp-items="@(Html.GetEnumSelectList<ProductColor>())">
+                <option selected="">@Model.Color</option>
+            </select>
+            @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Sort, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <select class="form-control col-md-12" asp-for="Sort" asp-items="@(Html.GetEnumSelectList<ProductSort>())">
+                <option selected="">@Model.Sort</option>
+            </select>
+            @Html.ValidationMessageFor(model => model.Sort, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <select class="form-control col-md-12" asp-for="Type" asp-items="@(Html.GetEnumSelectList<ProductCategoryType>())">
+                <option selected="">@Model.Type</option>
+            </select>
+            @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="text-dark" asp-for="Rating"></label>
+        <input asp-for="Rating" class="form-control" />
+        <span asp-validation-for="Rating" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="text-dark" asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control" rows="8"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group ml-1">
+        @Html.DropDownListFor(x => x.Categories, new SelectList(Model.Categories), "View categories...", new { @style = "width:500px" })
+    </div>
+    <div class="form-group">
+        <label class="text-dark" asp-for="CategoryId"></label>
+        <input asp-for="CategoryId" class="form-control" />
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+<br />
+<div>
+    <a class="bg-success ml-2" asp-area="Administrator" asp-controller="Home" asp-action="Index">Back to admin home</a>
+</div>

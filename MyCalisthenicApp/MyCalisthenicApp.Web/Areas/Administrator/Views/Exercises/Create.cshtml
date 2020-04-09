@@ -1,0 +1,36 @@
+﻿@model ExerciseAdminCreateViewModel
+
+<h3 class="ml-2">Create Exercise</h3>
+
+<form asp-controller="Exercises" asp-action="Create" method="post" class="ml-2" style="width:600px;">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label class="text-dark" asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="text-dark" asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control" rows="6"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="text-dark" asp-for="VideoUrl"></label>
+        <input asp-for="VideoUrl" class="form-control" />
+        <span asp-validation-for="VideoUrl" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        @Html.DropDownListFor(x => x.Categories, new SelectList(Model.Categories), "View categories...", new { @style = "width:500px" })
+    </div>
+
+    <div class="form-group">
+        <label class="text-dark" asp-for="ProgramCategoryId"></label>
+        <input asp-for="ProgramCategoryId" class="form-control" />
+        <span asp-validation-for="ProgramCategoryId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+<br />
+<div>
+    <a class="bg-success ml-2" asp-area="Administrator" asp-controller="Home" asp-action="Index">Back to admin home</a>
+</div>

@@ -11,7 +11,7 @@
 
     public class MyCalisthenicAppDbContext : IdentityDbContext<ApplicationUser>
     {
-        public MyCalisthenicAppDbContext(DbContextOptions options)
+        public MyCalisthenicAppDbContext(DbContextOptions<MyCalisthenicAppDbContext> options)
             : base(options)
         {
         }

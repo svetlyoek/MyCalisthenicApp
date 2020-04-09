@@ -1,0 +1,49 @@
+﻿@model ImageAdminCreateViewModel
+
+<h3 class="ml-2">Create Image</h3>
+
+<form asp-controller="Images" asp-action="Create" method="post" class="ml-2" style="width:600px;">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label class="text-dark" asp-for="Url"></label>
+        <input asp-for="Url" class="form-control" />
+        <span asp-validation-for="Url" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        @Html.DropDownListFor(x => x.Products, new SelectList(Model.Products), "View categories...", new { @style = "width:500px" })
+    </div>
+    <div class="form-group">
+        <label class="text-dark" asp-for="ProductId"></label>
+        <input asp-for="ProductId" class="form-control" />
+        <span asp-validation-for="ProductId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        @Html.DropDownListFor(x => x.Posts, new SelectList(Model.Posts), "View categories...", new { @style = "width:500px" })
+    </div>
+    <div class="form-group">
+        <label class="text-dark" asp-for="PostId"></label>
+        <input asp-for="PostId" class="form-control" />
+        <span asp-validation-for="PostId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        @Html.DropDownListFor(x => x.Exercises, new SelectList(Model.Exercises), "View categories...", new { @style = "width:500px" })
+    </div>
+    <div class="form-group">
+        <label class="text-dark" asp-for="ExerciseId"></label>
+        <input asp-for="ExerciseId" class="form-control" />
+        <span asp-validation-for="ExerciseId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        @Html.DropDownListFor(x => x.Programs, new SelectList(Model.Programs), "View categories...", new { @style = "width:500px" })
+    </div>
+    <div class="form-group">
+        <label class="text-dark" asp-for="ProgramId"></label>
+        <input asp-for="ProgramId" class="form-control" />
+        <span asp-validation-for="ProgramId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+<br />
+<div>
+    <a class="bg-success ml-2" asp-area="Administrator" asp-controller="Home" asp-action="Index">Back to admin home</a>
+</div>

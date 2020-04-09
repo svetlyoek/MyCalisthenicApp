@@ -1,0 +1,17 @@
+﻿@model BlogCategoryAdminCreateViewModel
+
+<h3 class="ml-2">Create Blog Category</h3>
+
+<form asp-controller="Categories" asp-action="CreateBlogCategory" method="post" class="ml-2" style="width:600px;">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label class="text-dark" asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+<br />
+<div>
+    <a class="bg-success ml-2" asp-area="Administrator" asp-controller="Home" asp-action="Index">Back to admin home</a>
+</div>

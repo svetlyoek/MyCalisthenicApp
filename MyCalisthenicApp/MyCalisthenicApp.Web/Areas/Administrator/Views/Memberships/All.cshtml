@@ -1,0 +1,46 @@
+﻿@model IList<MembershipsAdminViewModel>
+<div style="height:500px;overflow-x:scroll">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Action</th>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Is deleted</th>
+                <th scope="col">Deleted on</th>
+                <th scope="col">Created on</th>
+                <th scope="col">Modified on</th>
+                <th scope="col">Name</th>
+                <th scope="col">Monthly price</th>
+                <th scope="col">Yearly price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var counter = 0;
+            }
+            @foreach (var membership in Model)
+            {
+                counter++;
+
+                <tr>
+                    <td class="btn btn-danger mb-2 mt-1 ml-2">@Html.ActionLink("Edit", "Edit", "Memberships", new { id = membership.Id })</td>
+                    <th scope="row">@counter</th>
+                    <td>@membership.Id</td>
+                    <td>@membership.IsDeleted</td>
+                    <td>@membership.DeletedOn</td>
+                    <td>@membership.CreatedOn</td>
+                    <td>@membership.ModifiedOn</td>
+                    <td>@membership.Name</td>
+                    <td>@membership.MonthlyPrice</td>
+                    <td>@membership.YearlyPrice</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+<br />
+<div>
+    <a class="bg-success ml-2" asp-area="Administrator" asp-controller="Home" asp-action="Index">Back to admin home</a>
+</div>

@@ -1,0 +1,63 @@
+﻿@model IList<CommentAdminViewModel>
+
+<div style="height:500px;overflow-x:scroll">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Action</th>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Created on</th>
+                <th scope="col">Modified on</th>
+                <th scope="col">Is deleted</th>
+                <th scope="col">Deleted on</th>
+                <th scope="col">Text</th>
+                <th scope="col">Author id</th>
+                <th scope="col">Author</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Post id</th>
+                <th scope="col">Post</th>
+                <th scope="col">Product id</th>
+                <th scope="col">Product</th>
+                <th scope="col">Program id</th>
+                <th scope="col">Program</th>
+                <th scope="col">Info</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var counter = 0;
+            }
+            @foreach (var comment in Model)
+            {
+                counter++;
+
+                <tr>
+                    <td class="btn btn-danger mb-2 mt-1 mr-2 ml-2">@Html.ActionLink("Edit", "Edit", "Comments", new { id = comment.Id })</td>
+                    <th scope="row">@counter</th>
+                    <td>@comment.Id</td>
+                    <td>@comment.CreatedOn</td>
+                    <td>@comment.ModifiedOn</td>
+                    <td>@comment.IsDeleted</td>
+                    <td>@comment.DeletedOn</td>
+                    <td>@comment.Text</td>
+                    <td>@comment.AuthorId</td>
+                    <td>@comment.AuthorName</td>
+                    <td>@comment.Rating</td>
+                    <td>@comment.PostId</td>
+                    <td>@comment.PostTitle</td>
+                    <td>@comment.ProductId</td>
+                    <td>@comment.ProductName</td>
+                    <td>@comment.ProgramId</td>
+                    <td>@comment.ProgramTitle</td>
+                    <td class="btn btn-danger mb-2 mt-1 mr-2">@Html.ActionLink("Likes", "Likes", "Comments", new { id = comment.Id })</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+<br />
+<div>
+    <a class="bg-success ml-2" asp-area="Administrator" asp-controller="Home" asp-action="Index">Back to admin home</a>
+</div>

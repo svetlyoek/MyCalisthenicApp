@@ -1,0 +1,40 @@
+﻿@model IList<RequestsAdminViewModel>
+<div style="height:500px;overflow-x:scroll">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Created on</th>
+                <th scope="col">Full name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Content</th>
+                <th scope="col">Seen</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var counter = 0;
+            }
+            @foreach (var request in Model)
+            {
+                counter++;
+
+                <tr>
+                    <th scope="row">@counter</th>
+                    <td>@request.Id</td>
+                    <td>@request.CreatedOn</td>
+                    <td>@request.FullName</td>
+                    <td>@request.Email</td>
+                    <td>@request.Content</td>
+                    <td>@request.Seen</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+<br />
+<div>
+    <a class="bg-success ml-2" asp-area="Administrator" asp-controller="Home" asp-action="Index">Back to admin home</a>
+</div>

@@ -1,0 +1,64 @@
+﻿@model IList<ProgramsAdminViewModel>
+
+    <div style="height:500px;overflow-x:scroll">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Action</th>
+                    <th scope="col">#</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Is deleted</th>
+                    <th scope="col">Deleted on</th>
+                    <th scope="col">Created on</th>
+                    <th scope="col">Modified on</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Membership type</th>
+                    <th scope="col">Category id</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Images</th>
+                    <th scope="col">Info</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var counter = 0;
+                }
+                @foreach (var program in Model)
+                {
+                    counter++;
+
+                    <tr>
+                        <td class="btn btn-danger mb-2 mt-1 ml-2">@Html.ActionLink("Edit", "Edit", "Programs", new { id = program.Id })</td>
+                        <th scope="row">@counter</th>
+                        <td>@program.Id</td>
+                        <td>@program.IsDeleted</td>
+                        <td>@program.DeletedOn</td>
+                        <td>@program.CreatedOn</td>
+                        <td>@program.ModifiedOn</td>
+                        <td>@program.Title</td>
+                        <td>@program.Type</td>
+                        <td>@program.Description</td>
+                        <td>@program.Rating</td>
+                        <td>@program.MembershipType</td>
+                        <td>@program.CategoryId</td>
+                        <td>@program.CategoryName</td>
+                        <td>
+                            @foreach (var image in program.ImagesUrl)
+                            {
+                                @(image)<br />
+                            }
+                        </td>
+                        <td class="btn btn-danger mb-2 mt-1 ml-2">@Html.ActionLink("Likes", "Likes", "Programs", new { id = program.Id })</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <br />
+    <div>
+        <a class="bg-success ml-2" asp-area="Administrator" asp-controller="Home" asp-action="Index">Back to admin home</a>
+    </div>

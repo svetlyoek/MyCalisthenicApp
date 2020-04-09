@@ -1,0 +1,32 @@
+﻿@model SupplierAdminCreateViewModel
+
+<h3 class="ml-2">Create Supplier</h3>
+
+<form asp-controller="Suppliers" asp-action="Create" method="post" class="ml-2" style="width:600px;">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label class="text-dark" asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="text-dark" asp-for="PriceToHome"></label>
+        <input asp-for="PriceToHome" class="form-control" />
+        <span asp-validation-for="PriceToHome" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="text-dark" asp-for="PriceToOffice"></label>
+        <input asp-for="PriceToOffice" class="form-control" />
+        <span asp-validation-for="PriceToOffice" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="text-dark" asp-for="LogoUrl"></label>
+        <input asp-for="LogoUrl" class="form-control" />
+        <span asp-validation-for="LogoUrl" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+<br />
+<div>
+    <a class="bg-success ml-2" asp-area="Administrator" asp-controller="Home" asp-action="Index">Back to admin home</a>
+</div>

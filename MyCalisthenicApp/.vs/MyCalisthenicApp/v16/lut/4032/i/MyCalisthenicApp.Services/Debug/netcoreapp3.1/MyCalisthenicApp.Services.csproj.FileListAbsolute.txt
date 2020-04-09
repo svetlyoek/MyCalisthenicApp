@@ -1,0 +1,10 @@
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\0\b\MyCalisthenicApp.Services\Debug\netcoreapp3.1\MyCalisthenicApp.Services.deps.json
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\0\b\MyCalisthenicApp.Services\Debug\netcoreapp3.1\MyCalisthenicApp.Services.runtimeconfig.json
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\0\b\MyCalisthenicApp.Services\Debug\netcoreapp3.1\MyCalisthenicApp.Services.runtimeconfig.dev.json
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\0\b\MyCalisthenicApp.Services\Debug\netcoreapp3.1\MyCalisthenicApp.Services.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\0\i\MyCalisthenicApp.Services\Debug\netcoreapp3.1\MyCalisthenicApp.Services.csprojAssemblyReference.cache
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\0\i\MyCalisthenicApp.Services\Debug\netcoreapp3.1\MyCalisthenicApp.Services.AssemblyInfoInputs.cache
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\0\i\MyCalisthenicApp.Services\Debug\netcoreapp3.1\MyCalisthenicApp.Services.AssemblyInfo.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\0\i\MyCalisthenicApp.Services\Debug\netcoreapp3.1\MyCalisthenicApp.Services.csproj.CopyComplete
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\0\i\MyCalisthenicApp.Services\Debug\netcoreapp3.1\MyCalisthenicApp.Services.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\0\i\MyCalisthenicApp.Services\Debug\netcoreapp3.1\MyCalisthenicApp.Services.genruntimeconfig.cache

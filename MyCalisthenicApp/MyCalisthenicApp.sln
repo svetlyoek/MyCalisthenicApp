@@ -32,7 +32,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCalisthenicApp.Mapping", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCalisthenicApp.Web.Infrastructure", "MyCalisthenicApp.Web.Infrastructure\MyCalisthenicApp.Web.Infrastructure.csproj", "{B676DC93-E7B8-41CF-95D0-8EA5B95830C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCalisthenicApp.Services.Tests", "MyCalisthenicApp.Services.Tests\MyCalisthenicApp.Services.Tests\MyCalisthenicApp.Services.Tests.csproj", "{484344D6-8004-4661-B847-2E876ACC4D2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCalisthenicApp.Services.Tests", "MyCalisthenicApp.Services.Tests\MyCalisthenicApp.Services.Tests\MyCalisthenicApp.Services.Tests.csproj", "{484344D6-8004-4661-B847-2E876ACC4D2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
