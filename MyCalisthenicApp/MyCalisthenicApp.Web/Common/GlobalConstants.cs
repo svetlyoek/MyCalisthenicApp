@@ -51,5 +51,21 @@ namespace MyCalisthenicApp.Web.Common
         public const int AdministratorCardExpirationDay = 16;
 
         public const int MaxFailedAccessAttempts = 10;
+
+        public const string ExpiredMembership = "Your membership expired!";
+
+        public const string SuccessfullyAddedProduct = "Product successfully added";
+
+        public const string ProductAlreadyExists = "Product already added";
+
+        public const string SoldOutProduct = "Product is sold out.";
+
+        public const string NoProductsInShoppingBag = "No products added in your shopping bag.";
+
+        public const string OrderSentSuccessfully = "Successfully sent order.";
+
+        public const string OrderDenied = "Order was denied! We will keep in touch very soon...";
+
+        public const string DiscountActivated = "Your discount is activated.";
     }
 }

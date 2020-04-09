@@ -5,6 +5,7 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using MyCalisthenicApp.Services.Contracts;
+    using MyCalisthenicApp.Web.Common;
 
     public class OrdersController : BaseController
     {
@@ -31,11 +32,17 @@
 
             if (result)
             {
-                this.TempData["InfoMessage"] = "Product successfully added";
+                this.TempData["InfoMessage"] = GlobalConstants.SuccessfullyAddedProduct;
             }
-            else
+
+            if (result == false)
             {
-                this.TempData["InfoMessage"] = "Product already added";
+                this.TempData["InfoMessage"] = GlobalConstants.ProductAlreadyExists;
+            }
+
+            if (product.IsSoldOut && result == false)
+            {
+                this.TempData["InfoMessage"] = GlobalConstants.SoldOutProduct;
             }
 
             return this.LocalRedirect($"/Products/Details?id={id}");
@@ -51,9 +58,14 @@
         [HttpPost]
         public async Task<IActionResult> Delivery(decimal deliveryPrice)
         {
-            await this.ordersService.SetDeliveryPriceToOrderAsync(deliveryPrice);
+            var result = await this.ordersService.SetDeliveryPriceToOrderAsync(deliveryPrice);
 
-            return this.LocalRedirect("/ShoppingBags/Index");
+            if (result == false)
+            {
+                this.TempData["NoOrderMessage"] = GlobalConstants.NoProductsInShoppingBag;
+            }
+
+            return this.RedirectToAction("Index", "ShoppingBags");
         }
     }
 }

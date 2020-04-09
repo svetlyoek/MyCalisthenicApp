@@ -11,6 +11,7 @@
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
     using MyCalisthenicApp.Models;
+    using MyCalisthenicApp.Models.ShopEntities.Enums;
     using MyCalisthenicApp.Services.Common;
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Addresses;
@@ -37,8 +38,10 @@
             this.mapper = mapper;
         }
 
-        public async Task AddDiscountToUserAsync(CouponViewModel inputModel)
+        public async Task<bool> AddDiscountToUserAsync(CouponViewModel inputModel)
         {
+            decimal discount = ServicesConstants.ProductsDiscountPercentage;
+
             var userId = this.GetLoggedUserId();
 
             var userFromDb = await this.GetLoggedUserByIdAsync(userId);
@@ -55,7 +58,38 @@
                 this.dbContext.Update(userFromDb);
 
                 await this.dbContext.SaveChangesAsync();
+
+                if (this.dbContext.Orders.Any(o => o.UserId == userId && o.Status != OrderStatus.Sent))
+                {
+                    var currentOrder = await this.dbContext.Orders
+                        .Where(o => o.Status != OrderStatus.Sent)
+                        .Where(o => o.UserId == userId)
+                        .FirstOrDefaultAsync();
+
+                    currentOrder.TotalPrice = currentOrder.TotalPrice - (currentOrder.TotalPrice * discount);
+
+                    this.dbContext.Update(currentOrder);
+
+                    await this.dbContext.SaveChangesAsync();
+
+                    var products = await this.dbContext.OrderProducts
+                          .Where(op => op.OrderId == currentOrder.Id)
+                          .ToListAsync();
+
+                    foreach (var product in products)
+                    {
+                        product.Price = product.Price - (product.Price * discount);
+
+                        this.dbContext.Update(product);
+
+                        await this.dbContext.SaveChangesAsync();
+                    }
+                }
+
+                return true;
             }
+
+            return false;
         }
 
         public string GetLoggedUserId()
@@ -222,6 +256,17 @@
             {
                 throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, id));
             }
+
+            var ordersViewModel = this.mapper.Map<IList<OrdersAdminViewModel>>(orders);
+
+            return ordersViewModel;
+        }
+
+        public async Task<IList<OrdersAdminViewModel>> GetAllOrdersAsync()
+        {
+            var orders = await this.dbContext.Orders
+                .Include(o => o.Products)
+                 .ToListAsync();
 
             var ordersViewModel = this.mapper.Map<IList<OrdersAdminViewModel>>(orders);
 

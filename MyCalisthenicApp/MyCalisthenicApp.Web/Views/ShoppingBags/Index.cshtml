@@ -56,7 +56,18 @@
     </div>
     <!-- breadcrumb area end -->
     <!-- cart content start -->
-
+    @if (this.TempData["NoOrderMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @this.TempData["NoOrderMessage"]
+        </div>
+    }
+    @if (this.TempData["SuccessfullCouponAdded"] != null)
+    {
+        <div class="alert alert-success">
+            @this.TempData["SuccessfullCouponAdded"]
+        </div>
+    }
     <section class="cart-content-area">
         <div class="container">
             <div class="row">

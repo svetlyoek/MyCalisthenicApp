@@ -1,7 +1,6 @@
 ﻿namespace MyCalisthenicApp.Services
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -362,7 +361,7 @@
             }
         }
 
-        public async Task SetDeliveryPriceToOrderAsync(decimal deliveryPrice)
+        public async Task<bool> SetDeliveryPriceToOrderAsync(decimal deliveryPrice)
         {
             var userId = this.usersService.GetLoggedUserId();
 
@@ -373,7 +372,7 @@
 
             if (order == null)
             {
-                return;
+                return false;
             }
 
             order.DeliveryPrice = deliveryPrice;
@@ -381,6 +380,8 @@
             this.dbContext.Update(order);
 
             await this.dbContext.SaveChangesAsync();
+
+            return true;
         }
 
         public async Task<OrderCheckoutViewModel> GetOrderToSendAsync()
@@ -429,7 +430,7 @@
 
             if (order.TotalPrice > 0 && order.DeliveryAddressId != null && order.DeliveryPrice != null)
             {
-                if (order.MembershipPrice != 0)
+                if (order.MembershipPrice != 0 && order.MembershipPrice != null)
                 {
                     userFromDb.HasMembership = true;
 
@@ -454,7 +455,11 @@
 
                 return true;
             }
-            else if (order.MembershipPrice != 0 && order.DeliveryAddressId != null && order.DeliveryPrice != null)
+            else if (order.MembershipPrice > 0 &&
+                order.MembershipPrice != null &&
+                order.DeliveryAddressId != null &&
+                order.DeliveryPrice != null &&
+                order.TotalPrice == 0)
             {
                 userFromDb.HasMembership = true;
 

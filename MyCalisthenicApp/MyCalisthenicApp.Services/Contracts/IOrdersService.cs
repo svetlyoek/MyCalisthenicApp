@@ -18,7 +18,7 @@
 
         Task CreateAddressToOrderAsync(AddressInputViewModel inputModel);
 
-        Task SetDeliveryPriceToOrderAsync(decimal deliveryPrice);
+        Task<bool> SetDeliveryPriceToOrderAsync(decimal deliveryPrice);
 
         Task<bool> SendOrderAsync(string id);
 

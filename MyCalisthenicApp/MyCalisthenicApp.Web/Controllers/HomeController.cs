@@ -40,7 +40,7 @@
 
             if (result)
             {
-                this.TempData["MembershipMessage"] = "Your membership expired!";
+                this.TempData["MembershipMessage"] = GlobalConstants.ExpiredMembership;
             }
 
             return this.View();

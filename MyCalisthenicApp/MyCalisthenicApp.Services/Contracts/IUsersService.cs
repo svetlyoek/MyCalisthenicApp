@@ -14,7 +14,7 @@
 
     public interface IUsersService
     {
-        Task AddDiscountToUserAsync(CouponViewModel inputModel);
+        Task<bool> AddDiscountToUserAsync(CouponViewModel inputModel);
 
         Task<ApplicationUser> GetLoggedUserByIdAsync(string userId);
 
@@ -33,6 +33,8 @@
         Task<IList<CommentAdminViewModel>> GetAllCommentsByUserIdAsync(string id);
 
         Task<IList<OrdersAdminViewModel>> GetAllOrdersByUserIdAsync(string id);
+
+        Task<IList<OrdersAdminViewModel>> GetAllOrdersAsync();
 
         Task<IList<AddressesAdminViewModel>> GetAllAddressesByUserIdAsync(string id);
 

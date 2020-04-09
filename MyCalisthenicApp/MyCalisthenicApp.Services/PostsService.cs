@@ -192,9 +192,16 @@
                  p.Author.LastName.ToLower().Contains(inputModel.Text.ToLower()))
                 .ToListAsync();
 
-                var allPosts = this.mapper.Map<IEnumerable<PostDetailsViewModel>>(posts);
+                if (posts.Any())
+                {
+                    var allPosts = this.mapper.Map<IEnumerable<PostDetailsViewModel>>(posts);
 
-                return allPosts;
+                    return allPosts;
+                }
+                else
+                {
+                    return null;
+                }
             }
 
             return Enumerable.Empty<PostDetailsViewModel>();

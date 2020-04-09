@@ -13,16 +13,13 @@
         private readonly ICommentsService commentsService;
         private readonly IProductsService productsService;
         private readonly IProgramsService programsService;
-        private readonly IPostsService postsService;
 
         public CommentsController(
             ICommentsService commentsService,
-            IPostsService postsService,
             IProductsService productsService,
             IProgramsService programsService)
         {
             this.commentsService = commentsService;
-            this.postsService = postsService;
             this.productsService = productsService;
             this.programsService = programsService;
         }

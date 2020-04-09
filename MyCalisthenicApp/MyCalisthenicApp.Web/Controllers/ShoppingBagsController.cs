@@ -7,6 +7,7 @@
     using MyCalisthenicApp.Services.Contracts;
     using MyCalisthenicApp.ViewModels.Addresses;
     using MyCalisthenicApp.ViewModels.Coupons;
+    using MyCalisthenicApp.Web.Common;
 
     [Authorize]
     public class ShoppingBagsController : BaseController
@@ -47,7 +48,12 @@
                 return this.RedirectToAction("Index");
             }
 
-            await this.usersService.AddDiscountToUserAsync(inputModel);
+            var result = await this.usersService.AddDiscountToUserAsync(inputModel);
+
+            if (result)
+            {
+                this.TempData["SuccessfullCouponAdded"] = GlobalConstants.DiscountActivated;
+            }
 
             return this.RedirectToAction("Index");
         }

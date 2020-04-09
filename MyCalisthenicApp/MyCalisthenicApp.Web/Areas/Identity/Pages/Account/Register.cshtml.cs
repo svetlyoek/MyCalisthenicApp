@@ -17,6 +17,7 @@
     using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Services.MessageSender;
     using MyCalisthenicApp.Web.Common;
+
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {

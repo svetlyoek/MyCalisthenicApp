@@ -1,6 +1,5 @@
 ﻿namespace MyCalisthenicApp.Web.Controllers
 {
-    using System;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -57,7 +56,7 @@
              .Where(o => o.Status == OrderStatus.Sent)
              .FirstOrDefault();
 
-                this.TempData["InfoMessage"] = "Successfully sent order.";
+                this.TempData["InfoMessage"] = GlobalConstants.OrderSentSuccessfully;
 
                 await this.emailSender.SendEmailAsync(
               GlobalConstants.ApplicationSendEmail,
@@ -74,7 +73,7 @@
             }
             else
             {
-                this.TempData["InfoMessage"] = "Order was denied! We will keep in touch very soon...";
+                this.TempData["InfoMessage"] = GlobalConstants.OrderDenied;
             }
 
             return this.RedirectToAction("Index", "Home");

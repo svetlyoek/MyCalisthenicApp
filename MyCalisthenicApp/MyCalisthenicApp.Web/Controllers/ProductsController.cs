@@ -78,9 +78,11 @@
             var product = await this.productsService.GetProductsByIdAsync(id);
 
             var comments = await this.commentsService.GetCommentsByProductIdAsync(product.Id);
+
             product.Comments = comments;
 
             var images = await this.imagesService.GetImagesByProductIdAsync(id);
+
             product.Images = images;
 
             return this.View(product);
@@ -93,6 +95,5 @@
 
             return this.RedirectToAction(nameof(this.Details), new { id = id });
         }
-
     }
 }

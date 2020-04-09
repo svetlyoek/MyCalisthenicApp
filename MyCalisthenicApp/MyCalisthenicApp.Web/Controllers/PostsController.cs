@@ -1,5 +1,6 @@
 ﻿namespace MyCalisthenicApp.Web.Controllers
 {
+    using System.Linq;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Authorization;
@@ -83,6 +84,20 @@
             }
 
             var posts = await this.postsService.GetPostsBySearchAsync(inputModel);
+
+            if (posts == null)
+            {
+                var empty = Enumerable.Empty<PostDetailsViewModel>();
+
+                var emptyPostsViewModel = new PostPageViewModel
+                {
+                    PostsPerPage = ServicesConstants.PostsCountPerPage,
+                    CurrentPage = ServicesConstants.PostsDefaultPage,
+                    Posts = empty,
+                };
+
+                return this.View("Index", emptyPostsViewModel);
+            }
 
             var searchPostsViewModel = new PostPageViewModel
             {

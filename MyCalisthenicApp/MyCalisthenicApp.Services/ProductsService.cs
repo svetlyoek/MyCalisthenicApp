@@ -244,7 +244,6 @@
               .Where(p => p.Category.IsDeleted == false)
               .Where(p => p.IsSoldOut == false)
               .Where(p => p.Orders.Any(o => o.OrderId == order.Id))
-
               .ToListAsync();
 
             foreach (var product in productsView)
@@ -453,6 +452,7 @@
                 Price = inputModel.Price,
                 Size = inputModel.Size,
                 Color = inputModel.Color,
+                Sort = inputModel.Sort,
                 Type = inputModel.Type,
                 Rating = inputModel.Rating,
                 Description = inputModel.Description,
