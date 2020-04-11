@@ -2,7 +2,7 @@
 
 <div id="menu1" class="tab-pane fade">
     <h2>Couriers we use</h2>
-    @foreach (var supplier in Model)
+    @foreach (var supplier in Model.OrderByDescending(s => s.CreatedOn))
     {
         <div class="form-group">
             <img style="height:200px;width:400px;" src="@supplier.LogoUrl" alt="courier-logo" />

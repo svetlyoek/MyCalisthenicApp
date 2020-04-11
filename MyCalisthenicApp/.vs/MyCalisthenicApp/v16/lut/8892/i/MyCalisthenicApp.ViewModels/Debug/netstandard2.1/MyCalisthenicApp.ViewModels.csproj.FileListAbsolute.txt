@@ -1,0 +1,7 @@
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\b\MyCalisthenicApp.ViewModels\Debug\netstandard2.1\MyCalisthenicApp.ViewModels.deps.json
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\b\MyCalisthenicApp.ViewModels\Debug\netstandard2.1\MyCalisthenicApp.ViewModels.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\i\MyCalisthenicApp.ViewModels\Debug\netstandard2.1\MyCalisthenicApp.ViewModels.csprojAssemblyReference.cache
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\i\MyCalisthenicApp.ViewModels\Debug\netstandard2.1\MyCalisthenicApp.ViewModels.AssemblyInfoInputs.cache
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\i\MyCalisthenicApp.ViewModels\Debug\netstandard2.1\MyCalisthenicApp.ViewModels.AssemblyInfo.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\i\MyCalisthenicApp.ViewModels\Debug\netstandard2.1\MyCalisthenicApp.ViewModels.csproj.CopyComplete
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\i\MyCalisthenicApp.ViewModels\Debug\netstandard2.1\MyCalisthenicApp.ViewModels.dll

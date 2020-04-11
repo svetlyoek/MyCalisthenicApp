@@ -168,17 +168,9 @@
 
             await dbContext.SaveChangesAsync();
 
-            var addressViewModel = new AddressAdminEditViewModel
-            {
-                Id = address.Id,
-                Country = address.Country,
-                Street = address.Street,
-                CityId = city.Id,
-            };
-
             var actual = dbContext.Addresses.FirstOrDefaultAsync(a => a.Id == AddressId);
 
-            Assert.Equal(actual.Result.Id, addressViewModel.Id);
+            Assert.Equal(actual.Result.Id, AddressId);
         }
 
         [Fact]

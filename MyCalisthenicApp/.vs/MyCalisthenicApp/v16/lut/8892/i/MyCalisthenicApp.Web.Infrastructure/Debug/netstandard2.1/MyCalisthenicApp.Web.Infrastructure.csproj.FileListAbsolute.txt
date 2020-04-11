@@ -1,0 +1,6 @@
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\b\MyCalisthenicApp.Web.Infrastructure\Debug\netstandard2.1\MyCalisthenicApp.Web.Infrastructure.deps.json
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\b\MyCalisthenicApp.Web.Infrastructure\Debug\netstandard2.1\MyCalisthenicApp.Web.Infrastructure.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\i\MyCalisthenicApp.Web.Infrastructure\Debug\netstandard2.1\MyCalisthenicApp.Web.Infrastructure.AssemblyInfoInputs.cache
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\i\MyCalisthenicApp.Web.Infrastructure\Debug\netstandard2.1\MyCalisthenicApp.Web.Infrastructure.AssemblyInfo.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\i\MyCalisthenicApp.Web.Infrastructure\Debug\netstandard2.1\MyCalisthenicApp.Web.Infrastructure.csproj.CopyComplete
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\i\MyCalisthenicApp.Web.Infrastructure\Debug\netstandard2.1\MyCalisthenicApp.Web.Infrastructure.dll

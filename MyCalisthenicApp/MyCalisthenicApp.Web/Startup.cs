@@ -100,8 +100,8 @@ namespace MyCalisthenicApp.Web
 
             services.AddAuthentication().AddFacebook(facebookOptions =>
             {
-                facebookOptions.AppId = this.Configuration["Authentication:Facebook:AppId"];
-                facebookOptions.AppSecret = this.Configuration["Authentication:Facebook:AppSecret"];
+                facebookOptions.AppId = this.Configuration["Facebook:AppId"];
+                facebookOptions.AppSecret = this.Configuration["Facebook:AppSecret"];
             });
         }
 

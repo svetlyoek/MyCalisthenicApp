@@ -1,0 +1,9 @@
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\b\MyCalisthenicApp.Data\Release\netcoreapp3.1\MyCalisthenicApp.Data.deps.json
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\b\MyCalisthenicApp.Data\Release\netcoreapp3.1\MyCalisthenicApp.Data.runtimeconfig.json
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\b\MyCalisthenicApp.Data\Release\netcoreapp3.1\MyCalisthenicApp.Data.runtimeconfig.dev.json
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\b\MyCalisthenicApp.Data\Release\netcoreapp3.1\MyCalisthenicApp.Data.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\i\MyCalisthenicApp.Data\Release\netcoreapp3.1\MyCalisthenicApp.Data.AssemblyInfoInputs.cache
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\i\MyCalisthenicApp.Data\Release\netcoreapp3.1\MyCalisthenicApp.Data.AssemblyInfo.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\i\MyCalisthenicApp.Data\Release\netcoreapp3.1\MyCalisthenicApp.Data.csproj.CopyComplete
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\i\MyCalisthenicApp.Data\Release\netcoreapp3.1\MyCalisthenicApp.Data.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\8892\i\MyCalisthenicApp.Data\Release\netcoreapp3.1\MyCalisthenicApp.Data.genruntimeconfig.cache

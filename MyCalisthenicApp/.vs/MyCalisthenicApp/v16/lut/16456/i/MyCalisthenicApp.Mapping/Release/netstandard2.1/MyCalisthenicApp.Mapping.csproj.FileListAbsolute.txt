@@ -1,0 +1,7 @@
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\11296\b\MyCalisthenicApp.Mapping\Release\netstandard2.1\MyCalisthenicApp.Mapping.deps.json
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\11296\b\MyCalisthenicApp.Mapping\Release\netstandard2.1\MyCalisthenicApp.Mapping.dll
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\11296\i\MyCalisthenicApp.Mapping\Release\netstandard2.1\MyCalisthenicApp.Mapping.csprojAssemblyReference.cache
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\11296\i\MyCalisthenicApp.Mapping\Release\netstandard2.1\MyCalisthenicApp.Mapping.AssemblyInfoInputs.cache
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\11296\i\MyCalisthenicApp.Mapping\Release\netstandard2.1\MyCalisthenicApp.Mapping.AssemblyInfo.cs
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\11296\i\MyCalisthenicApp.Mapping\Release\netstandard2.1\MyCalisthenicApp.Mapping.csproj.CopyComplete
+E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\11296\i\MyCalisthenicApp.Mapping\Release\netstandard2.1\MyCalisthenicApp.Mapping.dll
