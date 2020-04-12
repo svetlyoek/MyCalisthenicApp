@@ -8,7 +8,6 @@
     using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.Models.TrainingEntities;
     using MyCalisthenicApp.ViewModels.Addresses;
-    using MyCalisthenicApp.ViewModels.Categories;
     using MyCalisthenicApp.ViewModels.Cities;
     using MyCalisthenicApp.ViewModels.Comments;
     using MyCalisthenicApp.ViewModels.Exercises;
@@ -162,6 +161,12 @@
             this.CreateMap<Exercise, ExerciseAdminEditViewModel>();
 
             this.CreateMap<Membership, MembershipAdminEditViewModel>();
+
+            this.CreateMap<Order, OrdersViewModel>()
+                .ForMember(x => x.Status, y => y.MapFrom(src => src.Status.ToString()))
+                .ForMember(x => x.PaymentStatus, y => y.MapFrom(src => src.PaymentStatus.ToString()));
+
+            this.CreateMap<OrderProduct, OrderProductsViewModel>();
         }
     }
 }

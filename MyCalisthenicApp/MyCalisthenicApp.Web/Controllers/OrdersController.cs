@@ -19,6 +19,14 @@
         }
 
         [Authorize]
+        public async Task<IActionResult> All()
+        {
+            var orders = await this.ordersService.GetAllOrdersAsync();
+
+            return this.View(orders);
+        }
+
+        [Authorize]
         public async Task<IActionResult> Create(string id)
         {
             var product = await this.productsService.GetProductAsync(id);
