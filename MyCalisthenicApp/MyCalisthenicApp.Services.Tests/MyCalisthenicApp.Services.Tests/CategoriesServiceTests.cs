@@ -1,7 +1,9 @@
 ﻿namespace MyCalisthenicApp.Services.Tests
 {
+    using AutoMapper;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
+    using MyCalisthenicApp.Mapping.MappingConfiguration;
     using MyCalisthenicApp.Models;
     using MyCalisthenicApp.ViewModels.Categories;
     using System;
@@ -14,7 +16,8 @@
         private const string CategoryDescription = "Program category";
         private const string CategoryId = "12345";
         private const string CategoryNullId = "12345";
-
+        private const string ProgramTitle = "Program title";
+        private const string ProgramDescription = "Program description";
 
         [Fact]
         public async Task CreateBlogCategoryAsyncShouldCreateBlogCategorySuccessfully()
@@ -170,7 +173,14 @@
 
             var dbContext = new MyCalisthenicAppDbContext(options);
 
-            var categoriesService = new CategoriesService(dbContext, null);
+            var mockMapper = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new MyCalisthenicAppProfile());
+            });
+
+            var mapper = mockMapper.CreateMapper();
+
+            var categoriesService = new CategoriesService(dbContext, mapper);
 
             var programCategory = new ProgramCategory
             {
@@ -183,9 +193,20 @@
 
             await dbContext.SaveChangesAsync();
 
-            var actual = dbContext.ProgramCategories.FirstOrDefaultAsync(pc => pc.Id == CategoryId);
+            var program = new Program
+            {
+                Title = ProgramTitle,
+                Description = ProgramDescription,
+                CategoryId = programCategory.Id,
+            };
 
-            Assert.Equal(actual.Result.Id, CategoryId);
+            await dbContext.Programs.AddAsync(program);
+
+            await dbContext.SaveChangesAsync();
+
+            var expected = await categoriesService.GetCategoryByProgramIdAsync(program.Id);
+
+            Assert.Equal(expected.Id, programCategory.Id);
         }
 
         [Fact]

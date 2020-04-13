@@ -24,6 +24,11 @@
 
         public async Task EditAddressAsync(AddressAdminEditViewModel inputModel)
         {
+            if (!this.dbContext.Users.Any(u => u.Id == inputModel.UserId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, inputModel.UserId));
+            }
+
             var city = await this.dbContext.Cities
                 .Where(c => c.Id == inputModel.CityId)
                 .FirstOrDefaultAsync();
@@ -31,7 +36,7 @@
             var address = await this.dbContext.Addresses
                 .FirstOrDefaultAsync(a => a.Id == inputModel.Id);
 
-            if (city == null)
+            if (city == null || !this.dbContext.Cities.Any(c => c.Id == inputModel.CityId))
             {
                 throw new ArgumentNullException(string.Format(ServicesConstants.InvalidCityId, inputModel.CityId));
             }

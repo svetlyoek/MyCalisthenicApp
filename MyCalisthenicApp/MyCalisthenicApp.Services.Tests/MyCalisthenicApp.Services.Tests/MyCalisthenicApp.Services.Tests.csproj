@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Identity.Core" Version="2.2.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.3" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
@@ -20,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\MyCalisthenicApp.Data\MyCalisthenicApp.Data.csproj" />
+    <ProjectReference Include="..\..\MyCalisthenicApp.Mapping\MyCalisthenicApp.Mapping.csproj" />
     <ProjectReference Include="..\..\MyCalisthenicApp.Services\MyCalisthenicApp.Services.csproj" />
   </ItemGroup>
 

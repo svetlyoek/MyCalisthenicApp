@@ -25,11 +25,11 @@
 
         Task EditProductAsync(ProductAdminEditViewModel inputModel);
 
+        Task CreateProductAsync(ProductAdminCreateViewModel inputModel);
+
         Task<OrderProductAdminEditViewModel> GetOrderProductByIdAsync(string id);
 
         Task EditOrderProductAsync(OrderProductAdminEditViewModel inputModel);
-
-        Task CreateProductAsync(ProductAdminCreateViewModel inputModel);
 
         Task<IList<string>> GetAllLikesByProductIdAsync(string id);
 

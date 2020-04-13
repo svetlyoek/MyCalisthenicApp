@@ -1,7 +1,10 @@
 ﻿namespace MyCalisthenicApp.Services.Tests
 {
+    using AutoMapper;
     using Microsoft.EntityFrameworkCore;
     using MyCalisthenicApp.Data;
+    using MyCalisthenicApp.Mapping.MappingConfiguration;
+    using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Models.ShopEntities;
     using MyCalisthenicApp.ViewModels.Addresses;
     using System;
@@ -16,9 +19,13 @@
         private const string AddressEditCountryName = "France";
         private const string AddressStreet = "Shipka 156";
         private const string AddressId = "123456";
+        private const string UserId = "123";
+        private const string CityId = "123";
+        private const string UserFirstName = "123";
+        private const string UserLastName = "123";
 
         [Fact]
-        public async Task EditAddressAsyncShouldEditAddress()
+        public async Task EditAddressAsyncShouldEditAddressSuccessfully()
         {
             var options = new DbContextOptionsBuilder<MyCalisthenicAppDbContext>()
                     .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
@@ -39,11 +46,22 @@
 
             await dbContext.SaveChangesAsync();
 
+            var user = new ApplicationUser
+            {
+                FirstName = UserFirstName,
+                LastName = UserLastName,
+            };
+
+            await dbContext.Users.AddAsync(user);
+
+            await dbContext.SaveChangesAsync();
+
             var address = new Address
             {
                 Country = AddressCountryName,
                 Street = AddressStreet,
                 CityId = city.Id,
+                UserId = user.Id,
             };
 
             await dbContext.Addresses.AddAsync(address);
@@ -55,11 +73,126 @@
                 Id = address.Id,
                 CityId = city.Id,
                 Country = AddressEditCountryName,
+                UserId = user.Id,
             };
 
             await addressService.EditAddressAsync(addressViewModel);
 
             Assert.Equal(address.Country, addressViewModel.Country);
+        }
+
+        [Fact]
+        public async Task EditAddressAsyncShouldThrowExceptionIfCityIdDoesNotExists()
+        {
+            var options = new DbContextOptionsBuilder<MyCalisthenicAppDbContext>()
+                    .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+                    .Options;
+
+            var dbContext = new MyCalisthenicAppDbContext(options);
+
+            var addressService = new AddressesService(dbContext, null);
+
+            var city = new City
+            {
+                Id = Guid.NewGuid().ToString(),
+                Name = CityName,
+                PostCode = CityPostCode,
+            };
+
+            await dbContext.Cities.AddAsync(city);
+
+            await dbContext.SaveChangesAsync();
+
+            var user = new ApplicationUser
+            {
+                FirstName = UserFirstName,
+                LastName = UserLastName,
+            };
+
+            await dbContext.Users.AddAsync(user);
+
+            await dbContext.SaveChangesAsync();
+
+            var address = new Address
+            {
+                Country = AddressCountryName,
+                Street = AddressStreet,
+                CityId = city.Id,
+                UserId = user.Id,
+            };
+
+            await dbContext.Addresses.AddAsync(address);
+
+            await dbContext.SaveChangesAsync();
+
+            var addressViewModel = new AddressAdminEditViewModel
+            {
+                Id = address.Id,
+                CityId = CityId,
+                Country = AddressEditCountryName,
+                UserId = user.Id,
+            };
+
+            var exception = await Assert.ThrowsAsync<ArgumentNullException>(async () => await addressService.EditAddressAsync(addressViewModel));
+
+            Assert.IsType<ArgumentNullException>(exception);
+        }
+
+        [Fact]
+        public async Task EditAddressAsyncShouldThrowExceptionIfUserIdDoesNotExists()
+        {
+            var options = new DbContextOptionsBuilder<MyCalisthenicAppDbContext>()
+                    .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+                    .Options;
+
+            var dbContext = new MyCalisthenicAppDbContext(options);
+
+            var addressService = new AddressesService(dbContext, null);
+
+            var city = new City
+            {
+                Id = Guid.NewGuid().ToString(),
+                Name = CityName,
+                PostCode = CityPostCode,
+            };
+
+            await dbContext.Cities.AddAsync(city);
+
+            await dbContext.SaveChangesAsync();
+
+            var user = new ApplicationUser
+            {
+                FirstName = UserFirstName,
+                LastName = UserLastName,
+            };
+
+            await dbContext.Users.AddAsync(user);
+
+            await dbContext.SaveChangesAsync();
+
+            var address = new Address
+            {
+                Country = AddressCountryName,
+                Street = AddressStreet,
+                CityId = city.Id,
+                UserId = user.Id,
+            };
+
+            await dbContext.Addresses.AddAsync(address);
+
+            await dbContext.SaveChangesAsync();
+
+            var addressViewModel = new AddressAdminEditViewModel
+            {
+                Id = address.Id,
+                CityId = CityId,
+                Country = AddressEditCountryName,
+                UserId = UserId,
+            };
+
+            var exception = await Assert.ThrowsAsync<ArgumentNullException>(async () => await addressService.EditAddressAsync(addressViewModel));
+
+            Assert.IsType<ArgumentNullException>(exception);
         }
 
         [Fact]
@@ -136,14 +269,21 @@
         }
 
         [Fact]
-        public async Task GetAddressByIdAsyncShouldGetAddressByIdSuccessfully()
+        public async Task GetAddressByIdAsyncShouldReturnAddressByIdSuccessfully()
         {
             var option = new DbContextOptionsBuilder<MyCalisthenicAppDbContext>()
                  .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()).Options;
 
             var dbContext = new MyCalisthenicAppDbContext(option);
 
-            var addressService = new AddressesService(dbContext, null);
+            var mockMapper = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new MyCalisthenicAppProfile());
+            });
+
+            var mapper = mockMapper.CreateMapper();
+
+            var addressService = new AddressesService(dbContext, mapper);
 
             var city = new City
             {
@@ -168,9 +308,9 @@
 
             await dbContext.SaveChangesAsync();
 
-            var actual = dbContext.Addresses.FirstOrDefaultAsync(a => a.Id == AddressId);
+            var expected = await addressService.GetAddressByIdAsync(AddressId);
 
-            Assert.Equal(actual.Result.Id, AddressId);
+            Assert.Equal(expected.Id, address.Id);
         }
 
         [Fact]

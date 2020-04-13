@@ -513,6 +513,16 @@
 
         public async Task EditOrderAsync(OrderAdminEditViewModel inputModel)
         {
+            if (!this.dbContext.Users.Any(u => u.Id == inputModel.UserId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, inputModel.UserId));
+            }
+
+            if (!this.dbContext.Addresses.Any(u => u.Id == inputModel.DeliveryAddressId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidAddressId, inputModel.DeliveryAddressId));
+            }
+
             var order = await this.dbContext.Orders
                 .Where(c => c.Id == inputModel.Id)
                 .FirstOrDefaultAsync();

@@ -93,7 +93,7 @@
 
             if (comments == null)
             {
-                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProgram, id));
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProgramId, id));
             }
 
             var commentsViewModel = this.mapper.Map<IEnumerable<CommentViewModel>>(comments);
@@ -256,6 +256,21 @@
 
         public async Task EditCommentAsync(CommentAdminEditViewModel inputModel)
         {
+            if (inputModel.PostId != null && !this.dbContext.Post.Any(p => p.Id == inputModel.PostId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidPostId, inputModel.PostId));
+            }
+
+            if (inputModel.ProductId != null && !this.dbContext.Products.Any(p => p.Id == inputModel.ProductId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProductId, inputModel.ProductId));
+            }
+
+            if (inputModel.ProgramId != null && !this.dbContext.Programs.Any(p => p.Id == inputModel.ProgramId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProgramId, inputModel.ProgramId));
+            }
+
             var comment = await this.dbContext.Comments
                 .FirstOrDefaultAsync(c => c.Id == inputModel.Id);
 

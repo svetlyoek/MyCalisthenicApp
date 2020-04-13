@@ -41,6 +41,7 @@
         public const int ProductsCountPerPage = 8;
         public const string InvalidProductId = "Product with {0} id does not exists!";
         public const string InvalidProduct = "Product does not exists!";
+        public const string InvalidProductCategoryId = "Product category with {0} does not eixsts!";
         public const string ProductsNewestSortEnum = "Newest";
         public const string ProductsOldestSortEnum = "Oldest";
         public const string ProductsPriceDescendingSortEnum = "PriceDescending";
@@ -49,9 +50,10 @@
 
         // Posts
         public const int PostsDefaultPage = 1;
-        public const int PostsCountPerPage = 9;
+        public const int PostsCountPerPage = 6;
         public const string InvalidPostId = "Post with {0} id does not exists!";
         public const string InvalidPost = "Post  does not exists!";
+        public const string InvalidPostCategoryId = "Post category with {0} id does not exists!";
 
         // Shopping bag
         public const int DefaultShoppingBagAddedQuantity = 1;

@@ -216,6 +216,11 @@
 
         public async Task EditProgramAsync(ProgramAdminEditViewModel inputModel)
         {
+            if (!this.dbContext.ProgramCategories.Any(u => u.Id == inputModel.CategoryId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProgramCategoryId, inputModel.CategoryId));
+            }
+
             var program = await this.dbContext.Programs
                  .Include(p => p.Category)
                  .FirstOrDefaultAsync(p => p.Id == inputModel.Id);
@@ -264,6 +269,11 @@
 
         public async Task CreateProgramAsync(ProgramAdminCreateViewModel inputModel)
         {
+            if (!this.dbContext.ProgramCategories.Any(u => u.Id == inputModel.CategoryId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProgramCategoryId, inputModel.CategoryId));
+            }
+
             var program = new Program
             {
                 Title = inputModel.Title,

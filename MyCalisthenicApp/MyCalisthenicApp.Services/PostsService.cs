@@ -283,6 +283,16 @@
 
         public async Task EditPostAsync(PostAdminEditViewModel inputModel)
         {
+            if (!this.dbContext.Users.Any(u => u.Id == inputModel.AuthorId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, inputModel.AuthorId));
+            }
+
+            if (!this.dbContext.BlogCategories.Any(u => u.Id == inputModel.CategoryId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidPostCategoryId, inputModel.CategoryId));
+            }
+
             var post = await this.dbContext.Post
                   .Include(p => p.Category)
                   .FirstOrDefaultAsync(p => p.Id == inputModel.Id);
@@ -327,6 +337,16 @@
 
         public async Task CreatePostAsync(PostAdminCreateViewModel inputModel)
         {
+            if (!this.dbContext.Users.Any(u => u.Id == inputModel.AuthorId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, inputModel.AuthorId));
+            }
+
+            if (!this.dbContext.BlogCategories.Any(u => u.Id == inputModel.CategoryId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidPostCategoryId, inputModel.CategoryId));
+            }
+
             var post = new Post
             {
                 Title = inputModel.Title,

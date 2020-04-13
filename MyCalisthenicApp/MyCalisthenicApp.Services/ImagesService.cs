@@ -79,6 +79,26 @@
 
         public async Task EditImageAsync(ImageAdminEditViewModel inputModel)
         {
+            if (inputModel.PostId != null && !this.dbContext.Post.Any(p => p.Id == inputModel.PostId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidPostId, inputModel.PostId));
+            }
+
+            if (inputModel.ProductId != null && !this.dbContext.Products.Any(p => p.Id == inputModel.ProductId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProductId, inputModel.ProductId));
+            }
+
+            if (inputModel.ProgramId != null && !this.dbContext.Programs.Any(p => p.Id == inputModel.ProgramId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProgramId, inputModel.ProgramId));
+            }
+
+            if (inputModel.ExerciseId != null && !this.dbContext.Exercises.Any(p => p.Id == inputModel.ExerciseId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidExerciseId, inputModel.ExerciseId));
+            }
+
             var image = await this.dbContext.Images
                   .FirstOrDefaultAsync(i => i.Id == inputModel.Id);
 
@@ -138,6 +158,26 @@
 
         public async Task CreateImageAsync(ImageAdminCreateViewModel inputModel)
         {
+            if (inputModel.PostId != null && !this.dbContext.Post.Any(p => p.Id == inputModel.PostId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidPostId, inputModel.PostId));
+            }
+
+            if (inputModel.ProductId != null && !this.dbContext.Products.Any(p => p.Id == inputModel.ProductId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProductId, inputModel.ProductId));
+            }
+
+            if (inputModel.ProgramId != null && !this.dbContext.Programs.Any(p => p.Id == inputModel.ProgramId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProgramId, inputModel.ProgramId));
+            }
+
+            if (inputModel.ExerciseId != null && !this.dbContext.Exercises.Any(p => p.Id == inputModel.ExerciseId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidExerciseId, inputModel.ExerciseId));
+            }
+
             var image = new Image
             {
                 Url = inputModel.Url,

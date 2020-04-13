@@ -120,6 +120,11 @@
 
         public async Task EditExerciseAsync(ExerciseAdminEditViewModel inputModel)
         {
+            if (!this.dbContext.ProgramCategories.Any(pc => pc.Id == inputModel.ProgramCategoryId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProgramCategoryId, inputModel.ProgramCategoryId));
+            }
+
             var exercise = await this.dbContext.Exercises
                   .Include(p => p.ProgramCategory)
                   .FirstOrDefaultAsync(p => p.Id == inputModel.Id);
@@ -160,6 +165,11 @@
 
         public async Task CreateExerciseAsync(ExerciseAdminCreateViewModel inputModel)
         {
+            if (!this.dbContext.ProgramCategories.Any(pc => pc.Id == inputModel.ProgramCategoryId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProgramCategoryId, inputModel.ProgramCategoryId));
+            }
+
             var exercise = new Exercise
             {
                 Name = inputModel.Name,

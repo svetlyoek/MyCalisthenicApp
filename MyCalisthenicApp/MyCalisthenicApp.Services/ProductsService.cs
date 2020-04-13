@@ -389,6 +389,11 @@
 
         public async Task EditProductAsync(ProductAdminEditViewModel inputModel)
         {
+            if (!this.dbContext.ProductCategories.Any(u => u.Id == inputModel.CategoryId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProductCategoryId, inputModel.CategoryId));
+            }
+
             var product = await this.dbContext.Products
                 .Include(p => p.Category)
                 .Include(p => p.Images)
@@ -446,6 +451,11 @@
 
         public async Task CreateProductAsync(ProductAdminCreateViewModel inputModel)
         {
+            if (!this.dbContext.ProductCategories.Any(u => u.Id == inputModel.CategoryId))
+            {
+                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidProductCategoryId, inputModel.CategoryId));
+            }
+
             var product = new Product
             {
                 Name = inputModel.Name,
