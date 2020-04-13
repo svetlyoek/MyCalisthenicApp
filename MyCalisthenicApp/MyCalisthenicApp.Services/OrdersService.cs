@@ -1,7 +1,6 @@
 ﻿namespace MyCalisthenicApp.Services
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -577,23 +576,6 @@
             await this.dbContext.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<OrdersViewModel>> GetAllOrdersAsync()
-        {
-            var userId = this.usersService.GetLoggedUserId();
-
-            var orders = await this.dbContext.Orders
-                .Include(a => a.DeliveryAddress)
-                .ThenInclude(c => c.City)
-                .Include(p => p.Products)
-                .ThenInclude(op => op.Product)
-                .Where(o => o.UserId == userId)
-                .ToListAsync();
-
-            var ordersViewModel = this.mapper.Map<IEnumerable<OrdersViewModel>>(orders);
-
-            return ordersViewModel;
-        }
-
         private async Task<Address> GetAddress(AddressInputViewModel inputModel, string userId)
         {
             var address = await this.dbContext.Addresses
@@ -608,7 +590,5 @@
 
             return address;
         }
-
-
     }
 }

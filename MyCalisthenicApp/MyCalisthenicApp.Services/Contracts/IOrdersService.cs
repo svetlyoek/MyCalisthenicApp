@@ -1,6 +1,5 @@
 ﻿namespace MyCalisthenicApp.Services.Contracts
 {
-    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     using MyCalisthenicApp.Models.ShopEntities;
@@ -26,8 +25,6 @@
         Task<OrderCheckoutViewModel> GetOrderToSendAsync();
 
         Task<OrderAdminEditViewModel> GetOrderByIdAsync(string id);
-
-        Task<IEnumerable<OrdersViewModel>> GetAllOrdersAsync();
 
         Task EditOrderAsync(OrderAdminEditViewModel inputModel);
     }
