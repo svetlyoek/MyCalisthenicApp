@@ -28,7 +28,7 @@
         {
             var memberships = await this.dbContext
                 .Memberships
-                 .Where(m => m.IsDeleted == false)
+                .Where(m => m.IsDeleted == false)
                 .OrderBy(p => p.YearlyPrice)
                 .ToListAsync();
 
