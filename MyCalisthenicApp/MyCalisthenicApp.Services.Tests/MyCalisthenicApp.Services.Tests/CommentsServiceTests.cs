@@ -35,7 +35,7 @@
         private const string UserLastName = "Ivanov";
 
         [Fact]
-        public async Task CreateCommentAsyncShouldNotCreateCommentIfUserIsNull()
+        public async Task CreateCommentAsyncShouldThrowExceptionIfUserIsNull()
         {
             var options = new DbContextOptionsBuilder<MyCalisthenicAppDbContext>()
                    .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
@@ -47,9 +47,24 @@
 
             var usersService = new UsersService(httpContextAccessor, dbContext, null);
 
-            var userFromDb = await usersService.GetLoggedUserByIdAsync(UserId);
 
-            Assert.Null(userFromDb);
+            var mockMapper = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new MyCalisthenicAppProfile());
+            });
+
+            var mapper = mockMapper.CreateMapper();
+
+            var commentsService = new CommentsService(dbContext, mapper, usersService);
+
+            var commentModel = new CommentInputViewModel
+            {
+                Text = CommentText,
+            };
+
+            var exception = await Assert.ThrowsAsync<NullReferenceException>(async () => await commentsService.CreateCommentAsync(PostId, commentModel));
+
+            Assert.IsType<NullReferenceException>(exception);
         }
 
 
@@ -405,6 +420,37 @@
 
             Assert.IsType<ArgumentNullException>(exception);
         }
+
+        [Fact]
+        public async Task AddRatingAsyncShouldThrowExceptionIfUserIsNull()
+        {
+            var options = new DbContextOptionsBuilder<MyCalisthenicAppDbContext>()
+                   .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+                   .Options;
+
+            var dbContext = new MyCalisthenicAppDbContext(options);
+
+            IHttpContextAccessor httpContextAccessor = new HttpContextAccessor();
+
+            var usersService = new UsersService(httpContextAccessor, dbContext, null);
+
+            var commentsService = new CommentsService(dbContext, null, usersService);
+
+            var comment = new Comment
+            {
+                Id = CommentId,
+                Text = CommentText,
+            };
+
+            await dbContext.Comments.AddAsync(comment);
+
+            await dbContext.SaveChangesAsync();
+
+            var exception = await Assert.ThrowsAsync<NullReferenceException>(async () => await commentsService.AddRatingAsync(comment.Id));
+
+            Assert.IsType<NullReferenceException>(exception);
+        }
+
 
 
 

@@ -113,7 +113,7 @@
 
             if (userFromDb == null)
             {
-                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, userId));
+                throw new NullReferenceException(string.Format(ServicesConstants.InvalidUserId, userId));
             }
 
             var userCredentials = userFromDb.FirstName + " " + userFromDb.LastName + ":" + userId;

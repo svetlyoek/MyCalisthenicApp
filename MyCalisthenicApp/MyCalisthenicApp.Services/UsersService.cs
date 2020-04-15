@@ -48,7 +48,7 @@
 
             if (userFromDb == null)
             {
-                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, userId));
+                throw new NullReferenceException(string.Format(ServicesConstants.InvalidUserId, userId));
             }
 
             if (inputModel.Coupon == ServicesConstants.AppDiscountCoupon && userFromDb.HasCoupon == false)
@@ -178,7 +178,7 @@
 
             if (userFromDb == null)
             {
-                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, id));
+                throw new NullReferenceException(string.Format(ServicesConstants.InvalidUserId, id));
             }
 
             if (userFromDb.IsDeleted == false)
@@ -206,7 +206,7 @@
 
             if (userToBlock == null)
             {
-                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, id));
+                throw new NullReferenceException(string.Format(ServicesConstants.InvalidUserId, id));
             }
 
             userToBlock.IsDeleted = true;
@@ -333,7 +333,7 @@
 
             if (userFromDb == null)
             {
-                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, id));
+                throw new NullReferenceException(string.Format(ServicesConstants.InvalidUserId, id));
             }
 
             var userViewModel = this.mapper.Map<UserAdminEditViewModel>(userFromDb);
@@ -348,7 +348,7 @@
 
             if (userFromDb == null)
             {
-                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, inputModel.Id));
+                throw new NullReferenceException(string.Format(ServicesConstants.InvalidUserId, inputModel.Id));
             }
 
             userFromDb.HasCoupon = inputModel.HasCoupon;

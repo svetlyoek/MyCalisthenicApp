@@ -50,7 +50,7 @@
 
             if (userFromDb == null)
             {
-                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, userId));
+                throw new NullReferenceException(string.Format(ServicesConstants.InvalidUserId, userId));
             }
 
             var userCredentials = userFromDb.FirstName + " " + userFromDb.LastName + ":" + userId;
@@ -124,8 +124,8 @@
 
         public async Task<IEnumerable<PopularPostsHomeViewModel>> GetPopularPostsAsync()
         {
-            var posts = await this.dbContext
-                .Post.Include(a => a.Author)
+            var posts = await this.dbContext.Post
+                .Include(a => a.Author)
                 .Include(c => c.Category)
                 .Include(i => i.Images)
                 .Include(cm => cm.Comments)
@@ -144,7 +144,8 @@
             return this.dbContext.Post
                 .Where(p => p.IsDeleted == false)
                  .Where(p => p.Category.IsDeleted == false)
-                 .Where(p => p.IsPublic == true).Any(p => p.Id == id);
+                 .Where(p => p.IsPublic == true)
+                 .Any(p => p.Id == id);
         }
 
         public async Task<PostDetailsViewModel> GetPostDetailsByIdAsync(string id)

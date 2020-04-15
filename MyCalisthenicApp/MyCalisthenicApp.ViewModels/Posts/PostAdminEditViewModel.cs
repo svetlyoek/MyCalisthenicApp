@@ -1,11 +1,11 @@
 ﻿namespace MyCalisthenicApp.ViewModels.Posts
 {
-    using MyCalisthenicApp.Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Web.Mvc;
+
+    using MyCalisthenicApp.Models;
 
     public class PostAdminEditViewModel
     {

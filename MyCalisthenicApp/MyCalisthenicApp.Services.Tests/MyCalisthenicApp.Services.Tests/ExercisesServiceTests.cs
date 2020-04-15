@@ -2,17 +2,13 @@
 {
     using AutoMapper;
     using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.Identity;
-    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
-    using Moq;
     using MyCalisthenicApp.Data;
     using MyCalisthenicApp.Mapping.MappingConfiguration;
     using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Models.TrainingEntities;
     using MyCalisthenicApp.ViewModels.Exercises;
     using System;
-    using System.Net;
     using System.Threading.Tasks;
     using Xunit;
 
@@ -31,7 +27,7 @@
         private const string UserLastName = "Ivanov";
 
         [Fact]
-        public async Task GetExercisesByCategoryIdAsyncShouldThrowExpetionIfUserIsNull()
+        public async Task GetExercisesByCategoryIdAsyncShouldThrowExceptionIfUserIsNull()
         {
             var options = new DbContextOptionsBuilder<MyCalisthenicAppDbContext>()
                 .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
@@ -54,9 +50,9 @@
 
             var exercisesService = new ExercisesService(dbContext, mapper, usersService, categoriesService);
 
-            var userFromDb = await usersService.GetLoggedUserByIdAsync(UserId);
+            var exception = await Assert.ThrowsAsync<NullReferenceException>(async () => await exercisesService.GetExercisesByCategoryIdAsync(ProgramCategoryId));
 
-            Assert.Null(userFromDb);
+            Assert.IsType<NullReferenceException>(exception);
         }
 
 

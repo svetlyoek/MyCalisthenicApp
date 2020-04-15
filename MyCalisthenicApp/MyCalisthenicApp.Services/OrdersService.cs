@@ -97,7 +97,7 @@
 
             if (userFromDb == null)
             {
-                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, userId));
+                throw new NullReferenceException(string.Format(ServicesConstants.InvalidUserId, userId));
             }
 
             if (userFromDb.HasMembership)
@@ -158,7 +158,7 @@
 
             if (userFromDb == null)
             {
-                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, userId));
+                throw new NullReferenceException(string.Format(ServicesConstants.InvalidUserId, userId));
             }
 
             if (this.dbContext.Orders.Any(o => o.UserId == userId && o.Status != OrderStatus.Sent))
@@ -285,7 +285,7 @@
                 order = newOrder;
             }
 
-            var currentAddress = await this.GetAddress(inputModel, userId);
+            var currentAddress = await this.GetAddressAsync(inputModel, userId);
 
             if (order.DeliveryAddressId == null || currentAddress == null)
             {
@@ -414,7 +414,7 @@
 
             if (userFromDb == null)
             {
-                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, userId));
+                throw new NullReferenceException(string.Format(ServicesConstants.InvalidUserId, userId));
             }
 
             var order = await this.dbContext.Orders
@@ -576,7 +576,7 @@
             await this.dbContext.SaveChangesAsync();
         }
 
-        private async Task<Address> GetAddress(AddressInputViewModel inputModel, string userId)
+        private async Task<Address> GetAddressAsync(AddressInputViewModel inputModel, string userId)
         {
             var address = await this.dbContext.Addresses
                     .Where(a => a.IsDeleted == false)
