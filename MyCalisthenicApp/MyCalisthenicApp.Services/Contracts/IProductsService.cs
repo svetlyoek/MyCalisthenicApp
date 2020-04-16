@@ -19,9 +19,9 @@
 
         Task<IEnumerable<ProductsViewModel>> GetProductsAndSortAsync(string sort);
 
-        Task<ProductDetailsViewModel> GetProductsByIdAsync(string id);
+        Task<ProductDetailsViewModel> GetProductByIdAsync(string id);
 
-        Task<ProductAdminEditViewModel> GetProductByIdAsync(string id);
+        Task<ProductAdminEditViewModel> GetAdminProductByIdAsync(string id);
 
         Task EditProductAsync(ProductAdminEditViewModel inputModel);
 

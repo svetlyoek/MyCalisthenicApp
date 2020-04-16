@@ -52,8 +52,8 @@
 
         public async Task<IEnumerable<ProductsHomePopularViewModel>> GetPopularProductsAsync()
         {
-            var products = await this.dbContext
-                .Products.Include(i => i.Images)
+            var products = await this.dbContext.Products
+                 .Include(i => i.Images)
                  .Where(p => p.IsDeleted == false)
                  .Where(p => p.Category.IsDeleted == false)
                 .Include(c => c.Category)
@@ -67,8 +67,8 @@
 
         public async Task<IEnumerable<ProductsViewModel>> GetProductsAndSortAsync(string sort)
         {
-            var products = await this.dbContext
-                .Products.Include(i => i.Images)
+            var products = await this.dbContext.Products
+                 .Include(i => i.Images)
                  .Where(p => p.IsDeleted == false)
                  .Where(p => p.Category.IsDeleted == false)
                 .Include(c => c.Category)
@@ -103,7 +103,7 @@
         public async Task<IEnumerable<ProductsViewModel>> GetProductsByCategoryAsync(string name)
         {
             var products = await this.dbContext.Products
-                .Include(i => i.Images)
+                 .Include(i => i.Images)
                  .Include(c => c.Category)
                  .ThenInclude(p => p.Products)
                  .Where(p => p.Category.Name == name)
@@ -116,7 +116,7 @@
             return productsViewModel;
         }
 
-        public async Task<ProductDetailsViewModel> GetProductsByIdAsync(string id)
+        public async Task<ProductDetailsViewModel> GetProductByIdAsync(string id)
         {
             var product = await this.dbContext.Products
                 .Include(i => i.Images)
@@ -203,8 +203,6 @@
 
         public async Task<Product> GetProductAsync(string id)
         {
-            var userId = this.usersService.GetLoggedUserId();
-
             var product = await this.dbContext.Products
                .Where(p => p.IsDeleted == false)
                .Where(p => p.Category.IsDeleted == false)
@@ -278,7 +276,7 @@
             }
 
             var product = await this.dbContext.OrderProducts
-                 .Where(op => op.ProductId == id)
+                  .Where(op => op.ProductId == id)
                   .Where(op => op.OrderId == order.Id)
                  .FirstOrDefaultAsync();
 
@@ -366,7 +364,7 @@
             await this.dbContext.SaveChangesAsync();
         }
 
-        public async Task<ProductAdminEditViewModel> GetProductByIdAsync(string id)
+        public async Task<ProductAdminEditViewModel> GetAdminProductByIdAsync(string id)
         {
             var product = await this.dbContext.Products
                 .Include(p => p.Category)

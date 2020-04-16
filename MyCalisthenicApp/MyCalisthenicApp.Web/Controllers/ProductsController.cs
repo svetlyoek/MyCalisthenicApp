@@ -75,7 +75,7 @@
                 return this.View("Error404");
             }
 
-            var product = await this.productsService.GetProductsByIdAsync(id);
+            var product = await this.productsService.GetProductByIdAsync(id);
 
             var comments = await this.commentsService.GetCommentsByProductIdAsync(product.Id);
 

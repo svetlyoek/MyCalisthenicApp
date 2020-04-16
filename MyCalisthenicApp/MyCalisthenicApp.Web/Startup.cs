@@ -80,7 +80,7 @@ namespace MyCalisthenicApp.Web
             });
 
             // Application services
-            services.AddTransient<IUserRequestsService, UserRequestService>();
+            services.AddTransient<IUserRequestsService, UserRequestsService>();
             services.AddTransient<IProgramsService, ProgramsService>();
             services.AddTransient<IExercisesService, ExercisesService>();
             services.AddTransient<ICommentsService, CommentsService>();

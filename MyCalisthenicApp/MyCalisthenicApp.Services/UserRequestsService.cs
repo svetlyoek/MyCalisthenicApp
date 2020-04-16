@@ -6,11 +6,11 @@
     using MyCalisthenicApp.Models;
     using MyCalisthenicApp.Services.Contracts;
 
-    public class UserRequestService : IUserRequestsService
+    public class UserRequestsService : IUserRequestsService
     {
         private readonly MyCalisthenicAppDbContext dbContext;
 
-        public UserRequestService(MyCalisthenicAppDbContext dbContext)
+        public UserRequestsService(MyCalisthenicAppDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
