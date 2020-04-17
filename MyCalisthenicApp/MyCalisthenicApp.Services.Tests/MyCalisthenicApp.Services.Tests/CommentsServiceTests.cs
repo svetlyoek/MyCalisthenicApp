@@ -33,6 +33,9 @@
         private const string CommentId = "11";
         private const string UserFirstName = "Ivan";
         private const string UserLastName = "Ivanov";
+        private const string UserEmail = "user@abv.bg";
+        private const string UserUserName = "Username";
+
 
         [Fact]
         public async Task CreateCommentAsyncShouldThrowExceptionIfUserIsNull()
@@ -69,7 +72,10 @@
 
 
 
+
         //TODO Logg user manualy and check comment creation for post, program and product
+
+
 
 
         [Fact]

@@ -153,7 +153,7 @@
             var bannedUsers = await this.dbContext.Users
                 .Include(u => u.ShoppingCart)
                 .Where(u => u.IsDeleted == true)
-                 .ToListAsync();
+                .ToListAsync();
 
             var bannedUsersViewModel = this.mapper.Map<IList<UsersAdminViewModel>>(bannedUsers);
 
@@ -235,7 +235,7 @@
                 .Where(c => c.AuthorId == id)
                 .ToListAsync();
 
-            if (comments == null)
+            if (!comments.Any())
             {
                 throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, id));
             }
@@ -252,7 +252,7 @@
                  .Where(c => c.UserId == id)
                  .ToListAsync();
 
-            if (orders == null)
+            if (!orders.Any())
             {
                 throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, id));
             }
@@ -265,7 +265,7 @@
         public async Task<IList<OrdersAdminViewModel>> GetAllOrdersAsync()
         {
             var orders = await this.dbContext.Orders
-                .Include(o => o.Products)
+                 .Include(o => o.Products)
                  .ToListAsync();
 
             var ordersViewModel = this.mapper.Map<IList<OrdersAdminViewModel>>(orders);
@@ -280,7 +280,7 @@
                 .Where(c => c.UserId == id)
                 .ToListAsync();
 
-            if (addresses == null)
+            if (!addresses.Any())
             {
                 throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, id));
             }
@@ -297,7 +297,7 @@
                 .Where(o => o.OrderId == id)
                 .ToListAsync();
 
-            if (products == null)
+            if (!products.Any())
             {
                 throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, id));
             }

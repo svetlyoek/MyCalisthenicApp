@@ -64,7 +64,7 @@
         public async Task<ProgramDetailsViewModel> GetProgramDetailsByIdAsync(string id)
         {
             var program = await this.dbContext.Programs
-               .Include(p => p.Images)
+                .Include(p => p.Images)
                 .Include(c => c.Category)
                 .Include(cm => cm.Comments)
                 .Where(p => p.IsDeleted == false)
@@ -90,7 +90,8 @@
                 .Where(p => p.Type == programType)
                 .Where(p => p.IsDeleted == false)
                 .Where(p => p.Category.IsDeleted == false)
-                .Select(p => p).ToListAsync();
+                .Select(p => p)
+                .ToListAsync();
 
             var programsViewModel = this.mapper.Map<IEnumerable<ProgramViewModel>>(programs);
 
