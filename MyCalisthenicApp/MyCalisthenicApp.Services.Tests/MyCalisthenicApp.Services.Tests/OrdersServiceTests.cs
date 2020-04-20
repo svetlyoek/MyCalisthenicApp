@@ -22,20 +22,12 @@
         private decimal ProductPrice = 12.49M;
         private const string ProductDescription = "Product description";
         private const string CategoryId = "12";
-        private const string CategoryName = "Category name";
         private const string OrderId = "34554";
         private decimal OrderTotalPrice = 100.20M;
         private const string CityName = "City name";
         private const string CityPostCode = "City post code";
         private const string AddressCountry = "Address country";
         private const string AddressStreet = "Address street";
-
-
-
-
-        //TODO first method
-
-
 
         [Fact]
         public async Task CreateMembershipToOrderAsyncShouldThrowExceptionIfUserIsNull()
@@ -63,12 +55,6 @@
 
             Assert.IsType<NullReferenceException>(exception);
         }
-
-
-
-        //TODO test upper method another cases with logged user
-
-
 
         [Fact]
         public async Task CreateOrderAsyncShouldReturnFalseIfProductIsSoldOut()
@@ -142,19 +128,6 @@
         }
 
 
-
-        //TODO test another scenarios to upper method with logged user
-
-        //TODO test ShoppingBagProductsCountAsync
-
-        //TODO CreateAddressToOrderAsync
-
-        //TODO SetDeliveryPriceToOrderAsync
-
-        //TODO GetOrderToSendAsync
-
-
-
         [Fact]
         public async Task SendOrderAsyncShouldThrowExceptionIfUserIsNull()
         {
@@ -181,12 +154,6 @@
 
             Assert.IsType<NullReferenceException>(exception);
         }
-
-
-
-        //TODO check others scenarios for SendOrderAsync
-
-
 
 
         [Fact]

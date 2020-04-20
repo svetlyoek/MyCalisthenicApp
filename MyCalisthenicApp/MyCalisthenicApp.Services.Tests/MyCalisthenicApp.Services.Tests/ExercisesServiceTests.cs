@@ -22,9 +22,6 @@
         private const string ProgramCategoryId = "123456";
         private const string CategoryName = "Category name";
         private const string CategoryDescription = "Category description";
-        private const string UserId = "123";
-        private const string UserFirstName = "Ivan";
-        private const string UserLastName = "Ivanov";
 
         [Fact]
         public async Task GetExercisesByCategoryIdAsyncShouldThrowExceptionIfUserIsNull()
@@ -54,13 +51,6 @@
 
             Assert.IsType<NullReferenceException>(exception);
         }
-
-
-
-
-        //TODO test first method in service and logg user
-
-
 
         [Fact]
         public async Task GetAllExercisesForAdminAsyncShouldReturnAllExercises()

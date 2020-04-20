@@ -73,12 +73,6 @@
             Assert.IsType<NullReferenceException>(exception);
         }
 
-
-
-        //TODO test another cases and methods with logged user
-
-
-
         [Fact]
         public async Task GetLoggedUserByIdAsyncShouldReturnUserSuccessfully()
         {

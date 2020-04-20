@@ -15,7 +15,6 @@
 
     public class CommentsServiceTests
     {
-        private const string UserId = "123456";
         private const string ProgramId = "123";
         private const string ProgramTitle = "Program title";
         private const string ProgramDescription = "Program description";
@@ -33,9 +32,6 @@
         private const string CommentId = "11";
         private const string UserFirstName = "Ivan";
         private const string UserLastName = "Ivanov";
-        private const string UserEmail = "user@abv.bg";
-        private const string UserUserName = "Username";
-
 
         [Fact]
         public async Task CreateCommentAsyncShouldThrowExceptionIfUserIsNull()
@@ -69,14 +65,6 @@
 
             Assert.IsType<NullReferenceException>(exception);
         }
-
-
-
-
-        //TODO Logg user manualy and check comment creation for post, program and product
-
-
-
 
         [Fact]
         public async Task GetCommentsByProgramIdAsyncShouldReturnCommentsSuccessfully()
@@ -456,14 +444,6 @@
 
             Assert.IsType<NullReferenceException>(exception);
         }
-
-
-
-
-        //TODO User logg and check other cases
-
-
-
 
         [Fact]
         public async Task GetAllLikesByCommentIdAsyncShouldThrowExceptionIfCommentIsNull()

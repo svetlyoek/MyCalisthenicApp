@@ -25,7 +25,6 @@
         private decimal ProductPrice = 18.90M;
         private const string ProductDescription = "Product description";
         private const string ProductSearchDescription = "Search text description";
-        private const string UserId = "3747";
         private const string UserFirstName = "Ivan";
         private const string UserLastName = "Ivanov";
         private const string CommentText = "Comment text";

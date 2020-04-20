@@ -8,7 +8,7 @@
 
     public class UserRequestsServiceTests
     {
-        private const string UserRequestFullName = "Full name";
+        private const string UserRequestFullName = "Ivan Ivanov";
         private const string UserRequestEmail = "user@abv.bg";
         private const string UserRequestContent = "Request content";
 

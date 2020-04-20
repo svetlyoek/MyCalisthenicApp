@@ -112,12 +112,6 @@
             Assert.IsType<NullReferenceException>(exception);
         }
 
-
-
-        //TODO another cases for AddRatingAsync
-
-
-
         [Fact]
         public async Task GetAllPostsAsyncShouldReturnAllPostsSuccessfully()
         {

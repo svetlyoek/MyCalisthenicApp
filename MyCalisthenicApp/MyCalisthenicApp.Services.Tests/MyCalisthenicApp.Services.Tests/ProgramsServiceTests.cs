@@ -422,13 +422,6 @@
             Assert.IsType<NullReferenceException>(exception);
         }
 
-
-
-        //TODO another cases with logged user
-
-
-
-
         [Fact]
         public async Task GetProgramByIdShouldReturnTrueIfProgramExists()
         {

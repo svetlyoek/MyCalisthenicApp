@@ -859,15 +859,6 @@
             Assert.IsType<NullReferenceException>(exception);
         }
 
-
-
-
-
-        //TODO Check another cases with logged user
-
-
-
-
         [Fact]
         public async Task ProductsExistsByIdShouldReturnTrueIfProductExists()
         {
@@ -1050,14 +1041,6 @@
             Assert.Equal(product.Id, expected.Id);
         }
 
-
-
-
-        //TODO Check GetShoppingBagProductsAsync
-
-
-
-
         [Fact]
         public async Task RemoveProductFromShoppingBagAsyncShouldThrowExceptionIfUserIsNull()
         {
@@ -1086,12 +1069,6 @@
 
             Assert.IsType<NullReferenceException>(exception);
         }
-
-
-
-        //TODO Check another cases for logged user
-
-
 
         [Fact]
         public async Task GetAllLikesByProductIdAsyncShouldThrowExceptionIfProductIsNull()
