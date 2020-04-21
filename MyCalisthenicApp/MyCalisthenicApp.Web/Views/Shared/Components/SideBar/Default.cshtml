@@ -20,7 +20,7 @@
                     </div>
                     <div class="content-part">
                         <h4>@post.Title</h4>
-                        <span class="text">@post.Description</span>
+                        <span class="text">@post.Description.Substring(0, 20)...</span>
                     </div>
                 </div>
             }
@@ -65,7 +65,7 @@
                     else if (counter == 5)
                     {
                         customSort = "Workout/Training";
-                        <li>@Html.ActionLink(customSort, "Index", "Posts", new { sort =sort.ToString() })</li>
+                        <li>@Html.ActionLink(customSort, "Index", "Posts", new { sort = sort.ToString() })</li>
                     }
                     else if (counter == 6)
                     {

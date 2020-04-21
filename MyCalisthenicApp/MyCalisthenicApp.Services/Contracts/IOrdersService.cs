@@ -1,5 +1,6 @@
 ﻿namespace MyCalisthenicApp.Services.Contracts
 {
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     using MyCalisthenicApp.Models.ShopEntities;
@@ -21,6 +22,8 @@
         Task<bool> SetDeliveryPriceToOrderAsync(decimal deliveryPrice);
 
         Task<bool> SendOrderAsync(string id);
+
+        Task<IEnumerable<OrdersViewModel>> GetAllOrdersAsync();
 
         Task<OrderCheckoutViewModel> GetOrderToSendAsync();
 

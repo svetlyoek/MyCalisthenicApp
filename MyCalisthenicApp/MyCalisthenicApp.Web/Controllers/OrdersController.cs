@@ -67,5 +67,13 @@
 
             return this.RedirectToAction("Index", "ShoppingBags");
         }
+
+        [Authorize]
+        public async Task<IActionResult> All()
+        {
+            var orders = await this.ordersService.GetAllOrdersAsync();
+
+            return this.View(orders);
+        }
     }
 }

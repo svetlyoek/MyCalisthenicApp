@@ -58,7 +58,7 @@
 
                 this.TempData["InfoMessage"] = GlobalConstants.OrderSentSuccessfully;
 
-              await this.emailSender.SendEmailAsync(
+                await this.emailSender.SendEmailAsync(
               GlobalConstants.ApplicationSendEmail,
               GlobalConstants.AdministratorRoleName,
               userEmail,

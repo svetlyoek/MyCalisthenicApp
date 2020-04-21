@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MyCalisthenicApp.Web.Common
+﻿namespace MyCalisthenicApp.Web.Common
 {
     public static class GlobalConstants
     {
@@ -20,7 +18,7 @@ namespace MyCalisthenicApp.Web.Common
 
         public const string SuccessfullSendContent = "Your order #{0} was send successfully. We will keep in touch via email or phone. Thank you!" +
              " " +
-            "Order total price:{1}" +
+            "Order total price: ${1}" +
              ", " +
             "Order status: {2}" +
             ", " +

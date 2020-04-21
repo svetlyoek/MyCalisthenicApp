@@ -1,0 +1,108 @@
+﻿@model IEnumerable<OrdersViewModel>
+@{
+    ViewData["Title"] = "My orders";
+    Layout = "~/Views/Shared/Layouts/_LayoutIdentity.cshtml";
+}
+<body>
+    <div style="height:600px;">
+        <div class="text-dark" style="height:500px; overflow-x: scroll">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Created on</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Payment status</th>
+                        <th scope="col">Delivery date</th>
+                        <th scope="col">Dispatch date</th>
+                        <th scope="col">Total price</th>
+                        <th scope="col">Discount</th>
+                        <th scope="col">Delivery price</th>
+                        <th scope="col">Payment type</th>
+                        <th scope="col">Membership price</th>
+                        <th scope="col">Country</th>
+                        <th scope="col">Order description</th>
+                        <th scope="col">Street</th>
+                        <th scope="col">Building number</th>
+                        <th scope="col">City</th>
+                        <th scope="col">City post code</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var counter = 0;
+                    }
+                    @foreach (var order in Model)
+                    {
+                        counter++;
+
+                        <tr>
+                            <th scope="row">@counter</th>
+                            <td>@order.CreatedOn.Value.ToLocalTime()</td>
+                            <td>@order.Status.ToString()</td>
+                            <td>@order.PaymentStatus.ToString()</td>
+                            @if (order.EstimatedDeliveryDate != null)
+                            {
+                                <td>@order.EstimatedDeliveryDate.Value.ToShortDateString()</td>
+                            }
+                            else
+                            {
+                                <td>@order.EstimatedDeliveryDate.ToString()</td>
+                            }
+                            @if (order.DisptachDate != null)
+                            {
+                                <td>@order.DisptachDate.Value.ToShortDateString()</td>
+                            }
+                            else
+                            {
+                                <td>@order.DisptachDate.ToString()</td>
+                            }
+                            <td>@order.TotalPrice</td>
+                            <td>@(order.Discount)</td>
+                            <td>@(order.DeliveryPrice)</td>
+                            <td>On delivery</td>
+                            <td>@(order.MembershipPrice)</td>
+                            <td>@(order.DeliveryAddressCountry)</td>
+                            <td>@(order.DeliveryAddressDescription)</td>
+                            <td>@(order.DeliveryAddressStreet)</td>
+                            <td>@(order.DeliveryAddressBuildingNumber)</td>
+                            <td>@(order.DeliveryAddressCityName)</td>
+                            <td>@(order.DeliveryAddressCityPostCode)</td>
+                            <td>
+                                @foreach (var product in order.Products)
+                                {
+                                    <div style="width:200px;height:30px;">
+                                        @(product.ProductName)
+                                    </div>
+
+                                }
+                            </td>
+                            <td>
+                                @foreach (var product in order.Products)
+                                {
+                                    <div style="height:30px;">
+                                        @(product.Quantity)
+                                    </div>
+
+
+                                }
+                            </td>
+                            <td>
+                                @foreach (var product in order.Products)
+                                {
+                                    <div style="height:30px;">
+                                        @(product.Price)
+                                    </div>
+
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
