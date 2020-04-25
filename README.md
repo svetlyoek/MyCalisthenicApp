@@ -8,7 +8,9 @@ https://mycalisthenicapp.azurewebsites.net/
 admin: Svetoslav Kazakov pass: svetlyoek87
 
 Functionality:
+
   Users:
+  
   -register, log and logout.
   -my profile menu to edit/delete their personal and other info.
   -my orders menu.
@@ -33,6 +35,7 @@ Functionality:
   -and other identity functionality like lockout, password remember, agree with privacy...
   
  Admin:
+ 
   -can block/unblock user.
   -edit everything in the app-memberships,orders, products,posts,programs...
   -create everything.
