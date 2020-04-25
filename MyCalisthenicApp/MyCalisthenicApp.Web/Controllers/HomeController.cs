@@ -170,6 +170,5 @@
                 GlobalConstants.AdministratorSubscribeEmailSubject,
                 string.Format(GlobalConstants.AdministratorSubscribeEmailContent, inputModel.Email));
         }
-
     }
 }
