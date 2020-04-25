@@ -53,9 +53,11 @@ Functionality:
   
   -filter articles by category.
   
-  -see newest article in side bar.
+  -see newest articles in sidebar.
   
   -and other identity functionality like lockout, password remember, agree with privacy...
+  
+  
   
  Admin:
  
@@ -74,6 +76,7 @@ Functionality:
   -can also comment items.
   
   -my profile menu for personal info.
+  
   
   
   Used Technologies:
