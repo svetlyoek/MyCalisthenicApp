@@ -5,7 +5,7 @@ Supports forum, training programs and memberships section, online store and othe
 
 https://mycalisthenicapp.azurewebsites.net/
 
-admin:Svetoslav Kazakov pass:svetlyoek87
+admin: Svetoslav Kazakov pass: svetlyoek87
 
 Functionality:
   Users:
