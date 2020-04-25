@@ -41,7 +41,7 @@ Functionality:
   
   -can not add sold out products or the same product twice.
   
-  -byu product+membership, membership or only product.
+  -buy product+membership, membership or only product.
   
   -can comment posts, products, training programs and their comments too.
   
