@@ -5,13 +5,15 @@ Supports forum, training programs and memberships section, online store and othe
 
 https://mycalisthenicapp.azurewebsites.net/
 
-admin: Svetoslav Kazakov pass: svetlyoek87
+admin: Svetoslav Kazakov  pass: svetlyoek87
 
 Functionality:
 
   Users:
   
   -register, log and logout.
+  
+  -facebook login.
   
   -my profile menu to edit/delete their personal and other info.
   
@@ -72,6 +74,32 @@ Functionality:
   -can also comment items.
   
   -my profile menu for personal info.
+  
+  Used Technologies:
+  
+  -.NET Core 3.1
+  
+  - ASP .NET Core 3.1
+
+  - Entity Framework Core 3.1
+  
+  - xUnit
+  
+  - JavaScript
+  
+  - jQuery
+  
+  - Bootstrap
+  
+  - HTML 5
+  
+  - CSS
+  
+  - FontAwesome
+  
+  - Google ReCaptcha
+  
+  - SendGrid
   
   
   
