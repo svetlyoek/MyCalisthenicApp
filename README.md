@@ -7,6 +7,8 @@ https://mycalisthenicapp.azurewebsites.net/
 
 admin: Svetoslav Kazakov  pass: svetlyoek87
 
+product discount price: mycalisthenicapp20
+
 Functionality:
 
   Users:
