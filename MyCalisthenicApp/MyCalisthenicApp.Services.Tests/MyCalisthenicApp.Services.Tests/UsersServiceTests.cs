@@ -495,31 +495,6 @@
         }
 
         [Fact]
-        public async Task GetAllCommentsByUserIdAsyncShouldThrowExceptionIfCommentsAreNull()
-        {
-            var options = new DbContextOptionsBuilder<MyCalisthenicAppDbContext>()
-                 .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
-                 .Options;
-
-            var dbContext = new MyCalisthenicAppDbContext(options);
-
-            IHttpContextAccessor httpContextAccessor = new HttpContextAccessor();
-
-            var mockMapper = new MapperConfiguration(cfg =>
-            {
-                cfg.AddProfile(new MyCalisthenicAppProfile());
-            });
-
-            var mapper = mockMapper.CreateMapper();
-
-            var usersService = new UsersService(httpContextAccessor, dbContext, mapper);
-
-            var exception = await Assert.ThrowsAsync<ArgumentNullException>(async () => await usersService.GetAllCommentsByUserIdAsync(UserId));
-
-            Assert.IsType<ArgumentNullException>(exception);
-        }
-
-        [Fact]
         public async Task GetAllCommentsByUserIdAsyncShouldReturnCommentsSuccessfully()
         {
             var options = new DbContextOptionsBuilder<MyCalisthenicAppDbContext>()
@@ -633,31 +608,6 @@
         }
 
         [Fact]
-        public async Task GetAllOrdersByUserIdAsyncShouldThrowExceptionIfOrdersAreNull()
-        {
-            var options = new DbContextOptionsBuilder<MyCalisthenicAppDbContext>()
-                 .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
-                 .Options;
-
-            var dbContext = new MyCalisthenicAppDbContext(options);
-
-            IHttpContextAccessor httpContextAccessor = new HttpContextAccessor();
-
-            var mockMapper = new MapperConfiguration(cfg =>
-            {
-                cfg.AddProfile(new MyCalisthenicAppProfile());
-            });
-
-            var mapper = mockMapper.CreateMapper();
-
-            var usersService = new UsersService(httpContextAccessor, dbContext, mapper);
-
-            var exception = await Assert.ThrowsAsync<ArgumentNullException>(async () => await usersService.GetAllOrdersByUserIdAsync(UserId));
-
-            Assert.IsType<ArgumentNullException>(exception);
-        }
-
-        [Fact]
         public async Task GetAllOrdersByUserIdAsyncShouldReturnOrdersSuccessfully()
         {
             var options = new DbContextOptionsBuilder<MyCalisthenicAppDbContext>()
@@ -753,31 +703,6 @@
         }
 
         [Fact]
-        public async Task GetAllAddressesByUserIdAsyncShouldThrowExceptionIfAddressesAreNull()
-        {
-            var options = new DbContextOptionsBuilder<MyCalisthenicAppDbContext>()
-                 .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
-                 .Options;
-
-            var dbContext = new MyCalisthenicAppDbContext(options);
-
-            IHttpContextAccessor httpContextAccessor = new HttpContextAccessor();
-
-            var mockMapper = new MapperConfiguration(cfg =>
-            {
-                cfg.AddProfile(new MyCalisthenicAppProfile());
-            });
-
-            var mapper = mockMapper.CreateMapper();
-
-            var usersService = new UsersService(httpContextAccessor, dbContext, mapper);
-
-            var exception = await Assert.ThrowsAsync<ArgumentNullException>(async () => await usersService.GetAllAddressesByUserIdAsync(UserId));
-
-            Assert.IsType<ArgumentNullException>(exception);
-        }
-
-        [Fact]
         public async Task GetAllAddressesByUserIdAsyncShouldReturnAddressesSuccessfully()
         {
             var options = new DbContextOptionsBuilder<MyCalisthenicAppDbContext>()
@@ -836,31 +761,6 @@
             var expected = await usersService.GetAllAddressesByUserIdAsync(UserId);
 
             Assert.Equal(3, expected.Count);
-        }
-
-        [Fact]
-        public async Task GetAllProductsByOrderIdAsyncShouldThrowExceptionIfProductsAreNull()
-        {
-            var options = new DbContextOptionsBuilder<MyCalisthenicAppDbContext>()
-                 .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
-                 .Options;
-
-            var dbContext = new MyCalisthenicAppDbContext(options);
-
-            IHttpContextAccessor httpContextAccessor = new HttpContextAccessor();
-
-            var mockMapper = new MapperConfiguration(cfg =>
-            {
-                cfg.AddProfile(new MyCalisthenicAppProfile());
-            });
-
-            var mapper = mockMapper.CreateMapper();
-
-            var usersService = new UsersService(httpContextAccessor, dbContext, mapper);
-
-            var exception = await Assert.ThrowsAsync<ArgumentNullException>(async () => await usersService.GetAllProductsByOrderIdAsync(OrderId));
-
-            Assert.IsType<ArgumentNullException>(exception);
         }
 
         [Fact]

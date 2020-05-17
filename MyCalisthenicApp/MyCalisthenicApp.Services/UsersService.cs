@@ -235,11 +235,6 @@
                 .Where(c => c.AuthorId == id)
                 .ToListAsync();
 
-            if (!comments.Any())
-            {
-                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, id));
-            }
-
             var commentsViewModel = this.mapper.Map<IList<CommentAdminViewModel>>(comments);
 
             return commentsViewModel;
@@ -251,11 +246,6 @@
                  .Include(o => o.Products)
                  .Where(c => c.UserId == id)
                  .ToListAsync();
-
-            if (!orders.Any())
-            {
-                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, id));
-            }
 
             var ordersViewModel = this.mapper.Map<IList<OrdersAdminViewModel>>(orders);
 
@@ -280,11 +270,6 @@
                 .Where(c => c.UserId == id)
                 .ToListAsync();
 
-            if (!addresses.Any())
-            {
-                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, id));
-            }
-
             var addressesViewModel = this.mapper.Map<IList<AddressesAdminViewModel>>(addresses);
 
             return addressesViewModel;
@@ -296,11 +281,6 @@
                 .Include(op => op.Product)
                 .Where(o => o.OrderId == id)
                 .ToListAsync();
-
-            if (!products.Any())
-            {
-                throw new ArgumentNullException(string.Format(ServicesConstants.InvalidUserId, id));
-            }
 
             var productsViewModel = this.mapper.Map<IList<OrderProductsAdminViewModel>>(products);
 

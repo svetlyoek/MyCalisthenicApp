@@ -45,7 +45,7 @@
 
         public async Task<IActionResult> Edit(string id)
         {
-            var product = await this.productsService.GetProductByIdAsync(id);
+            var product = await this.productsService.GetAdminProductByIdAsync(id);
 
             return this.View(product);
         }
