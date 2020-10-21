@@ -1,6 +1,0 @@
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\11296\b\MyCalisthenicApp.Data.Common\Release\netstandard2.1\MyCalisthenicApp.Data.Common.deps.json
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\11296\b\MyCalisthenicApp.Data.Common\Release\netstandard2.1\MyCalisthenicApp.Data.Common.dll
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\11296\i\MyCalisthenicApp.Data.Common\Release\netstandard2.1\MyCalisthenicApp.Data.Common.AssemblyInfoInputs.cache
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\11296\i\MyCalisthenicApp.Data.Common\Release\netstandard2.1\MyCalisthenicApp.Data.Common.AssemblyInfo.cs
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\11296\i\MyCalisthenicApp.Data.Common\Release\netstandard2.1\MyCalisthenicApp.Data.Common.csproj.CopyComplete
-E:\Soft Uni\CODES\MyCalisthenicApp\MyCalisthenicApp\.vs\MyCalisthenicApp\v16\lut\11296\i\MyCalisthenicApp.Data.Common\Release\netstandard2.1\MyCalisthenicApp.Data.Common.dll

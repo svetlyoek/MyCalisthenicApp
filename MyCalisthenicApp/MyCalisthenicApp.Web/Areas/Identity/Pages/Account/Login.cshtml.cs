@@ -95,6 +95,8 @@
 
                 var user = await this.usersService.GetUserByEmailAsync(this.Input.Email);
 
+
+
                 if (bannedUser != null)
                 {
                     this.ErrorMessage = BannedUserMessage;
@@ -126,6 +128,13 @@
                 }
                 else
                 {
+                    if (user == null)
+                    {
+                        this.ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+
+                        return this.Page();
+                    }
+
                     if (user.AccessFailedCount == 0)
                     {
                         user.AccessFailedCount = 1;
